@@ -41,11 +41,6 @@ namespace Advanced_Software_Engineering
             this.Close();
         }
 
-        public static void CheckWindows()
-        {
-            if (SettingsAndHelperFunctions.NumberOfWindows == 0) Menu.Show();
-        }
-
         private void Menu_Load(object sender, EventArgs e)
         {
             //Do things on load

@@ -19,8 +19,8 @@ namespace Advanced_Software_Engineering
 
         private void Console_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SettingsAndHelperFunctions.NumberOfWindows--;
-            
+            SettingsAndHelperFunctions.WindowClosed();
         }
+
     }
 }

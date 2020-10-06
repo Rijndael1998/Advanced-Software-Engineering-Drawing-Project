@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
-    class SettingsAndHelperFunctions
+    public class SettingsAndHelperFunctions
     {
         public static int NumberOfWindows = 0;
+
+        public static void WindowClosed()
+        {
+            NumberOfWindows--;
+            if (NumberOfWindows == 0)
+            {
+                System.Console.WriteLine("Showing MainMenu");
+                Program.MainMenu.Show();
+            }
+                
+        }
     }
 }

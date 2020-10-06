@@ -8,6 +8,8 @@ namespace Advanced_Software_Engineering
 {
     static class Program
     {
+        public static Form MainMenu;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,9 @@ namespace Advanced_Software_Engineering
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+
+            MainMenu = new Menu();
+            Application.Run(MainMenu);
         }
     }
 }
