@@ -12,8 +12,11 @@ namespace Advanced_Software_Engineering
 {
     public partial class Text_Editor : Form
     {
+        const String DefaultTitleString = "Advanced Software Engineering - Text Editor ";
+
         public Text_Editor()
         {
+            SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
         }
 
@@ -24,7 +27,7 @@ namespace Advanced_Software_Engineering
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Text editor here
+            new Text_Editor().Show();
         }
     }
 }
