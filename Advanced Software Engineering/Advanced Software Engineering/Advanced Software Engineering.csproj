@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawPreview.Designer.cs">
+      <DependentUpon>DrawPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Text Editor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DrawPreview.resx">
+      <DependentUpon>DrawPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Text Editor.resx">
       <DependentUpon>Text Editor.cs</DependentUpon>
     </EmbeddedResource>
