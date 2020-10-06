@@ -111,6 +111,7 @@
             this.Name = "Menu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

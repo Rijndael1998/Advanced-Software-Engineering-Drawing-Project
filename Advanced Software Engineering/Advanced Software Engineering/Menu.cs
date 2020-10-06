@@ -19,22 +19,36 @@ namespace Advanced_Software_Engineering
         
         private void button1_Click(object sender, EventArgs e)
         {
-            Settings.NumberOfWindows++;
+            SettingsAndHelperFunctions.NumberOfWindows++;
+            new Console().Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Settings.NumberOfWindows++;
+            SettingsAndHelperFunctions.NumberOfWindows++;
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Settings.NumberOfWindows++;
+            SettingsAndHelperFunctions.NumberOfWindows++;
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public static void CheckWindows()
+        {
+            if (SettingsAndHelperFunctions.NumberOfWindows == 0) Menu.Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            //Do things on load
         }
     }
 }
