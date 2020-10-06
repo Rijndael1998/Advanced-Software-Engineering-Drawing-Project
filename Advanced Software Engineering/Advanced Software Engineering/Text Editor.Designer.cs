@@ -2,7 +2,7 @@
 
 namespace Advanced_Software_Engineering
 {
-    partial class Console
+    partial class Text_Editor
     {
         /// <summary>
         /// Required designer variable.

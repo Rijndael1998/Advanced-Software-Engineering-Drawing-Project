@@ -20,7 +20,7 @@ namespace Advanced_Software_Engineering
         private void button1_Click(object sender, EventArgs e)
         {
             SettingsAndHelperFunctions.NumberOfWindows++;
-            new Console().Show();
+            new Text_Editor().Show();
             this.Hide();
         }
 

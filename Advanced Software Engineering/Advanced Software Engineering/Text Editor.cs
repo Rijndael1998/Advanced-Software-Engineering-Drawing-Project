@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
-    public partial class Console : Form
+    public partial class Text_Editor : Form
     {
-        public Console()
+        public Text_Editor()
         {
             InitializeComponent();
         }
