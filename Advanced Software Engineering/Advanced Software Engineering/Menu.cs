@@ -31,6 +31,7 @@ namespace Advanced_Software_Engineering
 
         private void button3_Click(object sender, EventArgs e)
         {
+            new About_Window().Show();
             this.Hide();
         }
 
