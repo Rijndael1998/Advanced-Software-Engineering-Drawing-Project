@@ -60,7 +60,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 23);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Exit";
+            this.button3.Text = "About";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // label1
