@@ -22,5 +22,9 @@ namespace Advanced_Software_Engineering
             SettingsAndHelperFunctions.WindowClosed();
         }
 
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Text editor here
+        }
     }
 }
