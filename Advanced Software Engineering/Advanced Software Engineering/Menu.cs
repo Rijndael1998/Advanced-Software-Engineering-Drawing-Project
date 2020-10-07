@@ -19,7 +19,7 @@ namespace Advanced_Software_Engineering
         
         private void button1_Click(object sender, EventArgs e)
         {
-            new DrawPreview().Show();
+            new Draw_Preview().Show();
             this.Hide();
         }
 

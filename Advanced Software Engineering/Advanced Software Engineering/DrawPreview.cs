@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
-    public partial class DrawPreview : Form
+    public partial class Draw_Preview : Form
     {
-        public DrawPreview()
+        public Draw_Preview()
         {
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
