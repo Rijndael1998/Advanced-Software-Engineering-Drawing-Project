@@ -62,6 +62,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(537, 476);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawPreviewPane_Paint);
             // 
             // Draw_Preview
             // 
@@ -74,7 +75,6 @@
             this.Name = "Draw_Preview";
             this.Text = "Draw Preview";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DrawPreview_FormClosed);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawPreview_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
