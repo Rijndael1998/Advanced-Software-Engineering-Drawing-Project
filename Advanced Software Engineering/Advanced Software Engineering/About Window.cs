@@ -12,6 +12,9 @@ namespace Advanced_Software_Engineering
 {
     public partial class About_Window : Form
     {
+        ///<summary>
+        ///Creates an About Window which shows details about the program.
+        ///</summary>
         public About_Window()
         {
             InitializeComponent();
