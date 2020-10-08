@@ -3,10 +3,19 @@ using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
+    /// <summary>
+    /// This class simply provides settings and some functions that are used across many components.
+    /// </summary>
     public class SettingsAndHelperFunctions
     {
+        /// <summary>
+        /// The variable simply keep track of the windows that are currently shown (excluding <see cref="MainMenu"/>).
+        /// </summary>
         public static int NumberOfWindows = 0;
 
+        /// <summary>
+        /// This helper function is executed when a window is closed. It shows the <see cref="MainMenu"/> when the count is 0
+        /// </summary>
         public static void WindowClosed()
         {
             NumberOfWindows--;
@@ -18,6 +27,27 @@ namespace Advanced_Software_Engineering
                 
         }
 
+        /// <summary>
+        /// This function removes spaces from the start and the end of the text. This should be unit tested.
+        /// </summary>
+        /// <param name="text">Simply any string of any size</param>
+        /// <returns>A string without spaces at the begining or the end</returns>
+        /// <example>
+        /// For example
+        /// <code>
+        /// string a = "     a simple sentence surrounded by spaces                ";
+        /// string b = StripSpaces(a);
+        /// Console.WriteLine(b); // => "a simple sentence surrounded by spaces";
+        /// </code>
+        /// </example>
+        /// <example>
+        /// The code won't remove internal double spaces:
+        /// <code>
+        /// string a = "     a    simple    sentence     surrounded    by    spaces                ";
+        /// string b = StripSpaces(a);
+        /// Console.WriteLine(b); // => "a    simple    sentence     surrounded    by    spaces";
+        /// </code>
+        /// </example>
         public static string StripSpaces(string text)
         {
             int start;
