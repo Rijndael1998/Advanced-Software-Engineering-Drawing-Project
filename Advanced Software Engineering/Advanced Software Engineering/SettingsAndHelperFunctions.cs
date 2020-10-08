@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
@@ -15,6 +16,28 @@ namespace Advanced_Software_Engineering
                 Program.MainMenu.Show();
             }
                 
+        }
+
+        public static string StripSpaces(string text)
+        {
+            int start;
+
+            for(start = 0; start < text.Length; start++)
+            {
+                char character = text[start];
+                if (character != " "[0]) break;
+            }
+
+            int end;
+
+            for(end = text.Length - 1; end >= 0; end--)
+            {
+                char character = text[end];
+                if (character != " "[0]) break;
+            }
+
+            return text.Substring(start, end);
+
         }
     }
 }

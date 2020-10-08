@@ -12,9 +12,9 @@ namespace Advanced_Software_Engineering
 
         Graphics graphics;
         List<Command> commands = new List<Command>();
+        Drawer drawer;
 
-
-        void DrawCommands()
+        void DrawAllCommands()
         {
 
         }
@@ -22,11 +22,13 @@ namespace Advanced_Software_Engineering
         CommandParser(Graphics graphics)
         {
             this.graphics = graphics;
+            this.drawer = new Drawer(this.graphics);
         }
 
-        CommandParser(Graphics graphics, String rawCommands)
+        CommandParser(Graphics graphics, string rawCommands)
         {
             this.graphics = graphics;
+            this.drawer = new Drawer(this.graphics);
             this.ProcessCommands(rawCommands);
         }
 
@@ -35,33 +37,41 @@ namespace Advanced_Software_Engineering
             commands.Add(command);
         }
 
-        void ProcessCommands(String rawCommands)
+        void ProcessCommands(string rawCommands)
         {
             //ignore case
             rawCommands = rawCommands.ToLower();
             //isolate commands
-            String[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
+            string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
+
+            for(int i =0; i < commands.Length; i++)
+            {
+                commands[i] = SettingsAndHelperFunctions.StripSpaces(commands[i]);
+            }
+
+            foreach(string rawCommand in commands)
+            {
+                //handle errors later
+                this.commands.Add(new Command(drawer, rawCommand));
+            }
 
         }
 
     }
 
-    class Command
+    class Drawer
     {
-        
+        protected static Color defaultPenColor = new Color();
+        protected static float defaultPenWidth = 1f;
 
-    }
+        Pen pen = new Pen(defaultPenColor, defaultPenWidth);
+        bool penDown = true;
+        Point penPosition;
 
-    class Verb
-    {
-
-
-    }
-
-    class Value
-    {
-
-
+        public Drawer(Graphics graphics)
+        {
+            
+        }
     }
 
 }

@@ -12,7 +12,7 @@ namespace Advanced_Software_Engineering
 {
     public partial class Text_Editor : Form
     {
-        const String DefaultTitleString = "Advanced Software Engineering - Text Editor ";
+        const string DefaultTitleString = "Advanced Software Engineering - Text Editor ";
 
         public Text_Editor()
         {
