@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -66,12 +67,27 @@ namespace Advanced_Software_Engineering
 
         Pen pen = new Pen(defaultPenColor, defaultPenWidth);
         bool penDown = true;
+        
         Point penPosition;
+        Graphics graphics;
 
         public Drawer(Graphics graphics)
         {
-            
+            this.graphics = graphics;
         }
+
+        public void MovePen(Point point)
+        {
+            if(penDown) graphics.DrawLine(pen, penPosition, point);
+            
+            this.penPosition = point;
+        }
+
+        public bool isPenDown() => penDown;
+        public void PenUp() => penDown = false;
+        public void PenDown() => penDown = true;
+
+
     }
 
 }
