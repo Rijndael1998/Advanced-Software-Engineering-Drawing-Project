@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Advanced Software Engineering.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,6 +72,8 @@
     <Compile Include="About Window.Designer.cs">
       <DependentUpon>About Window.cs</DependentUpon>
     </Compile>
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandParser.cs" />
     <Compile Include="DrawPreview.cs">
       <SubType>Form</SubType>
     </Compile>
