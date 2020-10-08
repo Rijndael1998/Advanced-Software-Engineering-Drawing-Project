@@ -1,7 +1,7 @@
 ﻿namespace Advanced_Software_Engineering
 {
     /// <summary>
-    /// See <see cref="About_Window"/>'s code
+    /// Auto generated code
     /// </summary>
     partial class About_Window
     {
