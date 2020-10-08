@@ -12,11 +12,17 @@ namespace Advanced_Software_Engineering
 {
     public partial class Menu : Form
     {
+        /// <summary>
+        /// This creates the main menu window you see when launching the program. 
+        /// </summary>
+        /// <remarks>
+        /// This program window is only meant to show at launch and when all of the other windows are closed. It launches all windows independently of each other, so a theoretically unlimited number of windows can exist.
+        /// </remarks>
         public Menu()
         {
             InitializeComponent();
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             new Draw_Preview().Show();
