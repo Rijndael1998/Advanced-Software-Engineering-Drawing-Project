@@ -12,6 +12,12 @@ namespace Advanced_Software_Engineering
 {
     public partial class Draw_Preview : Form
     {
+        /// <summary>
+        /// The draw preview window.
+        /// </summary>
+        /// <remarks>
+        /// This window is responsible for showing what has been drawn.
+        /// </remarks>
         public Draw_Preview()
         {
             InitializeComponent();

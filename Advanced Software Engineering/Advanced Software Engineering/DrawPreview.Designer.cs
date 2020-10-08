@@ -1,5 +1,8 @@
 ﻿namespace Advanced_Software_Engineering
 {
+    /// <summary>
+    /// Auto Generated Code
+    /// </summary>
     partial class Draw_Preview
     {
         /// <summary>
