@@ -2,6 +2,9 @@
 
 namespace Advanced_Software_Engineering
 {
+    /// <summary>
+    /// Auto generated code
+    /// </summary>
     partial class Text_Editor
     {
         /// <summary>

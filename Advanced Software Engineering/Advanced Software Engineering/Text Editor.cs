@@ -14,6 +14,9 @@ namespace Advanced_Software_Engineering
     {
         const string DefaultTitleString = "Advanced Software Engineering - Text Editor ";
 
+        /// <summary>
+        /// The text editor is the main window that the user will be using for writing code. 
+        /// </summary>
         public Text_Editor()
         {
             SettingsAndHelperFunctions.NumberOfWindows++;
