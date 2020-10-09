@@ -86,6 +86,8 @@ namespace Advanced_Software_Engineering
         public bool isPenDown() => penDown;
         public void PenUp() => penDown = false;
         public void PenDown() => penDown = true;
+        public void setPen(bool down) => penDown = down;
+
 
 
     }
