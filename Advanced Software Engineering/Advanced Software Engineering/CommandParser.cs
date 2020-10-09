@@ -62,7 +62,7 @@ namespace Advanced_Software_Engineering
 
     class Drawer
     {
-        protected static Color defaultPenColor = new Color();
+        protected static Color defaultPenColor = Color.Black;
         protected static float defaultPenWidth = 1f;
 
         Pen pen = new Pen(defaultPenColor, defaultPenWidth);
