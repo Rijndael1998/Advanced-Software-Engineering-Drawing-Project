@@ -47,9 +47,11 @@ namespace Advanced_Software_Engineering
         {
             { "moveto", typeof(MoveTo) },
             { "drawto", typeof(DrawTo) },
-            { "line", null },
+            { "line", typeof(DrawTo) },
             { "dot", null },
             { "clear", null},
+            { "shape", typeof(Shape) },
+            { "square", null },
             { "rectangle", null },
             { "circle", null },
             { "triangle", null },
@@ -121,9 +123,21 @@ namespace Advanced_Software_Engineering
         protected Drawer drawer;
         protected Point[] vertices;
         private List<Verb> lineVerbs;
+        private bool finishDown;
 
-        Shape(Drawer drawer, params Point[] vertices)
+        public override List<List<Type>> acceptedTypes
         {
+            get
+            {
+                return new List<List<Type>> {
+                    new List<Type> { typeof(Drawer), typeof(Point[]) }
+                };
+            }
+        }
+
+        Shape(Drawer drawer, Point[] vertices)
+        {
+            //Throw exceptions if impossible to create Spape Verb
             switch (vertices.Length)
             {
                 case 0:
@@ -131,22 +145,42 @@ namespace Advanced_Software_Engineering
                 case 1:
                     throw new Exception("Cannot create shape with only one vertex. Are you thinking of 'dot'?");
                 case 2:
-                    throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'lineto'?");
+                    throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'line'?");
             }
 
-            lineVerbs.Add(new PenControl(drawer, false));
 
+            finishDown = drawer.isPenDown();
+
+            //Move pen to start location
+            lineVerbs.Add(new PenControl(drawer, false));
+            lineVerbs.Add(new MoveTo(drawer, vertices[0]));
+            lineVerbs.Add(new PenControl(drawer, true));
+
+            //Move pen to every vertex.
+            //Using MoveTo rather than LineTo because LineTo would be slower if done multiple times (pen up pen down over and over if the pen wasn't down initially)
             for (int i = 1; i < vertices.Length; i++)
             {
-                lineVerbs.Add(new DrawTo(drawer, vertices[i]));
+                lineVerbs.Add(new MoveTo(drawer, vertices[i]));
             }
 
+            //Join first and last line
+            lineVerbs.Add(new MoveTo(drawer, vertices[0]));
+
+            //Return pen to original state
+            lineVerbs.Add(new PenControl(drawer, finishDown));
         }
 
         public override void ExecuteVerb()
         {
-
+            foreach(Verb verb in lineVerbs) verb.ExecuteVerb();
         }
+    }
+
+    /// <summary>
+    /// A class that generates 
+    /// </summary>
+    abstract class RegularPolygons
+    {
 
     }
 
