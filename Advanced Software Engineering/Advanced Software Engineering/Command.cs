@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -47,6 +47,8 @@ namespace Advanced_Software_Engineering
         {
             { "moveto", typeof(MoveTo) },
             { "drawto", typeof(DrawTo) },
+            { "line", null },
+            { "dot", null },
             { "clear", null},
             { "rectangle", null },
             { "circle", null },
@@ -70,7 +72,7 @@ namespace Advanced_Software_Engineering
         {
             get
             {
-                return new List<List<Type>> { 
+                return new List<List<Type>> {
                     new List<Type> { typeof(Drawer), typeof(int), typeof(int) },
                     new List<Type> { typeof(Drawer), typeof(Point) }
                 };
@@ -111,6 +113,67 @@ namespace Advanced_Software_Engineering
             if (!penStatus) drawer.PenDown();
             base.ExecuteVerb();
             if (!penStatus) drawer.PenUp();
+        }
+    }
+
+    abstract class Shape : Verb
+    {
+        protected Drawer drawer;
+        protected Point[] vertices;
+        private List<Verb> lineVerbs;
+
+        Shape(Drawer drawer, params Point[] vertices)
+        {
+            switch (vertices.Length)
+            {
+                case 0:
+                    throw new Exception("Cannot create shape with no vertices.");
+                case 1:
+                    throw new Exception("Cannot create shape with only one vertex. Are you thinking of 'dot'?");
+                case 2:
+                    throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'lineto'?");
+            }
+
+            lineVerbs.Add(new PenControl(drawer, false));
+
+            for (int i = 1; i < vertices.Length; i++)
+            {
+                lineVerbs.Add(new DrawTo(drawer, vertices[i]));
+            }
+
+        }
+
+        public override void ExecuteVerb()
+        {
+
+        }
+
+    }
+
+    class PenControl : Verb
+    {
+        public override List<List<Type>> acceptedTypes
+        {
+            get
+            {
+                return new List<List<Type>> {
+                    new List<Type> { typeof(Drawer), typeof(bool) }
+                };
+            }
+        }
+
+        bool penStatus;
+        Drawer drawer;
+
+        public PenControl(Drawer drawer, bool down)
+        {
+            penStatus = down;
+            this.drawer = drawer;
+        }
+
+        public override void ExecuteVerb()
+        {
+            drawer.setPen(penStatus);
         }
     }
 
