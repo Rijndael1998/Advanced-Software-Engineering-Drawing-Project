@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -25,7 +25,7 @@ namespace Advanced_Software_Engineering
             type = Verb.verbTypes[commandAndParameters[0]];
 
             //Create the command's class
-            verb = (Verb) Activator.CreateInstance(type);
+            verb = (Verb)Activator.CreateInstance(type);
 
         }
 
@@ -55,7 +55,8 @@ namespace Advanced_Software_Engineering
             { "fill", null }
         };
 
-        public abstract List<List<Type>> acceptedTypes {
+        public abstract List<List<Type>> acceptedTypes
+        {
             get;
         }
 
@@ -107,7 +108,7 @@ namespace Advanced_Software_Engineering
         public override void ExecuteVerb()
         {
             bool penStatus = drawer.isPenDown();
-            if(!penStatus) drawer.PenDown();
+            if (!penStatus) drawer.PenDown();
             base.ExecuteVerb();
             if (!penStatus) drawer.PenUp();
         }
