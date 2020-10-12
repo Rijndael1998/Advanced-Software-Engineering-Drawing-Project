@@ -11,108 +11,14 @@ using System.Xml.Serialization;
 
 namespace Advanced_Software_Engineering
 {
-    public static class Converters
-    {
-        /// <summary>
-        /// This function removes spaces from the start and the end of the text. This should be unit tested.
-        /// </summary>
-        /// <param name="text">Simply any string of any size</param>
-        /// <returns>A string without spaces at the begining or the end</returns>
-        /// <example>
-        /// For example
-        /// <code>
-        /// string a = "     a simple sentence surrounded by spaces                ";
-        /// string b = StripSpaces(a);
-        /// Console.WriteLine(b); // => "a simple sentence surrounded by spaces";
-        /// </code>
-        /// </example>
-        /// <example>
-        /// The code won't remove internal double spaces:
-        /// <code>
-        /// string a = "     a    simple    sentence     surrounded    by    spaces                ";
-        /// string b = StripSpaces(a);
-        /// Console.WriteLine(b); // => "a    simple    sentence     surrounded    by    spaces";
-        /// </code>
-        /// </example>
-        public static string Strip(string text)
-        {
-            int start;
 
-            for (start = 0; start < text.Length; start++)
-            {
-                char character = text[start];
-                if (character != " "[0]) break;
-            }
-
-            int end;
-
-            for (end = text.Length - 1; end >= 0; end--)
-            {
-                char character = text[end];
-                if (character != " "[0]) break;
-            }
-
-            return text.Substring(start, end);
-
-        }
-
-        public static int ConvertToInt(string text)
-        {
-            text = Strip(text);
-            return int.Parse(text);
-        }
-
-        public static List<string> StripStringArray(string[] array)
-        {
-            List<string> newStringList = new List<string>();
-
-            foreach (string arrayElement in array)
-            {
-                string strippedElement = Strip(arrayElement);
-                if (strippedElement.Length == 0) continue;
-                else newStringList.Add(strippedElement);
-            }
-
-            return newStringList;
-        }
-
-        public static Dictionary<string, string[]> CommandAndParameterParser(string text)
-        {
-            Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
-
-            //split the command from the parameters 
-            string[] parameters = Strip(text).Split(new char[] { " "[0] }, 2);
-
-            //set command var
-            string command = Strip(parameters[0]);
-            commandAndParameters["command"] = new string[] { command };
-
-            //seperate all of the parameters by a comma
-            parameters = parameters[1].Split(","[0]);
-
-            //Remove spaces around parameters
-            parameters = StripStringArray(parameters).ToArray();
-
-            //set parameter list
-            commandAndParameters["parameters"] = parameters;
-
-            return commandAndParameters;
-        }
-    }
 
     class VerbFactory
     {
-        Type type;
-        Drawer drawer;
-        Verb verb;
-
-
-
-        public Verb MakeVerb(Drawer drawer, string fullCommand)
+        public static Verb MakeVerb(Drawer drawer, string fullCommand)
         {
-            this.drawer = drawer;
 
-            Dictionary<string, string[]> commandAndParameters = Converters.CommandAndParameterParser(fullCommand);
+            Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
             string command = commandAndParameters["command"][0];
             string[] parameters = commandAndParameters["parameters"];
@@ -127,8 +33,8 @@ namespace Advanced_Software_Engineering
                         {
                             return new
                                 MoveTo(drawer,
-                                Converters.ConvertToInt(parameters[0]),
-                                Converters.ConvertToInt(parameters[1]));
+                                SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                                SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
 
                         }
                         catch (Exception e)
@@ -139,6 +45,8 @@ namespace Advanced_Software_Engineering
                     else throw new Exception("Command has an incorrect number of parameters");
 
                 case "drawto":
+                case "line":
+                case "lineto":
                     //Check parameters
                     if (parameters.Length == 2)
                     {
@@ -146,8 +54,8 @@ namespace Advanced_Software_Engineering
                         {
                             return new
                                 DrawTo(drawer,
-                                Converters.ConvertToInt(parameters[0]),
-                                Converters.ConvertToInt(parameters[1]));
+                                SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                                SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
 
                         }
                         catch (Exception e)
@@ -163,17 +71,6 @@ namespace Advanced_Software_Engineering
             }
 
         }
-
-        public void ExecuteCommand()
-        {
-            verb.ExecuteVerb();
-        }
-
-        public Type getType()
-        {
-            return type;
-        }
-
     }
 
     public interface Verb
@@ -240,7 +137,7 @@ namespace Advanced_Software_Engineering
                     throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'line'?");
             }
 
-            finishDown = drawer.isPenDown();
+            finishDown = drawer.IsPenDown();
 
             //Move pen to every vertex.
             //Using MoveTo rather than LineTo because LineTo would be slower if done multiple times (pen up pen down over and over if the pen wasn't down initially)
@@ -292,7 +189,7 @@ namespace Advanced_Software_Engineering
 
         public void ExecuteVerb()
         {
-            drawer.setPen(penStatus);
+            drawer.SetPen(penStatus);
         }
     }
 
