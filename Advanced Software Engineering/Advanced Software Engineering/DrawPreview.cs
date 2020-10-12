@@ -12,6 +12,10 @@ namespace Advanced_Software_Engineering
 {
     public partial class Draw_Preview : Form
     {
+
+        Graphics graphics;
+        Commander commander;
+
         /// <summary>
         /// The draw preview window.
         /// </summary>
@@ -22,6 +26,8 @@ namespace Advanced_Software_Engineering
         {
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
+            graphics = panel1.CreateGraphics();
+            commander = new Commander(graphics);
         }
 
         private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e)
@@ -31,9 +37,16 @@ namespace Advanced_Software_Engineering
 
         private void DrawPreviewPane_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myBlackPen = new Pen(Color.Black, 5);
+            commander.DrawAllCommands();
+        }
 
+        private void SubmitCommand(object sender, EventArgs e)
+        {
+            commander.ProcessCommands(textBox1.Text);
+            textBox1.Text = "";
+
+            //Makes sure that the panel updates
+            panel1.Invalidate();
         }
     }
 }
