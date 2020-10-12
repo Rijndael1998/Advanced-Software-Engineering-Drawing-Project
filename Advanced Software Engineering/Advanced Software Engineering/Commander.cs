@@ -46,6 +46,7 @@ namespace Advanced_Software_Engineering
         {
             //ignore case
             rawCommands = rawCommands.ToLower();
+
             //isolate commands
             string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
 
@@ -54,7 +55,17 @@ namespace Advanced_Software_Engineering
                 //handle errors later
                 AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
             }
+        }
 
+        public void ProcessCommandsAndExecute(string rawCommands)
+        {
+            int start = commands.Count;
+            ProcessCommands(rawCommands);
+
+            for(; start < commands.Count; start++)
+            {
+                commands[start].ExecuteVerb();
+            }
         }
 
     }

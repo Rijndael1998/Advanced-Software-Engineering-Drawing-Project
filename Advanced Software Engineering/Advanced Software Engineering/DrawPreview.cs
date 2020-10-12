@@ -33,6 +33,7 @@ namespace Advanced_Software_Engineering
         private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e)
         {
             SettingsAndHelperFunctions.WindowClosed();
+            this.Dispose();
         }
 
         private void DrawPreviewPane_Paint(object sender, PaintEventArgs e)
@@ -42,11 +43,8 @@ namespace Advanced_Software_Engineering
 
         private void SubmitCommand(object sender, EventArgs e)
         {
-            commander.ProcessCommands(textBox1.Text);
+            commander.ProcessCommandsAndExecute(textBox1.Text);
             textBox1.Text = "";
-
-            //Makes sure that the panel updates
-            panel1.Invalidate();
         }
     }
 }
