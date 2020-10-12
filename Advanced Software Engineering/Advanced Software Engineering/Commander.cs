@@ -5,55 +5,54 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering
 {
-    class CommandParser
+    class Commander
     {
 
         Graphics graphics;
-        List<Command> commands = new List<Command>();
+        List<Verb> commands = new List<Verb>();
         Drawer drawer;
 
-        void DrawAllCommands()
+        public void DrawAllCommands() 
         {
-
+            foreach(Verb verb in this.commands)
+            {
+                verb.ExecuteVerb();
+            }
         }
 
-        CommandParser(Graphics graphics)
+        public Commander(Graphics graphics)
         {
             this.graphics = graphics;
             this.drawer = new Drawer(this.graphics);
         }
 
-        CommandParser(Graphics graphics, string rawCommands)
+        public Commander(Graphics graphics, string rawCommands)
         {
             this.graphics = graphics;
             this.drawer = new Drawer(this.graphics);
             this.ProcessCommands(rawCommands);
         }
 
-        void AddCommand(Command command)
+        public void AddCommand(Verb command)
         {
             commands.Add(command);
         }
 
-        void ProcessCommands(string rawCommands)
+        public void ProcessCommands(string rawCommands)
         {
             //ignore case
             rawCommands = rawCommands.ToLower();
             //isolate commands
             string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
 
-            for(int i =0; i < commands.Length; i++)
-            {
-                commands[i] = SettingsAndHelperFunctions.StripSpaces(commands[i]);
-            }
-
             foreach(string rawCommand in commands)
             {
                 //handle errors later
-                this.commands.Add(new Command(drawer, rawCommand));
+                AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
             }
 
         }
@@ -83,12 +82,16 @@ namespace Advanced_Software_Engineering
             this.penPosition = point;
         }
 
-        public bool isPenDown() => penDown;
+        public bool IsPenDown() => penDown;
         public void PenUp() => penDown = false;
         public void PenDown() => penDown = true;
-        public void setPen(bool down) => penDown = down;
+        public void SetPen(bool down) => penDown = down;
 
-
+        public void DrawLine(Point point)
+        {
+            graphics.DrawLine(pen, penPosition, point);
+            penPosition = point;
+        }
 
     }
 
