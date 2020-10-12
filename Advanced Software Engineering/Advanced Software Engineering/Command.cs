@@ -11,8 +11,6 @@ using System.Xml.Serialization;
 
 namespace Advanced_Software_Engineering
 {
-
-
     class VerbFactory
     {
         public static Verb MakeVerb(Drawer drawer, string fullCommand)
@@ -65,6 +63,17 @@ namespace Advanced_Software_Engineering
                     }
                     else throw new Exception("Command has an incorrect number of parameters");
 
+                case "dot":
+                case "clear":
+                case "shape":
+                case "square":
+                case "rectangle":
+                case "circle":
+                case "triangle":
+                case "pen":
+                case "fill":
+                case "color":
+                    throw new Exception("Not implemented");
 
                 default:
                     throw new Exception("Command not found");
@@ -110,9 +119,9 @@ namespace Advanced_Software_Engineering
 
         public DrawTo(Drawer drawer, Point point) : base(drawer, point) { }
 
-        public void ExecuteVerb()
+        public new void ExecuteVerb()
         {
-            
+            this.drawer.DrawLine(moveToPoint);
         }
     }
 
