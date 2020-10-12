@@ -1,31 +1,166 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using System.Xml.Serialization;
 
 namespace Advanced_Software_Engineering
 {
-    class Command
+    public static class Converters
+    {
+        /// <summary>
+        /// This function removes spaces from the start and the end of the text. This should be unit tested.
+        /// </summary>
+        /// <param name="text">Simply any string of any size</param>
+        /// <returns>A string without spaces at the begining or the end</returns>
+        /// <example>
+        /// For example
+        /// <code>
+        /// string a = "     a simple sentence surrounded by spaces                ";
+        /// string b = StripSpaces(a);
+        /// Console.WriteLine(b); // => "a simple sentence surrounded by spaces";
+        /// </code>
+        /// </example>
+        /// <example>
+        /// The code won't remove internal double spaces:
+        /// <code>
+        /// string a = "     a    simple    sentence     surrounded    by    spaces                ";
+        /// string b = StripSpaces(a);
+        /// Console.WriteLine(b); // => "a    simple    sentence     surrounded    by    spaces";
+        /// </code>
+        /// </example>
+        public static string Strip(string text)
+        {
+            int start;
+
+            for (start = 0; start < text.Length; start++)
+            {
+                char character = text[start];
+                if (character != " "[0]) break;
+            }
+
+            int end;
+
+            for (end = text.Length - 1; end >= 0; end--)
+            {
+                char character = text[end];
+                if (character != " "[0]) break;
+            }
+
+            return text.Substring(start, end);
+
+        }
+
+        public static int ConvertToInt(string text)
+        {
+            text = Strip(text);
+            return int.Parse(text);
+        }
+
+        public static List<string> StripStringArray(string[] array)
+        {
+            List<string> newStringList = new List<string>();
+
+            foreach (string arrayElement in array)
+            {
+                string strippedElement = Strip(arrayElement);
+                if (strippedElement.Length == 0) continue;
+                else newStringList.Add(strippedElement);
+            }
+
+            return newStringList;
+        }
+
+        public static Dictionary<string, string[]> CommandAndParameterParser(string text)
+        {
+            Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
+
+            //split the command from the parameters 
+            string[] parameters = Strip(text).Split(new char[] { " "[0] }, 2);
+
+            //set command var
+            string command = Strip(parameters[0]);
+            commandAndParameters["command"] = new string[] { command };
+
+            //seperate all of the parameters by a comma
+            parameters = parameters[1].Split(","[0]);
+
+            //Remove spaces around parameters
+            parameters = StripStringArray(parameters).ToArray();
+
+            //set parameter list
+            commandAndParameters["parameters"] = parameters;
+
+            return commandAndParameters;
+        }
+    }
+
+    class VerbFactory
     {
         Type type;
         Drawer drawer;
         Verb verb;
 
-        public Command(Drawer drawer, string command)
+
+
+        public Verb MakeVerb(Drawer drawer, string fullCommand)
         {
             this.drawer = drawer;
 
-            //Seperate Values
-            string[] commandAndParameters = command.Split(" "[0]);
+            Dictionary<string, string[]> commandAndParameters = Converters.CommandAndParameterParser(fullCommand);
 
-            //Get command class
-            type = Verb.verbTypes[commandAndParameters[0]];
+            string command = commandAndParameters["command"][0];
+            string[] parameters = commandAndParameters["parameters"];
 
-            //Create the command's class
-            verb = (Verb)Activator.CreateInstance(type);
+            switch (command)
+            {
+                case "moveto":
+                    //Check parameters
+                    if (parameters.Length == 2)
+                    {
+                        try
+                        {
+                            return new
+                                MoveTo(drawer,
+                                Converters.ConvertToInt(parameters[0]),
+                                Converters.ConvertToInt(parameters[1]));
+
+                        }
+                        catch (Exception e)
+                        {
+                            throw e;
+                        }
+                    }
+                    else throw new Exception("Command has an incorrect number of parameters");
+
+                case "drawto":
+                    //Check parameters
+                    if (parameters.Length == 2)
+                    {
+                        try
+                        {
+                            return new
+                                DrawTo(drawer,
+                                Converters.ConvertToInt(parameters[0]),
+                                Converters.ConvertToInt(parameters[1]));
+
+                        }
+                        catch (Exception e)
+                        {
+                            throw e;
+                        }
+                    }
+                    else throw new Exception("Command has an incorrect number of parameters");
+
+
+                default:
+                    throw new Exception("Command not found");
+            }
 
         }
 
@@ -41,45 +176,14 @@ namespace Advanced_Software_Engineering
 
     }
 
-    abstract class Verb
+    public interface Verb
     {
-        public static Dictionary<string, Type> verbTypes = new Dictionary<string, Type>()
-        {
-            { "moveto", typeof(MoveTo) },
-            { "drawto", typeof(DrawTo) },
-            { "line", typeof(DrawTo) },
-            { "dot", null },
-            { "clear", null},
-            { "shape", typeof(Shape) },
-            { "square", null },
-            { "rectangle", null },
-            { "circle", null },
-            { "triangle", null },
-            { "pen", null},
-            { "fill", null }
-        };
-
-        public abstract List<List<Type>> acceptedTypes
-        {
-            get;
-        }
-
-        public abstract void ExecuteVerb();
+        void ExecuteVerb();
 
     }
 
     class MoveTo : Verb
     {
-        public override List<List<Type>> acceptedTypes
-        {
-            get
-            {
-                return new List<List<Type>> {
-                    new List<Type> { typeof(Drawer), typeof(int), typeof(int) },
-                    new List<Type> { typeof(Drawer), typeof(Point) }
-                };
-            }
-        }
 
         protected Drawer drawer;
         protected Point moveToPoint;
@@ -96,7 +200,7 @@ namespace Advanced_Software_Engineering
             this.moveToPoint = point;
         }
 
-        public override void ExecuteVerb()
+        public void ExecuteVerb()
         {
             this.drawer.MovePen(moveToPoint);
         }
@@ -109,12 +213,9 @@ namespace Advanced_Software_Engineering
 
         public DrawTo(Drawer drawer, Point point) : base(drawer, point) { }
 
-        public override void ExecuteVerb()
+        public void ExecuteVerb()
         {
-            bool penStatus = drawer.isPenDown();
-            if (!penStatus) drawer.PenDown();
-            base.ExecuteVerb();
-            if (!penStatus) drawer.PenUp();
+            
         }
     }
 
@@ -125,15 +226,6 @@ namespace Advanced_Software_Engineering
         private List<Verb> lineVerbs;
         private bool finishDown;
 
-        public override List<List<Type>> acceptedTypes
-        {
-            get
-            {
-                return new List<List<Type>> {
-                    new List<Type> { typeof(Drawer), typeof(Point[]) }
-                };
-            }
-        }
 
         Shape(Drawer drawer, Point[] vertices)
         {
@@ -148,54 +240,47 @@ namespace Advanced_Software_Engineering
                     throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'line'?");
             }
 
-
             finishDown = drawer.isPenDown();
-
-            //Move pen to start location
-            lineVerbs.Add(new PenControl(drawer, false));
-            lineVerbs.Add(new MoveTo(drawer, vertices[0]));
-            lineVerbs.Add(new PenControl(drawer, true));
 
             //Move pen to every vertex.
             //Using MoveTo rather than LineTo because LineTo would be slower if done multiple times (pen up pen down over and over if the pen wasn't down initially)
             for (int i = 1; i < vertices.Length; i++)
             {
-                lineVerbs.Add(new MoveTo(drawer, vertices[i]));
+                lineVerbs.Add(new DrawTo(drawer, vertices[i]));
             }
 
             //Join first and last line
-            lineVerbs.Add(new MoveTo(drawer, vertices[0]));
+            lineVerbs.Add(new DrawTo(drawer, vertices[0]));
 
-            //Return pen to original state
-            lineVerbs.Add(new PenControl(drawer, finishDown));
         }
 
-        public override void ExecuteVerb()
+        public void ExecuteVerb()
         {
-            foreach(Verb verb in lineVerbs) verb.ExecuteVerb();
+            foreach (Verb verb in lineVerbs) verb.ExecuteVerb();
         }
     }
 
     /// <summary>
-    /// A class that generates 
+    /// A class that generates sets 
     /// </summary>
-    abstract class RegularPolygons
+    class RegularPolygons : Verb
     {
 
+        List<Verb> verbs;
+
+        RegularPolygons(Drawer drawer, Point origin, int sides, int scale)
+        {
+
+        }
+
+        public void ExecuteVerb()
+        {
+
+        }
     }
 
     class PenControl : Verb
     {
-        public override List<List<Type>> acceptedTypes
-        {
-            get
-            {
-                return new List<List<Type>> {
-                    new List<Type> { typeof(Drawer), typeof(bool) }
-                };
-            }
-        }
-
         bool penStatus;
         Drawer drawer;
 
@@ -205,7 +290,7 @@ namespace Advanced_Software_Engineering
             this.drawer = drawer;
         }
 
-        public override void ExecuteVerb()
+        public void ExecuteVerb()
         {
             drawer.setPen(penStatus);
         }
