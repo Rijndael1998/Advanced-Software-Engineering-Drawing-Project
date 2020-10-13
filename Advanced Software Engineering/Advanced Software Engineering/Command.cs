@@ -130,7 +130,6 @@ namespace Advanced_Software_Engineering
         protected Drawer drawer;
         protected Point[] vertices;
         private List<Verb> lineVerbs;
-        private bool finishDown;
 
 
         Shape(Drawer drawer, Point[] vertices)
@@ -146,17 +145,7 @@ namespace Advanced_Software_Engineering
                     throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'line'?");
             }
 
-            finishDown = drawer.IsPenDown();
-
-            //Move pen to every vertex.
-            //Using MoveTo rather than LineTo because LineTo would be slower if done multiple times (pen up pen down over and over if the pen wasn't down initially)
-            for (int i = 1; i < vertices.Length; i++)
-            {
-                lineVerbs.Add(new DrawTo(drawer, vertices[i]));
-            }
-
-            //Join first and last line
-            lineVerbs.Add(new DrawTo(drawer, vertices[0]));
+            //TODO
 
         }
 
@@ -182,23 +171,6 @@ namespace Advanced_Software_Engineering
         public void ExecuteVerb()
         {
 
-        }
-    }
-
-    class PenControl : Verb
-    {
-        bool penStatus;
-        Drawer drawer;
-
-        public PenControl(Drawer drawer, bool down)
-        {
-            penStatus = down;
-            this.drawer = drawer;
-        }
-
-        public void ExecuteVerb()
-        {
-            drawer.SetPen(penStatus);
         }
     }
 

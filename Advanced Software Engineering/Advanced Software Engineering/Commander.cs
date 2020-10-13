@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -16,9 +17,9 @@ namespace Advanced_Software_Engineering
         List<Verb> commands = new List<Verb>();
         Drawer drawer;
 
-        public void DrawAllCommands() 
+        public void DrawAllCommands()
         {
-            foreach(Verb verb in this.commands)
+            foreach (Verb verb in this.commands)
             {
                 verb.ExecuteVerb();
             }
@@ -50,7 +51,7 @@ namespace Advanced_Software_Engineering
             //isolate commands
             string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
 
-            foreach(string rawCommand in commands)
+            foreach (string rawCommand in commands)
             {
                 //handle errors later
                 AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
@@ -62,7 +63,7 @@ namespace Advanced_Software_Engineering
             int start = commands.Count;
             ProcessCommands(rawCommands);
 
-            for(; start < commands.Count; start++)
+            for (; start < commands.Count; start++)
             {
                 commands[start].ExecuteVerb();
             }
@@ -72,36 +73,45 @@ namespace Advanced_Software_Engineering
 
     class Drawer
     {
-        protected static Color defaultPenColor = Color.Black;
-        protected static float defaultPenWidth = 1f;
+        protected static Color defaultColor = Color.Black;
+        protected static float defaultWidth = 1f;
+        protected bool fill = false;
+        protected Color fillColor = Color.Black;
 
-        Pen pen = new Pen(defaultPenColor, defaultPenWidth);
-        bool penDown = true;
-        
-        Point penPosition;
-        Graphics graphics;
+
+        protected Brush brush;
+        protected Pen pen;
+
+
+        protected Point penPosition;
+        protected Graphics graphics;
 
         public Drawer(Graphics graphics)
         {
             this.graphics = graphics;
+            pen = new Pen(defaultColor, defaultWidth);
+            brush = new SolidBrush(defaultColor);
         }
 
         public void MovePen(Point point)
         {
-            if(penDown) graphics.DrawLine(pen, penPosition, point);
-            
             this.penPosition = point;
         }
 
-        public bool IsPenDown() => penDown;
-        public void PenUp() => penDown = false;
-        public void PenDown() => penDown = true;
-        public void SetPen(bool down) => penDown = down;
+        public bool GetFill() => fill;
+        public void EnableFill() => fill = false;
+        public void DisableFill() => fill = true;
+        public void SetFill(bool down) => fill = down;
 
         public void DrawLine(Point point)
         {
             graphics.DrawLine(pen, penPosition, point);
             penPosition = point;
+        }
+
+        public void DrawPoints(GraphicsPath path)
+        {
+            graphics.FillPath(brush, path);
         }
 
     }
