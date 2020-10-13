@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Security.Policy;
 using System.Windows.Forms;
 
-namespace Advanced_Software_Engineering
-{
+namespace Advanced_Software_Engineering {
     /// <summary>
     /// This class simply provides settings and some functions that are used across many components.
     /// </summary>
-    public class SettingsAndHelperFunctions
-    {
+    public class SettingsAndHelperFunctions {
         /// <summary>
         /// The variable simply keep track of the windows that are currently shown (excluding <see cref="MainMenu"/>).
         /// </summary>
@@ -18,11 +16,9 @@ namespace Advanced_Software_Engineering
         /// <summary>
         /// This helper function is executed when a window is closed. It shows the <see cref="MainMenu"/> when the count is 0
         /// </summary>
-        public static void WindowClosed()
-        {
+        public static void WindowClosed() {
             NumberOfWindows--;
-            if (NumberOfWindows == 0)
-            {
+            if (NumberOfWindows == 0) {
                 System.Console.WriteLine("Showing MainMenu");
                 Program.MainMenu.Show();
             }
@@ -49,21 +45,18 @@ namespace Advanced_Software_Engineering
         /// Console.WriteLine(b); // => "a    simple    sentence     surrounded    by    spaces";
         /// </code>
         /// </example>
-        public static string Strip(string text)
-        {
+        public static string Strip(string text) {
             //Console.WriteLine("Stripping: '" + text + "'");
             int start;
 
-            for (start = 0; start < text.Length; start++)
-            {
+            for (start = 0; start < text.Length; start++) {
                 char character = text[start];
                 if (character != " "[0]) break;
             }
 
             int end;
 
-            for (end = text.Length - 1; end >= 0; end--)
-            {
+            for (end = text.Length - 1; end >= 0; end--) {
                 char character = text[end];
                 if (character != " "[0]) break;
             }
@@ -78,18 +71,15 @@ namespace Advanced_Software_Engineering
 
         }
 
-        public static int ConvertToInt(string text)
-        {
+        public static int ConvertToInt(string text) {
             text = Strip(text);
             return int.Parse(text);
         }
 
-        public static List<string> StripStringArray(string[] array)
-        {
+        public static List<string> StripStringArray(string[] array) {
             List<string> newStringList = new List<string>();
 
-            foreach (string arrayElement in array)
-            {
+            foreach (string arrayElement in array) {
                 string strippedElement = Strip(arrayElement);
                 if (strippedElement.Length == 0) continue;
                 else newStringList.Add(strippedElement);
@@ -98,8 +88,7 @@ namespace Advanced_Software_Engineering
             return newStringList;
         }
 
-        public static Dictionary<string, string[]> CommandAndParameterParser(string text)
-        {
+        public static Dictionary<string, string[]> CommandAndParameterParser(string text) {
             Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
 
             //split the command from the parameters 

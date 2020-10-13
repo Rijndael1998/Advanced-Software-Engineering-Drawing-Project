@@ -8,28 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Advanced_Software_Engineering
-{
-    public partial class Text_Editor : Form
-    {
+namespace Advanced_Software_Engineering {
+    public partial class Text_Editor : Form {
         const string DefaultTitleString = "Advanced Software Engineering - Text Editor ";
 
         /// <summary>
         /// The text editor is the main window that the user will be using for writing code. 
         /// </summary>
-        public Text_Editor()
-        {
+        public Text_Editor() {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
         }
 
-        private void Console_FormClosed(object sender, FormClosedEventArgs e)
-        {
+        private void Console_FormClosed(object sender, FormClosedEventArgs e) {
             SettingsAndHelperFunctions.WindowClosed();
         }
 
-        private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) {
             new Text_Editor().Show();
         }
     }
