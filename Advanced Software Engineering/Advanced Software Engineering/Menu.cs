@@ -50,5 +50,9 @@ namespace Advanced_Software_Engineering
         {
             //Do things on load
         }
+
+        private void button5_Click(object sender, EventArgs e) {
+            new ErrorWindow().Show();
+        }
     }
 }
