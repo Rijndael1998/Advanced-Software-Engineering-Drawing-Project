@@ -66,11 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About Window.cs">
+    <Compile Include="AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About Window.Designer.cs">
-      <DependentUpon>About Window.cs</DependentUpon>
+    <Compile Include="AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="Commander.cs" />
@@ -80,11 +80,17 @@
     <Compile Include="DrawPreview.Designer.cs">
       <DependentUpon>DrawPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Text Editor.cs">
+    <Compile Include="ErrorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Text Editor.Designer.cs">
-      <DependentUpon>Text Editor.cs</DependentUpon>
+    <Compile Include="ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEditor.Designer.cs">
+      <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsAndHelperFunctions.cs" />
     <Compile Include="Menu.cs">
@@ -95,14 +101,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="About Window.resx">
-      <DependentUpon>About Window.cs</DependentUpon>
+    <EmbeddedResource Include="AboutWindow.resx">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrawPreview.resx">
       <DependentUpon>DrawPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Text Editor.resx">
-      <DependentUpon>Text Editor.cs</DependentUpon>
+    <EmbeddedResource Include="ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
