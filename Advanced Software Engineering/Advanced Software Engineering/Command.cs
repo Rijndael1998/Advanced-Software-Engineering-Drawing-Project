@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Xml.Serialization;
 
 namespace Advanced_Software_Engineering {
     class VerbFactory {
@@ -70,7 +63,7 @@ namespace Advanced_Software_Engineering {
 
     public interface Verb {
         void ExecuteVerb();
-
+        string GetDescription();
     }
 
     class MoveTo : Verb {
@@ -92,15 +85,27 @@ namespace Advanced_Software_Engineering {
             this.drawer.MovePen(moveToPoint);
         }
 
+        public string GetDescription() {
+            return "Move origin to " + moveToPoint.X + ", " + moveToPoint.Y;
+        }
+
     }
 
-    class DrawTo : MoveTo {
-        public DrawTo(Drawer drawer, int x, int y) : base(drawer, x, y) { }
+    class DrawTo : Verb  {
+        protected Drawer drawer;
+        protected Point moveToPoint;
 
-        public DrawTo(Drawer drawer, Point point) : base(drawer, point) { }
+        public DrawTo(Drawer drawer, int x, int y) {
+            this.drawer = drawer;
+            moveToPoint = new Point(x, y);
+        }
 
-        public new void ExecuteVerb() {
-            this.drawer.DrawLine(moveToPoint);
+        public void ExecuteVerb() {
+            drawer.DrawLine(moveToPoint);
+        }
+
+        public string GetDescription() {
+            return "Draw line " + moveToPoint.X + ", " + moveToPoint.Y;
         }
     }
 
@@ -128,6 +133,8 @@ namespace Advanced_Software_Engineering {
         public void ExecuteVerb() {
             foreach (Verb verb in lineVerbs) verb.ExecuteVerb();
         }
+
+        public abstract string GetDescription();
     }
 
     /// <summary>
@@ -139,10 +146,15 @@ namespace Advanced_Software_Engineering {
 
         RegularPolygons(Drawer drawer, Point origin, int sides, int scale) {
 
+
         }
 
         public void ExecuteVerb() {
 
+        }
+
+        public string GetDescription() {
+            return null;
         }
     }
 

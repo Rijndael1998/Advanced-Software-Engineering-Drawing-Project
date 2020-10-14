@@ -30,10 +30,21 @@ namespace Advanced_Software_Engineering
             commander = new Commander(graphics);
         }
 
+        public Draw_Preview(String commands) {
+            InitializeComponent();
+            SettingsAndHelperFunctions.NumberOfWindows++;
+            graphics = panel1.CreateGraphics();
+            commander = new Commander(graphics, commands);
+
+            //disable components
+            textBox1.Enabled = false;
+            button1.Enabled = false;
+        }
+
         private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e)
         {
             SettingsAndHelperFunctions.WindowClosed();
-            this.Dispose();
+            Dispose();
         }
 
         private void DrawPreviewPane_Paint(object sender, PaintEventArgs e)
@@ -45,6 +56,14 @@ namespace Advanced_Software_Engineering
         {
             commander.ProcessCommandsAndExecute(textBox1.Text);
             textBox1.Text = "";
+        }
+
+        public void SubmitCommands(string comamnds) {
+            commander.ProcessCommandsAndExecute(comamnds);
+        }
+
+        public void RemoveAllCommands() {
+            commander.RemoveAllCommands();
         }
     }
 }
