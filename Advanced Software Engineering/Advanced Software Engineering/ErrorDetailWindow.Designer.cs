@@ -48,7 +48,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ErrorDetailWindow";
-            this.Text = "ErrorDetailWindow";
+            this.Text = "Error Details";
             this.ResumeLayout(false);
             this.PerformLayout();
 

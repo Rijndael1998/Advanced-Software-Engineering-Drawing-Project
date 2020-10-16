@@ -13,5 +13,10 @@ namespace Advanced_Software_Engineering {
         public ErrorDetailWindow() {
             InitializeComponent();
         }
+
+        public ErrorDetailWindow(string errorText) {
+            InitializeComponent();
+            textBox1.Text = errorText;
+        }
     }
 }
