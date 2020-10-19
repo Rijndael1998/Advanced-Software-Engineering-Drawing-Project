@@ -34,24 +34,31 @@ namespace Advanced_Software_Engineering {
         }
 
         public void ProcessCommands(string rawCommands) {
-            //ignore case
-            rawCommands = rawCommands.ToLower();
-            Console.WriteLine("Processing:\n" + rawCommands);
+            try {
+                //ignore case
+                rawCommands = rawCommands.ToLower();
+                Console.WriteLine("Processing:\n" + rawCommands);
 
-            //isolate commands
-            string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
+                //isolate commands
+                string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
 
-            Console.WriteLine("\nThe rawCommand processed:");
-            foreach (string rawCommand in commands) {
-                if (rawCommand == "") continue;
-                AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
-                Console.WriteLine(rawCommand);
-            }
+                Console.WriteLine("\nThe rawCommand processed:");
+                foreach (string rawCommand in commands) {
+                    if (rawCommand == "") continue;
+                    AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
+                    Console.WriteLine(rawCommand);
+                }
 
-            Console.WriteLine("\n\nHere is what the program is going to do:");
-            Console.WriteLine("Set origin to 0, 0");
-            foreach(Verb verb in this.commands) {
-                Console.WriteLine(verb.GetDescription());
+                Console.WriteLine("\n\nHere is what the program is going to do:");
+                Console.WriteLine("Set origin to 0, 0");
+                foreach (Verb verb in this.commands) {
+                    Console.WriteLine(verb.GetDescription());
+                }
+            } catch (Exception e) {
+
+                new ErrorWindow("Error parsing commands", "The program phraser has encountered an error.", e.Message + Environment.NewLine + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                RemoveAllCommands();
+                
             }
         }
 
@@ -101,7 +108,7 @@ namespace Advanced_Software_Engineering {
         public void SetPenColor(Color color) => pen.Color = color;
         public void SetPenWidth(float width) => pen.Width = width;
 
-        public void SetFillColor(Color color) => ((SolidBrush) brush).Color = color;
+        public void SetFillColor(Color color) => ((SolidBrush)brush).Color = color;
 
         public void DrawLine(Point point) {
             graphics.DrawLine(pen, penPosition, point);
@@ -128,7 +135,7 @@ namespace Advanced_Software_Engineering {
         //Doesn't move pen
         public void DrawLines(GraphicsPath path) {
             path.Widen(pen);
-            if(fill) graphics.FillPath(brush, path);
+            if (fill) graphics.FillPath(brush, path);
             graphics.DrawPath(pen, path);
         }
 
