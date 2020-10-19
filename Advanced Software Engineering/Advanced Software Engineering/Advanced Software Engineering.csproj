@@ -80,6 +80,12 @@
     <Compile Include="DrawPreview.Designer.cs">
       <DependentUpon>DrawPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorDetailWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDetailWindow.Designer.cs">
+      <DependentUpon>ErrorDetailWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DrawPreview.resx">
       <DependentUpon>DrawPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDetailWindow.resx">
+      <DependentUpon>ErrorDetailWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorWindow.resx">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
