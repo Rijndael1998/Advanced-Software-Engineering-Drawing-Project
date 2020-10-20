@@ -94,18 +94,27 @@ namespace Advanced_Software_Engineering {
             //split the command from the parameters 
             string[] parameters = Strip(text).Split(new char[] { " "[0] }, 2);
 
-            //set command var
-            string command = Strip(parameters[0]);
-            commandAndParameters["command"] = new string[] { command };
+            //Check there is content
+            if (parameters.Length > 0) {
+                //set command var
+                string command = Strip(parameters[0]);
+                commandAndParameters["command"] = new string[] { command };
+            }
 
-            //seperate all of the parameters by a comma
-            parameters = parameters[1].Split(","[0]);
+            //If there is nothing split after the first split, why bother doing anything? 
+            else if (parameters.Length > 1) {
+                //seperate all of the parameters by a comma
+                parameters = parameters[1].Split(","[0]);
 
-            //Remove spaces around parameters
-            parameters = StripStringArray(parameters).ToArray();
+                //Remove spaces around parameters
+                parameters = StripStringArray(parameters).ToArray();
 
-            //set parameter list
-            commandAndParameters["parameters"] = parameters;
+                //We don't want parameters if there aren't any
+                if (!(parameters.Length == 1 && parameters[0] == "")) {
+                    //set parameter list
+                    commandAndParameters["parameters"] = parameters;
+                }
+            }
 
             return commandAndParameters;
         }
