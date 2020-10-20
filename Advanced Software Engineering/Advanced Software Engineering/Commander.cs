@@ -56,9 +56,14 @@ namespace Advanced_Software_Engineering {
                 }
             } catch (Exception e) {
 
-                new ErrorWindow("Error parsing commands", "The program phraser has encountered an error.", e.Message + Environment.NewLine + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                new ErrorWindow(
+                    "Unexpected error parsing commands",
+                    "The program phraser has encountered an undexpected error." + Environment.NewLine,
+                    e.Message + Environment.NewLine + e.StackTrace,
+                    ErrorWindow.ERROR_MESSAGE
+                    ).Show();
+
                 RemoveAllCommands();
-                
             }
         }
 

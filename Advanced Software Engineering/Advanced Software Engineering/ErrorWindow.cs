@@ -16,11 +16,21 @@ namespace Advanced_Software_Engineering {
         public const int WARNING_MESSAGE = 1;
         public const int INFO_MESSAGE = 2;
 
+        protected Dictionary<int, Image> IMAGEDIR = new Dictionary<int, Image> {
+            { ERROR_MESSAGE, Properties.Resources.error },
+            { WARNING_MESSAGE, Properties.Resources.warning },
+            { INFO_MESSAGE, Properties.Resources.info3 }
+        };
+
         public ErrorWindow() {
             InitializeComponent();
             this.Text = "Error";
             label1.Text = "An error has occured";
             desc = "None";
+
+            SetPicture(ERROR_MESSAGE);
+
+            Focus();
         }
 
         public ErrorWindow(string title, string brief, string desc, int type) {
@@ -29,18 +39,15 @@ namespace Advanced_Software_Engineering {
             label1.Text = brief;
             this.desc = desc;
 
-            switch(type) {
-                case INFO_MESSAGE:
+            SetPicture(type);
 
-                    break;
-                case WARNING_MESSAGE:
+            Focus();
 
-                    break;
+        }
 
-                case ERROR_MESSAGE:
-                default:
-                    break;
-            }
+        protected void SetPicture(int type) {
+            pictureBox1.Image = IMAGEDIR[type];
+            pictureBox1.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e) {
