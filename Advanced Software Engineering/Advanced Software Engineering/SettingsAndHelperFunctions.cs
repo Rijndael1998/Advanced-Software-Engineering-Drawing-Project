@@ -76,6 +76,11 @@ namespace Advanced_Software_Engineering {
             return int.Parse(text);
         }
 
+        public static double ConvertToDouble(string text) {
+            text = Strip(text);
+            return double.Parse(text);
+        }
+
         public static List<string> StripStringArray(string[] array) {
             List<string> newStringList = new List<string>();
 
@@ -94,15 +99,15 @@ namespace Advanced_Software_Engineering {
             //split the command from the parameters 
             string[] parameters = Strip(text).Split(new char[] { " "[0] }, 2);
 
-            //Check there is content
+            //There are parameters, make the command
             if (parameters.Length > 0) {
                 //set command var
                 string command = Strip(parameters[0]);
                 commandAndParameters["command"] = new string[] { command };
             }
 
-            //If there is nothing split after the first split, why bother doing anything? 
-            else if (parameters.Length > 1) {
+            //There is at least one parameter 
+            if (parameters.Length > 1) {
                 //seperate all of the parameters by a comma
                 parameters = parameters[1].Split(","[0]);
 
