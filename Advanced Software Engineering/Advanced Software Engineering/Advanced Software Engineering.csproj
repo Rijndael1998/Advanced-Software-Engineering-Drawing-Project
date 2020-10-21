@@ -161,11 +161,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\error.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\info3.png" />
-    <Content Include="Images\warning.png" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\info3.png" />
     <None Include="Resources\error.png" />
