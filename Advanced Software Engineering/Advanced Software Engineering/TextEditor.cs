@@ -39,7 +39,7 @@ namespace Advanced_Software_Engineering {
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(DisplayForm == null) {
+            if(DisplayForm == null || DisplayForm.IsDisposed) {
                 DisplayForm = new Draw_Preview(textBox1.Text);
             } else {
                 Console.WriteLine("Removed all commands");
