@@ -21,12 +21,14 @@ namespace Advanced_Software_Engineering {
         public Commander(Graphics graphics) {
             this.graphics = graphics;
             this.drawer = new Drawer(this.graphics);
+            drawer.ResetDrawer();
         }
 
         public Commander(Graphics graphics, string rawCommands) {
             this.graphics = graphics;
             this.drawer = new Drawer(this.graphics);
             this.ProcessCommands(rawCommands);
+            drawer.ResetDrawer();
         }
 
         public void AddCommand(Verb command) {
@@ -78,6 +80,7 @@ namespace Advanced_Software_Engineering {
 
         public void RemoveAllCommands() {
             commands = new List<Verb>();
+            drawer.ResetDrawer();
         }
 
     }
@@ -97,13 +100,18 @@ namespace Advanced_Software_Engineering {
 
         public Drawer(Graphics graphics) {
             this.graphics = graphics;
+            ResetDrawer();
+        }
+
+        public void ResetDrawer() {
+            graphics.Clear(Color.White);
+            penPosition = new Point(0, 0);
             pen = new Pen(defaultColor, defaultWidth);
             brush = new SolidBrush(defaultColor);
         }
 
-        public void MovePen(Point point) {
-            this.penPosition = point;
-        }
+        public void MovePen(Point point) => penPosition = point;
+        public Point GetPenPosition() => new Point(penPosition.X, penPosition.Y);
 
         public bool GetFill() => fill;
         public void EnableFill() => fill = false;
@@ -139,7 +147,7 @@ namespace Advanced_Software_Engineering {
 
         //Doesn't move pen
         public void DrawLines(GraphicsPath path) {
-            path.Widen(pen);
+            //path.Widen(pen);
             if (fill) graphics.FillPath(brush, path);
             graphics.DrawPath(pen, path);
         }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Advanced_Software_Engineering {
     class VerbFactory {
@@ -9,7 +11,7 @@ namespace Advanced_Software_Engineering {
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
             string command = commandAndParameters["command"][0];
-            string[] parameters = commandAndParameters["parameters"];
+            string[] parameters = commandAndParameters.Keys.Contains("parameters") ? commandAndParameters["parameters"] : new string[] { };
 
             switch (command) {
                 case "moveto":
@@ -41,14 +43,30 @@ namespace Advanced_Software_Engineering {
                             throw e;
                         }
                     } else throw new Exception("Command has an incorrect number of parameters");
-
-                case "dot":
-                case "clear":
                 case "shape":
+                    //Check parameters
+                    if (parameters.Length == 2) {
+                        return new
+                            RegularPolygon(drawer,
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    }
+                    if (parameters.Length == 3) {
+                        return new RegularPolygon(drawer,
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[2])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
                 case "square":
                 case "rectangle":
                 case "circle":
                 case "triangle":
+
+
+                case "dot":
+                case "clear":
                 case "pen":
                 case "fill":
                 case "color":
@@ -91,7 +109,7 @@ namespace Advanced_Software_Engineering {
 
     }
 
-    class DrawTo : Verb  {
+    class DrawTo : Verb {
         protected Drawer drawer;
         protected Point moveToPoint;
 
@@ -138,23 +156,43 @@ namespace Advanced_Software_Engineering {
     }
 
     /// <summary>
-    /// A class that generates sets 
+    /// A class that generates a RegularPolygon verb. 
     /// </summary>
-    class RegularPolygons : Verb {
+    class RegularPolygon : Verb {
+        protected Drawer drawer;
+        protected int sides;
+        protected double scale;
+        protected double offset;
+        List<Point> points;
 
-        List<Verb> verbs;
+        public RegularPolygon(Drawer drawer, int sides, double scale, double offset = 0) {
+            points = new List<Point>();
 
-        RegularPolygons(Drawer drawer, Point origin, int sides, int scale) {
+            double constantAngleDelta = 2 * Math.PI / sides;
+            for (int side = 0; side < sides; side++) {
+                double angle = (constantAngleDelta * side) + offset;
 
+                double dx = scale * Math.Sin(angle);
+                double dy = scale * Math.Cos(angle);
 
+                points.Add(new Point((int)dx, (int)dy));
+            }
+
+            this.sides = sides;
+            this.scale = scale;
+            this.drawer = drawer;
+            this.offset = offset;
         }
 
         public void ExecuteVerb() {
-
+            Point currentOrigin = drawer.GetPenPosition();
+            List<Point> originShiftedPoints = new List<Point>();
+            foreach (Point point in points) originShiftedPoints.Add(new Point(point.X + currentOrigin.X, point.Y + currentOrigin.Y));
+            drawer.DrawLines(originShiftedPoints.ToArray());
         }
 
         public string GetDescription() {
-            return null;
+            return "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
         }
     }
 
