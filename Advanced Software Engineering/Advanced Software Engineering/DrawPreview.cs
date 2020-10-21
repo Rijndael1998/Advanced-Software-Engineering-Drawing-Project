@@ -76,5 +76,10 @@ namespace Advanced_Software_Engineering
             commander.RemoveAllCommands();
         }
 
+        public void ReleaseCommandLock() {
+            textBox1.Enabled = true;
+            button1.Enabled = true;
+        }
+
     }
 }

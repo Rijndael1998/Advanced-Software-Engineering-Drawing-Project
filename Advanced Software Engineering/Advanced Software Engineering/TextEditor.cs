@@ -23,7 +23,9 @@ namespace Advanced_Software_Engineering {
         }
 
         private void Console_FormClosed(object sender, FormClosedEventArgs e) {
+            if (DisplayForm != null || !DisplayForm.IsDisposed) DisplayForm.ReleaseCommandLock();
             SettingsAndHelperFunctions.WindowClosed();
+            Dispose();
         }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e) {
