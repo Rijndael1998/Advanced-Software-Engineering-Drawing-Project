@@ -178,7 +178,7 @@ namespace Advanced_Software_Engineering {
                 double dx = scale * Math.Sin(angle);
                 double dy = scale * Math.Cos(angle);
 
-                points.Add(new Point((int) Math.Round(dx), (int) Math.Round(dy));
+                points.Add(new Point((int)Math.Round(dx), (int)Math.Round(dy)));
             }
 
             this.sides = sides;

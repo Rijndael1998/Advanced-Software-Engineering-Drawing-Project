@@ -16,8 +16,6 @@ namespace Advanced_Software_Engineering
         Graphics graphics;
         Commander commander;
 
-        int repaintCount = 0;
-
         /// <summary>
         /// The draw preview window.
         /// </summary>
@@ -59,7 +57,6 @@ namespace Advanced_Software_Engineering
         {
             graphics = panel1.CreateGraphics();
             commander.DrawAllCommands(graphics);
-            Console.WriteLine("Graphics repainted " + ++repaintCount + "times");
         }
 
         private void SubmitCommand(object sender, EventArgs e)
