@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
@@ -178,7 +178,7 @@ namespace Advanced_Software_Engineering {
                 double dx = scale * Math.Sin(angle);
                 double dy = scale * Math.Cos(angle);
 
-                points.Add(new Point((int)dx, (int)dy));
+                points.Add(new Point((int) Math.Round(dx), (int) Math.Round(dy));
             }
 
             this.sides = sides;
