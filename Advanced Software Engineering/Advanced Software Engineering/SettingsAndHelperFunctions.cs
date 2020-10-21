@@ -61,6 +61,8 @@ namespace Advanced_Software_Engineering {
                 if (character != " "[0]) break;
             }
 
+            if (end == -1) return "";
+
             string result = text.Substring(start, end - start + 1);
 
             //Console.WriteLine("Started at: " + start);
