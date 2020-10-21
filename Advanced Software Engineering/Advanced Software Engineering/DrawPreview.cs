@@ -16,6 +16,8 @@ namespace Advanced_Software_Engineering
         Graphics graphics;
         Commander commander;
 
+        int repaintCount = 0;
+
         /// <summary>
         /// The draw preview window.
         /// </summary>
@@ -27,6 +29,7 @@ namespace Advanced_Software_Engineering
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
+            graphics.ResetClip();
             commander = new Commander(graphics);
         }
 
@@ -34,6 +37,7 @@ namespace Advanced_Software_Engineering
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
+            graphics.ResetClip();
             commander = new Commander(graphics, commands);
 
             //disable components
@@ -47,9 +51,15 @@ namespace Advanced_Software_Engineering
             Dispose();
         }
 
+        private void DrawPreviewPane_Paint(object sender, EventArgs e) {
+            DrawPreviewPane_Paint(sender, null);
+        }
+
         private void DrawPreviewPane_Paint(object sender, PaintEventArgs e)
         {
-            commander.DrawAllCommands();
+            graphics = panel1.CreateGraphics();
+            commander.DrawAllCommands(graphics);
+            Console.WriteLine("Graphics repainted " + ++repaintCount + "times");
         }
 
         private void SubmitCommand(object sender, EventArgs e)
@@ -65,5 +75,6 @@ namespace Advanced_Software_Engineering
         public void RemoveAllCommands() {
             commander.RemoveAllCommands();
         }
+
     }
 }

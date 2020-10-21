@@ -12,7 +12,11 @@ namespace Advanced_Software_Engineering {
         List<Verb> commands = new List<Verb>();
         Drawer drawer;
 
-        public void DrawAllCommands() {
+        public void DrawAllCommands(Graphics updateGraphicsElement) {
+            graphics = updateGraphicsElement;
+            drawer.ResetDrawer();
+            drawer.SetGraphics(updateGraphicsElement);
+
             foreach (Verb verb in this.commands) {
                 verb.ExecuteVerb();
             }
@@ -109,6 +113,8 @@ namespace Advanced_Software_Engineering {
             pen = new Pen(defaultColor, defaultWidth);
             brush = new SolidBrush(defaultColor);
         }
+
+        public void SetGraphics(Graphics graphics) => this.graphics = graphics;
 
         public void MovePen(Point point) => penPosition = point;
         public Point GetPenPosition() => new Point(penPosition.X, penPosition.Y);
