@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
@@ -165,8 +165,11 @@ namespace Advanced_Software_Engineering {
         protected double offset;
         List<Point> points;
 
-        public RegularPolygon(Drawer drawer, int sides, double scale, double offset = 0) {
+        public RegularPolygon(Drawer drawer, int sides, double scale, double offset = 0, bool degMode = true) {
             points = new List<Point>();
+
+            //if in degMode, convert the offset to radians
+            if (degMode) offset = Math.PI * offset / 180;
 
             double constantAngleDelta = 2 * Math.PI / sides;
             for (int side = 0; side < sides; side++) {
