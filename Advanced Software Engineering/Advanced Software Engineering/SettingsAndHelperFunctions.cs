@@ -98,8 +98,12 @@ namespace Advanced_Software_Engineering {
         public static Dictionary<string, string[]> CommandAndParameterParser(string text) {
             Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
 
+            //prepare the parameters by stripping them of spaces
+            string prepParameters = Strip(text);
+            if (prepParameters.Length == 0) return commandAndParameters;
+
             //split the command from the parameters 
-            string[] parameters = Strip(text).Split(new char[] { " "[0] }, 2);
+            string[] parameters = prepParameters.Split(new char[] { " "[0] }, 2);
 
             //There are parameters, make the command
             if (parameters.Length > 0) {
