@@ -76,6 +76,7 @@ namespace Advanced_Software_Engineering {
                 }
                 catch(Exception windowError) {
                     Console.WriteLine("Failed to display error window!");
+                    throw windowError;
                 }
                 RemoveAllCommands();
             }

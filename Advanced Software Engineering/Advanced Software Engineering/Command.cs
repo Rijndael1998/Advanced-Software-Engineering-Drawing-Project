@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 
 namespace Advanced_Software_Engineering {
-    class VerbFactory {
+    public class VerbFactory {
         public static Verb MakeVerb(Drawer drawer, string fullCommand) {
 
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);

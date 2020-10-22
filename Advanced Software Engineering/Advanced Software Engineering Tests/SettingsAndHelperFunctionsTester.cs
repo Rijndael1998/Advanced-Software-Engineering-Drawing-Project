@@ -8,7 +8,6 @@ namespace Advanced_Software_Engineering_Tests {
     [TestClass]
     public class SettingsAndHelperFunctionsTester {
         string alphabet = "abcdefghijklmnopqrstuvwxzy";
-        char space = " "[0];
         Random rand = new Random();
 
         [TestMethod]
@@ -64,6 +63,26 @@ namespace Advanced_Software_Engineering_Tests {
                 string input = expected.ToString();
 
                 Assert.AreEqual(expected, SettingsAndHelperFunctions.ConvertToDouble(input));
+            }
+        }
+
+        [TestMethod]
+        public void ConvertToDouble_Random2() {
+            for (int i = 0; i < 100000; i++) {
+                double expected = rand.Next(100, 100) * rand.NextDouble();
+                string input = expected.ToString();
+
+                Assert.AreEqual(expected, SettingsAndHelperFunctions.ConvertToDouble(input));
+            }
+        }
+
+        [TestMethod]
+        public void ConvertToDouble_Random3() {
+            for (int i = 0; i < 100000; i++) {
+                int expected = rand.Next(100, 100);
+                string input = ((double)expected).ToString();
+
+                Assert.AreEqual((double)expected, SettingsAndHelperFunctions.ConvertToDouble(input));
             }
         }
 
@@ -129,15 +148,15 @@ namespace Advanced_Software_Engineering_Tests {
 
         [TestMethod]
         public void CommandAndParameterParser_Random1() {
-            
-            string[] randomCommands = {"test", "moveto", "lineto", "markiplier", "clear", "shape", "etc" };
-            
-            for(int test = 0; test < 10000; test++) {
+
+            string[] randomCommands = { "test", "moveto", "lineto", "markiplier", "clear", "shape", "etc" };
+
+            for (int test = 0; test < 10000; test++) {
                 string command = randomCommands[rand.Next(randomCommands.Length)];
                 string input = randomSpaces() + command;
 
                 List<string> parameters = new List<string>();
-                for(int parameterI = 0; parameterI < rand.Next(99) + 1; parameterI++) {
+                for (int parameterI = 0; parameterI < rand.Next(99) + 1; parameterI++) {
                     string parameter = (rand.NextDouble() * rand.Next(-1000, 1000)).ToString();
                     parameters.Add(parameter);
                     input += randomSpaces() + parameter + randomSpaces() + "," + randomSpaces();
@@ -148,7 +167,7 @@ namespace Advanced_Software_Engineering_Tests {
                 Assert.AreEqual(command, commands["command"][0]);
 
                 int i = 0;
-                foreach(string expected in parameters) {
+                foreach (string expected in parameters) {
                     Assert.AreEqual(expected, commands["parameters"][i++]);
                 }
 
