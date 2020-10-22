@@ -84,7 +84,7 @@ namespace Advanced_Software_Engineering {
         string GetDescription();
     }
 
-    class MoveTo : Verb {
+    public class MoveTo : Verb {
 
         protected Drawer drawer;
         protected Point moveToPoint;
@@ -109,7 +109,7 @@ namespace Advanced_Software_Engineering {
 
     }
 
-    class DrawTo : Verb {
+    public class DrawTo : Verb {
         protected Drawer drawer;
         protected Point moveToPoint;
 

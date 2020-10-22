@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
-    class Commander {
+    public class Commander {
 
         Graphics graphics;
         List<Verb> commands = new List<Verb>();
@@ -26,6 +25,10 @@ namespace Advanced_Software_Engineering {
             this.graphics = graphics;
             this.drawer = new Drawer(this.graphics);
             drawer.ResetDrawer();
+        }
+
+        public Commander(string command) {
+            Console.WriteLine("Warning! No graphics context!!!");
         }
 
         public Commander(Graphics graphics, string rawCommands) {
@@ -61,14 +64,19 @@ namespace Advanced_Software_Engineering {
                     Console.WriteLine(verb.GetDescription());
                 }
             } catch (Exception e) {
+                Console.WriteLine("Error: Unknown error.");
 
-                new ErrorWindow(
-                    "Unexpected error parsing commands",
-                    "The program phraser has encountered an undexpected error." + Environment.NewLine,
-                    e.Message + Environment.NewLine + e.StackTrace,
-                    ErrorWindow.ERROR_MESSAGE
-                    ).Show();
-
+                try {
+                    new ErrorWindow(
+                        "Unexpected error parsing commands",
+                        "The program phraser has encountered an undexpected error." + Environment.NewLine,
+                        e.Message + Environment.NewLine + e.StackTrace,
+                        ErrorWindow.ERROR_MESSAGE
+                        ).Show();
+                }
+                catch(Exception windowError) {
+                    Console.WriteLine("Failed to display error window!");
+                }
                 RemoveAllCommands();
             }
         }
@@ -87,9 +95,17 @@ namespace Advanced_Software_Engineering {
             drawer.ResetDrawer();
         }
 
+        public string ExplainCommands() {
+            string desc = "";
+            foreach(Verb command in commands) {
+                desc += command.GetDescription() + Environment.NewLine;
+            }
+            return desc;
+        }
+
     }
 
-    class Drawer {
+    public class Drawer {
         protected static Color defaultColor = Color.Black;
         protected static float defaultWidth = 1f;
         protected bool fill = false;

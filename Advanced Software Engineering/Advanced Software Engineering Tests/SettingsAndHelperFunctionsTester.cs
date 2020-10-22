@@ -12,7 +12,7 @@ namespace Advanced_Software_Engineering_Tests {
         Random rand = new Random();
 
         [TestMethod]
-        public void TestStrip_Random1() {
+        public void Strip_Random1() {
 
             for (int test = 0; test < 200; test++) {
                 int until = rand.Next(50);
@@ -32,7 +32,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         [TestMethod]
-        public void TestStrip_Manual1() {
+        public void Strip_Manual1() {
             string input = "     a simple sentence surrounded by spaces                ";
             string expected = "a simple sentence surrounded by spaces";
 
@@ -40,7 +40,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         [TestMethod]
-        public void TestStrip_Manual2() {
+        public void Strip_Manual2() {
             string input = "      a    simple    sentence     surrounded    by    spaces                 ";
             string expected = "a    simple    sentence     surrounded    by    spaces";
 
