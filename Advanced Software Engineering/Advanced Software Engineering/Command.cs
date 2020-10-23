@@ -14,6 +14,7 @@ namespace Advanced_Software_Engineering {
             string[] parameters = commandAndParameters.Keys.Contains("parameters") ? commandAndParameters["parameters"] : new string[] { };
 
             switch (command) {
+                case "move":
                 case "moveto":
                     //Check parameters
                     if (parameters.Length == 2) {
@@ -43,7 +44,8 @@ namespace Advanced_Software_Engineering {
                             throw e;
                         }
                     } else throw new Exception("Command has an incorrect number of parameters");
-                case "shape":
+                case "regularpolygon":
+                case "rp":
                     //Check parameters
                     if (parameters.Length == 2) {
                         return new
@@ -69,7 +71,6 @@ namespace Advanced_Software_Engineering {
                 case "clear":
                 case "pen":
                 case "fill":
-                case "color":
                     throw new Exception("Not implemented");
 
                 default:
