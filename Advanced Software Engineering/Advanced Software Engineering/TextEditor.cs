@@ -39,6 +39,7 @@ namespace Advanced_Software_Engineering {
             newWindow = false;
             okToOverwrite = true;
             UpdateTitle(openFile.FileName);
+            fileStream.Close();
         }
 
         void UpdateTitle(string fileName) {
@@ -55,14 +56,15 @@ namespace Advanced_Software_Engineering {
         private void saveFile() {
             if (!okToOverwrite) saveFileAs();
             else {
-                StreamWriter fileStream = new StreamWriter(fileName);
                 try {
+                    StreamWriter fileStream = new StreamWriter(fileName);
                     fileStream.Write(textBox1.Text);
                     unsavedChanges = false;
+                    showSavedMessage();
+                    fileStream.Close();
                 } catch (Exception e) {
                     new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
                 } finally {
-                    fileStream.Close();
                     UpdateTitle();
                 }
             }
@@ -83,6 +85,7 @@ namespace Advanced_Software_Engineering {
                     unsavedChanges = false;
                     okToOverwrite = true;
                     fileName = saveFileDialog.FileName;
+                    showSavedMessage();
                 } catch (Exception e) {
                     new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
                 } finally {
@@ -90,6 +93,11 @@ namespace Advanced_Software_Engineering {
                     UpdateTitle();
                 }
             }
+        }
+
+        private void showSavedMessage() {
+            label1.Text = "File saved";
+            timer1.Start();
         }
 
         private void updateRowCol() {
@@ -112,26 +120,22 @@ namespace Advanced_Software_Engineering {
         }
 
         private void openFile() {
-            DialogResult result = DialogResult.Yes;
 
-            if (unsavedChanges) {
-                result = MessageBox.Show("You have unsaved work. Would you like to discard your work and open a new file?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+
+                if (newWindow) {
+                    StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
+                    textBox1.Text = fileStream.ReadToEnd();
+                    unsavedChanges = false;
+                    okToOverwrite = true;
+                    newWindow = false;
+                    UpdateTitle(openFileDialog.FileName);
+                    fileStream.Close();
+                } else new Text_Editor(openFileDialog).Show();
             }
 
-            if (result == DialogResult.Yes) {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK) {
-
-                    if (newWindow) {
-                        StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
-                        textBox1.Text = fileStream.ReadToEnd();
-                        unsavedChanges = false;
-                        newWindow = false;
-                        UpdateTitle(openFileDialog.FileName);
-                    } else new Text_Editor(openFileDialog).Show();
-                }
-            }
         }
 
         private void RunCode() {
@@ -184,7 +188,7 @@ namespace Advanced_Software_Engineering {
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e) => RunCode();
-        
+
 
         private void createNewInstance() => new Text_Editor().Show();
 
@@ -205,7 +209,7 @@ namespace Advanced_Software_Engineering {
 
         private void Text_Editor_PreviewKeyDown(object sender, KeyEventArgs e) {
             //New window
-            if(e.Control && e.KeyCode == Keys.N) {
+            if (e.Control && e.KeyCode == Keys.N) {
                 createNewInstance();
                 e.Handled = true;
             } else if (e.Control && e.KeyCode == Keys.S) {
@@ -217,13 +221,13 @@ namespace Advanced_Software_Engineering {
             } else if (e.Control && e.KeyCode == Keys.O) {
                 openFile();
                 e.Handled = true;
-            } else if(e.KeyCode == Keys.F5) {
+            } else if (e.KeyCode == Keys.F5) {
                 RunCode();
                 e.Handled = true;
-            } else if(e.KeyCode == Keys.F5 && e.Shift) {
+            } else if (e.KeyCode == Keys.F5 && e.Shift) {
                 CheckCode();
                 e.Handled = true;
-            } else if(e.KeyCode == Keys.F1 && e.Shift) {
+            } else if (e.KeyCode == Keys.F1 && e.Shift) {
                 DescribeCode();
                 e.Handled = true;
             }
@@ -233,6 +237,9 @@ namespace Advanced_Software_Engineering {
 
         private void describeToolStripMenuItem_Click(object sender, EventArgs e) => DescribeCode();
 
-        
+        private void timer1_Tick(object sender, EventArgs e) {
+            updateRowCol();
+            timer1.Stop();
+        }
     }
 }
