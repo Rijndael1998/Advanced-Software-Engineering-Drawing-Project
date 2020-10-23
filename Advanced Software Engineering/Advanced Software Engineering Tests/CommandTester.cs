@@ -190,7 +190,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
         [TestMethod]
@@ -199,7 +199,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
         [TestMethod]
@@ -217,7 +217,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
         [TestMethod]
@@ -226,7 +226,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
         [TestMethod]
@@ -244,7 +244,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = null; //undecided
         }
 
     }
