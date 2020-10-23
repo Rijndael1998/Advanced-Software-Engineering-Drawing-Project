@@ -134,20 +134,7 @@ namespace Advanced_Software_Engineering {
             }
         }
 
-        private void handleExit(FormClosingEventArgs e) {
-            if (unsavedChanges) {
-                DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-                if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
-            }
-        }
-
-        private void Console_FormClosed(object sender, FormClosedEventArgs e) {
-            if (DisplayForm != null && !DisplayForm.IsDisposed) DisplayForm.ReleaseCommandLock();
-            SettingsAndHelperFunctions.WindowClosed();
-            Dispose();
-        }
-
-        private void runToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void RunCode() {
             if (DisplayForm == null || DisplayForm.IsDisposed) {
                 DisplayForm = new Draw_Preview(textBox1.Text);
             } else {
@@ -159,9 +146,47 @@ namespace Advanced_Software_Engineering {
             DisplayForm.Focus();
         }
 
-        private void createNewInstance() {
-            new Text_Editor().Show();
+        public void CheckCode() {
+            Draw_Preview tmpDrawPreview = new Draw_Preview();
+            tmpDrawPreview.Hide();
+            tmpDrawPreview.SubmitCommands(textBox1.Text);
+            tmpDrawPreview.Close();
+            SettingsAndHelperFunctions.WindowClosed();
+            tmpDrawPreview.Dispose();
         }
+
+        private void handleExit(FormClosingEventArgs e) {
+            if (unsavedChanges) {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
+            }
+        }
+
+        private void DescribeCode() {
+            Draw_Preview tmpDrawPreview = new Draw_Preview();
+            tmpDrawPreview.Hide();
+            tmpDrawPreview.SubmitCommands(textBox1.Text);
+
+            string commandDesc = tmpDrawPreview.DescribeAllCommands();
+            Console.WriteLine(commandDesc);
+
+            tmpDrawPreview.Close();
+            SettingsAndHelperFunctions.WindowClosed();
+            tmpDrawPreview.Dispose();
+
+            new DetailsWindow(commandDesc, "Command explanation").Show();
+        }
+
+        private void Console_FormClosed(object sender, FormClosedEventArgs e) {
+            if (DisplayForm != null && !DisplayForm.IsDisposed) DisplayForm.ReleaseCommandLock();
+            SettingsAndHelperFunctions.WindowClosed();
+            Dispose();
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e) => RunCode();
+        
+
+        private void createNewInstance() => new Text_Editor().Show();
 
         private void handleKeypress(object sender, EventArgs e) => handleKeypress();
 
@@ -192,15 +217,22 @@ namespace Advanced_Software_Engineering {
             } else if (e.Control && e.KeyCode == Keys.O) {
                 openFile();
                 e.Handled = true;
+            } else if(e.KeyCode == Keys.F5) {
+                RunCode();
+                e.Handled = true;
+            } else if(e.KeyCode == Keys.F5 && e.Shift) {
+                CheckCode();
+                e.Handled = true;
+            } else if(e.KeyCode == Keys.F1 && e.Shift) {
+                DescribeCode();
+                e.Handled = true;
             }
         }
 
-        private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) {
-            Draw_Preview tmpDrawPreview = new Draw_Preview();
-            tmpDrawPreview.Hide();
-            tmpDrawPreview.SubmitCommands(textBox1.Text);
-            tmpDrawPreview.Close();
-            SettingsAndHelperFunctions.WindowClosed();
-        }
+        private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) => CheckCode();
+
+        private void describeToolStripMenuItem_Click(object sender, EventArgs e) => DescribeCode();
+
+        
     }
 }

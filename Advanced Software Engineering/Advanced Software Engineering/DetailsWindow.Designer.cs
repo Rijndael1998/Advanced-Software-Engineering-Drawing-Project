@@ -1,5 +1,5 @@
 ﻿namespace Advanced_Software_Engineering {
-    partial class ErrorDetailWindow {
+    partial class DetailsWindow {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -38,7 +38,7 @@
             this.textBox1.Size = new System.Drawing.Size(365, 405);
             this.textBox1.TabIndex = 0;
             // 
-            // ErrorDetailWindow
+            // DetailsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -47,8 +47,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ErrorDetailWindow";
-            this.Text = "Error Details";
+            this.Name = "DetailsWindow";
+            this.Text = "Details";
             this.ResumeLayout(false);
             this.PerformLayout();
 

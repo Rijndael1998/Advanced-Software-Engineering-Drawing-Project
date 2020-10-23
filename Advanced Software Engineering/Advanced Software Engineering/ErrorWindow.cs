@@ -55,7 +55,7 @@ namespace Advanced_Software_Engineering {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            new ErrorDetailWindow(desc).Show();
+            new DetailsWindow(desc).Show();
         }
     }
 }

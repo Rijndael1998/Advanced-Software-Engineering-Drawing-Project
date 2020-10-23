@@ -100,57 +100,58 @@ namespace Advanced_Software_Engineering
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.newFileToolStripMenuItem.Text = "New File";
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.newFileToolStripMenuItem.Text = "New File (Ctrl + N)";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.openToolStripMenuItem.Text = "Open (Ctrl + O)";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.saveToolStripMenuItem.Text = "Save (Ctrl + S)";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As (Ctrl + Shift + S)";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.exitToolStripMenuItem.Text = "Exit (Alt + F4)";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.runToolStripMenuItem.Text = "Run (F5)";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // checkSyntaxToolStripMenuItem
             // 
             this.checkSyntaxToolStripMenuItem.Name = "checkSyntaxToolStripMenuItem";
-            this.checkSyntaxToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.checkSyntaxToolStripMenuItem.Text = "Check Syntax";
+            this.checkSyntaxToolStripMenuItem.Size = new System.Drawing.Size(151, 20);
+            this.checkSyntaxToolStripMenuItem.Text = "Check Syntax (Shift + F5)";
             this.checkSyntaxToolStripMenuItem.Click += new System.EventHandler(this.checkSyntaxToolStripMenuItem_Click);
             // 
             // describeToolStripMenuItem
             // 
             this.describeToolStripMenuItem.Name = "describeToolStripMenuItem";
-            this.describeToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.describeToolStripMenuItem.Text = "Describe";
+            this.describeToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.describeToolStripMenuItem.Text = "Describe (Shift + F1)";
+            this.describeToolStripMenuItem.Click += new System.EventHandler(this.describeToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

@@ -78,5 +78,9 @@ namespace Advanced_Software_Engineering
             button1.Enabled = true;
         }
 
+        public string DescribeAllCommands() {
+            return commander.ExplainCommands();
+        }
+
     }
 }

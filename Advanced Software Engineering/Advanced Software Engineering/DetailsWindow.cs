@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
-    public partial class ErrorDetailWindow : Form {
-        public ErrorDetailWindow() {
+    public partial class DetailsWindow : Form {
+        public DetailsWindow() {
             InitializeComponent();
         }
 
-        public ErrorDetailWindow(string errorText) {
+        public DetailsWindow(string errorText) {
             InitializeComponent();
             textBox1.Text = errorText;
+        }
+
+        public DetailsWindow(string errorText, string title) {
+            InitializeComponent();
+            textBox1.Text = errorText;
+            Text = title;
         }
     }
 }
