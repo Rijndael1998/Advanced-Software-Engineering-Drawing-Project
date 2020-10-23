@@ -32,8 +32,12 @@ namespace Advanced_Software_Engineering {
         public Text_Editor(OpenFileDialog openFile) {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
+
             StreamReader fileStream = new StreamReader(openFile.OpenFile());
             textBox1.Text = fileStream.ReadToEnd();
+            unsavedChanges = false;
+            newWindow = false;
+            okToOverwrite = true;
             UpdateTitle(openFile.FileName);
         }
 
@@ -95,6 +99,7 @@ namespace Advanced_Software_Engineering {
         }
 
         private void handleKeypress() {
+            if (newWindow) newWindow = false;
             updateSaveStatus();
             updateRowCol();
         }
@@ -106,15 +111,7 @@ namespace Advanced_Software_Engineering {
             }
         }
 
-        private void handleExit(FormClosingEventArgs e) {
-            if (unsavedChanges) {
-                DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-                if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
-                else Close();
-            } else Close();
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void openFile() {
             DialogResult result = DialogResult.Yes;
 
             if (unsavedChanges) {
@@ -129,9 +126,18 @@ namespace Advanced_Software_Engineering {
                     if (newWindow) {
                         StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
                         textBox1.Text = fileStream.ReadToEnd();
+                        unsavedChanges = false;
+                        newWindow = false;
                         UpdateTitle(openFileDialog.FileName);
                     } else new Text_Editor(openFileDialog).Show();
                 }
+            }
+        }
+
+        private void handleExit(FormClosingEventArgs e) {
+            if (unsavedChanges) {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
             }
         }
 
@@ -153,6 +159,10 @@ namespace Advanced_Software_Engineering {
             DisplayForm.Focus();
         }
 
+        private void createNewInstance() {
+            new Text_Editor().Show();
+        }
+
         private void handleKeypress(object sender, EventArgs e) => handleKeypress();
 
         private void textBox1_Click(object sender, EventArgs e) => updateRowCol();
@@ -160,12 +170,37 @@ namespace Advanced_Software_Engineering {
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) => saveFileAs();
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) => saveFile();
 
-        private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => handleExit(e);
-
-        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) => new Text_Editor().Show();
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) => createNewInstance();
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new About_Window().Show();
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => handleExit(null);
+        private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => handleExit(e);
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) => openFile();
+
+        private void Text_Editor_PreviewKeyDown(object sender, KeyEventArgs e) {
+            //New window
+            if(e.Control && e.KeyCode == Keys.N) {
+                createNewInstance();
+                e.Handled = true;
+            } else if (e.Control && e.KeyCode == Keys.S) {
+                saveFile();
+                e.Handled = true;
+            } else if (e.Control && e.Shift && e.KeyCode == Keys.S) {
+                saveFileAs();
+                e.Handled = true;
+            } else if (e.Control && e.KeyCode == Keys.O) {
+                openFile();
+                e.Handled = true;
+            }
+        }
+
+        private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) {
+            Draw_Preview tmpDrawPreview = new Draw_Preview();
+            tmpDrawPreview.Hide();
+            tmpDrawPreview.SubmitCommands(textBox1.Text);
+            tmpDrawPreview.Close();
+            SettingsAndHelperFunctions.WindowClosed();
+        }
     }
 }
