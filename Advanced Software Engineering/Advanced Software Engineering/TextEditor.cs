@@ -26,6 +26,7 @@ namespace Advanced_Software_Engineering {
         public Text_Editor() {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
+            UpdateTitle();
         }
 
         public Text_Editor(OpenFileDialog openFile) {
@@ -42,8 +43,96 @@ namespace Advanced_Software_Engineering {
         }
 
         void UpdateTitle() {
-            this.Text = DefaultTitleString + " - " + fileName;
+            if (fileName != "") this.Text = DefaultTitleString + " - " + fileName;
+            else this.Text = DefaultTitleString;
             if (unsavedChanges) this.Text = "* " + this.Text + " *";
+        }
+
+        private void saveFile() {
+            if (!okToOverwrite) saveFileAs();
+            else {
+                StreamWriter fileStream = new StreamWriter(fileName);
+                try {
+                    fileStream.Write(textBox1.Text);
+                    unsavedChanges = false;
+                } catch (Exception e) {
+                    new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                } finally {
+                    fileStream.Close();
+                    UpdateTitle();
+                }
+            }
+        }
+
+        private void saveFileAs() {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.OverwritePrompt = true;
+            saveFileDialog.DefaultExt = ".txt";
+            if (fileName != "") saveFileDialog.FileName = fileName;
+            saveFileDialog.ValidateNames = true;
+
+            DialogResult dialogResult = saveFileDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK) {
+                StreamWriter fileStream = new StreamWriter(saveFileDialog.OpenFile());
+                try {
+                    fileStream.Write(textBox1.Text);
+                    unsavedChanges = false;
+                    okToOverwrite = true;
+                    fileName = saveFileDialog.FileName;
+                } catch (Exception e) {
+                    new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                } finally {
+                    fileStream.Close();
+                    UpdateTitle();
+                }
+            }
+        }
+
+        private void updateRowCol() {
+            int line = textBox1.GetLineFromCharIndex(textBox1.SelectionStart);
+            int column = textBox1.SelectionStart - textBox1.GetFirstCharIndexFromLine(line);
+            label1.Text = "row: " + line.ToString() + "   col: " + column.ToString();
+        }
+
+        private void handleKeypress() {
+            updateSaveStatus();
+            updateRowCol();
+        }
+
+        private void updateSaveStatus() {
+            if (!unsavedChanges) {
+                unsavedChanges = true;
+                UpdateTitle();
+            }
+        }
+
+        private void handleExit(FormClosingEventArgs e) {
+            if (unsavedChanges) {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
+                else Close();
+            } else Close();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+            DialogResult result = DialogResult.Yes;
+
+            if (unsavedChanges) {
+                result = MessageBox.Show("You have unsaved work. Would you like to discard your work and open a new file?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            }
+
+            if (result == DialogResult.Yes) {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK) {
+
+                    if (newWindow) {
+                        StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
+                        textBox1.Text = fileStream.ReadToEnd();
+                        UpdateTitle(openFileDialog.FileName);
+                    } else new Text_Editor(openFileDialog).Show();
+                }
+            }
         }
 
         private void Console_FormClosed(object sender, FormClosedEventArgs e) {
@@ -52,20 +141,8 @@ namespace Advanced_Software_Engineering {
             Dispose();
         }
 
-        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) {
-            new Text_Editor().Show();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
-            new About_Window().Show();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-            Close();
-        }
-
         private void runToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(DisplayForm == null || DisplayForm.IsDisposed) {
+            if (DisplayForm == null || DisplayForm.IsDisposed) {
                 DisplayForm = new Draw_Preview(textBox1.Text);
             } else {
                 Console.WriteLine("Removed all commands");
@@ -76,18 +153,19 @@ namespace Advanced_Software_Engineering {
             DisplayForm.Focus();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e) {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+        private void handleKeypress(object sender, EventArgs e) => handleKeypress();
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+        private void textBox1_Click(object sender, EventArgs e) => updateRowCol();
 
-                if (newWindow) {
-                    StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
-                    textBox1.Text = fileStream.ReadToEnd();
-                    UpdateTitle(openFileDialog.FileName);
-                } else new Text_Editor(openFileDialog).Show();
-            }
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) => saveFileAs();
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) => saveFile();
 
-        }
+        private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => handleExit(e);
+
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) => new Text_Editor().Show();
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new About_Window().Show();
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => handleExit(null);
+
     }
 }
