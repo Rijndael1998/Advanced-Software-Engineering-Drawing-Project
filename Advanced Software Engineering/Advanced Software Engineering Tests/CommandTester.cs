@@ -203,6 +203,15 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         [TestMethod]
+        public void ResetTester_Manual1() {
+            string input = "";
+            string[] inputParameters = { };
+            Verb verb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = verb.GetDescription();
+            string correctDesc = null; //undecided
+        }
+
+        [TestMethod]
         public void PenTester_Manual1() {
             string input = "";
             string[] inputParameters = { };
