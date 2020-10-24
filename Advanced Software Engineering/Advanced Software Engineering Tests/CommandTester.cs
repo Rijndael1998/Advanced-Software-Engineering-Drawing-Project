@@ -19,8 +19,8 @@ namespace Advanced_Software_Engineering_Tests {
                 {"lineto",      new int[] { 2 } },
                 {"shape",       new int[] { 2, 3 } },
 
-                {"square",      new int[] { 1, 2 } },
-                {"rectangle",   new int[] { 2, 3 } },
+                {"square",      new int[] { 1, 2, 8 } },
+                {"rectangle",   new int[] { 1, 2, 6 } },
                 {"circle",      new int[] { 1 } },
                 {"triangle",    new int[] { 1, 2 } },
                 {"dot",         new int[] { 0 } },
@@ -185,12 +185,78 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         [TestMethod]
+        public void SquareTester_Manual1() {
+            string input = "square 500";
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+
+            int sides = 4;
+            double scale = 500;
+            double offset = 0 * Math.PI / 180;
+            string correctDesc = "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        [TestMethod]
+        public void SquareTester_Manual2() {
+            string input = "square 500, 45";
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+
+            int sides = 4;
+            double scale = 500;
+            double offset = 45 * Math.PI / 180;
+            string correctDesc = "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        [TestMethod]
+        public void TriangleTester_Manual1() {
+            string input = "triangle 500";
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+
+            int sides = 3;
+            double scale = 500;
+            double offset = 0 * Math.PI / 180;
+            string correctDesc = "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        [TestMethod]
+        public void TriangleTester_Manual2() {
+            string input = "triangle 500, 45";
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+
+            int sides = 3;
+            double scale = 500;
+            double offset = 45 * Math.PI / 180;
+            string correctDesc = "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        [TestMethod]
         public void DotTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "dot";
+
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Dots the pen at pen position"; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -200,6 +266,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -209,6 +277,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -218,6 +288,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -227,6 +299,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -236,6 +310,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -244,7 +320,9 @@ namespace Advanced_Software_Engineering_Tests {
             string[] inputParameters = { };
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
+            string correctDesc = "Create a new method";
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
         [TestMethod]
@@ -254,6 +332,8 @@ namespace Advanced_Software_Engineering_Tests {
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = null; //undecided
+
+            Assert.AreEqual(correctDesc, verbDesc);
         }
 
     }

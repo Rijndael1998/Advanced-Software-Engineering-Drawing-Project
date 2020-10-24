@@ -13,6 +13,8 @@ namespace Advanced_Software_Engineering {
 
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
+            if (!commandAndParameters.Keys.Contains("command")) throw new Exception("There is no command to process");
+
             string command = commandAndParameters["command"][0];
             string[] parameters = commandAndParameters.Keys.Contains("parameters") ? commandAndParameters["parameters"] : new string[] { };
 
