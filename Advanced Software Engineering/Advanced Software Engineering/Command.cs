@@ -57,7 +57,7 @@ namespace Advanced_Software_Engineering {
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
                             );
                     }
-                    if (parameters.Length == 3) {
+                    else if (parameters.Length == 3) {
                         return new RegularPolygon(drawer,
                             SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1]),
@@ -65,10 +65,56 @@ namespace Advanced_Software_Engineering {
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "square":
+                    //Check parameters
+                    if (parameters.Length == 1) {
+                        return new
+                            Square(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            );
+                    }
+                    else if(parameters.Length == 2) {
+                        return new Square(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
                 case "rectangle":
+                    //Check parameters
+                    if (parameters.Length == 2) {
+                        return new Rectangle(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    }
+                    else if(parameters.Length == 4) {
+                        return new Rectangle(drawer,
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
                 case "circle":
+                    //Check parameters
+                    if (parameters.Length == 1) {
+                        return new
+                            Circle(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
                 case "triangle":
-
+                    //Check parameters
+                    if (parameters.Length == 1) {
+                        return new
+                            Triangle(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            );
+                    }
+                    else if(parameters.Length == 2) {
+                        return new 
+                            Triangle(drawer,
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
 
                 case "dot":
                 case "clear":
@@ -179,11 +225,11 @@ namespace Advanced_Software_Engineering {
 
         Verb verb;
 
-        Square(Drawer drawer, double scale) {
+        public Square(Drawer drawer, double scale) {
             verb = new RegularPolygon(drawer, 4, scale);
         }
 
-        Square(Drawer drawer, double scale, double offset) {
+        public Square(Drawer drawer, double scale, double offset) {
             verb = new RegularPolygon(drawer, 4, scale, offset);
         }
 
@@ -195,11 +241,11 @@ namespace Advanced_Software_Engineering {
     class Triangle : Verb {
         Verb verb;
 
-        Triangle(Drawer drawer, double scale) {
+        public Triangle(Drawer drawer, double scale) {
             verb = new RegularPolygon(drawer, 3, scale);
         }
 
-        Triangle(Drawer drawer, double scale, double offset) {
+        public Triangle(Drawer drawer, double scale, double offset) {
             verb = new RegularPolygon(drawer, 3, scale, offset);
         }
 
@@ -216,7 +262,7 @@ namespace Advanced_Software_Engineering {
         List<Point> points;
         bool correctForOrigin;
 
-        Rectangle(Drawer drawer, double width, double height, bool center = true) {
+        public Rectangle(Drawer drawer, double width, double height, bool center = true) {
             this.drawer = drawer;
             correctForOrigin = true;
 
@@ -232,7 +278,7 @@ namespace Advanced_Software_Engineering {
             foreach (PointF pointF in points) this.points.Add(new Point((int)Math.Round(pointF.X), (int)Math.Round(pointF.Y)));
         }
 
-        Rectangle(Drawer drawer, Point point1, Point point2) {
+        public Rectangle(Drawer drawer, Point point1, Point point2) {
             this.drawer = drawer;
 
             PointF[] points = new PointF[]

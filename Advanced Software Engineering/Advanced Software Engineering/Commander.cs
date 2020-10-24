@@ -73,8 +73,7 @@ namespace Advanced_Software_Engineering {
                         e.Message + Environment.NewLine + e.StackTrace,
                         ErrorWindow.ERROR_MESSAGE
                         ).Show();
-                }
-                catch(Exception windowError) {
+                } catch (Exception windowError) {
                     Console.WriteLine("Failed to display error window!");
                     throw windowError;
                 }
@@ -98,7 +97,7 @@ namespace Advanced_Software_Engineering {
 
         public string ExplainCommands() {
             string desc = "";
-            foreach(Verb command in commands) {
+            foreach (Verb command in commands) {
                 desc += command.GetDescription() + Environment.NewLine;
             }
             return desc;
@@ -175,7 +174,7 @@ namespace Advanced_Software_Engineering {
         }
 
         public void DrawCircle(double scale) {
-            graphics.DrawEllipse(pen, penPosition.X, penPosition.Y, (float)scale, (float)scale);
+            graphics.DrawEllipse(pen, penPosition.X - (float)(scale), penPosition.Y - (float)(scale), (float)scale*2, (float)scale*2);
         }
 
     }

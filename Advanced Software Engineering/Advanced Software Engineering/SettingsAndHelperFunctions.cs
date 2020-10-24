@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Forms;
 
@@ -81,6 +82,10 @@ namespace Advanced_Software_Engineering {
         public static double ConvertToDouble(string text) {
             text = Strip(text);
             return double.Parse(text);
+        }
+
+        public static Point ConvertToPoint(string text1, string text2) {
+            return new Point(ConvertToInt(text1), ConvertToInt(text2));
         }
 
         public static List<string> StripStringArray(string[] array) {
