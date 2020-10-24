@@ -230,7 +230,7 @@ namespace Advanced_Software_Engineering {
             } else if (e.KeyCode == Keys.F1 && e.Shift) {
                 DescribeCode();
                 e.Handled = true;
-            }
+            } 
         }
 
         private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) => CheckCode();

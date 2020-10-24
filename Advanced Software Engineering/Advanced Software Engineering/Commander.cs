@@ -165,7 +165,6 @@ namespace Advanced_Software_Engineering {
             path.AddLine(points[0], points.Last());
 
             DrawLines(path);
-
         }
 
         //Doesn't move pen
@@ -173,6 +172,10 @@ namespace Advanced_Software_Engineering {
             //path.Widen(pen);
             if (fill) graphics.FillPath(brush, path);
             graphics.DrawPath(pen, path);
+        }
+
+        public void DrawCircle(double scale) {
+            graphics.DrawEllipse(pen, penPosition.X, penPosition.Y, (float)scale, (float)scale);
         }
 
     }

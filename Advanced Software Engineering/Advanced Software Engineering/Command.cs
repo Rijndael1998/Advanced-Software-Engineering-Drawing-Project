@@ -3,6 +3,9 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Advanced_Software_Engineering {
     public class VerbFactory {
@@ -128,34 +131,6 @@ namespace Advanced_Software_Engineering {
         }
     }
 
-    abstract class Shape : Verb {
-        protected Drawer drawer;
-        protected Point[] vertices;
-        private List<Verb> lineVerbs;
-
-
-        Shape(Drawer drawer, Point[] vertices) {
-            //Throw exceptions if impossible to create Spape Verb
-            switch (vertices.Length) {
-                case 0:
-                    throw new Exception("Cannot create shape with no vertices.");
-                case 1:
-                    throw new Exception("Cannot create shape with only one vertex. Are you thinking of 'dot'?");
-                case 2:
-                    throw new Exception("Cannot create shape with only two verticies. Are you thinking of 'drawto'/'moveto'/'line'?");
-            }
-
-            //TODO
-
-        }
-
-        public void ExecuteVerb() {
-            foreach (Verb verb in lineVerbs) verb.ExecuteVerb();
-        }
-
-        public abstract string GetDescription();
-    }
-
     /// <summary>
     /// A class that generates a RegularPolygon verb. 
     /// </summary>
@@ -197,6 +172,107 @@ namespace Advanced_Software_Engineering {
 
         public string GetDescription() {
             return "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
+        }
+    }
+
+    class Square : Verb {
+
+        Verb verb;
+
+        Square(Drawer drawer, double scale) {
+            verb = new RegularPolygon(drawer, 4, scale);
+        }
+
+        Square(Drawer drawer, double scale, double offset) {
+            verb = new RegularPolygon(drawer, 4, scale, offset);
+        }
+
+        public void ExecuteVerb() => verb.ExecuteVerb();
+
+        public string GetDescription() => verb.GetDescription();
+    }
+
+    class Triangle : Verb {
+        Verb verb;
+
+        Triangle(Drawer drawer, double scale) {
+            verb = new RegularPolygon(drawer, 3, scale);
+        }
+
+        Triangle(Drawer drawer, double scale, double offset) {
+            verb = new RegularPolygon(drawer, 3, scale, offset);
+        }
+
+        public void ExecuteVerb() => verb.ExecuteVerb();
+
+        public string GetDescription() => verb.GetDescription();
+    }
+
+    //TODO: correct
+    class Rectangle : Verb {
+        Verb verb;
+
+        Drawer drawer;
+        List<Point> points;
+        bool correctForOrigin;
+
+        Rectangle(Drawer drawer, double width, double height, bool center = true) {
+            this.drawer = drawer;
+            correctForOrigin = true;
+
+            PointF[] points = new PointF[] 
+            { 
+                new PointF((float) -width,    (float) -height),
+                new PointF((float) width,     (float) -height),
+                new PointF((float) width,     (float) height),
+                new PointF((float) -width,    (float) height)
+            };
+
+            this.points = new List<Point>();
+            foreach (PointF pointF in points) this.points.Add(new Point((int)Math.Round(pointF.X), (int)Math.Round(pointF.Y)));
+        }
+
+        Rectangle(Drawer drawer, Point point1, Point point2) {
+            this.drawer = drawer;
+
+            PointF[] points = new PointF[]
+            {
+                new PointF((float) point1.X,    (float) point1.Y),
+                new PointF((float) point1.X,    (float) point2.Y),
+                new PointF((float) point2.X,    (float) point2.Y),
+                new PointF((float) point2.X,    (float) point1.Y)
+            };
+
+            this.points = new List<Point>();
+            foreach (PointF pointF in points) this.points.Add(new Point((int)Math.Round(pointF.X), (int)Math.Round(pointF.Y)));
+
+            correctForOrigin = false;
+
+        }
+
+        public string GetDescription() {
+            return "";
+        }
+
+        public void ExecuteVerb() => drawer.DrawLines(points.ToArray());
+        
+    }
+
+    class Circle : Verb {
+        Drawer drawer;
+        double scale;
+
+        public Circle(Drawer drawer, double scale) {
+            this.drawer = drawer;
+            this.scale = scale;
+        }
+
+        public void ExecuteVerb() {
+            drawer.DrawCircle(scale);
+        }
+
+        public string GetDescription() {
+            return "Draws a circle radius" + scale.ToString() + ", with origin of the pen";
         }
     }
 
