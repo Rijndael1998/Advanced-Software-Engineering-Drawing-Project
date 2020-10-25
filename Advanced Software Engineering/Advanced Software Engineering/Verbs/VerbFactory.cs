@@ -144,8 +144,11 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception("Command doesn't take parameters");
 
                 case "pen":
+                    if(parameters.Length == 1) {
+                        return new PenColor(drawer, Value.TextToColor(parameters[0]));
+                    } else throw new Exception("Command has an incorrect number of parameters");
                 case "fill":
-                    throw new Exception("Not implemented");
+                    
 
                 default:
                     throw new Exception("Command not found");
