@@ -75,6 +75,7 @@
     <Compile Include="Verbs\DrawingVerbs\RegularPolygon.cs" />
     <Compile Include="Verbs\DrawingVerbs\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
+    <Compile Include="Verbs\Value.cs" />
     <Compile Include="Verbs\Verb.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>

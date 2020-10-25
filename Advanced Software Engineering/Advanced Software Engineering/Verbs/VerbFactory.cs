@@ -24,8 +24,8 @@ namespace Advanced_Software_Engineering {
                     //Check parameters
                     if (parameters.Length == 2) {
                         return new MoveTo(drawer,
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
+                            Value.ConvertToInt(parameters[0]),
+                            Value.ConvertToInt(parameters[1]));
 
                     } else throw new Exception("Command has an incorrect number of parameters");
 
@@ -36,8 +36,8 @@ namespace Advanced_Software_Engineering {
                     if (parameters.Length == 2) {
                         return new
                             DrawTo(drawer,
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
+                            Value.ConvertToInt(parameters[0]),
+                            Value.ConvertToInt(parameters[1]));
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "regularpolygon":
                 case "rp":
@@ -45,14 +45,14 @@ namespace Advanced_Software_Engineering {
                     if (parameters.Length == 2) {
                         return new
                             RegularPolygon(drawer,
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            Value.ConvertToInt(parameters[0]),
+                            Value.ConvertToDouble(parameters[1])
                             );
                     } else if (parameters.Length == 3) {
                         return new RegularPolygon(drawer,
-                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[2])
+                            Value.ConvertToInt(parameters[0]),
+                            Value.ConvertToDouble(parameters[1]),
+                            Value.ConvertToDouble(parameters[2])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "square":
@@ -60,42 +60,42 @@ namespace Advanced_Software_Engineering {
                     if (parameters.Length == 1) {
                         return new
                             Square(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            Value.ConvertToDouble(parameters[0])
                             );
                     } else if (parameters.Length == 2) {
                         return new Square(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            Value.ConvertToDouble(parameters[0]),
+                            Value.ConvertToDouble(parameters[1])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "quadrilateral":
                     //Check parameters
                     if (parameters.Length == 8) {
                         return new Quadrilateral(drawer,
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[6], parameters[7])
+                            Value.ConvertToPoint(parameters[0], parameters[1]),
+                            Value.ConvertToPoint(parameters[2], parameters[3]),
+                            Value.ConvertToPoint(parameters[4], parameters[5]),
+                            Value.ConvertToPoint(parameters[6], parameters[7])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "rectangle":
                     //Check parameters
                     if (parameters.Length == 2) {
                         return new Rectangle(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            Value.ConvertToDouble(parameters[0]),
+                            Value.ConvertToDouble(parameters[1])
                             );
                     } else if (parameters.Length == 8) {
                         return new Quadrilateral(drawer,
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[6], parameters[7])
+                            Value.ConvertToPoint(parameters[0], parameters[1]),
+                            Value.ConvertToPoint(parameters[2], parameters[3]),
+                            Value.ConvertToPoint(parameters[4], parameters[5]),
+                            Value.ConvertToPoint(parameters[6], parameters[7])
                             );
                     } else if (parameters.Length == 4) {
                         return new Rectangle(drawer,
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3])
+                            Value.ConvertToPoint(parameters[0], parameters[1]),
+                            Value.ConvertToPoint(parameters[2], parameters[3])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "circle":
@@ -103,7 +103,7 @@ namespace Advanced_Software_Engineering {
                     if (parameters.Length == 1) {
                         return new
                             Circle(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            Value.ConvertToDouble(parameters[0])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "triangle":
@@ -111,19 +111,19 @@ namespace Advanced_Software_Engineering {
                     if (parameters.Length == 1) {
                         return new
                             Triangle(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
+                            Value.ConvertToDouble(parameters[0])
                             );
                     } else if (parameters.Length == 2) {
                         return new
                             Triangle(drawer,
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
-                            SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            Value.ConvertToDouble(parameters[0]),
+                            Value.ConvertToDouble(parameters[1])
                             );
                     } else if (parameters.Length == 6) {
                         return new Triangle(drawer,
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
-                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5])
+                            Value.ConvertToPoint(parameters[0], parameters[1]),
+                            Value.ConvertToPoint(parameters[2], parameters[3]),
+                            Value.ConvertToPoint(parameters[4], parameters[5])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
 
