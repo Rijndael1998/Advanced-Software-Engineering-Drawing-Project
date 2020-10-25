@@ -83,5 +83,8 @@ namespace Advanced_Software_Engineering {
             graphics.Clear(Color.White);
         }
 
+        public void DrawDot() {
+            graphics.FillRectangle(new SolidBrush(pen.Color), penPosition.X, penPosition.Y, 1, 1);
+        }
     }
 }
