@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="Commander.cs" />
+    <Compile Include="Drawer.cs" />
     <Compile Include="DrawPreview.cs">
       <SubType>Form</SubType>
     </Compile>
