@@ -159,6 +159,7 @@ namespace Advanced_Software_Engineering {
             Draw_Preview tmpDrawPreview = new Draw_Preview();
             tmpDrawPreview.Hide();
             tmpDrawPreview.SubmitCommands(textBox1.Text);
+            if (tmpDrawPreview.IsSuccess()) new ErrorWindow("No errors", "No errors found in the program", "There have been no errors found", ErrorWindow.INFO_MESSAGE).Show();
             tmpDrawPreview.Close();
             SettingsAndHelperFunctions.WindowClosed();
             tmpDrawPreview.Dispose();
