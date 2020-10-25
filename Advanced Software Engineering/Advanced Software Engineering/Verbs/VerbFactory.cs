@@ -145,6 +145,16 @@ namespace Advanced_Software_Engineering {
                         return new ResetPen(drawer);
                     } else throw new Exception("Command doesn't take parameters");
 
+                case "fillon":
+                    if (parameters.Length == 0) {
+                        return new Fill(drawer, true);
+                    } else throw new Exception("Command doesn't take parameters");
+
+                case "filloff":
+                    if (parameters.Length == 0) {
+                        return new Fill(drawer, false);
+                    } else throw new Exception("Command doesn't take parameters");
+
                 case "pen":
                     if (parameters.Length == 1) {
                         return new PenColor(drawer, Value.TextToColor(parameters[0]));
