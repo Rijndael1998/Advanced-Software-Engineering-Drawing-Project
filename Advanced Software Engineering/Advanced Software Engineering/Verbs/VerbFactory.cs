@@ -128,10 +128,20 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception("Command has an incorrect number of parameters");
 
                 case "dot":
+                    if (parameters.Length == 0) {
+                        return new Dot(drawer);
+                    } else throw new Exception("Command doesn't take parameters");
+
+                    
                 case "clear":
-                    return new Clear(drawer);
+                    if (parameters.Length == 0) {
+                        return new Clear(drawer);
+                    } else throw new Exception("Command doesn't take parameters");
+                    
                 case "reset":
-                    return new ResetPen(drawer);
+                    if (parameters.Length == 0) {
+                        return new ResetPen(drawer);
+                    } else throw new Exception("Command doesn't take parameters");
 
                 case "pen":
                 case "fill":
