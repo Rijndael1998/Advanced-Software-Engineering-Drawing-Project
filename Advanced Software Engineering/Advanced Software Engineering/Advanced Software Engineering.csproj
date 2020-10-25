@@ -82,7 +82,7 @@
     <Compile Include="Windows\AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Command.cs" />
+    <Compile Include="Verbs\VerbFactory.cs" />
     <Compile Include="Commander.cs" />
     <Compile Include="Drawer.cs" />
     <Compile Include="Windows\DrawPreview.cs">

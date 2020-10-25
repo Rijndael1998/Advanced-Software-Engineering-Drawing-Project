@@ -84,6 +84,7 @@ namespace Advanced_Software_Engineering {
             return double.Parse(text);
         }
 
+        //TODO: Make unit tests for this function
         public static Point ConvertToPoint(string text1, string text2) {
             return new Point(ConvertToInt(text1), ConvertToInt(text2));
         }

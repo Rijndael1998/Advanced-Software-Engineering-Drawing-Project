@@ -139,13 +139,4 @@ namespace Advanced_Software_Engineering {
 
         }
     }
-
-    abstract class Value {
-
-    }
-
-    class FlowControl //: Verb //This one will help us in part 2
-    {
-
-    }
 }
