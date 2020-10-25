@@ -66,6 +66,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Verbs\DrawingVerbs\Circle.cs" />
+    <Compile Include="Verbs\DrawingVerbs\DrawLines.cs" />
+    <Compile Include="Verbs\DrawingVerbs\DrawTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\MoveTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Quadrilateral.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Rectangle.cs" />
+    <Compile Include="Verbs\DrawingVerbs\RegularPolygon.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Square.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
+    <Compile Include="Verbs\Verb.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
