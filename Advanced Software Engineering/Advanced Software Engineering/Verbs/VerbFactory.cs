@@ -132,24 +132,58 @@ namespace Advanced_Software_Engineering {
                         return new Dot(drawer);
                     } else throw new Exception("Command doesn't take parameters");
 
-                    
+
                 case "clear":
                     if (parameters.Length == 0) {
                         return new Clear(drawer);
                     } else throw new Exception("Command doesn't take parameters");
-                    
+
                 case "reset":
                     if (parameters.Length == 0) {
                         return new ResetPen(drawer);
                     } else throw new Exception("Command doesn't take parameters");
 
                 case "pen":
-                    if(parameters.Length == 1) {
+                    if (parameters.Length == 1) {
                         return new PenColor(drawer, Value.TextToColor(parameters[0]));
+                    } else if (parameters.Length == 3) {
+                        return new PenColor(drawer,
+                            Value.IntsToColor(
+                                Value.ConvertToInt(parameters[0]),
+                                Value.ConvertToInt(parameters[1]),
+                                Value.ConvertToInt(parameters[2])
+                                )
+                            );
+                    } else if (parameters.Length == 4) {
+                        return new PenColor(drawer,
+                            Value.IntsToColor(
+                                Value.ConvertToInt(parameters[0]),
+                                Value.ConvertToInt(parameters[1]),
+                                Value.ConvertToInt(parameters[2]),
+                                Value.ConvertToInt(parameters[3])
+                                )
+                            );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "fill":
-                    if(parameters.Length == 1) {
+                    if (parameters.Length == 1) {
                         return new FillColor(drawer, Value.TextToColor(parameters[0]));
+                    } else if (parameters.Length == 3) {
+                        return new FillColor(drawer,
+                            Value.IntsToColor(
+                                Value.ConvertToInt(parameters[0]),
+                                Value.ConvertToInt(parameters[1]),
+                                Value.ConvertToInt(parameters[2])
+                                )
+                            );
+                    } else if (parameters.Length == 4) {
+                        return new FillColor(drawer,
+                            Value.IntsToColor(
+                                Value.ConvertToInt(parameters[0]),
+                                Value.ConvertToInt(parameters[1]),
+                                Value.ConvertToInt(parameters[2]),
+                                Value.ConvertToInt(parameters[3])
+                                )
+                            );
                     } else throw new Exception("Command has an incorrect number of parameters");
 
                 default:
