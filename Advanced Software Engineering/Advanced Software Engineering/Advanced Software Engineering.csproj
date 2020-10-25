@@ -71,6 +71,7 @@
     <Compile Include="Verbs\DrawingVerbs\Dot.cs" />
     <Compile Include="Verbs\DrawingVerbs\DrawLines.cs" />
     <Compile Include="Verbs\DrawingVerbs\DrawTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\FillColor.cs" />
     <Compile Include="Verbs\DrawingVerbs\MoveTo.cs" />
     <Compile Include="Verbs\DrawingVerbs\PenColor.cs" />
     <Compile Include="Verbs\DrawingVerbs\Quadrilateral.cs" />

@@ -43,42 +43,42 @@ namespace Advanced_Software_Engineering {
         }
 
         public void ProcessCommands(string rawCommands) {
-            try {
-                //ignore case
-                rawCommands = rawCommands.ToLower();
-                Console.WriteLine("Processing:\n" + rawCommands);
+            //ignore case
+            rawCommands = rawCommands.ToLower();
+            Console.WriteLine("Processing:\n" + rawCommands);
 
-                //isolate commands
-                string[] commands = rawCommands.Split(Environment.NewLine.ToCharArray());
+            //remove windows \r if they exist
+            rawCommands = rawCommands.Replace("\r", "");
 
-                Console.WriteLine("\nThe rawCommand processed:");
-                foreach (string rawCommand in commands) {
-                    if (rawCommand == "") continue;
-                    AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
-                    Console.WriteLine(rawCommand);
-                }
+            //isolate commands
+            string[] commands = rawCommands.Split("\n"[0]);
 
-                Console.WriteLine("\n\nHere is what the program is going to do:");
-                Console.WriteLine("Set origin to 0, 0");
-                foreach (Verb verb in this.commands) {
-                    Console.WriteLine(verb.GetDescription());
-                }
-            } catch (Exception e) {
-                Console.WriteLine("Error: Unknown error.");
+            Console.WriteLine("\nThe rawCommand processed:");
+            int lineNumber = 0;
+            bool failed = false;
+            foreach (string rawCommand in commands) {
+                lineNumber++;
+                if (rawCommand == "") continue;
 
                 try {
-                    new ErrorWindow(
-                        "Unexpected error parsing commands",
-                        "The program phraser has encountered an undexpected error." + Environment.NewLine,
-                        e.Message + Environment.NewLine + e.StackTrace,
-                        ErrorWindow.ERROR_MESSAGE
-                        ).Show();
-                } catch (Exception windowError) {
-                    Console.WriteLine("Failed to display error window!");
-                    throw windowError;
+                    AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
+                    Console.WriteLine(rawCommand);
+                } catch (Exception e) {
+                    Console.WriteLine("Error!");
+                    new ErrorWindow(e.Message, e.Message + " at line " + lineNumber, "While trying to process '" + rawCommand + "' an exception occured.\nMessage:\n" + e.Message + "\nStack Trace:\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                    failed = true;
+                    break;
                 }
-                RemoveAllCommands();
             }
+
+            if (failed) RemoveAllCommands();
+
+            Console.WriteLine("\n\nHere is what the program is going to do:");
+            Console.WriteLine("Set origin to 0, 0");
+            foreach (Verb verb in this.commands) {
+                Console.WriteLine(verb.GetDescription());
+            }
+
         }
 
         public void ProcessCommandsAndExecute(string rawCommands) {
