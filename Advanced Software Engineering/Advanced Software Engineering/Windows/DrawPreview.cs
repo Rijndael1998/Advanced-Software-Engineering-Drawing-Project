@@ -31,7 +31,7 @@ namespace Advanced_Software_Engineering
             commander = new Commander(graphics);
         }
 
-        public Draw_Preview(String commands) {
+        public Draw_Preview(string commands) {
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
@@ -80,6 +80,10 @@ namespace Advanced_Software_Engineering
 
         public string DescribeAllCommands() {
             return commander.ExplainCommands();
+        }
+
+        public bool IsSuccess() {
+            return commander.GetNumberOfCommands() > 0;
         }
 
     }

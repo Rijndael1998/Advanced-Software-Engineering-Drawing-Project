@@ -103,6 +103,10 @@ namespace Advanced_Software_Engineering {
             return desc;
         }
 
+        public int GetNumberOfCommands() {
+            return commands.Count;
+        }
+
     }
 
 }

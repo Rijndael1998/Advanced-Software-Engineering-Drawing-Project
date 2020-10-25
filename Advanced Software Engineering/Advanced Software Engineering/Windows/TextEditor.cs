@@ -148,8 +148,11 @@ namespace Advanced_Software_Engineering {
                 DisplayForm.RemoveAllCommands();
                 DisplayForm.SubmitCommands(textBox1.Text);
             }
-            DisplayForm.Show();
-            DisplayForm.Focus();
+
+            if (DisplayForm.IsSuccess()) {
+                DisplayForm.Show();
+                DisplayForm.Focus();
+            }
         }
 
         public void CheckCode() {
