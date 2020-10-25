@@ -3,6 +3,7 @@ using Advanced_Software_Engineering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Advanced_Software_Engineering.Verbs;
 
 namespace Advanced_Software_Engineering_Tests {
     [TestClass]
@@ -52,7 +53,7 @@ namespace Advanced_Software_Engineering_Tests {
                 int expected = rand.Next(int.MinValue, int.MaxValue);
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, SettingsAndHelperFunctions.ConvertToInt(input));
+                Assert.AreEqual(expected, Value.ConvertToInt(input));
             }
         }
 
@@ -62,7 +63,7 @@ namespace Advanced_Software_Engineering_Tests {
                 double expected = rand.NextDouble();
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, SettingsAndHelperFunctions.ConvertToDouble(input));
+                Assert.AreEqual(expected, Value.ConvertToDouble(input));
             }
         }
 
@@ -72,7 +73,7 @@ namespace Advanced_Software_Engineering_Tests {
                 double expected = rand.Next(100, 100) * rand.NextDouble();
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, SettingsAndHelperFunctions.ConvertToDouble(input));
+                Assert.AreEqual(expected, Value.ConvertToDouble(input));
             }
         }
 
@@ -82,7 +83,7 @@ namespace Advanced_Software_Engineering_Tests {
                 int expected = rand.Next(100, 100);
                 string input = ((double)expected).ToString();
 
-                Assert.AreEqual((double)expected, SettingsAndHelperFunctions.ConvertToDouble(input));
+                Assert.AreEqual((double)expected, Value.ConvertToDouble(input));
             }
         }
 

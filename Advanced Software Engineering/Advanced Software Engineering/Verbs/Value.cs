@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Advanced_Software_Engineering {
-    class Value {
+namespace Advanced_Software_Engineering.Verbs {
+    public class Value {
         public static int ConvertToInt(string text) {
             text = SettingsAndHelperFunctions.Strip(text);
             return int.Parse(text);
