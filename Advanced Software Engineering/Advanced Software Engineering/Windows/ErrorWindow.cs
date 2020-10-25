@@ -48,6 +48,20 @@ namespace Advanced_Software_Engineering {
         protected void SetPicture(int type) {
             pictureBox1.Image = IMAGEDIR[type];
             pictureBox1.Refresh();
+
+            switch(type) {
+                case ERROR_MESSAGE:
+                    groupBox1.Text = "Error";
+                    break;
+
+                case WARNING_MESSAGE:
+                    groupBox1.Text = "Warning";
+                    break;
+
+                case INFO_MESSAGE:
+                    groupBox1.Text = "Info";
+                    break;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -56,6 +70,10 @@ namespace Advanced_Software_Engineering {
 
         private void button2_Click(object sender, EventArgs e) {
             new DetailsWindow(desc).Show();
+        }
+
+        private void ErrorWindow_Load(object sender, EventArgs e) {
+
         }
     }
 }
