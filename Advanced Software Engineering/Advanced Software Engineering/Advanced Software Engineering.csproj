@@ -66,64 +66,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutWindow.cs">
+    <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutWindow.Designer.cs">
+    <Compile Include="Windows\AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="Commander.cs" />
     <Compile Include="Drawer.cs" />
-    <Compile Include="DrawPreview.cs">
+    <Compile Include="Windows\DrawPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DrawPreview.Designer.cs">
+    <Compile Include="Windows\DrawPreview.Designer.cs">
       <DependentUpon>DrawPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailsWindow.cs">
+    <Compile Include="Windows\DetailsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetailsWindow.Designer.cs">
+    <Compile Include="Windows\DetailsWindow.Designer.cs">
       <DependentUpon>DetailsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorWindow.cs">
+    <Compile Include="Windows\ErrorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ErrorWindow.Designer.cs">
+    <Compile Include="Windows\ErrorWindow.Designer.cs">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextEditor.cs">
+    <Compile Include="Windows\TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TextEditor.Designer.cs">
+    <Compile Include="Windows\TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsAndHelperFunctions.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="Windows\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Windows\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutWindow.resx">
+    <EmbeddedResource Include="Windows\AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DrawPreview.resx">
+    <EmbeddedResource Include="Windows\DrawPreview.resx">
       <DependentUpon>DrawPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetailsWindow.resx">
+    <EmbeddedResource Include="Windows\DetailsWindow.resx">
       <DependentUpon>DetailsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ErrorWindow.resx">
+    <EmbeddedResource Include="Windows\ErrorWindow.resx">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TextEditor.resx">
+    <EmbeddedResource Include="Windows\TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Windows\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
