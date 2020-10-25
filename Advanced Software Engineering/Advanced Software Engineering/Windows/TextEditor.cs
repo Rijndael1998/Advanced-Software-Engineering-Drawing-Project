@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,6 +103,8 @@ namespace Advanced_Software_Engineering {
         private void updateRowCol() {
             int line = textBox1.GetLineFromCharIndex(textBox1.SelectionStart);
             int column = textBox1.SelectionStart - textBox1.GetFirstCharIndexFromLine(line);
+            line++;
+            column++;
             label1.Text = "row: " + line.ToString() + "   col: " + column.ToString();
         }
 
