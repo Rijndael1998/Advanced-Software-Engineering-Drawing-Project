@@ -70,6 +70,7 @@ namespace Advanced_Software_Engineering
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.handleKeypress);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_Editor_PreviewKeyDown);
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // menuStrip1
             // 

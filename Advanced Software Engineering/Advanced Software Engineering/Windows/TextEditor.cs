@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -232,7 +232,9 @@ namespace Advanced_Software_Engineering {
             } else if (e.KeyCode == Keys.F1 && e.Shift) {
                 DescribeCode();
                 e.Handled = true;
-            } 
+            } else {
+                updateRowCol();
+            }
         }
 
         private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) => CheckCode();
@@ -243,5 +245,7 @@ namespace Advanced_Software_Engineering {
             updateRowCol();
             timer1.Stop();
         }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e) => updateRowCol();
     }
 }
