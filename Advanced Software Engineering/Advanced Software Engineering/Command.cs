@@ -23,15 +23,10 @@ namespace Advanced_Software_Engineering {
                 case "moveto":
                     //Check parameters
                     if (parameters.Length == 2) {
-                        try {
-                            return new
-                                MoveTo(drawer,
-                                SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                                SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
+                        return new MoveTo(drawer,
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
 
-                        } catch (Exception e) {
-                            throw e;
-                        }
                     } else throw new Exception("Command has an incorrect number of parameters");
 
                 case "drawto":
@@ -39,15 +34,10 @@ namespace Advanced_Software_Engineering {
                 case "lineto":
                     //Check parameters
                     if (parameters.Length == 2) {
-                        try {
-                            return new
-                                DrawTo(drawer,
-                                SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
-                                SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
-
-                        } catch (Exception e) {
-                            throw e;
-                        }
+                        return new
+                            DrawTo(drawer,
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
+                            SettingsAndHelperFunctions.ConvertToInt(parameters[1]));
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "regularpolygon":
                 case "rp":
@@ -58,8 +48,7 @@ namespace Advanced_Software_Engineering {
                             SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
                             );
-                    }
-                    else if (parameters.Length == 3) {
+                    } else if (parameters.Length == 3) {
                         return new RegularPolygon(drawer,
                             SettingsAndHelperFunctions.ConvertToInt(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1]),
@@ -73,11 +62,20 @@ namespace Advanced_Software_Engineering {
                             Square(drawer,
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
                             );
-                    }
-                    else if(parameters.Length == 2) {
+                    } else if (parameters.Length == 2) {
                         return new Square(drawer,
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    } else throw new Exception("Command has an incorrect number of parameters");
+                case "quadrilateral":
+                    //Check parameters
+                    if (parameters.Length == 8) {
+                        return new Quadrilateral(drawer,
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[6], parameters[7])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "rectangle":
@@ -87,8 +85,14 @@ namespace Advanced_Software_Engineering {
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
                             );
-                    }
-                    else if(parameters.Length == 4) {
+                    } else if (parameters.Length == 8) {
+                        return new Quadrilateral(drawer,
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[6], parameters[7])
+                            );
+                    } else if (parameters.Length == 4) {
                         return new Rectangle(drawer,
                             SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
                             SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3])
@@ -109,12 +113,17 @@ namespace Advanced_Software_Engineering {
                             Triangle(drawer,
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[0])
                             );
-                    }
-                    else if(parameters.Length == 2) {
-                        return new 
+                    } else if (parameters.Length == 2) {
+                        return new
                             Triangle(drawer,
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[0]),
                             SettingsAndHelperFunctions.ConvertToDouble(parameters[1])
+                            );
+                    } else if (parameters.Length == 6) {
+                        return new Triangle(drawer,
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[0], parameters[1]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[2], parameters[3]),
+                            SettingsAndHelperFunctions.ConvertToPoint(parameters[4], parameters[5])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
 
@@ -240,6 +249,21 @@ namespace Advanced_Software_Engineering {
         public string GetDescription() => verb.GetDescription();
     }
 
+    class Quadrilateral : Verb {
+        Verb verb;
+
+        bool descCreated = false;
+        string desc;
+
+        public Quadrilateral(Drawer drawer, Point point1, Point point2, Point point3, Point point4) {
+            verb = new DrawLines(drawer, new Point[] { point1, point2, point3, point4 });
+        }
+
+        public void ExecuteVerb() => verb.ExecuteVerb();
+
+        public string GetDescription() => verb.GetDescription();
+    }
+
     class Triangle : Verb {
         Verb verb;
 
@@ -249,6 +273,10 @@ namespace Advanced_Software_Engineering {
 
         public Triangle(Drawer drawer, double scale, double offset) {
             verb = new RegularPolygon(drawer, 3, scale, offset);
+        }
+
+        public Triangle(Drawer drawer, Point point1, Point point2, Point point3) {
+            verb = new DrawLines(drawer, new Point[] { point1, point2, point3 });
         }
 
         public void ExecuteVerb() => verb.ExecuteVerb();
@@ -268,8 +296,8 @@ namespace Advanced_Software_Engineering {
             this.drawer = drawer;
             correctForOrigin = true;
 
-            PointF[] points = new PointF[] 
-            { 
+            PointF[] points = new PointF[]
+            {
                 new PointF((float) -width,    (float) -height),
                 new PointF((float) width,     (float) -height),
                 new PointF((float) width,     (float) height),
@@ -303,7 +331,7 @@ namespace Advanced_Software_Engineering {
         }
 
         public void ExecuteVerb() => drawer.DrawLines(points.ToArray());
-        
+
     }
 
     class Circle : Verb {
@@ -320,7 +348,35 @@ namespace Advanced_Software_Engineering {
         }
 
         public string GetDescription() {
-            return "Draws a circle radius" + scale.ToString() + ", with origin of the pen";
+            return "Draws a circle radius " + scale.ToString() + ", with origin of the pen";
+        }
+    }
+
+    class DrawLines : Verb {
+        Drawer drawer;
+        Point[] points;
+
+        bool descCreated = false;
+        string desc;
+
+        public DrawLines(Drawer drawer, Point[] points) {
+            this.drawer = drawer;
+            this.points = points;
+        }
+
+        public void ExecuteVerb() {
+            drawer.DrawLines(points);
+        }
+
+        public string GetDescription() {
+            if (!descCreated) {
+                desc = "Draws a shape at points: ";
+
+                foreach (Point point in points) {
+                    desc += point.X + ", " + point.Y + "\n";
+                }
+            }
+            return desc;
         }
     }
 
