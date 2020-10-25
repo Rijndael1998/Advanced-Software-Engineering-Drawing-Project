@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Advanced_Software_Engineering {
+namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     public class DrawTo : Verb {
         protected Drawer drawer;
         protected Point moveToPoint;

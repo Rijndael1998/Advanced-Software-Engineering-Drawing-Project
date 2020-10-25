@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Advanced_Software_Engineering.Verbs.DrawingVerbs;
 
 namespace Advanced_Software_Engineering {
     public class VerbFactory {
@@ -81,7 +82,7 @@ namespace Advanced_Software_Engineering {
                 case "rectangle":
                     //Check parameters
                     if (parameters.Length == 2) {
-                        return new Rectangle(drawer,
+                        return new Advanced_Software_Engineering.Verbs.DrawingVerbs.Rectangle(drawer,
                             Value.ConvertToDouble(parameters[0]),
                             Value.ConvertToDouble(parameters[1])
                             );
@@ -93,7 +94,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToPoint(parameters[6], parameters[7])
                             );
                     } else if (parameters.Length == 4) {
-                        return new Rectangle(drawer,
+                        return new Advanced_Software_Engineering.Verbs.DrawingVerbs.Rectangle(drawer,
                             Value.ConvertToPoint(parameters[0], parameters[1]),
                             Value.ConvertToPoint(parameters[2], parameters[3])
                             );
