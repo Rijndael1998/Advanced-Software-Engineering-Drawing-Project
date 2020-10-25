@@ -189,7 +189,7 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception("Command has an incorrect number of parameters");
 
                 default:
-                    throw new Exception("Command not found");
+                    throw new Exception("Unknown command");
             }
 
         }
