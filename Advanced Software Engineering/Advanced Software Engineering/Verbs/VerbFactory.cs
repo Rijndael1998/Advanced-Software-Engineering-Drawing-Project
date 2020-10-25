@@ -129,6 +129,7 @@ namespace Advanced_Software_Engineering {
 
                 case "dot":
                 case "clear":
+                    return new Clear(drawer);
                 case "pen":
                 case "fill":
                     throw new Exception("Not implemented");
