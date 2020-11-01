@@ -21,6 +21,11 @@ namespace Advanced_Software_Engineering
             SettingsAndHelperFunctions.NumberOfWindows++;
         }
 
+        /// <summary>
+        /// When the form closes, the window count should be updated which this function is responsible for.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void About_Window_FormClosed(object sender, FormClosedEventArgs e)
         {
             SettingsAndHelperFunctions.WindowClosed();
