@@ -21,7 +21,7 @@ namespace Advanced_Software_Engineering {
         string fileName = "";
 
         /// <summary>
-        /// The text editor is the main window that the user will be using for writing code. 
+        /// The text editor is the main window that the user will be using for writing code.
         /// </summary>
         public Text_Editor() {
             SettingsAndHelperFunctions.NumberOfWindows++;
@@ -29,6 +29,10 @@ namespace Advanced_Software_Engineering {
             UpdateTitle();
         }
 
+        /// <summary>
+        /// The text editor is the main window that the user will be using for writing code.
+        /// </summary>
+        /// <param name="openFile">File dialog which points to the file to open</param>
         public Text_Editor(OpenFileDialog openFile) {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
@@ -155,6 +159,9 @@ namespace Advanced_Software_Engineering {
             }
         }
 
+        /// <summary>
+        /// This function checks if the code written is OK
+        /// </summary>
         public void CheckCode() {
             Draw_Preview tmpDrawPreview = new Draw_Preview();
             tmpDrawPreview.Hide();
