@@ -66,11 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Verbs\DrawingVerbs\Circle.cs" />
     <Compile Include="Verbs\DrawingVerbs\Clear.cs" />
     <Compile Include="Verbs\DrawingVerbs\Dot.cs" />
     <Compile Include="Verbs\DrawingVerbs\DrawLines.cs" />
     <Compile Include="Verbs\DrawingVerbs\DrawTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Fill.cs" />
     <Compile Include="Verbs\DrawingVerbs\FillColor.cs" />
     <Compile Include="Verbs\DrawingVerbs\MoveTo.cs" />
     <Compile Include="Verbs\DrawingVerbs\PenColor.cs" />
@@ -144,14 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,7 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
-    <None Include="Resources\info3.png" />
+    <None Include="Resources\info.png" />
     <None Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

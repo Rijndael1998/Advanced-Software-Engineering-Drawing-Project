@@ -33,7 +33,7 @@ namespace Advanced_Software_Engineering {
         protected Dictionary<int, Image> IMAGEDIR = new Dictionary<int, Image> {
             { ERROR_MESSAGE, Properties.Resources.error },
             { WARNING_MESSAGE, Properties.Resources.warning },
-            { INFO_MESSAGE, Properties.Resources.info3 }
+            { INFO_MESSAGE, Properties.Resources.info }
         };
 
         /// <summary>
