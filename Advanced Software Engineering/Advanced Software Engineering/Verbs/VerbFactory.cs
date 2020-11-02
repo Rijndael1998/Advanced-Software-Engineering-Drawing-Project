@@ -10,7 +10,19 @@ using Advanced_Software_Engineering.Verbs;
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
 
 namespace Advanced_Software_Engineering {
+    /// <summary>
+    /// This class is responsible for creating Verbs.
+    /// </summary>
     public class VerbFactory {
+        /// <summary>
+        /// This function returns a Verb from a command and drawer.
+        /// </summary>
+        /// <remarks>
+        /// This factory is specifically useful since it automatically converts the parameters to what they should be.
+        /// </remarks>
+        /// <param name="drawer">The drawer to affect</param>
+        /// <param name="fullCommand">The command as a string</param>
+        /// <returns>A verb that maches the command</returns>
         public static Verb MakeVerb(Drawer drawer, string fullCommand) {
 
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
