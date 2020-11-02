@@ -74,6 +74,15 @@ namespace Advanced_Software_Engineering {
 
         }
 
+        /// <summary>
+        /// Strips the strings of the full array. See <see cref="Strip(string)"/>
+        /// </summary>
+        /// <example>
+        /// string[] tmp = {"    text  ", "      ", "   with", "spaces     ", ""};
+        /// Console.WriteLine(StripStringArray(tmp)); // => {"text", "with", "spaces"}
+        /// </example>
+        /// <param name="array">Dirty array with spaces</param>
+        /// <returns>A stripped aray</returns>
         public static List<string> StripStringArray(string[] array) {
             List<string> newStringList = new List<string>();
 
@@ -86,6 +95,11 @@ namespace Advanced_Software_Engineering {
             return newStringList;
         }
 
+        /// <summary>
+        /// Parses the commands into a directry that Commander can use. See <see cref="Commander"/>
+        /// </summary>
+        /// <param name="text">A string command</param>
+        /// <returns>Directory with the command and its parameters cleanly separated</returns>
         public static Dictionary<string, string[]> CommandAndParameterParser(string text) {
             Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
 
@@ -93,7 +107,7 @@ namespace Advanced_Software_Engineering {
             string prepParameters = Strip(text);
             if (prepParameters.Length == 0) return commandAndParameters;
 
-            //split the command from the parameters 
+            //split the command from the parameters
             string[] parameters = prepParameters.Split(new char[] { " "[0] }, 2);
 
             //There are parameters, make the command
@@ -103,7 +117,7 @@ namespace Advanced_Software_Engineering {
                 commandAndParameters["command"] = new string[] { command };
             }
 
-            //There is at least one parameter 
+            //There is at least one parameter
             if (parameters.Length > 1) {
                 //seperate all of the parameters by a comma
                 parameters = parameters[1].Split(","[0]);
