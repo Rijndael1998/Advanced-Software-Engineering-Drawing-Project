@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
-    /// A class that generates a RegularPolygon verb. 
+    /// A class that generates a RegularPolygon verb.
     /// </summary>
     public class RegularPolygon : Verb {
         protected Drawer drawer;
@@ -15,6 +15,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         protected double scale;
         protected double offset;
         List<Point> points;
+
 
         public RegularPolygon(Drawer drawer, int sides, double scale, double offset = 0, bool degMode = true) {
             points = new List<Point>();
