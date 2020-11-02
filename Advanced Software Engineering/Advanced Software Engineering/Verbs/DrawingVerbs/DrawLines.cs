@@ -6,22 +6,37 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
-    class DrawLines : Verb {
+    /// <summary>
+    /// DrawLines Verb class
+    /// </summary>
+    public class DrawLines : Verb {
         Drawer drawer;
         Point[] points;
 
         bool descCreated = false;
         string desc;
 
+        /// <summary>
+        /// DrawLines constructor
+        /// </summary>
+        /// <param name="drawer">drawer</param>
+        /// <param name="points">All of the points to visit</param>
         public DrawLines(Drawer drawer, Point[] points) {
             this.drawer = drawer;
             this.points = points;
         }
 
+        /// <summary>
+        /// Draws all the lines
+        /// </summary>
         public void ExecuteVerb() {
             drawer.DrawLines(points);
         }
 
+        /// <summary>
+        /// Gets description of the command.
+        /// </summary>
+        /// <returns>What points will be drawn to in what order</returns>
         public string GetDescription() {
             if (!descCreated) {
                 desc = "Draws a shape at points: ";
