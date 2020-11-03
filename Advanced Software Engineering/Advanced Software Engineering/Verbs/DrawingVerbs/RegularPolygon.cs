@@ -10,13 +10,22 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// A class that generates a RegularPolygon verb.
     /// </summary>
     public class RegularPolygon : Verb {
-        protected Drawer drawer;
-        protected int sides;
-        protected double scale;
-        protected double offset;
+        Drawer drawer;
+        int sides;
+        double scale;
+        double offset;
         List<Point> points;
 
-
+        /// <summary>
+        /// Draws a regular polygon.
+        /// See <see href="https://en.wikipedia.org/wiki/Regular_polygon"/>.
+        /// See also <seealso href="https://www.mathsisfun.com/geometry/regular-polygons.html"/>.
+        /// </summary>
+        /// <param name="drawer">drawer</param>
+        /// <param name="sides">Number of sides in the regular polygon</param>
+        /// <param name="scale">The scale of the regular polygon</param>
+        /// <param name="offset">Rotation offset of the regular polygon</param>
+        /// <param name="degMode">Default is true. If true, offset is in degrees. If false, offset is in gradians.</param>
         public RegularPolygon(Drawer drawer, int sides, double scale, double offset = 0, bool degMode = true) {
             points = new List<Point>();
 
@@ -39,6 +48,9 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
             this.offset = offset;
         }
 
+        /// <summary>
+        /// Draws the regular polygons
+        /// </summary>
         public void ExecuteVerb() {
             Point currentOrigin = drawer.GetPenPosition();
             List<Point> originShiftedPoints = new List<Point>();
@@ -46,6 +58,10 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
             drawer.DrawLines(originShiftedPoints.ToArray());
         }
 
+        /// <summary>
+        /// Describes how the regular polygon will be drawn
+        /// </summary>
+        /// <returns>A description of how the polygon will be drawn</returns>
         public string GetDescription() {
             return "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
         }
