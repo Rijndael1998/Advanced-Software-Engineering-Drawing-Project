@@ -1,14 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using Advanced_Software_Engineering;
+using Advanced_Software_Engineering.Verbs.DrawingVerbs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced_Software_Engineering_Tests {
+    /// <summary>
+    /// The CommandTester class tests the commands possible, mostly by getting a verb and checking it's description.. 
+    /// </summary>
     [TestClass]
     public class CommandTester {
         Random rand = new Random();
 
+        /// <summary>
+        /// Automatically tests:
+        /// - moveto 
+        /// - drawto
+        /// - line
+        /// - rp
+        /// Current todo list:
+        /// - square
+        /// - rectangle
+        /// - circle
+        /// - triangle
+        /// - dot
+        /// - clear
+        /// - pen 
+        /// - fill
+        /// </summary>
         [TestMethod]
         public void VerbFactoryTester_Automatic1() {
             Dictionary<string, int[]> commandParamaterNumber = new Dictionary<string, int[]>
@@ -17,16 +38,16 @@ namespace Advanced_Software_Engineering_Tests {
                 {"drawto",      new int[] { 2 } },
                 {"line",        new int[] { 2 } },
                 {"lineto",      new int[] { 2 } },
-                {"shape",       new int[] { 2, 3 } },
-
+                {"rp",          new int[] { 2, 3 } },
+                //todo:
                 {"square",      new int[] { 1, 2, 8 } },
                 {"rectangle",   new int[] { 1, 2, 6 } },
                 {"circle",      new int[] { 1 } },
                 {"triangle",    new int[] { 1, 2 } },
                 {"dot",         new int[] { 0 } },
                 {"clear",       new int[] { 0 } },
-                {"pen",         new int[] {1, 3 } },
-                {"fill",         new int[] {1, 3 } }
+                {"pen",         new int[] { 1, 3 } },
+                {"fill",        new int[] { 1, 3 } }
             };
 
             foreach (string command in commandParamaterNumber.Keys) {
@@ -66,6 +87,9 @@ namespace Advanced_Software_Engineering_Tests {
 
         }
 
+        /// <summary>
+        /// tests the "move" command. See <see cref="MoveTo"/>.
+        /// </summary>
         [TestMethod]
         public void MoveToTester_Manual1() {
             string input = "move 200, 300";
@@ -78,6 +102,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "moveto" command. See <see cref="MoveTo"/>.
+        /// </summary>
         [TestMethod]
         public void MoveToTester_Manual2() {
             string input = "moveto 200, 300";
@@ -90,6 +117,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "drawto" command. See <see cref="DrawTo"/>.
+        /// </summary>
         [TestMethod]
         public void DrawToTester_Manual1() {
             string input = "drawto 200, 300";
@@ -100,6 +130,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "line" command. See <see cref="DrawTo"/>.
+        /// </summary>
         [TestMethod]
         public void DrawToTester_Manual2() {
             string input = "line 200, 300";
@@ -110,6 +143,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "lineto" command. See <see cref="DrawTo"/>.
+        /// </summary>
         [TestMethod]
         public void DrawToTester_Manual3() {
             string input = "lineto 200, 300";
@@ -120,6 +156,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "regularpolygon" command. See <see cref="RegularPolygon"/>.
+        /// </summary>
         [TestMethod]
         public void RegularPolygonTester_Manual1() {
             string input = "regularpolygon 3, 50";
@@ -136,6 +175,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "rp" command. See <see cref="RegularPolygon"/>.
+        /// </summary>
         [TestMethod]
         public void RegularPolygonTester_Manual2() {
             string input = "rp 3, 50";
@@ -152,6 +194,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "regularpolygon" command. See <see cref="RegularPolygon"/>.
+        /// </summary>
         [TestMethod]
         public void RegularPolygonTester_Manual3() {
             string input = "regularpolygon 3, 50, 25";
@@ -168,6 +213,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "rp" command. See <see cref="RegularPolygon"/>.
+        /// </summary>
         [TestMethod]
         public void RegularPolygonTester_Manual4() {
             string input = "rp 3, 50, 25";
@@ -184,6 +232,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "square" command. See <see cref="Square"/>.
+        /// </summary>
         [TestMethod]
         public void SquareTester_Manual1() {
             string input = "square 500";
@@ -200,6 +251,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "square" command. See <see cref="Square"/>.
+        /// </summary>
         [TestMethod]
         public void SquareTester_Manual2() {
             string input = "square 500, 45";
@@ -216,6 +270,46 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "quadrilateral" command using <see cref="DrawLines"/>. See <see cref="Quadrilateral"/>.
+        /// </summary>
+        [TestMethod]
+        public void QuadrilateralTester_Manual1() {
+            string input = "quadrilateral 1, 2,  3, 4,  5, 6,  7, 8";
+            Point[] points = {
+                new Point(1, 2),
+                new Point(3, 4),
+                new Point(5, 6),
+                new Point(7, 8)
+            };
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+            string correctDesc = new DrawLines(null, points).GetDescription();
+
+            Assert.AreEqual(verbDesc, correctDesc);
+        }
+
+        /// <summary>
+        /// Tests the "circle" command. See <see cref="Circle"/>.
+        /// </summary>
+        [TestMethod]
+        public void CircleTester_Manual1() {
+            string input = "circle 100";
+
+            Verb verb = VerbFactory.MakeVerb(null, input);
+
+            string verbDesc = verb.GetDescription();
+
+            string correctDesc = "Draws a circle radius " + 100d.ToString() + ", with origin of the pen";
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        /// <summary>
+        /// tests the "triangle" command. See <see cref="Triangle"/>.
+        /// </summary>
         [TestMethod]
         public void TriangleTester_Manual1() {
             string input = "triangle 500";
@@ -232,6 +326,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "triangle" command. See <see cref="Triangle"/>.
+        /// </summary>
         [TestMethod]
         public void TriangleTester_Manual2() {
             string input = "triangle 500, 45";
@@ -248,90 +345,123 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// test the "dot" command. See <see cref="Dot"/>.
+        /// </summary>
         [TestMethod]
         public void DotTester_Manual1() {
             string input = "dot";
 
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Dots the pen at pen position"; //undecided
+            string correctDesc = "Places a dot where the pen currently is";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// tests the "clear" command. See <see cref="Circle"/>.
+        /// </summary>
         [TestMethod]
         public void ClearTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "clear";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Clears the canvas";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the "reset" command. See <see cref="ResetPen"/>
+        /// </summary>
         [TestMethod]
-        public void ResetTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+        public void ResetPenTester_Manual1() {
+            string input = "reset";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Moves pen to the start (0, 0)";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the "resetpen" command. See <see cref="ResetPen"/>.
+        /// </summary>
+        [TestMethod]
+        public void ResetPenTester_Manual2() {
+            string input = "resetpen";
+            Verb verb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = verb.GetDescription();
+            string correctDesc = "Moves pen to the start (0, 0)";
+
+            Assert.AreEqual(correctDesc, verbDesc);
+        }
+
+        /// <summary>
+        /// Tests the command "pen". See <see cref="PenColor"/>
+        /// </summary>
         [TestMethod]
         public void PenTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "pen red";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Set pen color to: red"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the command "fill". See <see cref="FillColor"/>.
+        /// </summary>
         [TestMethod]
         public void FillTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "fill pink";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Set fill color to: pink"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the "if" command. It hasn't been implemented yet.
+        /// </summary>
         [TestMethod]
         public void IfTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "if i == 10";
+      
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Tests if variable 'i' is equal to 10"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the "def" command. It hasn't been implemented yet.
+        /// </summary>
         [TestMethod]
         public void MethodTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "def duck, int i";
+  
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Create a new method";
+            string correctDesc = "Create a new method called 'duck' with input 'int i'. The method: ";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
 
+        /// <summary>
+        /// Tests the "int" declaration and assignment. It hasn't been implemented yet.
+        /// </summary>
         [TestMethod]
         public void ValueTester_Manual1() {
-            string input = "";
-            string[] inputParameters = { };
+            string input = "int i = 10";
+
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = null; //undecided
+            string correctDesc = "Declares and sets integer 'i' to '10'"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
