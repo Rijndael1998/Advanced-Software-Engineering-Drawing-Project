@@ -6,11 +6,17 @@ using System.Linq;
 using Advanced_Software_Engineering.Verbs;
 
 namespace Advanced_Software_Engineering_Tests {
+    /// <summary>
+    /// This class tests <see cref="SettingsAndHelperFunctions"/> methods and some <see cref="Value"/> methods. It uses a combination of manual and random tests.
+    /// </summary>
     [TestClass]
     public class SettingsAndHelperFunctionsTester {
         string alphabet = "abcdefghijklmnopqrstuvwxzy";
         Random rand = new Random();
 
+        /// <summary>
+        /// Random strip spaces test
+        /// </summary>
         [TestMethod]
         public void Strip_Random1() {
 
@@ -31,6 +37,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.Strip(string)"/> test
+        /// </summary>
         [TestMethod]
         public void Strip_Manual1() {
             string input = "     a simple sentence surrounded by spaces                ";
@@ -39,6 +48,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(expected, SettingsAndHelperFunctions.Strip(input));
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.Strip(string)"/> test
+        /// </summary>
         [TestMethod]
         public void Strip_Manual2() {
             string input = "      a    simple    sentence     surrounded    by    spaces                 ";
@@ -47,6 +59,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual(expected, SettingsAndHelperFunctions.Strip(input));
         }
 
+        /// <summary>
+        /// Random <see cref="Value.ConvertToInt(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void ConvertToInt_Random1() {
             for (int i = 0; i < 100000; i++) {
@@ -57,6 +72,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random1() {
             for (int i = 0; i < 100000; i++) {
@@ -67,6 +85,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random2() {
             for (int i = 0; i < 100000; i++) {
@@ -77,6 +98,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random3() {
             for (int i = 0; i < 100000; i++) {
@@ -87,6 +111,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.StripStringArray(string[])"/> test.
+        /// </summary>
         [TestMethod]
         public void StripStringArray_Manual1() {
             string[] input = { "    ", " a   ", " test", "t", "asdf ", "" };
@@ -98,6 +125,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.StripStringArray(string[])"/> test.
+        /// </summary>
         [TestMethod]
         public void StripStringArray_Manual2() {
             string[] input = "a    simple sentence     surrounded by    spaces".Split(" "[0]);
@@ -109,6 +139,9 @@ namespace Advanced_Software_Engineering_Tests {
             }
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual1() {
             Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("moveto 200, 200");
@@ -117,6 +150,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual("200", commands["parameters"][1]);
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual2() {
             Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("clear");
@@ -124,6 +160,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.IsFalse(commands.Keys.Contains("parameters"));
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual3() {
             Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("");
@@ -131,6 +170,9 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.IsFalse(commands.Keys.Contains("parameters"));
         }
 
+        /// <summary>
+        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual4() {
             Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("    genericCommand    2, 3,4 5");
@@ -147,6 +189,9 @@ namespace Advanced_Software_Engineering_Tests {
             return spaces;
         }
 
+        /// <summary>
+        /// Random <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Random1() {
 
