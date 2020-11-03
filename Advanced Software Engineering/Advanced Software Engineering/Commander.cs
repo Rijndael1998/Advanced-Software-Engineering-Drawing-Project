@@ -13,6 +13,7 @@ namespace Advanced_Software_Engineering {
         Graphics graphics;
         List<Verb> commands = new List<Verb>();
         Drawer drawer;
+        bool commands_ok = true;
 
         /// <summary>
         /// This command updates the graphics element (usually) when the page repaints.
@@ -60,7 +61,7 @@ namespace Advanced_Software_Engineering {
         /// <summary>
         /// Adds a verb to the command list to be executed.
         /// </summary>
-        /// <param name="command">Verb to be added</param>
+        /// <param name="command">Verb to be added. <seealso cref="Verb"/></param>
         public void AddCommand(Verb command) {
             commands.Add(command);
         }
@@ -69,12 +70,13 @@ namespace Advanced_Software_Engineering {
         /// processes commands. Removes all commands if it fails parsing the raw commands.
         /// </summary>
         /// <param name="rawCommands">Processes commands seperated by \n or \r\n</param>
-        public void ProcessCommands(string rawCommands) {
+        /// <param name="pardonCommands">If the command is wrong, don't remove all of the commands</param>
+        public void ProcessCommands(string rawCommands, bool pardonCommands=false) {
             //ignore case
             rawCommands = rawCommands.ToLower();
             Console.WriteLine("Processing:\n" + rawCommands);
 
-            //remove windows \r if they exist
+            //remove windows' \r if they exist
             rawCommands = rawCommands.Replace("\r", "");
 
             //isolate commands
@@ -98,7 +100,12 @@ namespace Advanced_Software_Engineering {
                 }
             }
 
-            if (failed) RemoveAllCommands();
+            if (failed) {
+                if(!pardonCommands) RemoveAllCommands();
+                commands_ok = false;
+            } else {
+                commands_ok = true;
+            }
 
             Console.WriteLine("\n\nHere is what the program is going to do:");
             Console.WriteLine("Set origin to 0, 0");
@@ -112,9 +119,10 @@ namespace Advanced_Software_Engineering {
         /// Processes the commands and executes them at the same time. It's the same as <see></see>
         /// </summary>
         /// <param name="rawCommands">Processes commands seperated by \n or \r\n</param>
-        public void ProcessCommandsAndExecute(string rawCommands) {
+        /// <param name="pardonCommands">If the command is wrong, don't remove all of the commands</param>
+        public void ProcessCommandsAndExecute(string rawCommands, bool pardonCommands = false) {
             int start = commands.Count;
-            ProcessCommands(rawCommands);
+            ProcessCommands(rawCommands, pardonCommands);
 
             for (; start < commands.Count; start++) {
                 commands[start].ExecuteVerb();
@@ -142,13 +150,12 @@ namespace Advanced_Software_Engineering {
         }
 
         /// <summary>
-        /// Get the numder of commands inside the Commader
+        /// Gets the status of the code that was processed
         /// </summary>
-        /// <returns>Integer number of commands</returns>
-        public int GetNumberOfCommands() {
-            return commands.Count;
+        /// <returns>False if there was no error. True if there was an error</returns>
+        public bool GetLastStatus() {
+            return commands_ok;
         }
-
     }
 
 }

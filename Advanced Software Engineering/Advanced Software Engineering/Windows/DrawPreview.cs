@@ -15,6 +15,7 @@ namespace Advanced_Software_Engineering
 
         Graphics graphics;
         Commander commander;
+        bool pardonCommands;
 
         /// <summary>
         /// The draw preview window. Spawns the basic DrawPreview.
@@ -29,6 +30,7 @@ namespace Advanced_Software_Engineering
             graphics = panel1.CreateGraphics();
             graphics.ResetClip();
             commander = new Commander(graphics);
+            pardonCommands = true;
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace Advanced_Software_Engineering
             graphics = panel1.CreateGraphics();
             graphics.ResetClip();
             commander = new Commander(graphics, commands);
-
+            pardonCommands = false;
             //disable components
             textBox1.Enabled = false;
             button1.Enabled = false;
@@ -67,7 +69,7 @@ namespace Advanced_Software_Engineering
 
         private void SubmitCommand(object sender, EventArgs e)
         {
-            commander.ProcessCommandsAndExecute(textBox1.Text);
+            commander.ProcessCommandsAndExecute(textBox1.Text, pardonCommands);
             textBox1.Text = "";
         }
 
@@ -76,7 +78,7 @@ namespace Advanced_Software_Engineering
         /// </summary>
         /// <param name="comamnds">Commands seperated by new lines</param>
         public void SubmitCommands(string comamnds) {
-            commander.ProcessCommandsAndExecute(comamnds);
+            commander.ProcessCommandsAndExecute(comamnds, pardonCommands);
         }
 
         /// <summary>
@@ -92,6 +94,7 @@ namespace Advanced_Software_Engineering
         public void ReleaseCommandLock() {
             textBox1.Enabled = true;
             button1.Enabled = true;
+            pardonCommands = true;
         }
 
         /// <summary>
@@ -103,12 +106,22 @@ namespace Advanced_Software_Engineering
         }
 
         /// <summary>
-        /// Returns weather there were any errors in the commander. Commander will have 0 commands if there is one bad command.
+        /// Returns weather there were any errors in the commander.
         /// </summary>
         /// <returns>A boolean describing the success of command phrasing</returns>
         public bool IsSuccess() {
-            return commander.GetNumberOfCommands() > 0;
+            return commander.GetLastStatus();
         }
 
+        /// <summary>
+        /// Submits the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e) {
+            if (e.KeyCode == Keys.Enter && textBox1.Enabled) {
+                button1.PerformClick();
+            }
+        }
     }
 }

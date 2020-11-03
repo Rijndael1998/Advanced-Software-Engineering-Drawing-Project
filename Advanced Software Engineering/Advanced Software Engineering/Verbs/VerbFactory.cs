@@ -153,6 +153,7 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception("Command doesn't take parameters");
 
                 case "reset":
+                case "resetpen":
                     if (parameters.Length == 0) {
                         return new ResetPen(drawer);
                     } else throw new Exception("Command doesn't take parameters");

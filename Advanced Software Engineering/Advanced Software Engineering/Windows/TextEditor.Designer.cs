@@ -180,7 +180,7 @@ namespace Advanced_Software_Engineering
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 548);
+            this.label1.Location = new System.Drawing.Point(0, 535);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
