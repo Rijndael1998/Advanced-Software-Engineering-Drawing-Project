@@ -1,4 +1,4 @@
-﻿namespace Advanced_Software_Engineering.Windows {
+﻿namespace Advanced_Software_Engineering {
     partial class CommandHelp {
         /// <summary>
         /// Required designer variable.

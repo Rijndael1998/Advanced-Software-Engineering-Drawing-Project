@@ -258,5 +258,10 @@ namespace Advanced_Software_Engineering {
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e) => updateRowCol();
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e) => new CommandHelp().Show();
+
+
+        
     }
 }

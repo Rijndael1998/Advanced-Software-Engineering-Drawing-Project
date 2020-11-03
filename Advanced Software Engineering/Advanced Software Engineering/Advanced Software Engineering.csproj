@@ -97,6 +97,12 @@
     <Compile Include="Verbs\VerbFactory.cs" />
     <Compile Include="Commander.cs" />
     <Compile Include="Drawer.cs" />
+    <Compile Include="Windows\CommandHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CommandHelp.Designer.cs">
+      <DependentUpon>CommandHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DrawPreview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Windows\AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CommandHelp.resx">
+      <DependentUpon>CommandHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\DrawPreview.resx">
       <DependentUpon>DrawPreview.cs</DependentUpon>
