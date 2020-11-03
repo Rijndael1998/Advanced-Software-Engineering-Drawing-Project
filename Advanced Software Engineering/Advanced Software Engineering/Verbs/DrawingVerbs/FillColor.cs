@@ -37,7 +37,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// </summary>
         /// <returns>Description of the fill color</returns>
         public string GetDescription() {
-            return "Set fill color to " + color.ToString();
+            return "Set fill color to: " + color.ToString();
         }
 
     }

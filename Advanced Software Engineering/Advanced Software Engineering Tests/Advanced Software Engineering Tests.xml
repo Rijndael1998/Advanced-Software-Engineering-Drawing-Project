@@ -15,7 +15,7 @@
             - moveto 
             - drawto
             - line
-            - shape
+            - rp
             Current todo list:
             - square
             - rectangle
@@ -87,6 +87,11 @@
             tests the "quadrilateral" command using <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawLines"/>. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Quadrilateral"/>.
             </summary>
         </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.CircleTester_Manual1">
+            <summary>
+            Tests the "circle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle"/>.
+            </summary>
+        </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.TriangleTester_Manual1">
             <summary>
             tests the "triangle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle"/>.
@@ -104,7 +109,42 @@
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ClearTester_Manual1">
             <summary>
-            tests the 
+            tests the "clear" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle"/>.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ResetPenTester_Manual1">
+            <summary>
+            Tests the "reset" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen"/>
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ResetPenTester_Manual2">
+            <summary>
+            Tests the "resetpen" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen"/>.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.PenTester_Manual1">
+            <summary>
+            Tests the command "pen". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.PenColor"/>
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.FillTester_Manual1">
+            <summary>
+            Tests the command "fill". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.FillColor"/>.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.IfTester_Manual1">
+            <summary>
+            Tests the "if" command. It hasn't been implemented yet.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.MethodTester_Manual1">
+            <summary>
+            Tests the "def" command. It hasn't been implemented yet.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ValueTester_Manual1">
+            <summary>
+            Tests the "int" declaration and assignment. It hasn't been implemented yet.
             </summary>
         </member>
         <member name="T:Advanced_Software_Engineering_Tests.Properties.Resources">
@@ -121,6 +161,81 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester">
+            <summary>
+            This class tests <see cref="T:Advanced_Software_Engineering.SettingsAndHelperFunctions"/> methods and some <see cref="T:Advanced_Software_Engineering.Verbs.Value"/> methods. It uses a combination of manual and random tests.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Random1">
+            <summary>
+            Random strip spaces test
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Manual1">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)"/> test
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Manual2">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)"/> test
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToInt_Random1">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToInt(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random1">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random2">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random3">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.StripStringArray_Manual1">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.StripStringArray_Manual2">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual1">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual2">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual3">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual4">
+            <summary>
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Random1">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
     </members>

@@ -406,7 +406,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "pen red";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Set pen color to: red"; 
+            string correctDesc = "Set pen color to: Color [Red]"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -419,7 +419,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "fill pink";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Set fill color to: pink"; 
+            string correctDesc = "Set fill color to: Color [Pink]"; 
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
