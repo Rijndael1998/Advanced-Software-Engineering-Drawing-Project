@@ -9,6 +9,10 @@
     <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Uni\Documents\Projects\Advanced Software Engineering\Advanced Software Engineering\Advanced Software Engineering Tests\Advanced Software Engineering Tests.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
