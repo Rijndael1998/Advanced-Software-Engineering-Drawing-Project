@@ -1,7 +1,6 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
@@ -41,7 +40,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToInt(parameters[0]),
                             Value.ConvertToInt(parameters[1]));
 
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
 
                 case "drawto":
                 case "line":
@@ -95,7 +94,7 @@ namespace Advanced_Software_Engineering {
                 case "rectangle":
                     //Check parameters
                     if (parameters.Length == 2) {
-                        return new Advanced_Software_Engineering.Verbs.DrawingVerbs.Rectangle(drawer,
+                        return new Rectangle(drawer,
                             Value.ConvertToDouble(parameters[0]),
                             Value.ConvertToDouble(parameters[1])
                             );
@@ -105,11 +104,6 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToPoint(parameters[2], parameters[3]),
                             Value.ConvertToPoint(parameters[4], parameters[5]),
                             Value.ConvertToPoint(parameters[6], parameters[7])
-                            );
-                    } else if (parameters.Length == 4) {
-                        return new Advanced_Software_Engineering.Verbs.DrawingVerbs.Rectangle(drawer,
-                            Value.ConvertToPoint(parameters[0], parameters[1]),
-                            Value.ConvertToPoint(parameters[2], parameters[3])
                             );
                     } else throw new Exception("Command has an incorrect number of parameters");
                 case "circle":
