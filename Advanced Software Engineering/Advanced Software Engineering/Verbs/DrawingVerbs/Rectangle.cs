@@ -14,8 +14,6 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// Correct
     /// </todo>
     public class Rectangle : Verb {
-        Verb verb;
-
         Drawer drawer;
         PointF[] points;
 

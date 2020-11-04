@@ -51,7 +51,7 @@ namespace Advanced_Software_Engineering {
                             DrawTo(drawer,
                             Value.ConvertToInt(parameters[0]),
                             Value.ConvertToInt(parameters[1]));
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "regularpolygon":
                 case "rp":
                     //Check parameters
@@ -67,7 +67,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToDouble(parameters[1]),
                             Value.ConvertToDouble(parameters[2])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "square":
                     //Check parameters
                     if (parameters.Length == 1) {
@@ -80,7 +80,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToDouble(parameters[0]),
                             Value.ConvertToDouble(parameters[1])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "quadrilateral":
                     //Check parameters
                     if (parameters.Length == 8) {
@@ -90,7 +90,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToPoint(parameters[4], parameters[5]),
                             Value.ConvertToPoint(parameters[6], parameters[7])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "rectangle":
                     //Check parameters
                     if (parameters.Length == 2) {
@@ -105,7 +105,7 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToPoint(parameters[4], parameters[5]),
                             Value.ConvertToPoint(parameters[6], parameters[7])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "circle":
                     //Check parameters
                     if (parameters.Length == 1) {
@@ -113,7 +113,7 @@ namespace Advanced_Software_Engineering {
                             Circle(drawer,
                             Value.ConvertToDouble(parameters[0])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "triangle":
                     //Check parameters
                     if (parameters.Length == 1) {
@@ -133,34 +133,34 @@ namespace Advanced_Software_Engineering {
                             Value.ConvertToPoint(parameters[2], parameters[3]),
                             Value.ConvertToPoint(parameters[4], parameters[5])
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
 
                 case "dot":
                     if (parameters.Length == 0) {
                         return new Dot(drawer);
-                    } else throw new Exception("Command doesn't take parameters");
+                    } else throw new Exception(command + " doesn't take parameters");
 
 
                 case "clear":
                     if (parameters.Length == 0) {
                         return new Clear(drawer);
-                    } else throw new Exception("Command doesn't take parameters");
+                    } else throw new Exception(command + " doesn't take parameters");
 
                 case "reset":
                 case "resetpen":
                     if (parameters.Length == 0) {
                         return new ResetPen(drawer);
-                    } else throw new Exception("Command doesn't take parameters");
+                    } else throw new Exception(command + " doesn't take parameters");
 
                 case "fillon":
                     if (parameters.Length == 0) {
                         return new Fill(drawer, true);
-                    } else throw new Exception("Command doesn't take parameters");
+                    } else throw new Exception(command + " doesn't take parameters");
 
                 case "filloff":
                     if (parameters.Length == 0) {
                         return new Fill(drawer, false);
-                    } else throw new Exception("Command doesn't take parameters");
+                    } else throw new Exception(command + " doesn't take parameters");
 
                 case "pen":
                     if (parameters.Length == 1) {
@@ -182,7 +182,7 @@ namespace Advanced_Software_Engineering {
                                 Value.ConvertToInt(parameters[3])
                                 )
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
                 case "fill":
                     if (parameters.Length == 1) {
                         return new FillColor(drawer, Value.TextToColor(parameters[0]));
@@ -203,7 +203,7 @@ namespace Advanced_Software_Engineering {
                                 Value.ConvertToInt(parameters[3])
                                 )
                             );
-                    } else throw new Exception("Command has an incorrect number of parameters");
+                    } else throw new Exception(command + " has an incorrect number of parameters");
 
                 default:
                     throw new Exception("Unknown command");
