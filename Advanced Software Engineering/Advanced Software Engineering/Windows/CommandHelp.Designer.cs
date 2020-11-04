@@ -101,19 +101,19 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(198, 13);
+            this.label4.Size = new System.Drawing.Size(187, 13);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Move the cursor to the specified position";
+            this.label4.Text = "Move the pen to the specified position";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 113);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(449, 13);
+            this.label5.Size = new System.Drawing.Size(438, 13);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Draws from the curser to the specified position and moves the curser to the speci" +
-    "fied position. ";
+            this.label5.Text = "Draws from the pen to the specified position and moves the curser to the specifie" +
+    "d position. ";
             // 
             // label6
             // 
@@ -288,9 +288,9 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(12, 377);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(201, 13);
+            this.label23.Size = new System.Drawing.Size(190, 13);
             this.label23.TabIndex = 11;
-            this.label23.Text = "Draws a dot at the current cursor position";
+            this.label23.Text = "Draws a dot at the current pen position";
             // 
             // label24
             // 
