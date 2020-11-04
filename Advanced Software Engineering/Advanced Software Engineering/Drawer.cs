@@ -27,7 +27,7 @@ namespace Advanced_Software_Engineering {
         /// <summary>
         /// The Brush object
         /// </summary>
-        protected Brush brush;
+        protected SolidBrush brush;
         /// <summary>
         /// The Pen object
         /// </summary>
@@ -87,11 +87,11 @@ namespace Advanced_Software_Engineering {
         /// <summary>
         /// Allows the filling of objects.
         /// </summary>
-        public void EnableFill() => fill = false;
+        public void EnableFill() => fill = true;
         /// <summary>
         /// Disables the filling of objects.
         /// </summary>
-        public void DisableFill() => fill = true;
+        public void DisableFill() => fill = false;
         /// <summary>
         /// Set the filling of objects
         /// </summary>
@@ -113,7 +113,7 @@ namespace Advanced_Software_Engineering {
         /// Set fill color
         /// </summary>
         /// <param name="color">Fill color</param>
-        public void SetFillColor(Color color) => ((SolidBrush)brush).Color = color;
+        public void SetFillColor(Color color) => brush.Color = color;
 
         /// <summary>
         /// Draws a line from the current pen position to the one specified in the parameter. This also sets the pens new position.
@@ -129,18 +129,17 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="points">Points to draw to</param>
         public void DrawLines(Point[] points) {
+           
             if (points.Length < 2) {
                 throw new Exception("Cannot have less than two points in a line");
             }
 
             GraphicsPath path = new GraphicsPath();
+            path.FillMode = FillMode.Winding;
 
-            for (int i = 1; i < points.Length; i++) {
-                path.AddLine(points[i - 1], points[i]);
-            }
-
-            path.AddLine(points[0], points.Last());
-
+            path.AddLines(points);
+            path.AddLine(points[0], points.Last()); //Add final line
+            
             DrawLines(path);
         }
 
@@ -159,6 +158,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="scale">Scale of the circle</param>
         public void DrawCircle(double scale) {
+            if (fill) graphics.FillEllipse(brush, penPosition.X - (float)(scale), penPosition.Y - (float)(scale), (float)scale * 2, (float)scale * 2);
             graphics.DrawEllipse(pen, penPosition.X - (float)(scale), penPosition.Y - (float)(scale), (float)scale * 2, (float)scale * 2);
         }
 
