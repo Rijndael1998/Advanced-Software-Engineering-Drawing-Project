@@ -64,6 +64,10 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -218,7 +222,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 304);
+            this.label16.Location = new System.Drawing.Point(12, 378);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(180, 13);
             this.label16.TabIndex = 10;
@@ -228,7 +232,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(12, 254);
+            this.label17.Location = new System.Drawing.Point(12, 328);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(163, 13);
             this.label17.TabIndex = 8;
@@ -237,7 +241,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(12, 267);
+            this.label18.Location = new System.Drawing.Point(12, 341);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(393, 13);
             this.label18.TabIndex = 8;
@@ -248,7 +252,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 291);
+            this.label19.Location = new System.Drawing.Point(12, 365);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(278, 13);
             this.label19.TabIndex = 8;
@@ -258,7 +262,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(12, 327);
+            this.label20.Location = new System.Drawing.Point(12, 401);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 13);
             this.label20.TabIndex = 4;
@@ -267,7 +271,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 340);
+            this.label21.Location = new System.Drawing.Point(12, 414);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(251, 13);
             this.label21.TabIndex = 4;
@@ -277,7 +281,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(12, 364);
+            this.label22.Location = new System.Drawing.Point(12, 438);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(22, 13);
             this.label22.TabIndex = 11;
@@ -286,7 +290,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(12, 377);
+            this.label23.Location = new System.Drawing.Point(12, 451);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(190, 13);
             this.label23.TabIndex = 11;
@@ -296,7 +300,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(12, 399);
+            this.label24.Location = new System.Drawing.Point(12, 473);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(30, 13);
             this.label24.TabIndex = 11;
@@ -306,7 +310,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(12, 412);
+            this.label25.Location = new System.Drawing.Point(12, 486);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(48, 13);
             this.label25.TabIndex = 11;
@@ -315,7 +319,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(12, 425);
+            this.label26.Location = new System.Drawing.Point(12, 499);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(158, 13);
             this.label26.TabIndex = 11;
@@ -325,7 +329,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(12, 450);
+            this.label27.Location = new System.Drawing.Point(12, 524);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(28, 13);
             this.label27.TabIndex = 11;
@@ -334,7 +338,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(12, 463);
+            this.label28.Location = new System.Drawing.Point(12, 537);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(60, 13);
             this.label28.TabIndex = 11;
@@ -344,7 +348,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(12, 485);
+            this.label29.Location = new System.Drawing.Point(12, 559);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(28, 13);
             this.label29.TabIndex = 11;
@@ -353,7 +357,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(12, 498);
+            this.label30.Location = new System.Drawing.Point(12, 572);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(62, 13);
             this.label30.TabIndex = 11;
@@ -363,7 +367,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(12, 522);
+            this.label31.Location = new System.Drawing.Point(12, 596);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(51, 13);
             this.label31.TabIndex = 11;
@@ -372,7 +376,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(12, 535);
+            this.label32.Location = new System.Drawing.Point(12, 609);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(355, 13);
             this.label32.TabIndex = 11;
@@ -381,7 +385,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(12, 548);
+            this.label33.Location = new System.Drawing.Point(12, 622);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(213, 13);
             this.label33.TabIndex = 11;
@@ -391,7 +395,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(12, 571);
+            this.label34.Location = new System.Drawing.Point(12, 645);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(91, 13);
             this.label34.TabIndex = 12;
@@ -400,7 +404,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(12, 584);
+            this.label35.Location = new System.Drawing.Point(12, 658);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(242, 13);
             this.label35.TabIndex = 11;
@@ -410,7 +414,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(12, 609);
+            this.label36.Location = new System.Drawing.Point(12, 683);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(42, 13);
             this.label36.TabIndex = 11;
@@ -419,7 +423,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(12, 622);
+            this.label37.Location = new System.Drawing.Point(12, 696);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(346, 13);
             this.label37.TabIndex = 11;
@@ -428,7 +432,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(12, 671);
+            this.label38.Location = new System.Drawing.Point(12, 745);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(233, 13);
             this.label38.TabIndex = 11;
@@ -437,7 +441,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(12, 635);
+            this.label39.Location = new System.Drawing.Point(12, 709);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(213, 13);
             this.label39.TabIndex = 11;
@@ -447,17 +451,59 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(12, 658);
+            this.label40.Location = new System.Drawing.Point(12, 732);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(82, 13);
             this.label40.TabIndex = 12;
             this.label40.Text = "fill r, g, b, (opt) a";
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(12, 254);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(114, 13);
+            this.label41.TabIndex = 9;
+            this.label41.Text = "rectangle width, height";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(12, 267);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(452, 13);
+            this.label42.TabIndex = 8;
+            this.label42.Text = "Draws a rectangle with the width and height specified with the center being at th" +
+    "e pen location";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(12, 290);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(368, 13);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "rectangle point1x, point1y, point2x, point2y, point3x, point3y, point4x, point4y";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(12, 303);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(212, 13);
+            this.label43.TabIndex = 13;
+            this.label43.Text = "Draws a quadrilateral at the specified points";
+            // 
             // CommandHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 694);
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.ClientSize = new System.Drawing.Size(489, 598);
+            this.Controls.Add(this.label43);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.label23);
@@ -478,7 +524,10 @@
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label16);
+            this.Controls.Add(this.label44);
+            this.Controls.Add(this.label41);
             this.Controls.Add(this.label14);
+            this.Controls.Add(this.label42);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label13);
@@ -499,6 +548,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "CommandHelp";
             this.Text = "Help";
             this.ResumeLayout(false);
@@ -548,5 +598,9 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label43;
     }
 }
