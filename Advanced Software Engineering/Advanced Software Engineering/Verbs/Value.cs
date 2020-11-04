@@ -100,9 +100,9 @@ namespace Advanced_Software_Engineering.Verbs {
         /// <param name="r">Red</param>
         /// <param name="g">Green</param>
         /// <param name="b">Blue</param>
-        /// <param name="a">Optional: Alpha/Transparancy (default is 0)</param>
+        /// <param name="a">Optional: Alpha/Transparancy (default is 255, 0 is transparent)</param>
         /// <returns></returns>
-        public static Color IntsToColor(int r, int g, int b, int a = 0) {
+        public static Color IntsToColor(int r, int g, int b, int a = 255) {
             return Color.FromArgb(a, r, g, b);
         }
     }
