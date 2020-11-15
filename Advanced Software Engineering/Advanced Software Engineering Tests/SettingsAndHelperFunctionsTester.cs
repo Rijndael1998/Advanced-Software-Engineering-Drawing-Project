@@ -1,25 +1,25 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Advanced_Software_Engineering;
+using Advanced_Software_Engineering.Verbs;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced_Software_Engineering.Verbs;
 
 namespace Advanced_Software_Engineering_Tests {
+
     /// <summary>
     /// This class tests <see cref="SettingsAndHelperFunctions"/> methods and some <see cref="ValueHelper"/> methods. It uses a combination of manual and random tests.
     /// </summary>
     [TestClass]
     public class SettingsAndHelperFunctionsTester {
-        string alphabet = "abcdefghijklmnopqrstuvwxzy";
-        Random rand = new Random();
+        private string alphabet = "abcdefghijklmnopqrstuvwxzy";
+        private Random rand = new Random();
 
         /// <summary>
         /// Random strip spaces test
         /// </summary>
         [TestMethod]
         public void Strip_Random1() {
-
             for (int test = 0; test < 200; test++) {
                 int until = rand.Next(50);
                 string correctOutput = "";
@@ -33,7 +33,6 @@ namespace Advanced_Software_Engineering_Tests {
                 obfuscatedInput = randomSpaces() + obfuscatedInput + randomSpaces();
 
                 Assert.AreEqual(correctOutput, SettingsAndHelperFunctions.Strip(obfuscatedInput));
-
             }
         }
 
@@ -183,7 +182,7 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual("4 5", commands["parameters"][2]);
         }
 
-        string randomSpaces() {
+        private string randomSpaces() {
             string spaces = " ";
             for (int i = 0; i < 50; i++) spaces += " ";
             return spaces;
@@ -194,7 +193,6 @@ namespace Advanced_Software_Engineering_Tests {
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Random1() {
-
             string[] randomCommands = { "test", "moveto", "lineto", "markiplier", "clear", "shape", "etc" };
 
             for (int test = 0; test < 10000; test++) {
@@ -216,9 +214,7 @@ namespace Advanced_Software_Engineering_Tests {
                 foreach (string expected in parameters) {
                     Assert.AreEqual(expected, commands["parameters"][i++]);
                 }
-
             }
-
         }
     }
 }

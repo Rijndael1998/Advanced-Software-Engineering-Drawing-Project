@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-using Advanced_Software_Engineering;
+﻿using Advanced_Software_Engineering;
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Advanced_Software_Engineering_Tests {
+
     /// <summary>
-    /// The CommandTester class tests the commands possible, mostly by getting a verb and checking it's description.. 
+    /// The CommandTester class tests the commands possible, mostly by getting a verb and checking it's description..
     /// </summary>
     [TestClass]
     public class CommandTester {
-        Random rand = new Random();
+        private Random rand = new Random();
 
         /// <summary>
         /// Automatically tests:
-        /// - moveto 
+        /// - moveto
         /// - drawto
         /// - line
         /// - rp
@@ -27,7 +27,7 @@ namespace Advanced_Software_Engineering_Tests {
         /// - triangle
         /// - dot
         /// - clear
-        /// - pen 
+        /// - pen
         /// - fill
         /// </summary>
         [TestMethod]
@@ -80,11 +80,8 @@ namespace Advanced_Software_Engineering_Tests {
                             correctDesc = "Draws a " + inputParameters[0] + " sided regular polygon, with rotation of " + (double)(Math.PI * inputParameters[2] / 180) + " radians, with inner radius of " + (double)inputParameters[1];
                         Assert.AreEqual(correctDesc, verbDesc);
                     }
-
                 }
-
             }
-
         }
 
         /// <summary>
@@ -406,7 +403,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "pen red";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Set pen color to: Color [Red]"; 
+            string correctDesc = "Set pen color to: Color [Red]";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -419,7 +416,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "fill pink";
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Set fill color to: Color [Pink]"; 
+            string correctDesc = "Set fill color to: Color [Pink]";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -430,10 +427,10 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void IfTester_Manual1() {
             string input = "if i == 10";
-      
+
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Tests if variable 'i' is equal to 10"; 
+            string correctDesc = "Tests if variable 'i' is equal to 10";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -444,7 +441,7 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void MethodTester_Manual1() {
             string input = "def duck, int i";
-  
+
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
             string correctDesc = "Create a new method called 'duck' with input 'int i'. The method: ";
@@ -461,10 +458,9 @@ namespace Advanced_Software_Engineering_Tests {
 
             Verb verb = VerbFactory.MakeVerb(null, input);
             string verbDesc = verb.GetDescription();
-            string correctDesc = "Declares and sets integer 'i' to '10'"; 
+            string correctDesc = "Declares and sets integer 'i' to '10'";
 
             Assert.AreEqual(correctDesc, verbDesc);
         }
-
     }
 }
