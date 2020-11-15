@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Advanced_Software_Engineering.Verbs {
+namespace Advanced_Software_Engineering.Verbs.Value {
 
     /// <summary>
     /// This class contains a large amount of useful conversions

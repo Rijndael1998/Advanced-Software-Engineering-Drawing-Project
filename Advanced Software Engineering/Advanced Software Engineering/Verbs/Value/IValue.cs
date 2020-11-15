@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Advanced_Software_Engineering.Verbs {
+namespace Advanced_Software_Engineering.Verbs.Value {
 
     internal interface IValue {
 
