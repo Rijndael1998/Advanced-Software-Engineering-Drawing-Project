@@ -165,7 +165,7 @@
         </member>
         <member name="T:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester">
             <summary>
-            This class tests <see cref="T:Advanced_Software_Engineering.SettingsAndHelperFunctions" /> methods and some <see cref="T:Advanced_Software_Engineering.Verbs.Value" /> methods. It uses a combination of manual and random tests.
+            This class tests <see cref="T:Advanced_Software_Engineering.SettingsAndHelperFunctions" /> methods. It uses a combination of manual and random tests.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Random1">
@@ -181,26 +181,6 @@
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Manual2">
             <summary>
             Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)" /> test
-            </summary>
-        </member>
-        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToInt_Random1">
-            <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToInt(System.String)" /> test.
-            </summary>
-        </member>
-        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random1">
-            <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)" /> test.
-            </summary>
-        </member>
-        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random2">
-            <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)" /> test.
-            </summary>
-        </member>
-        <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.ConvertToDouble_Random3">
-            <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ConvertToDouble(System.String)" /> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.StripStringArray_Manual1">
@@ -236,6 +216,31 @@
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Random1">
             <summary>
             Random <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            </summary>
+        </member>
+        <member name="T:Advanced_Software_Engineering_Tests.ValueHelperTester">
+            <summary>
+            This class tests <see cref="T:Advanced_Software_Engineering.Verbs.ValueHelper" /> methods. It uses a combination of manual and random tests.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToInt_Random1">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToInt(System.String)" /> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random1">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random2">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
+            </summary>
+        </member>
+        <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random3">
+            <summary>
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
             </summary>
         </member>
     </members>
