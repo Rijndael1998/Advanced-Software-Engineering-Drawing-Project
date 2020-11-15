@@ -4,7 +4,7 @@
     /// The Dot IVerb class
     /// </summary>
     public class Dot : IVerb {
-        private Drawer drawer;
+        private readonly Drawer drawer;
 
         /// <summary>
         /// Creates the Dot IVerb

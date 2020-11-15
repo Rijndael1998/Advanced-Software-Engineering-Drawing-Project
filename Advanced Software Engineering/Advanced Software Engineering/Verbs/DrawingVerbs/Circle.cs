@@ -4,7 +4,7 @@
     /// Circle IVerb class.
     /// </summary>
     public class Circle : IVerb {
-        private Drawer drawer;
+        private readonly Drawer drawer;
         private double scale;
 
         /// <summary>

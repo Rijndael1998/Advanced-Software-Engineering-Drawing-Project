@@ -6,10 +6,10 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// DrawLines IVerb class
     /// </summary>
     public class DrawLines : IVerb {
-        private Drawer drawer;
-        private Point[] points;
+        private readonly Drawer drawer;
+        private readonly Point[] points;
 
-        private bool descCreated = false;
+        private readonly bool descCreated = false;
         private string desc;
 
         /// <summary>

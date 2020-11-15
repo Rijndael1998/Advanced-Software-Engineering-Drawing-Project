@@ -9,7 +9,7 @@ namespace Advanced_Software_Engineering {
     /// The error window that can show errors, warnings and messages.
     /// </summary>
     public partial class ErrorWindow : Form {
-        private string desc;
+        private readonly string desc;
 
         /// <summary>
         /// The error message type.

@@ -9,7 +9,7 @@ namespace Advanced_Software_Engineering_Tests {
     /// </summary>
     [TestClass]
     internal class ValueHelperTester {
-        private Random rand = new Random();
+        private readonly Random rand = new Random();
 
         /// <summary>
         /// Random <see cref="ValueHelper.ConvertToInt(string)"/> test.

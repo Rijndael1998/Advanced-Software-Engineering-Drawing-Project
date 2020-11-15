@@ -10,7 +10,7 @@ namespace Advanced_Software_Engineering {
     public class Commander {
         private Graphics graphics;
         private List<IVerb> commands = new List<IVerb>();
-        private Drawer drawer;
+        private readonly Drawer drawer;
         private bool commands_ok = true;
 
         /// <summary>

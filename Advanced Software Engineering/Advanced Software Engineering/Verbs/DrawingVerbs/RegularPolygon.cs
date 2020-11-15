@@ -8,11 +8,11 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// A class that generates a RegularPolygon IVerb.
     /// </summary>
     public class RegularPolygon : IVerb {
-        private Drawer drawer;
-        private int sides;
-        private double scale;
-        private double offset;
-        private List<Point> points;
+        private readonly Drawer drawer;
+        private readonly int sides;
+        private readonly double scale;
+        private readonly double offset;
+        private readonly List<Point> points;
 
         /// <summary>
         /// Draws a regular polygon.
