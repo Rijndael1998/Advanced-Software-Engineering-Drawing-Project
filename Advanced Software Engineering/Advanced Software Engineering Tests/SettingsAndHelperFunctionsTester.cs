@@ -7,7 +7,7 @@ using Advanced_Software_Engineering.Verbs;
 
 namespace Advanced_Software_Engineering_Tests {
     /// <summary>
-    /// This class tests <see cref="SettingsAndHelperFunctions"/> methods and some <see cref="Value"/> methods. It uses a combination of manual and random tests.
+    /// This class tests <see cref="SettingsAndHelperFunctions"/> methods and some <see cref="ValueHelper"/> methods. It uses a combination of manual and random tests.
     /// </summary>
     [TestClass]
     public class SettingsAndHelperFunctionsTester {
@@ -60,7 +60,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Random <see cref="Value.ConvertToInt(string)"/> test.
+        /// Random <see cref="ValueHelper.ConvertToInt(string)"/> test.
         /// </summary>
         [TestMethod]
         public void ConvertToInt_Random1() {
@@ -68,12 +68,12 @@ namespace Advanced_Software_Engineering_Tests {
                 int expected = rand.Next(int.MinValue, int.MaxValue);
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, Value.ConvertToInt(input));
+                Assert.AreEqual(expected, ValueHelper.ConvertToInt(input));
             }
         }
 
         /// <summary>
-        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// Random <see cref="ValueHelper.ConvertToDouble(string)"/> test.
         /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random1() {
@@ -81,12 +81,12 @@ namespace Advanced_Software_Engineering_Tests {
                 double expected = rand.NextDouble();
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, Value.ConvertToDouble(input));
+                Assert.AreEqual(expected, ValueHelper.ConvertToDouble(input));
             }
         }
 
         /// <summary>
-        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// Random <see cref="ValueHelper.ConvertToDouble(string)"/> test.
         /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random2() {
@@ -94,12 +94,12 @@ namespace Advanced_Software_Engineering_Tests {
                 double expected = rand.Next(100, 100) * rand.NextDouble();
                 string input = expected.ToString();
 
-                Assert.AreEqual(expected, Value.ConvertToDouble(input));
+                Assert.AreEqual(expected, ValueHelper.ConvertToDouble(input));
             }
         }
 
         /// <summary>
-        /// Random <see cref="Value.ConvertToDouble(string)"/> test.
+        /// Random <see cref="ValueHelper.ConvertToDouble(string)"/> test.
         /// </summary>
         [TestMethod]
         public void ConvertToDouble_Random3() {
@@ -107,7 +107,7 @@ namespace Advanced_Software_Engineering_Tests {
                 int expected = rand.Next(100, 100);
                 string input = ((double)expected).ToString();
 
-                Assert.AreEqual((double)expected, Value.ConvertToDouble(input));
+                Assert.AreEqual((double)expected, ValueHelper.ConvertToDouble(input));
             }
         }
 
