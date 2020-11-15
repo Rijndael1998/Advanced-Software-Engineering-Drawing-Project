@@ -1,10 +1,12 @@
 ﻿using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// This form is reponsible for showing details. It is essentially a textbox in a form.
     /// </summary>
     public partial class DetailsWindow : Form {
+
         /// <summary>
         /// A details window dedicated to showing details.
         /// </summary>

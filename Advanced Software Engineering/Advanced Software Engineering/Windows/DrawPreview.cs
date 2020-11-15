@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Advanced_Software_Engineering
-{
-    public partial class Draw_Preview : Form
-    {
+namespace Advanced_Software_Engineering {
 
-        Graphics graphics;
-        Commander commander;
-        bool pardonCommands;
+    public partial class Draw_Preview : Form {
+        private Graphics graphics;
+        private Commander commander;
+        private bool pardonCommands;
 
         /// <summary>
         /// The draw preview window. Spawns the basic DrawPreview.
@@ -23,8 +15,7 @@ namespace Advanced_Software_Engineering
         /// <remarks>
         /// This window is responsible for showing what has been drawn.
         /// </remarks>
-        public Draw_Preview()
-        {
+        public Draw_Preview() {
             InitializeComponent();
             SettingsAndHelperFunctions.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
@@ -51,8 +42,7 @@ namespace Advanced_Software_Engineering
             button1.Enabled = false;
         }
 
-        private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e)
-        {
+        private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e) {
             SettingsAndHelperFunctions.WindowClosed();
             Dispose();
         }
@@ -61,14 +51,12 @@ namespace Advanced_Software_Engineering
             DrawPreviewPane_Paint(sender, null);
         }
 
-        private void DrawPreviewPane_Paint(object sender, PaintEventArgs e)
-        {
+        private void DrawPreviewPane_Paint(object sender, PaintEventArgs e) {
             graphics = panel1.CreateGraphics();
             commander.DrawAllCommands(graphics);
         }
 
-        private void SubmitCommand(object sender, EventArgs e)
-        {
+        private void SubmitCommand(object sender, EventArgs e) {
             commander.ProcessCommandsAndExecute(textBox1.Text, pardonCommands);
             textBox1.Text = "";
         }

@@ -1,24 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// The drawer is responsible for drawing on the graphics object.
     /// </summary>
     public class Drawer {
+
         /// <summary>
         /// The starting color of the pen / brush
         /// </summary>
         protected static Color defaultColor = Color.Black;
+
         /// <summary>
         /// The deafult width of the pen
         /// </summary>
         protected static float defaultWidth = 1f;
+
         /// <summary>
         /// Weather enclosed spaces will have fill.
         /// </summary>
@@ -28,6 +29,7 @@ namespace Advanced_Software_Engineering {
         /// The Brush object
         /// </summary>
         protected SolidBrush brush;
+
         /// <summary>
         /// The Pen object
         /// </summary>
@@ -37,6 +39,7 @@ namespace Advanced_Software_Engineering {
         /// The current position of the pen.
         /// </summary>
         protected Point penPosition;
+
         /// <summary>
         /// The graphics object
         /// </summary>
@@ -73,6 +76,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="point">Position to move the pen to</param>
         public void MovePen(Point point) => penPosition = point;
+
         /// <summary>
         /// Returns the current pen position
         /// </summary>
@@ -84,14 +88,17 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <returns>current fill satus</returns>
         public bool GetFill() => fill;
+
         /// <summary>
         /// Allows the filling of objects.
         /// </summary>
         public void EnableFill() => fill = true;
+
         /// <summary>
         /// Disables the filling of objects.
         /// </summary>
         public void DisableFill() => fill = false;
+
         /// <summary>
         /// Set the filling of objects
         /// </summary>
@@ -103,6 +110,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="color">Pen color</param>
         public void SetPenColor(Color color) => pen.Color = color;
+
         /// <summary>
         /// Set the width of the pen
         /// </summary>
@@ -129,7 +137,6 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="points">Points to draw to</param>
         public void DrawLines(Point[] points) {
-           
             if (points.Length < 2) {
                 throw new Exception("Cannot have less than two points in a line");
             }
@@ -139,7 +146,7 @@ namespace Advanced_Software_Engineering {
 
             path.AddLines(points);
             path.AddLine(points[0], points.Last()); //Add final line
-            
+
             DrawLines(path);
         }
 

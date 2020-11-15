@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
-namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
     /// The Square Verb class
     /// </summary>
     public class Square : Verb {
+        private Verb verb;
 
-        Verb verb;
         /// <summary>
         /// A new Squre instance. Draws squares using <see cref="RegularPolygon"/>
         /// </summary>

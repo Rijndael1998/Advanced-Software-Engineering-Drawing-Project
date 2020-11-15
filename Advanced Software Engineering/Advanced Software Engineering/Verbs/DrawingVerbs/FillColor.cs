@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// The FillColor Verb class
     /// </summary>
     public class FillColor : Verb {
-
-        Drawer drawer;
-        Color color;
+        private Drawer drawer;
+        private Color color;
 
         /// <summary>
         /// Create the FillColor instance
@@ -39,6 +33,5 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         public string GetDescription() {
             return "Set fill color to: " + color.ToString();
         }
-
     }
 }

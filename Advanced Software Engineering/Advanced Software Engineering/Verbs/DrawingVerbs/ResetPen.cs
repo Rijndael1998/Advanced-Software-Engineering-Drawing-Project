@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
-namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
     /// Setsets the pen to the initial position.
     /// </summary>
     public class ResetPen : Verb {
-        Drawer drawer;
+        private Drawer drawer;
 
         /// <summary>
         /// Creates the ResetPen verb
@@ -31,6 +26,5 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         public string GetDescription() {
             return "Moves pen to the start (0, 0)";
         }
-
     }
 }

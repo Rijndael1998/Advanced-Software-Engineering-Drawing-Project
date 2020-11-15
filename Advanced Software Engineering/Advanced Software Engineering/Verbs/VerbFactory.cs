@@ -1,18 +1,16 @@
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Advanced_Software_Engineering.Verbs;
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// This class is responsible for creating Verbs.
     /// </summary>
     public class VerbFactory {
+
         /// <summary>
         /// This function returns a Verb from a command and drawer.
         /// </summary>
@@ -23,7 +21,6 @@ namespace Advanced_Software_Engineering {
         /// <param name="fullCommand">The command as a string</param>
         /// <returns>A verb that maches the command</returns>
         public static Verb MakeVerb(Drawer drawer, string fullCommand) {
-
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
             if (!commandAndParameters.Keys.Contains("command")) throw new Exception("There is no command to process");
@@ -41,7 +38,6 @@ namespace Advanced_Software_Engineering {
                         return new MoveTo(drawer,
                             ValueHelper.ConvertToInt(parameters[0]),
                             ValueHelper.ConvertToInt(parameters[1]));
-
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
                 case "drawto":
@@ -142,7 +138,6 @@ namespace Advanced_Software_Engineering {
                         return new Dot(drawer);
                     } else throw new Exception(command + " doesn't take parameters");
 
-
                 case "clear":
                     if (parameterLength == 0) {
                         return new Clear(drawer);
@@ -210,7 +205,6 @@ namespace Advanced_Software_Engineering {
                 default:
                     throw new Exception("Unknown command");
             }
-
         }
     }
 }

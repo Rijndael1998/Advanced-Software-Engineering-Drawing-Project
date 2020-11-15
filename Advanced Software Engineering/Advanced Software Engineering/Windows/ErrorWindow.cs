@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// The error window that can show errors, warnings and messages.
     /// </summary>
     public partial class ErrorWindow : Form {
-        string desc;
+        private string desc;
+
         /// <summary>
         /// The error message type.
         /// </summary>
         public const int ERROR_MESSAGE = 0;
+
         /// <summary>
         /// The warning message type
         /// </summary>
         public const int WARNING_MESSAGE = 1;
+
         /// <summary>
         /// The info message type
         /// </summary>
@@ -67,7 +66,6 @@ namespace Advanced_Software_Engineering {
             SetPicture(type);
 
             Focus();
-
         }
 
         /// <summary>
@@ -78,7 +76,7 @@ namespace Advanced_Software_Engineering {
             pictureBox1.Image = IMAGEDIR[type];
             pictureBox1.Refresh();
 
-            switch(type) {
+            switch (type) {
                 case ERROR_MESSAGE:
                     groupBox1.Text = "Error";
                     break;
@@ -112,7 +110,6 @@ namespace Advanced_Software_Engineering {
         }
 
         private void ErrorWindow_Load(object sender, EventArgs e) {
-
         }
     }
 }

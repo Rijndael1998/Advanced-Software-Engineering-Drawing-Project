@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// The commander class takes care of commands. It also takes control of the drawer.
     /// </summary>
     public class Commander {
-
-        Graphics graphics;
-        List<Verb> commands = new List<Verb>();
-        Drawer drawer;
-        bool commands_ok = true;
+        private Graphics graphics;
+        private List<Verb> commands = new List<Verb>();
+        private Drawer drawer;
+        private bool commands_ok = true;
 
         /// <summary>
         /// This command updates the graphics element (usually) when the page repaints.
@@ -58,6 +56,7 @@ namespace Advanced_Software_Engineering {
             this.ProcessCommands(rawCommands);
             drawer.ResetDrawer();
         }
+
         /// <summary>
         /// Adds a verb to the command list to be executed.
         /// </summary>
@@ -71,7 +70,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="rawCommands">Processes commands seperated by \n or \r\n</param>
         /// <param name="pardonCommands">If the command is wrong, don't remove all of the commands</param>
-        public void ProcessCommands(string rawCommands, bool pardonCommands=false) {
+        public void ProcessCommands(string rawCommands, bool pardonCommands = false) {
             //ignore case
             rawCommands = rawCommands.ToLower();
             Console.WriteLine("Processing:\n" + rawCommands);
@@ -101,7 +100,7 @@ namespace Advanced_Software_Engineering {
             }
 
             if (failed) {
-                if(!pardonCommands) RemoveAllCommands();
+                if (!pardonCommands) RemoveAllCommands();
                 commands_ok = false;
             } else {
                 commands_ok = true;
@@ -112,7 +111,6 @@ namespace Advanced_Software_Engineering {
             foreach (Verb verb in this.commands) {
                 Console.WriteLine(verb.GetDescription());
             }
-
         }
 
         /// <summary>
@@ -157,5 +155,4 @@ namespace Advanced_Software_Engineering {
             return commands_ok;
         }
     }
-
 }

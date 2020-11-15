@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// DrawLines Verb class
     /// </summary>
     public class DrawLines : Verb {
-        Drawer drawer;
-        Point[] points;
+        private Drawer drawer;
+        private Point[] points;
 
-        bool descCreated = false;
-        string desc;
+        private bool descCreated = false;
+        private string desc;
 
         /// <summary>
         /// DrawLines constructor

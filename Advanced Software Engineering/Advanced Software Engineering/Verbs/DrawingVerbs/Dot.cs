@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
-namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
     /// The Dot Verb class
     /// </summary>
     public class Dot : Verb {
-        Drawer drawer;
+        private Drawer drawer;
 
         /// <summary>
         /// Creates the Dot Verb

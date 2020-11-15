@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// MoveTo Verb class
     /// </summary>
     public class MoveTo : Verb {
-
-        Drawer drawer;
-        Point moveToPoint;
+        private Drawer drawer;
+        private Point moveToPoint;
 
         /// <summary>
         /// Creates a MoveTo instance
@@ -49,6 +44,5 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         public string GetDescription() {
             return "Move origin to " + moveToPoint.X + ", " + moveToPoint.Y;
         }
-
     }
 }

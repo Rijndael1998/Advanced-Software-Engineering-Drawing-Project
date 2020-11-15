@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Security.Policy;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// This class simply provides settings and some functions that are used across many components.
     /// </summary>
     public class SettingsAndHelperFunctions {
+
         /// <summary>
         /// The variable simply keep track of the windows that are currently shown (excluding <see cref="MainMenu"/>).
         /// </summary>
@@ -23,8 +22,8 @@ namespace Advanced_Software_Engineering {
                 System.Console.WriteLine("Showing MainMenu");
                 Program.MainMenu.Show();
             }
-
         }
+
         /// <summary>
         /// This function removes spaces from the start and the end of the text. This should be unit tested.
         /// </summary>
@@ -71,7 +70,6 @@ namespace Advanced_Software_Engineering {
             //Console.WriteLine("Result:     " + result);
 
             return result;
-
         }
 
         /// <summary>

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// The Quadrilateral Verb class
     /// </summary>
     public class Quadrilateral : Verb {
-        Verb verb;
+        private Verb verb;
 
         /// <summary>
         /// Creates a Quadrilateral instances

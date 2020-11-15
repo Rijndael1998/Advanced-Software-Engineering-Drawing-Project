@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// Rectangle Verb class
     /// </summary>
@@ -14,11 +11,11 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// Correct
     /// </todo>
     public class Rectangle : Verb {
-        Drawer drawer;
-        PointF[] points;
+        private Drawer drawer;
+        private PointF[] points;
 
-        double width;
-        double height;
+        private double width;
+        private double height;
 
         /// <summary>
         /// Create a rectangle instance. Makes sure that
@@ -29,7 +26,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         public Rectangle(Drawer drawer, double width, double height) {
             this.drawer = drawer;
 
-            float root2 = (float) Math.Sqrt(2) / 2;
+            float root2 = (float)Math.Sqrt(2) / 2;
 
             points = new PointF[]
             {
@@ -42,7 +39,6 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
             this.width = width;
             this.height = height;
         }
-
 
         /// <summary>
         /// Gets the description from the rectangle
@@ -67,6 +63,5 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
             drawer.DrawLines(morePoints.ToArray());
         }
-
     }
 }

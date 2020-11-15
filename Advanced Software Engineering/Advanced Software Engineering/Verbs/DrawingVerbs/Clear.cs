@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
-namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
     /// The Clear Verb class.
     /// </summary>
     public class Clear : Verb {
-        Drawer drawer;
+        private Drawer drawer;
 
         /// <summary>
         /// Create the clear Verb
@@ -31,6 +26,5 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         public string GetDescription() {
             return "Clears the canvas";
         }
-
     }
 }

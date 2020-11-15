@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs {
+
     /// <summary>
     /// This class contains a large amount of useful conversions
     /// </summary>
     public class ValueHelper {
+
         /// <summary>
         /// Converts string to int (if possible)
         /// </summary>
@@ -73,7 +71,6 @@ namespace Advanced_Software_Engineering.Verbs {
 
             if (text.StartsWith("#"))
                 text = text.Substring(1);
-
 
             switch (text.Length) {
                 case 6:

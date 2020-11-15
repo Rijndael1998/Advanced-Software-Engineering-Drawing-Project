@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
-    public partial class Text_Editor : Form {
-        const string DefaultTitleString = "ASE - Text Editor";
 
-        Draw_Preview DisplayForm = null;
-        bool unsavedChanges = false;
-        bool newWindow = true;
-        bool okToOverwrite = false;
-        string fileName = "";
+    public partial class Text_Editor : Form {
+        private const string DefaultTitleString = "ASE - Text Editor";
+
+        private Draw_Preview DisplayForm = null;
+        private bool unsavedChanges = false;
+        private bool newWindow = true;
+        private bool okToOverwrite = false;
+        private string fileName = "";
 
         /// <summary>
         /// The text editor is the main window that the user will be using for writing code.
@@ -46,12 +39,12 @@ namespace Advanced_Software_Engineering {
             fileStream.Close();
         }
 
-        void UpdateTitle(string fileName) {
+        private void UpdateTitle(string fileName) {
             this.fileName = fileName;
             UpdateTitle();
         }
 
-        void UpdateTitle() {
+        private void UpdateTitle() {
             if (fileName != "") this.Text = DefaultTitleString + " - " + fileName;
             else this.Text = DefaultTitleString;
             if (unsavedChanges) this.Text = "* " + this.Text + " *";
@@ -126,11 +119,9 @@ namespace Advanced_Software_Engineering {
         }
 
         private void openFile() {
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
-
                 if (newWindow) {
                     StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
                     textBox1.Text = fileStream.ReadToEnd();
@@ -141,7 +132,6 @@ namespace Advanced_Software_Engineering {
                     fileStream.Close();
                 } else new Text_Editor(openFileDialog).Show();
             }
-
         }
 
         private void RunCode() {
@@ -202,7 +192,6 @@ namespace Advanced_Software_Engineering {
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e) => RunCode();
 
-
         private void createNewInstance() => new Text_Editor().Show();
 
         private void handleKeypress(object sender, EventArgs e) => handleKeypress();
@@ -210,12 +199,15 @@ namespace Advanced_Software_Engineering {
         private void textBox1_Click(object sender, EventArgs e) => updateRowCol();
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) => saveFileAs();
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) => saveFile();
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e) => createNewInstance();
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new About_Window().Show();
 
         private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => handleExit(e);
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e) => openFile();
@@ -260,8 +252,5 @@ namespace Advanced_Software_Engineering {
         private void textBox1_KeyUp(object sender, KeyEventArgs e) => updateRowCol();
 
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e) => new CommandHelp().Show();
-
-
-        
     }
 }

@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+
     /// <summary>
     /// A class that generates a RegularPolygon verb.
     /// </summary>
     public class RegularPolygon : Verb {
-        Drawer drawer;
-        int sides;
-        double scale;
-        double offset;
-        List<Point> points;
+        private Drawer drawer;
+        private int sides;
+        private double scale;
+        private double offset;
+        private List<Point> points;
 
         /// <summary>
         /// Draws a regular polygon.

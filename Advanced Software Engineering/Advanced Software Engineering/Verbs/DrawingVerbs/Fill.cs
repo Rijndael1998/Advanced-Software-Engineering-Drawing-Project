@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
-namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// <summary>
     /// Fill Verb class
     /// </summary>
     public class Fill : Verb {
-        Drawer drawer;
-        bool enable;
+        private Drawer drawer;
+        private bool enable;
 
         /// <summary>
         /// Fill enables or disables the fill insider drawer
