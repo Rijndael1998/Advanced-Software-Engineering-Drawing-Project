@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
-    class ColorValue : IValue {
+
+    internal class ColorValue : IValue {
+
         public string GetDescription() {
             throw new NotImplementedException();
         }

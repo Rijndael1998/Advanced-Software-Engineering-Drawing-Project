@@ -93,6 +93,11 @@
     <Compile Include="Verbs\Value\IValue.cs" />
     <Compile Include="Verbs\Value\ValueHelper.cs" />
     <Compile Include="Verbs\IVerb.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\BoolValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\BytesValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\ColorValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\DoubleValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\IntValue.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,5 +205,6 @@
   <ItemGroup>
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
