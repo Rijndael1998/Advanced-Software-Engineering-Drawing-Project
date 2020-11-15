@@ -15,31 +15,23 @@ namespace Advanced_Software_Engineering {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void InteractivePreviewClick(object sender, EventArgs e) {
             new Draw_Preview().Show();
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            new Text_Editor().Show();
+        private void TextEditorClick(object sender, EventArgs e) {
+            new TextEditor().Show();
             this.Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void AboutWindowClick(object sender, EventArgs e) {
             new About_Window().Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void ExitClick(object sender, EventArgs e) {
             this.Close();
-        }
-
-        private void Menu_Load(object sender, EventArgs e) {
-            //Do things on load
-        }
-
-        private void button5_Click(object sender, EventArgs e) {
-            new ErrorWindow().Show();
         }
     }
 }

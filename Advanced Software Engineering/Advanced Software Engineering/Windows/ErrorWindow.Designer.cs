@@ -26,8 +26,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorWindow));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.ShowDetailsButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,27 +53,27 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Error Name";
             // 
-            // button1
+            // ExitButton
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 127);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(336, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ExitButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ExitButton.Location = new System.Drawing.Point(0, 127);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(336, 23);
+            this.ExitButton.TabIndex = 1;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // button2
+            // ShowDetailsButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.Location = new System.Drawing.Point(0, 104);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(336, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Show Details";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ShowDetailsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ShowDetailsButton.Location = new System.Drawing.Point(0, 104);
+            this.ShowDetailsButton.Name = "ShowDetailsButton";
+            this.ShowDetailsButton.Size = new System.Drawing.Size(336, 23);
+            this.ShowDetailsButton.TabIndex = 5;
+            this.ShowDetailsButton.Text = "Show Details";
+            this.ShowDetailsButton.UseVisualStyleBackColor = true;
+            this.ShowDetailsButton.Click += new System.EventHandler(this.ShowDescriptionButton_Click);
             // 
             // groupBox1
             // 
@@ -94,8 +94,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 150);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ShowDetailsButton);
+            this.Controls.Add(this.ExitButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -114,9 +114,9 @@
         //#endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ShowDetailsButton;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

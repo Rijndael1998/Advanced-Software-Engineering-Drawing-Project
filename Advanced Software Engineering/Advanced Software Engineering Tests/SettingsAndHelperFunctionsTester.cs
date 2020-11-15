@@ -29,7 +29,7 @@ namespace Advanced_Software_Engineering_Tests {
 
                 string obfuscatedInput = correctOutput;
 
-                obfuscatedInput = randomSpaces() + obfuscatedInput + randomSpaces();
+                obfuscatedInput = RandomSpaces() + obfuscatedInput + RandomSpaces();
 
                 Assert.AreEqual(correctOutput, SettingsAndHelperFunctions.Strip(obfuscatedInput));
             }
@@ -129,7 +129,7 @@ namespace Advanced_Software_Engineering_Tests {
             Assert.AreEqual("4 5", commands["parameters"][2]);
         }
 
-        private string randomSpaces() {
+        private string RandomSpaces() {
             string spaces = " ";
             for (int i = 0; i < 50; i++) spaces += " ";
             return spaces;
@@ -144,13 +144,13 @@ namespace Advanced_Software_Engineering_Tests {
 
             for (int test = 0; test < 10000; test++) {
                 string command = randomCommands[rand.Next(randomCommands.Length)];
-                string input = randomSpaces() + command;
+                string input = RandomSpaces() + command;
 
                 List<string> parameters = new List<string>();
                 for (int parameterI = 0; parameterI < rand.Next(99) + 1; parameterI++) {
                     string parameter = (rand.NextDouble() * rand.Next(-1000, 1000)).ToString();
                     parameters.Add(parameter);
-                    input += randomSpaces() + parameter + randomSpaces() + "," + randomSpaces();
+                    input += RandomSpaces() + parameter + RandomSpaces() + "," + RandomSpaces();
                 }
 
                 Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser(input);

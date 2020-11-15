@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
 
-    public partial class Text_Editor : Form {
+    public partial class TextEditor : Form {
         private const string DefaultTitleString = "ASE - Text Editor";
 
         private Draw_Preview DisplayForm = null;
@@ -16,7 +16,7 @@ namespace Advanced_Software_Engineering {
         /// <summary>
         /// The text editor is the main window that the user will be using for writing code.
         /// </summary>
-        public Text_Editor() {
+        public TextEditor() {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
             UpdateTitle();
@@ -26,12 +26,12 @@ namespace Advanced_Software_Engineering {
         /// The text editor is the main window that the user will be using for writing code.
         /// </summary>
         /// <param name="openFile">File dialog which points to the file to open</param>
-        public Text_Editor(OpenFileDialog openFile) {
+        public TextEditor(OpenFileDialog openFile) {
             SettingsAndHelperFunctions.NumberOfWindows++;
             InitializeComponent();
 
             StreamReader fileStream = new StreamReader(openFile.OpenFile());
-            textBox1.Text = fileStream.ReadToEnd();
+            TextBox.Text = fileStream.ReadToEnd();
             unsavedChanges = false;
             newWindow = false;
             okToOverwrite = true;
@@ -50,14 +50,14 @@ namespace Advanced_Software_Engineering {
             if (unsavedChanges) this.Text = "* " + this.Text + " *";
         }
 
-        private void saveFile() {
-            if (!okToOverwrite) saveFileAs();
+        private void SaveFile() {
+            if (!okToOverwrite) SaveFileAs();
             else {
                 try {
                     StreamWriter fileStream = new StreamWriter(fileName);
-                    fileStream.Write(textBox1.Text);
+                    fileStream.Write(TextBox.Text);
                     unsavedChanges = false;
-                    showSavedMessage();
+                    ShowSavedMessage();
                     fileStream.Close();
                 } catch (Exception e) {
                     new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
@@ -67,7 +67,7 @@ namespace Advanced_Software_Engineering {
             }
         }
 
-        private void saveFileAs() {
+        private void SaveFileAs() {
             SaveFileDialog saveFileDialog = new SaveFileDialog {
                 OverwritePrompt = true,
                 DefaultExt = ".txt"
@@ -79,11 +79,11 @@ namespace Advanced_Software_Engineering {
             if (dialogResult == DialogResult.OK) {
                 StreamWriter fileStream = new StreamWriter(saveFileDialog.OpenFile());
                 try {
-                    fileStream.Write(textBox1.Text);
+                    fileStream.Write(TextBox.Text);
                     unsavedChanges = false;
                     okToOverwrite = true;
                     fileName = saveFileDialog.FileName;
-                    showSavedMessage();
+                    ShowSavedMessage();
                 } catch (Exception e) {
                     new ErrorWindow("Write Failed!", "The program failed to write the file.", e.Message + "\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
                 } finally {
@@ -93,55 +93,55 @@ namespace Advanced_Software_Engineering {
             }
         }
 
-        private void showSavedMessage() {
+        private void ShowSavedMessage() {
             label1.Text = "File saved";
-            timer1.Start();
+            SavedLabelTimer.Start();
         }
 
-        private void updateRowCol() {
-            int line = textBox1.GetLineFromCharIndex(textBox1.SelectionStart);
-            int column = textBox1.SelectionStart - textBox1.GetFirstCharIndexFromLine(line);
+        private void UpdateRowsAndColumnsPreview() {
+            int line = TextBox.GetLineFromCharIndex(TextBox.SelectionStart);
+            int column = TextBox.SelectionStart - TextBox.GetFirstCharIndexFromLine(line);
             line++;
             column++;
             label1.Text = "row: " + line.ToString() + "   col: " + column.ToString();
         }
 
-        private void handleKeypress() {
+        private void HandleKeypress() {
             if (newWindow) newWindow = false;
-            updateSaveStatus();
-            updateRowCol();
+            UpdateSaveStatus();
+            UpdateRowsAndColumnsPreview();
         }
 
-        private void updateSaveStatus() {
+        private void UpdateSaveStatus() {
             if (!unsavedChanges) {
                 unsavedChanges = true;
                 UpdateTitle();
             }
         }
 
-        private void openFile() {
+        private void OpenFile() {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
                 if (newWindow) {
                     StreamReader fileStream = new StreamReader(openFileDialog.OpenFile());
-                    textBox1.Text = fileStream.ReadToEnd();
+                    TextBox.Text = fileStream.ReadToEnd();
                     unsavedChanges = false;
                     okToOverwrite = true;
                     newWindow = false;
                     UpdateTitle(openFileDialog.FileName);
                     fileStream.Close();
-                } else new Text_Editor(openFileDialog).Show();
+                } else new TextEditor(openFileDialog).Show();
             }
         }
 
         private void RunCode() {
             if (DisplayForm == null || DisplayForm.IsDisposed) {
-                DisplayForm = new Draw_Preview(textBox1.Text);
+                DisplayForm = new Draw_Preview(TextBox.Text);
             } else {
                 Console.WriteLine("Removed all commands");
                 DisplayForm.RemoveAllCommands();
-                DisplayForm.SubmitCommands(textBox1.Text);
+                DisplayForm.SubmitCommands(TextBox.Text);
             }
 
             if (DisplayForm.IsSuccess()) {
@@ -156,14 +156,14 @@ namespace Advanced_Software_Engineering {
         public void CheckCode() {
             Draw_Preview tmpDrawPreview = new Draw_Preview();
             tmpDrawPreview.Hide();
-            tmpDrawPreview.SubmitCommands(textBox1.Text);
+            tmpDrawPreview.SubmitCommands(TextBox.Text);
             if (tmpDrawPreview.IsSuccess()) new ErrorWindow("No errors", "No errors found in the program", "There have been no errors found", ErrorWindow.INFO_MESSAGE).Show();
             tmpDrawPreview.Close();
             SettingsAndHelperFunctions.WindowClosed();
             tmpDrawPreview.Dispose();
         }
 
-        private void handleExit(FormClosingEventArgs e) {
+        private void HandleExit(FormClosingEventArgs e) {
             if (unsavedChanges) {
                 DialogResult dialogResult = MessageBox.Show("You have unsaved work. Would you like to discard your work?", "Unsaved work!", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (e != null) e.Cancel = dialogResult != DialogResult.Yes;
@@ -173,7 +173,7 @@ namespace Advanced_Software_Engineering {
         private void DescribeCode() {
             Draw_Preview tmpDrawPreview = new Draw_Preview();
             tmpDrawPreview.Hide();
-            tmpDrawPreview.SubmitCommands(textBox1.Text);
+            tmpDrawPreview.SubmitCommands(TextBox.Text);
 
             string commandDesc = tmpDrawPreview.DescribeAllCommands();
             Console.WriteLine(commandDesc);
@@ -191,41 +191,41 @@ namespace Advanced_Software_Engineering {
             Dispose();
         }
 
-        private void runToolStripMenuItem_Click(object sender, EventArgs e) => RunCode();
+        private void RunToolStripMenuItem_Click(object sender, EventArgs e) => RunCode();
 
-        private void createNewInstance() => new Text_Editor().Show();
+        private void CreateNewInstance() => new TextEditor().Show();
 
-        private void handleKeypress(object sender, EventArgs e) => handleKeypress();
+        private void HandleKeypress(object sender, EventArgs e) => HandleKeypress();
 
-        private void textBox1_Click(object sender, EventArgs e) => updateRowCol();
+        private void TextBoxClick(object sender, EventArgs e) => UpdateRowsAndColumnsPreview();
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) => saveFileAs();
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) => SaveFileAs();
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e) => saveFile();
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e) => SaveFile();
 
-        private void newFileToolStripMenuItem_Click(object sender, EventArgs e) => createNewInstance();
+        private void NewFileToolStripMenuItem_Click(object sender, EventArgs e) => CreateNewInstance();
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new About_Window().Show();
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e) => new About_Window().Show();
 
-        private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => handleExit(e);
+        private void Text_Editor_FormClosing(object sender, FormClosingEventArgs e) => HandleExit(e);
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e) => openFile();
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e) => OpenFile();
 
         private void Text_Editor_PreviewKeyDown(object sender, KeyEventArgs e) {
             //New window
             if (e.Control && e.KeyCode == Keys.N) {
-                createNewInstance();
+                CreateNewInstance();
                 e.Handled = true;
             } else if (e.Control && e.KeyCode == Keys.S) {
-                saveFile();
+                SaveFile();
                 e.Handled = true;
             } else if (e.Control && e.Shift && e.KeyCode == Keys.S) {
-                saveFileAs();
+                SaveFileAs();
                 e.Handled = true;
             } else if (e.Control && e.KeyCode == Keys.O) {
-                openFile();
+                OpenFile();
                 e.Handled = true;
             } else if (e.KeyCode == Keys.F5) {
                 RunCode();
@@ -237,21 +237,21 @@ namespace Advanced_Software_Engineering {
                 DescribeCode();
                 e.Handled = true;
             } else {
-                updateRowCol();
+                UpdateRowsAndColumnsPreview();
             }
         }
 
-        private void checkSyntaxToolStripMenuItem_Click(object sender, EventArgs e) => CheckCode();
+        private void CheckSyntaxToolStripMenuItem_Click(object sender, EventArgs e) => CheckCode();
 
-        private void describeToolStripMenuItem_Click(object sender, EventArgs e) => DescribeCode();
+        private void DescribeToolStripMenuItem_Click(object sender, EventArgs e) => DescribeCode();
 
-        private void timer1_Tick(object sender, EventArgs e) {
-            updateRowCol();
-            timer1.Stop();
+        private void SavedLableTimerTick(object sender, EventArgs e) {
+            UpdateRowsAndColumnsPreview();
+            SavedLabelTimer.Stop();
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e) => updateRowCol();
+        private void TextBox_KeyUp(object sender, KeyEventArgs e) => UpdateRowsAndColumnsPreview();
 
-        private void helpToolStripMenuItem1_Click(object sender, EventArgs e) => new CommandHelp().Show();
+        private void HelpToolStripMenuItem1_Click(object sender, EventArgs e) => new CommandHelp().Show();
     }
 }

@@ -5,7 +5,7 @@ namespace Advanced_Software_Engineering
     /// <summary>
     /// Auto generated code
     /// </summary>
-    partial class Text_Editor
+    partial class TextEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@ namespace Advanced_Software_Engineering
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Text_Editor));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEditor));
+            this.TextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,28 +50,28 @@ namespace Advanced_Software_Engineering
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SavedLabelTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 23);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(602, 509);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.WordWrap = false;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            this.textBox1.TextChanged += new System.EventHandler(this.handleKeypress);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_Editor_PreviewKeyDown);
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBox.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox.Location = new System.Drawing.Point(0, 23);
+            this.TextBox.Multiline = true;
+            this.TextBox.Name = "TextBox";
+            this.TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextBox.Size = new System.Drawing.Size(602, 509);
+            this.TextBox.TabIndex = 0;
+            this.TextBox.WordWrap = false;
+            this.TextBox.Click += new System.EventHandler(this.TextBoxClick);
+            this.TextBox.TextChanged += new System.EventHandler(this.HandleKeypress);
+            this.TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_Editor_PreviewKeyDown);
+            this.TextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyUp);
             // 
             // menuStrip1
             // 
@@ -104,56 +104,56 @@ namespace Advanced_Software_Engineering
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.newFileToolStripMenuItem.Text = "New File (Ctrl + N)";
-            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
+            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.NewFileToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.openToolStripMenuItem.Text = "Open (Ctrl + O)";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.saveToolStripMenuItem.Text = "Save (Ctrl + S)";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.saveAsToolStripMenuItem.Text = "Save As (Ctrl + Shift + S)";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.exitToolStripMenuItem.Text = "Exit (Alt + F4)";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.runToolStripMenuItem.Text = "Run (F5)";
-            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.RunToolStripMenuItem_Click);
             // 
             // checkSyntaxToolStripMenuItem
             // 
             this.checkSyntaxToolStripMenuItem.Name = "checkSyntaxToolStripMenuItem";
             this.checkSyntaxToolStripMenuItem.Size = new System.Drawing.Size(151, 20);
             this.checkSyntaxToolStripMenuItem.Text = "Check Syntax (Shift + F5)";
-            this.checkSyntaxToolStripMenuItem.Click += new System.EventHandler(this.checkSyntaxToolStripMenuItem_Click);
+            this.checkSyntaxToolStripMenuItem.Click += new System.EventHandler(this.CheckSyntaxToolStripMenuItem_Click);
             // 
             // describeToolStripMenuItem
             // 
             this.describeToolStripMenuItem.Name = "describeToolStripMenuItem";
             this.describeToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
             this.describeToolStripMenuItem.Text = "Describe (Shift + F1)";
-            this.describeToolStripMenuItem.Click += new System.EventHandler(this.describeToolStripMenuItem_Click);
+            this.describeToolStripMenuItem.Click += new System.EventHandler(this.DescribeToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -169,14 +169,14 @@ namespace Advanced_Software_Engineering
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.helpToolStripMenuItem1.Text = "Help";
-            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.HelpToolStripMenuItem1_Click);
             // 
             // label1
             // 
@@ -187,23 +187,23 @@ namespace Advanced_Software_Engineering
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
             // 
-            // timer1
+            // SavedLabelTimer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.SavedLabelTimer.Interval = 1000;
+            this.SavedLabelTimer.Tick += new System.EventHandler(this.SavedLableTimerTick);
             // 
-            // Text_Editor
+            // TextEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 548);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Text_Editor";
+            this.Name = "TextEditor";
             this.Text = "Advanced Software Engineering - Text Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Text_Editor_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Console_FormClosed);
@@ -217,7 +217,7 @@ namespace Advanced_Software_Engineering
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBox;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newFileToolStripMenuItem;
@@ -231,7 +231,7 @@ namespace Advanced_Software_Engineering
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripMenuItem checkSyntaxToolStripMenuItem;
         private Label label1;
-        private Timer timer1;
+        private Timer SavedLabelTimer;
         private ToolStripMenuItem describeToolStripMenuItem;
     }
 }

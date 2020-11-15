@@ -96,7 +96,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e) {
+        private void Exit_Click(object sender, EventArgs e) {
             Close();
         }
 
@@ -105,7 +105,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e) {
+        private void ShowDescriptionButton_Click(object sender, EventArgs e) {
             new DetailsWindow(desc).Show();
         }
 
