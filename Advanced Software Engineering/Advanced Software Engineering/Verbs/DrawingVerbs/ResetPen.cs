@@ -4,7 +4,7 @@
     /// Setsets the pen to the initial position.
     /// </summary>
     public class ResetPen : IVerb {
-        private Drawer drawer;
+        private readonly Drawer drawer;
 
         /// <summary>
         /// Creates the ResetPen IVerb

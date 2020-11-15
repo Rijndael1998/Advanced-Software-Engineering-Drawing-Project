@@ -11,11 +11,11 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// Correct
     /// </todo>
     public class Rectangle : IVerb {
-        private Drawer drawer;
-        private PointF[] points;
+        private readonly Drawer drawer;
+        private readonly PointF[] points;
 
-        private double width;
-        private double height;
+        private  readonly double width;
+        private readonly double height;
 
         /// <summary>
         /// Create a rectangle instance. Makes sure that

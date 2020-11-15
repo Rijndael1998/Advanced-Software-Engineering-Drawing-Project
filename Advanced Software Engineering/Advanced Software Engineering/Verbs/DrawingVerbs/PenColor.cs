@@ -6,8 +6,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// The PenColor IVerb class
     /// </summary>
     public class PenColor : IVerb {
-        private Drawer drawer;
-        private Color color;
+        private readonly Drawer drawer;
+        private readonly Color color;
 
         /// <summary>
         /// Creates a PenColor instance

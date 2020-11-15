@@ -6,7 +6,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// The Triangle IVerb class
     /// </summary>
     public class Triangle : IVerb {
-        private IVerb IVerb;
+        private readonly IVerb IVerb;
 
         /// <summary>
         /// Creates a new Triangle instance using <see cref="RegularPolygon"/>.

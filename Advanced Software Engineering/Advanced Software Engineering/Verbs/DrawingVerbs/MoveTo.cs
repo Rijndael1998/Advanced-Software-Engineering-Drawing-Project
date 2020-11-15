@@ -6,8 +6,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// MoveTo IVerb class
     /// </summary>
     public class MoveTo : IVerb {
-        private Drawer drawer;
-        private Point moveToPoint;
+        private readonly Drawer drawer;
+        private readonly Point moveToPoint;
 
         /// <summary>
         /// Creates a MoveTo instance

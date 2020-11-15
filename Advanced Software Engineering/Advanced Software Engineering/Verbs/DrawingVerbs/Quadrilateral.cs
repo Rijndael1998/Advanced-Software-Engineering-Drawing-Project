@@ -6,7 +6,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// The Quadrilateral IVerb class
     /// </summary>
     public class Quadrilateral : IVerb {
-        private IVerb IVerb;
+        private readonly IVerb IVerb;
 
         /// <summary>
         /// Creates a Quadrilateral instances

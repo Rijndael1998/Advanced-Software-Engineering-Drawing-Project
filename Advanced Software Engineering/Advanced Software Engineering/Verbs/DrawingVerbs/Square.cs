@@ -4,7 +4,7 @@
     /// The Square IVerb class
     /// </summary>
     public class Square : IVerb {
-        private IVerb IVerb;
+        private readonly IVerb IVerb;
 
         /// <summary>
         /// A new Squre instance. Draws squares using <see cref="RegularPolygon"/>

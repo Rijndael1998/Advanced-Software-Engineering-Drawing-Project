@@ -6,8 +6,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// The FillColor IVerb class
     /// </summary>
     public class FillColor : IVerb {
-        private Drawer drawer;
-        private Color color;
+        private readonly Drawer drawer;
+        private readonly Color color;
 
         /// <summary>
         /// Create the FillColor instance

@@ -5,7 +5,7 @@
     /// </summary>
     public class Circle : IVerb {
         private readonly Drawer drawer;
-        private double scale;
+        private readonly double scale;
 
         /// <summary>
         /// Circle constructor creates the Circle IVerb.

@@ -12,7 +12,7 @@ namespace Advanced_Software_Engineering_Tests {
     /// </summary>
     [TestClass]
     public class CommandTester {
-        private Random rand = new Random();
+        private readonly Random rand = new Random();
 
         /// <summary>
         /// Automatically tests:

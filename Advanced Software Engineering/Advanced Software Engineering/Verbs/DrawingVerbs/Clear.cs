@@ -4,7 +4,7 @@
     /// The Clear IVerb class.
     /// </summary>
     public class Clear : IVerb {
-        private Drawer drawer;
+        private readonly Drawer drawer;
 
         /// <summary>
         /// Create the clear IVerb

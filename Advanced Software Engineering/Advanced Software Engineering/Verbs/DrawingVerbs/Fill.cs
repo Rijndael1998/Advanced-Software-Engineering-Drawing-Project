@@ -4,8 +4,8 @@
     /// Fill IVerb class
     /// </summary>
     public class Fill : IVerb {
-        private Drawer drawer;
-        private bool enable;
+        private readonly Drawer drawer;
+        private readonly bool enable;
 
         /// <summary>
         /// Fill enables or disables the fill insider drawer

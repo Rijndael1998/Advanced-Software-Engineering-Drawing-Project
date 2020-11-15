@@ -11,8 +11,8 @@ namespace Advanced_Software_Engineering_Tests {
     /// </summary>
     [TestClass]
     public class SettingsAndHelperFunctionsTester {
-        private string alphabet = "abcdefghijklmnopqrstuvwxzy";
-        private Random rand = new Random();
+        private readonly string alphabet = "abcdefghijklmnopqrstuvwxzy";
+        private readonly Random rand = new Random();
 
         /// <summary>
         /// Random strip spaces test
