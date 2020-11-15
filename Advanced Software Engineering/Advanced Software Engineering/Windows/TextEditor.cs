@@ -68,9 +68,10 @@ namespace Advanced_Software_Engineering {
         }
 
         private void saveFileAs() {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.OverwritePrompt = true;
-            saveFileDialog.DefaultExt = ".txt";
+            SaveFileDialog saveFileDialog = new SaveFileDialog {
+                OverwritePrompt = true,
+                DefaultExt = ".txt"
+            };
             if (fileName != "") saveFileDialog.FileName = fileName;
             saveFileDialog.ValidateNames = true;
 

@@ -40,8 +40,7 @@ namespace Advanced_Software_Engineering {
         /// <summary>
         /// Creates a new Commander instance without a context. Should only be used for testing purpouses.
         /// </summary>
-        /// <param name="command">empty string</param>
-        public Commander(string command = "") {
+        public Commander() {
             Console.WriteLine("Warning! No graphics context!!!");
         }
 

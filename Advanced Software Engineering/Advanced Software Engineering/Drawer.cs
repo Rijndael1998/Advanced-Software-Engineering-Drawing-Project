@@ -141,8 +141,9 @@ namespace Advanced_Software_Engineering {
                 throw new Exception("Cannot have less than two points in a line");
             }
 
-            GraphicsPath path = new GraphicsPath();
-            path.FillMode = FillMode.Winding;
+            GraphicsPath path = new GraphicsPath {
+                FillMode = FillMode.Winding
+            };
 
             path.AddLines(points);
             path.AddLine(points[0], points.Last()); //Add final line
