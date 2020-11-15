@@ -3,11 +3,11 @@
     /// <summary>
     /// Setsets the pen to the initial position.
     /// </summary>
-    public class ResetPen : Verb {
+    public class ResetPen : IVerb {
         private Drawer drawer;
 
         /// <summary>
-        /// Creates the ResetPen verb
+        /// Creates the ResetPen IVerb
         /// </summary>
         /// <param name="drawer">drawer</param>
         public ResetPen(Drawer drawer) {

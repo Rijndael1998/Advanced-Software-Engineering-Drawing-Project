@@ -12,15 +12,15 @@ namespace Advanced_Software_Engineering {
     public class VerbFactory {
 
         /// <summary>
-        /// This function returns a Verb from a command and drawer.
+        /// This function returns a IVerb from a command and drawer.
         /// </summary>
         /// <remarks>
         /// This factory is specifically useful since it automatically converts the parameters to what they should be.
         /// </remarks>
         /// <param name="drawer">The drawer to affect</param>
         /// <param name="fullCommand">The command as a string</param>
-        /// <returns>A verb that maches the command</returns>
-        public static Verb MakeVerb(Drawer drawer, string fullCommand) {
+        /// <returns>A IVerb that maches the command</returns>
+        public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
             Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
             if (!commandAndParameters.Keys.Contains("command")) throw new Exception("There is no command to process");

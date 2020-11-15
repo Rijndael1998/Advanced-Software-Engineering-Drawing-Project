@@ -1,13 +1,13 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// The Clear Verb class.
+    /// The Clear IVerb class.
     /// </summary>
-    public class Clear : Verb {
+    public class Clear : IVerb {
         private Drawer drawer;
 
         /// <summary>
-        /// Create the clear Verb
+        /// Create the clear IVerb
         /// </summary>
         /// <param name="drawer"></param>
         public Clear(Drawer drawer) {
@@ -15,7 +15,7 @@
         }
 
         /// <summary>
-        /// Execute the clear verb. It clears the drawer.
+        /// Execute the clear IVerb. It clears the drawer.
         /// </summary>
         public void ExecuteVerb() => drawer.ClearCanvas();
 

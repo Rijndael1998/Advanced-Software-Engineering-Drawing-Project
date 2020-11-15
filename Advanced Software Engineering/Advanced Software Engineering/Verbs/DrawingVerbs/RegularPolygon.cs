@@ -5,9 +5,9 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// A class that generates a RegularPolygon verb.
+    /// A class that generates a RegularPolygon IVerb.
     /// </summary>
-    public class RegularPolygon : Verb {
+    public class RegularPolygon : IVerb {
         private Drawer drawer;
         private int sides;
         private double scale;

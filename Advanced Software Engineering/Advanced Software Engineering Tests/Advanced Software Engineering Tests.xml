@@ -6,7 +6,7 @@
     <members>
         <member name="T:Advanced_Software_Engineering_Tests.CommandTester">
             <summary>
-            The CommandTester class tests the commands possible, mostly by getting a verb and checking it's description..
+            The CommandTester class tests the commands possible, mostly by getting a IVerb and checking it's description..
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.VerbFactoryTester_Automatic1">
@@ -29,107 +29,107 @@
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.MoveToTester_Manual1">
             <summary>
-            tests the "move" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.MoveTo" />.
+            tests the "move" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.MoveTo"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.MoveToTester_Manual2">
             <summary>
-            tests the "moveto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.MoveTo" />.
+            tests the "moveto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.MoveTo"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.DrawToTester_Manual1">
             <summary>
-            tests the "drawto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo" />.
+            tests the "drawto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.DrawToTester_Manual2">
             <summary>
-            tests the "line" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo" />.
+            tests the "line" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.DrawToTester_Manual3">
             <summary>
-            tests the "lineto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo" />.
+            tests the "lineto" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawTo"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.RegularPolygonTester_Manual1">
             <summary>
-            tests the "regularpolygon" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon" />.
+            tests the "regularpolygon" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.RegularPolygonTester_Manual2">
             <summary>
-            tests the "rp" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon" />.
+            tests the "rp" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.RegularPolygonTester_Manual3">
             <summary>
-            tests the "regularpolygon" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon" />.
+            tests the "regularpolygon" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.RegularPolygonTester_Manual4">
             <summary>
-            tests the "rp" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon" />.
+            tests the "rp" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.RegularPolygon"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.SquareTester_Manual1">
             <summary>
-            tests the "square" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Square" />.
+            tests the "square" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Square"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.SquareTester_Manual2">
             <summary>
-            tests the "square" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Square" />.
+            tests the "square" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Square"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.QuadrilateralTester_Manual1">
             <summary>
-            tests the "quadrilateral" command using <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawLines" />. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Quadrilateral" />.
+            tests the "quadrilateral" command using <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.DrawLines"/>. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Quadrilateral"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.CircleTester_Manual1">
             <summary>
-            Tests the "circle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle" />.
+            Tests the "circle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.TriangleTester_Manual1">
             <summary>
-            tests the "triangle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle" />.
+            tests the "triangle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.TriangleTester_Manual2">
             <summary>
-            tests the "triangle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle" />.
+            tests the "triangle" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.DotTester_Manual1">
             <summary>
-            test the "dot" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Dot" />.
+            test the "dot" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Dot"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ClearTester_Manual1">
             <summary>
-            tests the "clear" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle" />.
+            tests the "clear" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.Circle"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ResetPenTester_Manual1">
             <summary>
-            Tests the "reset" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen" />
+            Tests the "reset" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen"/>
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.ResetPenTester_Manual2">
             <summary>
-            Tests the "resetpen" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen" />.
+            Tests the "resetpen" command. See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.ResetPen"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.PenTester_Manual1">
             <summary>
-            Tests the command "pen". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.PenColor" />
+            Tests the command "pen". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.PenColor"/>
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.FillTester_Manual1">
             <summary>
-            Tests the command "fill". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.FillColor" />.
+            Tests the command "fill". See <see cref="T:Advanced_Software_Engineering.Verbs.DrawingVerbs.FillColor"/>.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.CommandTester.IfTester_Manual1">
@@ -165,7 +165,7 @@
         </member>
         <member name="T:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester">
             <summary>
-            This class tests <see cref="T:Advanced_Software_Engineering.SettingsAndHelperFunctions" /> methods. It uses a combination of manual and random tests.
+            This class tests <see cref="T:Advanced_Software_Engineering.SettingsAndHelperFunctions"/> methods. It uses a combination of manual and random tests.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Random1">
@@ -175,72 +175,72 @@
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Manual1">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)" /> test
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)"/> test
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.Strip_Manual2">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)" /> test
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.Strip(System.String)"/> test
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.StripStringArray_Manual1">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.StripStringArray_Manual2">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.StripStringArray(System.String[])"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual1">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual2">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual3">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Manual4">
             <summary>
-            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            Manual <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.SettingsAndHelperFunctionsTester.CommandAndParameterParser_Random1">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)" /> test.
+            Random <see cref="M:Advanced_Software_Engineering.SettingsAndHelperFunctions.CommandAndParameterParser(System.String)"/> test.
             </summary>
         </member>
         <member name="T:Advanced_Software_Engineering_Tests.ValueHelperTester">
             <summary>
-            This class tests <see cref="T:Advanced_Software_Engineering.Verbs.ValueHelper" /> methods. It uses a combination of manual and random tests.
+            This class tests <see cref="T:Advanced_Software_Engineering.Verbs.ValueHelper"/> methods. It uses a combination of manual and random tests.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToInt_Random1">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToInt(System.String)" /> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToInt(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random1">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random2">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random3">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)" /> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
     </members>

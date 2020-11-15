@@ -9,7 +9,7 @@ namespace Advanced_Software_Engineering {
     /// </summary>
     public class Commander {
         private Graphics graphics;
-        private List<Verb> commands = new List<Verb>();
+        private List<IVerb> commands = new List<IVerb>();
         private Drawer drawer;
         private bool commands_ok = true;
 
@@ -22,8 +22,8 @@ namespace Advanced_Software_Engineering {
             drawer.ResetDrawer();
             drawer.SetGraphics(updateGraphicsElement);
 
-            foreach (Verb verb in this.commands) {
-                verb.ExecuteVerb();
+            foreach (IVerb IVerb in this.commands) {
+                IVerb.ExecuteVerb();
             }
         }
 
@@ -58,10 +58,10 @@ namespace Advanced_Software_Engineering {
         }
 
         /// <summary>
-        /// Adds a verb to the command list to be executed.
+        /// Adds a IVerb to the command list to be executed.
         /// </summary>
-        /// <param name="command">Verb to be added. <seealso cref="Verb"/></param>
-        public void AddCommand(Verb command) {
+        /// <param name="command">IVerb to be added. <seealso cref="IVerb"/></param>
+        public void AddCommand(IVerb command) {
             commands.Add(command);
         }
 
@@ -108,8 +108,8 @@ namespace Advanced_Software_Engineering {
 
             Console.WriteLine("\n\nHere is what the program is going to do:");
             Console.WriteLine("Set origin to 0, 0");
-            foreach (Verb verb in this.commands) {
-                Console.WriteLine(verb.GetDescription());
+            foreach (IVerb IVerb in this.commands) {
+                Console.WriteLine(IVerb.GetDescription());
             }
         }
 
@@ -131,7 +131,7 @@ namespace Advanced_Software_Engineering {
         /// Removes all commands from the Commander and resets the drawer.
         /// </summary>
         public void RemoveAllCommands() {
-            commands = new List<Verb>();
+            commands = new List<IVerb>();
             drawer.ResetDrawer();
         }
 
@@ -141,7 +141,7 @@ namespace Advanced_Software_Engineering {
         /// <returns>Explanation of all the commands</returns>
         public string ExplainCommands() {
             string desc = "";
-            foreach (Verb command in commands) {
+            foreach (IVerb command in commands) {
                 desc += command.GetDescription() + Environment.NewLine;
             }
             return desc;

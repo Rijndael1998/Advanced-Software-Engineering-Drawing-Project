@@ -3,9 +3,9 @@
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// The FillColor Verb class
+    /// The FillColor IVerb class
     /// </summary>
-    public class FillColor : Verb {
+    public class FillColor : IVerb {
         private Drawer drawer;
         private Color color;
 

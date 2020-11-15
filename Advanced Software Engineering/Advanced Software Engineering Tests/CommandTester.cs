@@ -8,7 +8,7 @@ using System.Drawing;
 namespace Advanced_Software_Engineering_Tests {
 
     /// <summary>
-    /// The CommandTester class tests the commands possible, mostly by getting a verb and checking it's description..
+    /// The CommandTester class tests the commands possible, mostly by getting a IVerb and checking it's description..
     /// </summary>
     [TestClass]
     public class CommandTester {
@@ -61,18 +61,18 @@ namespace Advanced_Software_Engineering_Tests {
                         input += inputParameter + (paramater - 1 != commandParameterNumbers ? ", " : "");
                     }
 
-                    Verb verb = VerbFactory.MakeVerb(null, input);
+                    IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
                     if (command == "moveto") {
-                        string verbDesc = verb.GetDescription();
+                        string verbDesc = IVerb.GetDescription();
                         string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
                         Assert.AreEqual(correctDesc, verbDesc);
                     } else if (command == "drawto" || command == "lineto" || command == "line") {
-                        string verbDesc = verb.GetDescription();
+                        string verbDesc = IVerb.GetDescription();
                         string correctDesc = "Draw line " + inputParameters[0] + ", " + inputParameters[1];
                         Assert.AreEqual(correctDesc, verbDesc);
                     } else if (command == "shape") {
-                        string verbDesc = verb.GetDescription();
+                        string verbDesc = IVerb.GetDescription();
                         string correctDesc;
                         if (commandParameterNumbers == 2)
                             correctDesc = "Draws a " + inputParameters[0] + " sided regular polygon, with rotation of 0 radians, with inner radius of " + (double)inputParameters[1];
@@ -92,9 +92,9 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "move 200, 300";
             string[] inputParameters = { "200", "300" };
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -107,9 +107,9 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "moveto 200, 300";
             string[] inputParameters = { "200", "300" };
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Move origin to " + inputParameters[0] + ", " + inputParameters[1];
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -121,8 +121,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void DrawToTester_Manual1() {
             string input = "drawto 200, 300";
             string[] inputParameters = { "200", "300" };
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Draw line " + inputParameters[0] + ", " + inputParameters[1];
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -134,8 +134,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void DrawToTester_Manual2() {
             string input = "line 200, 300";
             string[] inputParameters = { "200", "300" };
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Draw line " + inputParameters[0] + ", " + inputParameters[1];
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -147,8 +147,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void DrawToTester_Manual3() {
             string input = "lineto 200, 300";
             string[] inputParameters = { "200", "300" };
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Draw line " + inputParameters[0] + ", " + inputParameters[1];
             Assert.AreEqual(correctDesc, verbDesc);
         }
@@ -160,9 +160,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void RegularPolygonTester_Manual1() {
             string input = "regularpolygon 3, 50";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 50;
@@ -179,9 +179,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void RegularPolygonTester_Manual2() {
             string input = "rp 3, 50";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 50;
@@ -198,9 +198,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void RegularPolygonTester_Manual3() {
             string input = "regularpolygon 3, 50, 25";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 50;
@@ -217,9 +217,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void RegularPolygonTester_Manual4() {
             string input = "rp 3, 50, 25";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 50;
@@ -236,9 +236,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void SquareTester_Manual1() {
             string input = "square 500";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 4;
             double scale = 500;
@@ -255,9 +255,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void SquareTester_Manual2() {
             string input = "square 500, 45";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 4;
             double scale = 500;
@@ -280,9 +280,9 @@ namespace Advanced_Software_Engineering_Tests {
                 new Point(7, 8)
             };
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = new DrawLines(null, points).GetDescription();
 
             Assert.AreEqual(verbDesc, correctDesc);
@@ -295,9 +295,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void CircleTester_Manual1() {
             string input = "circle 100";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             string correctDesc = "Draws a circle radius " + 100d.ToString() + ", with origin of the pen";
 
@@ -311,9 +311,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void TriangleTester_Manual1() {
             string input = "triangle 500";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 500;
@@ -330,9 +330,9 @@ namespace Advanced_Software_Engineering_Tests {
         public void TriangleTester_Manual2() {
             string input = "triangle 500, 45";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
 
-            string verbDesc = verb.GetDescription();
+            string verbDesc = IVerb.GetDescription();
 
             int sides = 3;
             double scale = 500;
@@ -349,8 +349,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void DotTester_Manual1() {
             string input = "dot";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Places a dot where the pen currently is";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -362,8 +362,8 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void ClearTester_Manual1() {
             string input = "clear";
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Clears the canvas";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -375,8 +375,8 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void ResetPenTester_Manual1() {
             string input = "reset";
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Moves pen to the start (0, 0)";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -388,8 +388,8 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void ResetPenTester_Manual2() {
             string input = "resetpen";
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Moves pen to the start (0, 0)";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -401,8 +401,8 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void PenTester_Manual1() {
             string input = "pen red";
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Set pen color to: Color [Red]";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -414,8 +414,8 @@ namespace Advanced_Software_Engineering_Tests {
         [TestMethod]
         public void FillTester_Manual1() {
             string input = "fill pink";
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Set fill color to: Color [Pink]";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -428,8 +428,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void IfTester_Manual1() {
             string input = "if i == 10";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Tests if variable 'i' is equal to 10";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -442,8 +442,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void MethodTester_Manual1() {
             string input = "def duck, int i";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Create a new method called 'duck' with input 'int i'. The method: ";
 
             Assert.AreEqual(correctDesc, verbDesc);
@@ -456,8 +456,8 @@ namespace Advanced_Software_Engineering_Tests {
         public void ValueTester_Manual1() {
             string input = "int i = 10";
 
-            Verb verb = VerbFactory.MakeVerb(null, input);
-            string verbDesc = verb.GetDescription();
+            IVerb IVerb = VerbFactory.MakeVerb(null, input);
+            string verbDesc = IVerb.GetDescription();
             string correctDesc = "Declares and sets integer 'i' to '10'";
 
             Assert.AreEqual(correctDesc, verbDesc);

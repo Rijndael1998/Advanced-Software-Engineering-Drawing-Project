@@ -5,12 +5,12 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// Rectangle Verb class
+    /// Rectangle IVerb class
     /// </summary>
     /// <todo>
     /// Correct
     /// </todo>
-    public class Rectangle : Verb {
+    public class Rectangle : IVerb {
         private Drawer drawer;
         private PointF[] points;
 

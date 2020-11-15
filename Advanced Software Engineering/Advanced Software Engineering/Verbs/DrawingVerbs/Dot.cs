@@ -1,13 +1,13 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// The Dot Verb class
+    /// The Dot IVerb class
     /// </summary>
-    public class Dot : Verb {
+    public class Dot : IVerb {
         private Drawer drawer;
 
         /// <summary>
-        /// Creates the Dot Verb
+        /// Creates the Dot IVerb
         /// </summary>
         /// <param name="drawer"></param>
         public Dot(Drawer drawer) {

@@ -3,9 +3,9 @@
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// DrawTo Verb class
+    /// DrawTo IVerb class
     /// </summary>
-    public class DrawTo : Verb {
+    public class DrawTo : IVerb {
         private Drawer drawer;
         private Point moveToPoint;
 

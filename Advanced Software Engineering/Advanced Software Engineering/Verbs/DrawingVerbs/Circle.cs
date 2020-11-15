@@ -1,14 +1,14 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// Circle Verb class.
+    /// Circle IVerb class.
     /// </summary>
-    public class Circle : Verb {
+    public class Circle : IVerb {
         private Drawer drawer;
         private double scale;
 
         /// <summary>
-        /// Circle constructor creates the Circle verb.
+        /// Circle constructor creates the Circle IVerb.
         /// </summary>
         /// <param name="drawer">drawer</param>
         /// <param name="scale">scale of the circle</param>
@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Execute the Circle verb, which is to draw a circle with the drawer.
+        /// Execute the Circle IVerb, which is to draw a circle with the drawer.
         /// </summary>
         public void ExecuteVerb() {
             drawer.DrawCircle(scale);

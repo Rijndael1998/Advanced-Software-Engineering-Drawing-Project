@@ -1,9 +1,9 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// Fill Verb class
+    /// Fill IVerb class
     /// </summary>
-    public class Fill : Verb {
+    public class Fill : IVerb {
         private Drawer drawer;
         private bool enable;
 
@@ -28,7 +28,7 @@
         /// <summary>
         /// Describes what the command will do
         /// </summary>
-        /// <returns>Description of what the verb will do</returns>
+        /// <returns>Description of what the IVerb will do</returns>
         public string GetDescription() {
             if (enable) return "Enable fill";
             else return "Disable fill";

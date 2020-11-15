@@ -3,9 +3,9 @@
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// The PenColor Verb class
+    /// The PenColor IVerb class
     /// </summary>
-    public class PenColor : Verb {
+    public class PenColor : IVerb {
         private Drawer drawer;
         private Color color;
 

@@ -3,10 +3,10 @@
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
-    /// The Quadrilateral Verb class
+    /// The Quadrilateral IVerb class
     /// </summary>
-    public class Quadrilateral : Verb {
-        private Verb verb;
+    public class Quadrilateral : IVerb {
+        private IVerb IVerb;
 
         /// <summary>
         /// Creates a Quadrilateral instances
@@ -17,18 +17,18 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="point3">third point</param>
         /// <param name="point4">fourth point</param>
         public Quadrilateral(Drawer drawer, Point point1, Point point2, Point point3, Point point4) {
-            verb = new DrawLines(drawer, new Point[] { point1, point2, point3, point4 });
+            IVerb = new DrawLines(drawer, new Point[] { point1, point2, point3, point4 });
         }
 
         /// <summary>
         /// Draws a quadrilateral from the points
         /// </summary>
-        public void ExecuteVerb() => verb.ExecuteVerb();
+        public void ExecuteVerb() => IVerb.ExecuteVerb();
 
         /// <summary>
         /// Describes all of the points
         /// </summary>
         /// <returns>Description of the quadrilateral points</returns>
-        public string GetDescription() => verb.GetDescription();
+        public string GetDescription() => IVerb.GetDescription();
     }
 }
