@@ -9,7 +9,7 @@ namespace Advanced_Software_Engineering.Verbs {
     /// <summary>
     /// This class contains a large amount of useful conversions
     /// </summary>
-    public class Value {
+    public class ValueHelper {
         /// <summary>
         /// Converts string to int (if possible)
         /// </summary>
