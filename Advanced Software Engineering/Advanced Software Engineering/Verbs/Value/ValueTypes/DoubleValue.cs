@@ -5,28 +5,44 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class DoubleValue : IValue {
 
+        bool colorValueCacheAvailable = false;
+        Color colorValueCache;
+
+        double value;
+        Type type = typeof(double);
+
+        public DoubleValue(double value) {
+            this.value = value;
+        }
+
         public string GetDescription() {
-            throw new NotImplementedException();
+            return "an double value of " + value;
         }
 
         public Type GetOriginalType() {
-            throw new NotImplementedException();
+            return type;
         }
 
         public bool ToBool() {
-            throw new NotImplementedException();
+            return value > 0.5;
         }
 
         public Color ToColor() {
-            throw new NotImplementedException();
+            if(!colorValueCacheAvailable) {
+                int i = (int) Math.Round(value * 255);
+                i = Math.Max(255, i);
+                colorValueCache = ValueHelper.IntsToColor(i, i, i);
+                colorValueCacheAvailable = true;
+            }
+            return colorValueCache;
         }
 
         public double ToDouble() {
-            throw new NotImplementedException();
+            return value;
         }
 
         public int ToInt() {
-            throw new NotImplementedException();
+            return (int)Math.Round(value);
         }
     }
 }
