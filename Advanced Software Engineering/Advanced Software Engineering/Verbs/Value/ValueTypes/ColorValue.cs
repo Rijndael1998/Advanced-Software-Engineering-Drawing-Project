@@ -5,28 +5,35 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class ColorValue : IValue {
 
+        Color value;
+        Type type = typeof(Color);
+
+        public ColorValue(Color value) {
+            this.value = value;
+        }
+
         public string GetDescription() {
-            throw new NotImplementedException();
+            return "A color with description " + value.ToString();
         }
 
         public Type GetOriginalType() {
-            throw new NotImplementedException();
+            return type;
         }
 
         public bool ToBool() {
-            throw new NotImplementedException();
+            return value.GetBrightness() > 0.5;
         }
 
         public Color ToColor() {
-            throw new NotImplementedException();
+            return value;
         }
 
         public double ToDouble() {
-            throw new NotImplementedException();
+            return value.GetBrightness();
         }
 
         public int ToInt() {
-            throw new NotImplementedException();
+            return value.ToArgb();
         }
     }
 }
