@@ -5,28 +5,35 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class BoolValue : IValue {
 
+        bool value;
+        Type type = typeof(bool);
+
+        public BoolValue(bool value) {
+            this.value = value;
+        }
+
         public string GetDescription() {
-            throw new NotImplementedException();
+            return "boolean of value " + value.ToString();
         }
 
         public Type GetOriginalType() {
-            throw new NotImplementedException();
+            return type;
         }
 
         public bool ToBool() {
-            throw new NotImplementedException();
+            return value;
         }
 
         public Color ToColor() {
-            throw new NotImplementedException();
+            return value ? Color.White : Color.Black;
         }
 
         public double ToDouble() {
-            throw new NotImplementedException();
+            return value ? 1d : 0d;
         }
 
         public int ToInt() {
-            throw new NotImplementedException();
+            return value ? 1 : 0;
         }
     }
 }
