@@ -202,6 +202,11 @@ namespace Advanced_Software_Engineering {
                             );
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
+                case "int":
+                    if (parameterLength == 1) {
+                        return new Verb
+                    } else throw new Exception("ints need to be initialised");
+
                 default:
                     throw new Exception("Unknown command");
             }
