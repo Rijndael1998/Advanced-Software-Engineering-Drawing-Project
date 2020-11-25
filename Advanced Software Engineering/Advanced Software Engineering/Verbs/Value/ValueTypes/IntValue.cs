@@ -5,6 +5,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class IntValue : IValue {
 
+        bool initialised = false;
+
         int value;
 
         bool doubleValueCacheAvaiable = false;
@@ -59,6 +61,10 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
         public int ToInt() {
             return value;
+        }
+
+        public bool isInitialised() {
+            return initialised;
         }
     }
 }

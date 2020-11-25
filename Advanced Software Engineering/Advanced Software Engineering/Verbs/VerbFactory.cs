@@ -203,9 +203,12 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
                 case "int":
+                case "double":
+                case "bool":
+                case "color":
                     if (parameterLength == 1) {
-                        return new Verb
-                    } else throw new Exception("ints need to be initialised");
+                        return new InitialiseVariable(drawer, command, parameters[0]);
+                    } else throw new Exception(command + "s need to be initialised");
 
                 default:
                     throw new Exception("Unknown command");

@@ -5,15 +5,22 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class ColorValue : IValue {
 
+        bool initialised = false;
+
         Color value;
         Type type = typeof(Color);
 
         public ColorValue(Color value) {
             this.value = value;
+            initialised = true;
+        }
+
+        public ColorValue() {
         }
 
         public string GetDescription() {
-            return "A color with description " + value.ToString();
+            if (initialised) return "A color with description " + value.ToString();
+            else return "An uninitialised color";
         }
 
         public Type GetOriginalType() {
@@ -21,19 +28,24 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public bool ToBool() {
-            return value.GetBrightness() > 0.5;
+            return ToColor().GetBrightness() > 0.5;
         }
 
         public Color ToColor() {
-            return value;
+            if (initialised) return value;
+            else throw new Exception("Color value not set");
         }
 
         public double ToDouble() {
-            return value.GetBrightness();
+            return ToColor().GetBrightness();
         }
 
         public int ToInt() {
-            return value.ToArgb();
+            return ToColor().ToArgb();
+        }
+
+        public bool isInitialised() {
+            return initialised;
         }
     }
 }

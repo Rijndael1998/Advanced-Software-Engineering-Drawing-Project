@@ -16,5 +16,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         Color ToColor();
 
         Type GetOriginalType();
+
+        bool isInitialised();
     }
 }

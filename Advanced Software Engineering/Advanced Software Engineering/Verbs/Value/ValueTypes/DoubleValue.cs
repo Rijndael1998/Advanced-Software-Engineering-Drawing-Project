@@ -5,6 +5,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class DoubleValue : IValue {
 
+        bool initialised = false;
+
         bool colorValueCacheAvailable = false;
         Color colorValueCache;
 
@@ -43,6 +45,10 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
         public int ToInt() {
             return (int)Math.Round(value);
+        }
+
+        public bool isInitialised() {
+            return initialised;
         }
     }
 }

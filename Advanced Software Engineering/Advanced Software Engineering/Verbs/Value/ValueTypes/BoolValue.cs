@@ -5,15 +5,22 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class BoolValue : IValue {
 
+        bool initialised = false;
+
         bool value;
         Type type = typeof(bool);
 
         public BoolValue(bool value) {
             this.value = value;
+            initialised = true;
+        }
+
+        public BoolValue() {
         }
 
         public string GetDescription() {
-            return "boolean of value " + value.ToString();
+            if (initialised) return "boolean of value " + value.ToString();
+            else return "an unset boolean value";
         }
 
         public Type GetOriginalType() {
@@ -21,19 +28,24 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public bool ToBool() {
-            return value;
+            if (initialised) return value;
+            else throw new Exception("not initilised");
         }
 
         public Color ToColor() {
-            return value ? Color.White : Color.Black;
+            return ToBool() ? Color.White : Color.Black;
         }
 
         public double ToDouble() {
-            return value ? 1d : 0d;
+            return ToBool() ? 1d : 0d;
         }
 
         public int ToInt() {
-            return value ? 1 : 0;
+            return ToBool() ? 1 : 0;
+        }
+
+        public bool isInitialised() {
+            return initialised;
         }
     }
 }
