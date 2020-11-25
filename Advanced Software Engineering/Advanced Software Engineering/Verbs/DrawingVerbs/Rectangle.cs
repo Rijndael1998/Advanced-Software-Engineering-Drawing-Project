@@ -14,7 +14,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         private readonly Drawer drawer;
         private readonly PointF[] points;
 
-        private  readonly double width;
+        private readonly double width;
         private readonly double height;
 
         /// <summary>

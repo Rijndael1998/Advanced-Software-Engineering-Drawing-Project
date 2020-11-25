@@ -89,12 +89,12 @@
     <Compile Include="Verbs\DrawingVerbs\ResetPen.cs" />
     <Compile Include="Verbs\DrawingVerbs\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
+    <Compile Include="Verbs\Value\InitialiseVariable.cs" />
     <Compile Include="Verbs\Value\ValueFactory.cs" />
     <Compile Include="Verbs\Value\IValue.cs" />
     <Compile Include="Verbs\Value\ValueHelper.cs" />
     <Compile Include="Verbs\IVerb.cs" />
     <Compile Include="Verbs\Value\ValueTypes\BoolValue.cs" />
-    <Compile Include="Verbs\Value\ValueTypes\BytesValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ColorValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\DoubleValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\IntValue.cs" />
