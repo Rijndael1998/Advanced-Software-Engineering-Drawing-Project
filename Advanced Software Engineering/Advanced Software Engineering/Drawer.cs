@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -44,6 +46,8 @@ namespace Advanced_Software_Engineering {
         /// The graphics object
         /// </summary>
         protected Graphics graphics;
+
+        protected Dictionary<string, IValue> variables = new Dictionary<string, IValue>();
 
         /// <summary>
         /// Creates a new drawer object.
@@ -182,6 +186,14 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         public void DrawDot() {
             graphics.FillRectangle(new SolidBrush(pen.Color), penPosition.X, penPosition.Y, 1, 1);
+        }
+
+        public void SetVariable(string name, IValue value) {
+            variables.Add(name, value);
+        }
+
+        public IValue GetVariable(string name) {
+            return variables[name];
         }
     }
 }
