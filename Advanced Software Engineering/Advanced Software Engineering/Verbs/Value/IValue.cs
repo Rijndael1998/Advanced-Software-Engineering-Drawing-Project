@@ -1,9 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
 
-    internal interface IValue {
+    public interface IValue {
 
         string GetDescription();
 
@@ -15,7 +14,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         Color ToColor();
 
-        Type GetOriginalType();
+        string GetOriginalType();
 
         bool isInitialised();
     }

@@ -4,11 +4,10 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class ColorValue : IValue {
+        private bool initialised = false;
 
-        bool initialised = false;
-
-        Color value;
-        Type type = typeof(Color);
+        private Color value;
+        private Type type = typeof(Color);
 
         public ColorValue(Color value) {
             this.value = value;
@@ -23,8 +22,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             else return "An uninitialised color";
         }
 
-        public Type GetOriginalType() {
-            return type;
+        public string GetOriginalType() {
+            return "color";
         }
 
         public bool ToBool() {

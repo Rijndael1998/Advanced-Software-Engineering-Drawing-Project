@@ -4,11 +4,10 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class BoolValue : IValue {
+        private bool initialised = false;
 
-        bool initialised = false;
-
-        bool value;
-        Type type = typeof(bool);
+        private bool value;
+        private Type type = typeof(bool);
 
         public BoolValue(bool value) {
             this.value = value;
@@ -23,8 +22,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             else return "an unset boolean value";
         }
 
-        public Type GetOriginalType() {
-            return type;
+        public string GetOriginalType() {
+            return "bool";
         }
 
         public bool ToBool() {

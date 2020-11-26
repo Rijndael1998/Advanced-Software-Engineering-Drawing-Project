@@ -4,14 +4,13 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class DoubleValue : IValue {
+        private bool initialised = false;
 
-        bool initialised = false;
+        private bool colorValueCacheAvailable = false;
+        private Color colorValueCache;
 
-        bool colorValueCacheAvailable = false;
-        Color colorValueCache;
-
-        double value;
-        Type type = typeof(double);
+        private double value;
+        private Type type = typeof(double);
 
         public DoubleValue(double value) {
             this.value = value;
@@ -21,8 +20,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             return "an double value of " + value;
         }
 
-        public Type GetOriginalType() {
-            return type;
+        public string GetOriginalType() {
+            return "double";
         }
 
         public bool ToBool() {
@@ -30,8 +29,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public Color ToColor() {
-            if(!colorValueCacheAvailable) {
-                int i = (int) Math.Round(value * 255);
+            if (!colorValueCacheAvailable) {
+                int i = (int)Math.Round(value * 255);
                 i = Math.Max(255, i);
                 colorValueCache = ValueHelper.IntsToColor(i, i, i);
                 colorValueCacheAvailable = true;

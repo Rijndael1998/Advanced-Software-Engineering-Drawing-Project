@@ -17,8 +17,6 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         private bool colorValueCacheAvailable = false;
         private Color colorValueCache;
 
-        private Type type = typeof(int);
-
         public IntValue(int value) {
             this.value = value;
         }
@@ -27,8 +25,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             return "an integer value of " + value;
         }
 
-        public Type GetOriginalType() {
-            return type;
+        public string GetOriginalType() {
+            return "int";
         }
 
         public bool ToBool() {
