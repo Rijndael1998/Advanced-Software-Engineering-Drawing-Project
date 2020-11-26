@@ -1,5 +1,5 @@
-using Advanced_Software_Engineering.Verbs.Value;
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
+using Advanced_Software_Engineering.Verbs.Value;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -207,11 +207,18 @@ namespace Advanced_Software_Engineering {
                 case "bool":
                 case "color":
                     if (parameterLength == 1) {
-                        return new InitialiseVariable(drawer, command, parameters[0]);
+                        return new DeclareVariable(drawer, command, parameters[0]);
                     } else throw new Exception(command + "s need to be initialised");
 
                 default:
-                    throw new Exception("Unknown command");
+                    //assignment
+                    if (command.Contains("=") && !command.Contains("==")) {
+                        string[] assignmentCommands = command.Split("="[0]);
+                        if (assignmentCommands.Length > 2) throw new Exception("Cannot have two assignments");
+                        return new UpdateVariable(drawer, assignmentCommands[0], assignmentCommands[1]);
+                    }
+                    //not assignment
+                    throw new Exception("Unknown command or cannot parse");
             }
         }
     }
