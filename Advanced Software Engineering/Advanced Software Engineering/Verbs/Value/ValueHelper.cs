@@ -75,16 +75,16 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             switch (text.Length) {
                 case 6:
                     return Color.FromArgb(
-    int.Parse(text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
-    int.Parse(text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
-    int.Parse(text.Substring(4, 2), System.Globalization.NumberStyles.HexNumber));
+                        int.Parse(text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
+                        int.Parse(text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
+                        int.Parse(text.Substring(4, 2), System.Globalization.NumberStyles.HexNumber));
 
                 case 8:
                     return Color.FromArgb(
-    int.Parse(text.Substring(6, 2), System.Globalization.NumberStyles.HexNumber),
-    int.Parse(text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
-    int.Parse(text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
-    int.Parse(text.Substring(4, 2), System.Globalization.NumberStyles.HexNumber));
+                        int.Parse(text.Substring(6, 2), System.Globalization.NumberStyles.HexNumber),
+                        int.Parse(text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
+                        int.Parse(text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
+                        int.Parse(text.Substring(4, 2), System.Globalization.NumberStyles.HexNumber));
 
                 default:
                     throw new Exception("Color not valid");
@@ -101,6 +101,51 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// <returns></returns>
         public static Color IntsToColor(int r, int g, int b, int a = 255) {
             return Color.FromArgb(a, r, g, b);
+        }
+
+        public static bool ConvertToBool(string text) {
+            switch (text) {
+                case "true":
+                case "1":
+                case "on":
+                    return true;
+
+                case "false":
+                case "0":
+                case "off":
+                    return false;
+
+                default:
+                    throw new Exception("Invalid input");
+            }
+        }
+
+        public static IValue ConvertToIValue(string text) {
+
+            //No assignmnet
+            if (!text.Contains("=")) {
+
+                if (!text.Contains("#")) {
+                    //Check if string is a number
+                    try {
+                        return ValueFactory.CreateValue(text, "int");
+                    } catch (Exception e) { }
+
+                    //Check if string is a double
+                    try {
+                        return ValueFactory.CreateValue(text, "double");
+                    } catch (Exception e) { }
+                }
+
+                //Check if color
+                try {
+                    return ValueFactory.CreateValue(text, "color");
+                } catch (Exception e) { }
+            } else {
+                //Check if string is an expression
+                return ValueFactory.CreateValue(text, "expression");
+            }
+            throw new Exception("Could not convert " + text + " to any type");
         }
     }
 }
