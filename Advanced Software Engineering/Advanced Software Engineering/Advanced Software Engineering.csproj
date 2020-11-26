@@ -89,7 +89,9 @@
     <Compile Include="Verbs\DrawingVerbs\ResetPen.cs" />
     <Compile Include="Verbs\DrawingVerbs\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
-    <Compile Include="Verbs\Value\InitialiseVariable.cs" />
+    <Compile Include="Verbs\Value\Expression.cs" />
+    <Compile Include="Verbs\Value\DeclareVariable.cs" />
+    <Compile Include="Verbs\Value\UpdateVariable.cs" />
     <Compile Include="Verbs\Value\ValueFactory.cs" />
     <Compile Include="Verbs\Value\IValue.cs" />
     <Compile Include="Verbs\Value\ValueHelper.cs" />

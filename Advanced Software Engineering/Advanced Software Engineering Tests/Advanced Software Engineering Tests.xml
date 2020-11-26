@@ -220,27 +220,27 @@
         </member>
         <member name="T:Advanced_Software_Engineering_Tests.ValueHelperTester">
             <summary>
-            This class tests <see cref="T:Advanced_Software_Engineering.Verbs.ValueHelper"/> methods. It uses a combination of manual and random tests.
+            This class tests <see cref="T:Advanced_Software_Engineering.Verbs.Value.ValueHelper"/> methods. It uses a combination of manual and random tests.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToInt_Random1">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToInt(System.String)"/> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ValueHelper.ConvertToInt(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random1">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random2">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
         <member name="M:Advanced_Software_Engineering_Tests.ValueHelperTester.ConvertToDouble_Random3">
             <summary>
-            Random <see cref="M:Advanced_Software_Engineering.Verbs.ValueHelper.ConvertToDouble(System.String)"/> test.
+            Random <see cref="M:Advanced_Software_Engineering.Verbs.Value.ValueHelper.ConvertToDouble(System.String)"/> test.
             </summary>
         </member>
     </members>
