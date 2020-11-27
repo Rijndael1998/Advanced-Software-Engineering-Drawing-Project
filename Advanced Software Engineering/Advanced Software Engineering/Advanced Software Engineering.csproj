@@ -89,7 +89,7 @@
     <Compile Include="Verbs\DrawingVerbs\ResetPen.cs" />
     <Compile Include="Verbs\DrawingVerbs\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
-    <Compile Include="Verbs\Value\Expression.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\ExpressionValue.cs" />
     <Compile Include="Verbs\Value\DeclareVariable.cs" />
     <Compile Include="Verbs\Value\UpdateVariable.cs" />
     <Compile Include="Verbs\Value\ValueFactory.cs" />
@@ -100,6 +100,7 @@
     <Compile Include="Verbs\Value\ValueTypes\ColorValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\DoubleValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\IntValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\VariableValue.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +208,8 @@
   <ItemGroup>
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

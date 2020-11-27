@@ -1,38 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
-    class VariableValue : IValue {
+
+    public class VariableValue : IValue {
+        private Drawer drawer;
+        private string variableName;
+
+        public VariableValue(Drawer drawer, string variableName) {
+            this.variableName = variableName;
+            if (!drawer.CheckVariableExists(variableName)) throw new Exception("Tried to access " + variableName + " before it was assigned. ");
+            this.drawer = drawer;
+        }
+
+        private IValue get() {
+            return drawer.GetVariable(variableName);
+        }
+
         public string GetDescription() {
-            throw new NotImplementedException();
+            return get().GetDescription();
         }
 
         public string GetOriginalType() {
-            throw new NotImplementedException();
+            return get().GetOriginalType();
         }
 
         public bool isInitialised() {
-            throw new NotImplementedException();
+            return get().isInitialised();
         }
 
         public bool ToBool() {
-            throw new NotImplementedException();
+            return get().ToBool();
         }
 
         public Color ToColor() {
-            throw new NotImplementedException();
+            return get().ToColor();
         }
 
         public double ToDouble() {
-            throw new NotImplementedException();
+            return get().ToDouble();
         }
 
         public int ToInt() {
-            throw new NotImplementedException();
+            return get().ToInt();
         }
     }
 }
