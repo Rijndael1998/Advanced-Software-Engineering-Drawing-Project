@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
 
-    public class Expression : IValue {
+    public class ExpressionValue : IValue {
         private const int ADD = 0;
         private const int SUBTRACT = 1;
         private const int MULTIPLY = 2;
@@ -17,7 +17,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private bool evaluated = false;
         private IValue evaluatedValue;
 
-        public Expression(Drawer drawer, string variable1, string variable2, int operation) {
+        public ExpressionValue(Drawer drawer, string variable1, string variable2, int operation) {
             this.drawer = drawer;
             this.variable1 = variable1;
             this.variable2 = variable2;
