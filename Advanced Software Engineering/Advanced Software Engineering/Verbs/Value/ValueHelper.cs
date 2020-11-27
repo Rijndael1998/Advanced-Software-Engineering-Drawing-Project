@@ -147,5 +147,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
             throw new Exception("Could not convert " + text + " to any type");
         }
+
+        public static Exception ConvertToExpression(string expression) {
+            throw new NotImplementedException();
+        }
     }
 }

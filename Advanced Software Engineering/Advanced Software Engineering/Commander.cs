@@ -122,7 +122,15 @@ namespace Advanced_Software_Engineering {
             ProcessCommands(rawCommands, pardonCommands);
 
             for (; start < commands.Count; start++) {
-                commands[start].ExecuteVerb();
+                try {
+                    commands[start].ExecuteVerb();
+                } catch (Exception e) {
+                    IVerb tmp = commands[start];
+                    if (!pardonCommands) RemoveAllCommands();
+                    else commands.Remove(commands[start]);
+                    new ErrorWindow("Runtime Error", "Failed to " + tmp.GetDescription(), "While trying to '" + tmp.GetDescription() + "' an exception occured.\nMessage:\n" + e.Message + "\nStack Trace:\n" + e.StackTrace, ErrorWindow.ERROR_MESSAGE).Show();
+                    break;
+                }
             }
         }
 

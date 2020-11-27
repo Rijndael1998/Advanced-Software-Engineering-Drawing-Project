@@ -25,9 +25,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 case "bool":
                     return new BoolValue(ValueHelper.ConvertToBool(value));
 
-                case "expression":
-                    return new Exception(ValueHelper.ConvertToExpression(value));
-
                 default:
                     throw new Exception("Unknown expected type: " + type.ToString());
             }

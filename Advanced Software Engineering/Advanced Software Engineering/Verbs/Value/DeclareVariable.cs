@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
 
@@ -7,17 +8,34 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private IValue value;
         private string name;
 
-        public DeclareVariable(Drawer drawer, string type, string assgnment) {
+        public DeclareVariable(Drawer drawer, string type, string assignment) {
             this.drawer = drawer;
 
-            value = ValueFactory.CreateValue(type, assgnment);
+            // get variable name
+            // assignment looks something like this at this point: 
+            // i = 20
+            // or
+            // i = 2 == 5
+
+            // bools have ==
+            if(!(type == "bool")) {
+                //Seperate the assignment from the variables
+                List<string> assignmentList = SettingsAndHelperFunctions.StripStringArray(assignment.Split("="[0]));
+                name = assignmentList[0];
+                value = ValueFactory.CreateValue(assignmentList[1], type);
+                
+            } else {
+                throw new NotImplementedException();
+            }
+
         }
 
-        void IVerb.ExecuteVerb() {
+        public void ExecuteVerb() {
+            drawer.SetVariable(name, value);
         }
 
-        string IVerb.GetDescription() {
-            throw new NotImplementedException();
+        public string GetDescription() {
+            return "Declares the variable " + name;
         }
     }
 }
