@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
@@ -7,14 +8,14 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// </summary>
     public class FillColor : IVerb {
         private readonly Drawer drawer;
-        private readonly Color color;
+        private readonly IValue color;
 
         /// <summary>
         /// Create the FillColor instance
         /// </summary>
         /// <param name="drawer">drawer</param>
         /// <param name="color">The color of the fill</param>
-        public FillColor(Drawer drawer, Color color) {
+        public FillColor(Drawer drawer, IValue color) {
             this.drawer = drawer;
             this.color = color;
         }
@@ -23,7 +24,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// Set the fill color
         /// </summary>
         public void ExecuteVerb() {
-            drawer.SetFillColor(color);
+            drawer.SetFillColor(color.ToColor());
         }
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// </summary>
         /// <returns>Description of the fill color</returns>
         public string GetDescription() {
-            return "Set fill color to: " + color.ToString();
+            return "Set fill color to the specified color";
         }
     }
 }
