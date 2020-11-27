@@ -121,20 +121,22 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public static IValue ConvertToIValue(string text) {
-
+            text = SettingsAndHelperFunctions.Strip(text);
             //No assignmnet
             if (!text.Contains("=")) {
 
                 if (!text.Contains("#")) {
                     //Check if string is a number
-                    try {
-                        return ValueFactory.CreateValue(text, "int");
-                    } catch (Exception e) { }
+                    if (!text.Contains("."))
+                        try {
+                            return ValueFactory.CreateValue(text, "int");
+                        } catch (Exception e) { }
 
                     //Check if string is a double
-                    try {
-                        return ValueFactory.CreateValue(text, "double");
-                    } catch (Exception e) { }
+                    else
+                        try {
+                            return ValueFactory.CreateValue(text, "double");
+                        } catch (Exception e) { }
                 }
 
                 //Check if color
@@ -142,6 +144,8 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                     return ValueFactory.CreateValue(text, "color");
                 } catch (Exception e) { }
             } else {
+                //Check if string is a bool TODO
+
                 //Check if string is an expression
                 return ValueFactory.CreateValue(text, "expression");
             }
