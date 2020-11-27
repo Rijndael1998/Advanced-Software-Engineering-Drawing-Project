@@ -1,4 +1,5 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
@@ -24,6 +25,35 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
                 case "bool":
                     return new BoolValue(ValueHelper.ConvertToBool(value));
+
+                default:
+                    throw new Exception("Unknown expected type: " + type.ToString());
+            }
+        }
+
+        public static IValue CreateValue(Drawer drawer, string paramater1, string paramater2, string parameter3, string parameter4, string type) {
+            switch (type) {
+                case "color":
+                    IValue p1 = CreateValue(drawer, paramater1);
+                    IValue p2 = CreateValue(drawer, paramater2);
+                    IValue p3 = CreateValue(drawer, parameter3);
+                    IValue p4 = CreateValue(drawer, parameter4);
+
+                    return new ColorValue(p1, p2, p3, p4);
+
+                default:
+                    throw new Exception("Unknown expected type: " + type.ToString());
+            }
+        }
+
+        public static IValue CreateValue(Drawer drawer, string paramater1, string paramater2, string parameter3, string type) {
+            switch (type) {
+                case "color":
+                    IValue p1 = CreateValue(drawer, paramater1);
+                    IValue p2 = CreateValue(drawer, paramater2);
+                    IValue p3 = CreateValue(drawer, parameter3);
+
+                    return new ColorValue(p1, p2, p3);
 
                 default:
                     throw new Exception("Unknown expected type: " + type.ToString());
