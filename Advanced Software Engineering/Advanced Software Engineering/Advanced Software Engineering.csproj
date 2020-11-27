@@ -89,6 +89,7 @@
     <Compile Include="Verbs\DrawingVerbs\ResetPen.cs" />
     <Compile Include="Verbs\DrawingVerbs\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
+    <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ExpressionValue.cs" />
     <Compile Include="Verbs\Value\DeclareVariable.cs" />
     <Compile Include="Verbs\Value\UpdateVariable.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Verbs\Value\ValueHelper.cs" />
     <Compile Include="Verbs\IVerb.cs" />
     <Compile Include="Verbs\Value\ValueTypes\BoolValue.cs" />
-    <Compile Include="Verbs\Value\ValueTypes\ColorValue.cs" />
+    <Compile Include="Verbs\Value\ValueObjects\ColorValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\DoubleValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\IntValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\VariableValue.cs" />
