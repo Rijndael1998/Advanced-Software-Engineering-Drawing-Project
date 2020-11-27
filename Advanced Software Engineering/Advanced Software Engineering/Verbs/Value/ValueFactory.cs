@@ -30,6 +30,12 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
+        public static IValue CreateValue(Drawer drawer, string value) {
+            value = SettingsAndHelperFunctions.Strip(value);
+            if (drawer.CheckVariableExists(value)) return new VariableValue(drawer, value);
+            else return ValueHelper.ConvertToIValue(value); 
+        }
+
         public static IValue CreateValue(bool b) {
             return new BoolValue(b);
         }
