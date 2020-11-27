@@ -196,5 +196,9 @@ namespace Advanced_Software_Engineering {
         public IValue GetVariable(string name) {
             return variables[name];
         }
+
+        public bool CheckVariableExists(string name) {
+            return variables.ContainsKey(name);
+        }
     }
 }
