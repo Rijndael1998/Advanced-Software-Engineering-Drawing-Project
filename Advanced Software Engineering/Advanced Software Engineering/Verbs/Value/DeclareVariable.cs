@@ -22,10 +22,11 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 //Seperate the assignment from the variables
                 List<string> assignmentList = SettingsAndHelperFunctions.StripStringArray(assignment.Split("="[0]));
                 name = assignmentList[0];
+                if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
                 value = ValueFactory.CreateValue(assignmentList[1], type);
-                
             } else {
-                throw new NotImplementedException();
+                //boolean here
+                throw new NotImplementedException("Booleans cannot be parsed yet");
             }
 
         }
