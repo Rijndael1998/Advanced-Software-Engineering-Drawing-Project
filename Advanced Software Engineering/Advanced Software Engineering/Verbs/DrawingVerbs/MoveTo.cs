@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
@@ -7,7 +8,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// </summary>
     public class MoveTo : IVerb {
         private readonly Drawer drawer;
-        private readonly Point moveToPoint;
+        private readonly PointValue moveToPoint;
 
         /// <summary>
         /// Creates a MoveTo instance
@@ -15,26 +16,16 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="drawer">drawer</param>
         /// <param name="x">X position</param>
         /// <param name="y">Y position</param>
-        public MoveTo(Drawer drawer, int x, int y) {
+        public MoveTo(Drawer drawer, PointValue point) {
             this.drawer = drawer;
-            this.moveToPoint = new Point(x, y);
-        }
-
-        /// <summary>
-        /// Creates a MoveTo instance
-        /// </summary>
-        /// <param name="drawer">drawer</param>
-        /// <param name="point">Point of the position</param>
-        public MoveTo(Drawer drawer, Point point) {
-            this.drawer = drawer;
-            this.moveToPoint = point;
+            moveToPoint = point;
         }
 
         /// <summary>
         /// Moves the pen to the position
         /// </summary>
         public void ExecuteVerb() {
-            this.drawer.MovePen(moveToPoint);
+            drawer.MovePen(moveToPoint.GetPoint());
         }
 
         /// <summary>
@@ -42,7 +33,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// </summary>
         /// <returns>Description where the pen will move to</returns>
         public string GetDescription() {
-            return "Move origin to " + moveToPoint.X + ", " + moveToPoint.Y;
+            return "Move origin";
         }
     }
 }
