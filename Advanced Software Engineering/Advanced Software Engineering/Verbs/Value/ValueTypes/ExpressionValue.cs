@@ -4,12 +4,11 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value {
 
     public class ExpressionValue : IValue {
-        private const int ADD = 0;
-        private const int SUBTRACT = 1;
-        private const int MULTIPLY = 2;
-        private const int DIVIDE = 3;
+        public const int ADD = 0;
+        public const int SUBTRACT = 1;
+        public const int MULTIPLY = 2;
+        public const int DIVIDE = 3;
 
-        private Drawer drawer;
         private IValue variable1;
         private IValue variable2;
         private int operation;
@@ -18,7 +17,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private IValue evaluatedValue;
 
         public ExpressionValue(Drawer drawer, IValue variable1, IValue variable2, int operation) {
-            this.drawer = drawer;
             this.variable1 = variable1;
             this.variable2 = variable2;
             this.operation = operation;
@@ -93,7 +91,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public string GetOriginalType() {
-            return evaluatedValue.GetOriginalType();
+            return variable1.GetOriginalType();
         }
 
         public bool isInitialised() {
@@ -101,23 +99,23 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public bool ToBool() {
-            if (!evaluated) Evaluate(); 
-            return evaluatedValue.ToBool();
+ 
+            return Evaluate().ToBool();
         }
 
         public Color ToColor() {
-            if (!evaluated) Evaluate();
-            return evaluatedValue.ToColor();
+
+            return Evaluate().ToColor();
         }
 
         public double ToDouble() {
-            if (!evaluated) Evaluate();
-            return evaluatedValue.ToDouble();
+
+            return Evaluate().ToDouble();
         }
 
         public int ToInt() {
-            if (!evaluated) Evaluate();
-            return evaluatedValue.ToInt();
+
+            return Evaluate().ToInt();
         }
     }
 }
