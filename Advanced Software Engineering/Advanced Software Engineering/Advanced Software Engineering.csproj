@@ -74,21 +74,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Verbs\DrawingVerbs\Circle.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Clear.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Dot.cs" />
-    <Compile Include="Verbs\DrawingVerbs\DrawLines.cs" />
-    <Compile Include="Verbs\DrawingVerbs\DrawTo.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Fill.cs" />
-    <Compile Include="Verbs\DrawingVerbs\FillColor.cs" />
-    <Compile Include="Verbs\DrawingVerbs\MoveTo.cs" />
-    <Compile Include="Verbs\DrawingVerbs\PenColor.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Quadrilateral.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Rectangle.cs" />
-    <Compile Include="Verbs\DrawingVerbs\RegularPolygon.cs" />
-    <Compile Include="Verbs\DrawingVerbs\ResetPen.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Square.cs" />
-    <Compile Include="Verbs\DrawingVerbs\Triangle.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Circle.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Actions\Clear.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Dot.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Actions\DrawLines.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\DrawTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Color\Fill.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Color\FillColor.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\MoveTo.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Color\PenColor.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Quadrilateral.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Rectangle.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\RegularPolygon.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Actions\ResetPen.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Square.cs" />
+    <Compile Include="Verbs\DrawingVerbs\Shape\Triangle.cs" />
     <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ExpressionValue.cs" />
     <Compile Include="Verbs\Value\DeclareVariable.cs" />

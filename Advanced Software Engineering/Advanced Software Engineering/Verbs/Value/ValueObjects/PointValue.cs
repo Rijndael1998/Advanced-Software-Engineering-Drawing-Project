@@ -7,14 +7,14 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
         private IValue x;
         private IValue y;
 
-        public PointValue(int x, int y) {
-            this.x = new IntValue(x);
-            this.y = new IntValue(y);
-        }
-
         public PointValue(IValue x, IValue y) {
             this.x = x;
             this.y = y;
+        }
+
+        public PointValue(Drawer drawer, string parameter1, string parameter2) {
+            x = ValueFactory.CreateValue(drawer, parameter1);
+            y = ValueFactory.CreateValue(drawer, parameter2);
         }
 
         public PointValue(string parameter1, string parameter2) {
