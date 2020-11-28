@@ -41,7 +41,16 @@ namespace Advanced_Software_Engineering {
                         if (commandAndParameters["parameters"].Length == 1) {
                         return new DeclareVariable(drawer, command, commandAndParameters["parameters"][0]);
                     } else throw new Exception(command + "s need to be initialised");
-            }
+
+                    default:
+                        //assignment
+                        if (command.Contains("=") && !command.Contains("==")) {
+                            string[] assignmentCommands = command.Split("="[0]);
+                            if (assignmentCommands.Length > 2) throw new Exception("Cannot have two assignments");
+                            return new UpdateVariable(drawer, assignmentCommands[0], ValueFactory.CreateValue(drawer, assignmentCommands[1]));
+                        }
+                        break;
+                }
 
 
             List<IValue> parameters = new List<IValue>();
@@ -178,15 +187,8 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
 
-
                 default:
-                    //assignment
-                    if (command.Contains("=") && !command.Contains("==")) {
-                        string[] assignmentCommands = command.Split("="[0]);
-                        if (assignmentCommands.Length > 2) throw new Exception("Cannot have two assignments");
-                        return new UpdateVariable(drawer, assignmentCommands[0], assignmentCommands[1]);
-                    }
-                    //not assignment
+                    
                     throw new Exception("Unknown command or cannot parse");
             }
         }

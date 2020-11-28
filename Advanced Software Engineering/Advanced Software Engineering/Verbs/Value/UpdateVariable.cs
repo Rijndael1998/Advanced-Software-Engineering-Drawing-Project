@@ -1,24 +1,21 @@
-﻿namespace Advanced_Software_Engineering.Verbs.Value {
+﻿using System;
+
+namespace Advanced_Software_Engineering.Verbs.Value {
 
     public class UpdateVariable : IVerb {
         protected Drawer drawer;
         protected string name;
-        protected string value;
+        protected IValue value;
 
-        public UpdateVariable(Drawer drawer, string name, string value) {
+        public UpdateVariable(Drawer drawer, string name, IValue value) {
             this.name = name;
             this.value = value;
             this.drawer = drawer;
         }
 
-        public UpdateVariable(Drawer drawer, string name, IValue value) {
-
-        }
-
         public void ExecuteVerb() {
-            IValue variable = drawer.GetVariable(name);
-            string type = variable.GetOriginalType();
-            drawer.SetVariable(name, ValueFactory.CreateValue(value, type));
+            if (!drawer.CheckVariableExists(name)) throw new Exception("Cannot update variable because it is not declared");
+            drawer.SetVariable(name, value);
         }
 
         public string GetDescription() {
