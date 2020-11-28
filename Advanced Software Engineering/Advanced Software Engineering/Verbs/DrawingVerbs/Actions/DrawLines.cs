@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
@@ -7,17 +9,14 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// </summary>
     public class DrawLines : IVerb {
         private readonly Drawer drawer;
-        private readonly Point[] points;
-
-        private readonly bool descCreated = false;
-        private string desc;
+        private readonly PointValue[] points;
 
         /// <summary>
         /// DrawLines constructor
         /// </summary>
         /// <param name="drawer">drawer</param>
         /// <param name="points">All of the points to visit</param>
-        public DrawLines(Drawer drawer, Point[] points) {
+        public DrawLines(Drawer drawer, PointValue[] points) {
             this.drawer = drawer;
             this.points = points;
         }
@@ -26,22 +25,17 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// Draws all the lines
         /// </summary>
         public void ExecuteVerb() {
-            drawer.DrawLines(points);
+            List<Point> pointList = new List<Point>();
+            foreach (PointValue pointValue in points) pointList.Add(pointValue.GetPoint());
+            drawer.DrawLines(pointList.ToArray());
         }
 
         /// <summary>
         /// Gets description of the command.
         /// </summary>
-        /// <returns>What points will be drawn to in what order</returns>
-        public string GetDescription() {
-            if (!descCreated) {
-                desc = "Draws a shape at points: ";
-
-                foreach (Point point in points) {
-                    desc += point.X + ", " + point.Y + "\n";
-                }
-            }
-            return desc;
+        /// <returns>A generic description of the command</returns>
+        public string GetDescription() { 
+            return "Draws a shape at specific points.";
         }
     }
 }

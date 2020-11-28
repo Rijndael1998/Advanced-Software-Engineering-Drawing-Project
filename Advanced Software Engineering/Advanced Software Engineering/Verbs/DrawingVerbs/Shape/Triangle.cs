@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
+using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
@@ -13,8 +16,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// </summary>
         /// <param name="drawer">drawer</param>
         /// <param name="scale">the scale of the triangle</param>
-        public Triangle(Drawer drawer, double scale) {
-            IVerb = new RegularPolygon(drawer, 3, scale);
+        public Triangle(Drawer drawer, IValue scale) {
+            IVerb = new RegularPolygon(drawer, new IntValue(3), scale, new IntValue(0), new BoolValue(true));
         }
 
         /// <summary>
@@ -23,8 +26,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="drawer">drawer</param>
         /// <param name="scale">the scale of the triangle</param>
         /// <param name="offset">the offset of the triangle in degrees</param>
-        public Triangle(Drawer drawer, double scale, double offset) {
-            IVerb = new RegularPolygon(drawer, 3, scale, offset);
+        public Triangle(Drawer drawer, IValue scale, IValue offset) {
+            IVerb = new RegularPolygon(drawer, new IntValue(3), scale, offset, new BoolValue(true));
         }
 
         /// <summary>
@@ -34,8 +37,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="point1">first point</param>
         /// <param name="point2">second point</param>
         /// <param name="point3">third point</param>
-        public Triangle(Drawer drawer, Point point1, Point point2, Point point3) {
-            IVerb = new DrawLines(drawer, new Point[] { point1, point2, point3 });
+        public Triangle(Drawer drawer, PointValue point1, PointValue point2, PointValue point3) {
+            IVerb = new DrawLines(drawer, new PointValue[] { point1, point2, point3 });
         }
 
         /// <summary>

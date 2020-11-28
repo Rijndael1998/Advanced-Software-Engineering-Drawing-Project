@@ -14,8 +14,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// Creates a MoveTo instance
         /// </summary>
         /// <param name="drawer">drawer</param>
-        /// <param name="x">X position</param>
-        /// <param name="y">Y position</param>
+        /// <param name="point">Position to move to</param>
         public MoveTo(Drawer drawer, PointValue point) {
             this.drawer = drawer;
             moveToPoint = point;

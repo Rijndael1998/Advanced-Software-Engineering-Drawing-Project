@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
+using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -11,11 +13,9 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
     /// Correct
     /// </todo>
     public class Rectangle : IVerb {
-        private readonly Drawer drawer;
-        private readonly PointF[] points;
+        private readonly PointValue[] points;
 
-        private readonly double width;
-        private readonly double height;
+        private readonly IVerb verb;
 
         /// <summary>
         /// Create a rectangle instance. Makes sure that
@@ -23,21 +23,19 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="drawer">drawer</param>
         /// <param name="width">rectangle width</param>
         /// <param name="height">rectangle height</param>
-        public Rectangle(Drawer drawer, double width, double height) {
-            this.drawer = drawer;
+        public Rectangle(Drawer drawer, IValue width, IValue height) {
+            IValue negativeWidth = new ExpressionValue(drawer, new IntValue(0), width, ExpressionValue.SUBTRACT);
+            IValue negativeHeight = new ExpressionValue(drawer, new IntValue(0), height, ExpressionValue.SUBTRACT);
 
-            float root2 = (float)Math.Sqrt(2) / 2;
-
-            points = new PointF[]
+            points = new PointValue[]
             {
-                new PointF((float) -width * root2,    (float) -height * root2),
-                new PointF((float) width * root2,     (float) -height * root2),
-                new PointF((float) width * root2,     (float) height * root2),
-                new PointF((float) -width * root2,    (float) height * root2)
+                new PointValue(negativeWidth, negativeHeight),
+                new PointValue(width, negativeHeight),
+                new PointValue(width, height),
+                new PointValue(negativeWidth, negativeHeight)
             };
 
-            this.width = width;
-            this.height = height;
+            verb = new DrawLines(drawer, points);
         }
 
         /// <summary>
@@ -45,23 +43,14 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// </summary>
         /// <returns>Describes the rectangle</returns>
         public string GetDescription() {
-            return "Draws a rectangle with the width of" + width + " and the height of " + height + " with the pen in the center";
+            return "Draws a rectangle with the pen in the center";
         }
 
         /// <summary>
         /// Draws the rectangle
         /// </summary>
         public void ExecuteVerb() {
-            //adjust for current pen position
-            Point position = drawer.GetPenPosition();
-
-            List<Point> morePoints = new List<Point>();
-
-            foreach (PointF point in points) {
-                morePoints.Add(new Point((int)(point.X + position.X), (int)(point.Y + position.Y)));
-            }
-
-            drawer.DrawLines(morePoints.ToArray());
+            verb.ExecuteVerb();
         }
     }
 }

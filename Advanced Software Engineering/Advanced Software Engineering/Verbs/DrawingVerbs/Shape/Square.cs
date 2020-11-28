@@ -1,4 +1,7 @@
-﻿namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+
+namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
     /// <summary>
     /// The Square IVerb class
@@ -11,8 +14,8 @@
         /// </summary>
         /// <param name="drawer">drawer</param>
         /// <param name="scale">size of the square</param>
-        public Square(Drawer drawer, double scale) {
-            IVerb = new RegularPolygon(drawer, 4, scale);
+        public Square(Drawer drawer, IValue scale) {
+            IVerb = new RegularPolygon(drawer, new IntValue(4), scale, new IntValue(0), new BoolValue(true));
         }
 
         /// <summary>
@@ -21,8 +24,8 @@
         /// <param name="drawer">drawer</param>
         /// <param name="scale">size of the square</param>
         /// <param name="offset">rotation offset in degrees</param>
-        public Square(Drawer drawer, double scale, double offset) {
-            IVerb = new RegularPolygon(drawer, 4, scale, offset);
+        public Square(Drawer drawer, IValue scale, IValue offset) {
+            IVerb = new RegularPolygon(drawer, new IntValue(4), scale, offset, new BoolValue(true));
         }
 
         /// <summary>

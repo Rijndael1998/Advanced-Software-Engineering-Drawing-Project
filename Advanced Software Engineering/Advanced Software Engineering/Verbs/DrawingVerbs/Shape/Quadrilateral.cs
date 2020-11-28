@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
+using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 
@@ -16,8 +18,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="point2">second point</param>
         /// <param name="point3">third point</param>
         /// <param name="point4">fourth point</param>
-        public Quadrilateral(Drawer drawer, Point point1, Point point2, Point point3, Point point4) {
-            IVerb = new DrawLines(drawer, new Point[] { point1, point2, point3, point4 });
+        public Quadrilateral(Drawer drawer, PointValue point1, PointValue point2, PointValue point3, PointValue point4) {
+            IVerb = new DrawLines(drawer, new PointValue[] { point1, point2, point3, point4 });
         }
 
         /// <summary>
