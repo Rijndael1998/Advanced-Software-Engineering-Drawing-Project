@@ -1,6 +1,4 @@
-﻿using Advanced_Software_Engineering.Verbs.Value;
-using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
-using System.Drawing;
+﻿using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 

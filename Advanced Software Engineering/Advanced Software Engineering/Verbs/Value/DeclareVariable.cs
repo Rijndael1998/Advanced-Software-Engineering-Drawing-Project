@@ -17,7 +17,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// <param name="name">The name of the variable</param>
         /// <returns>True if the name is valid, otherwise false</returns>
         private bool CheckName(string name) {
-            foreach(char character in illegalCharacters) {
+            foreach (char character in illegalCharacters) {
                 if (name.Contains(character.ToString())) return false;
             }
             return true;
@@ -27,13 +27,13 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             this.drawer = drawer;
 
             // get variable name
-            // assignment looks something like this at this point: 
+            // assignment looks something like this at this point:
             // i = 20
             // or
             // i = 2 == 5
 
             // bools have ==
-            if(!(type == "bool")) {
+            if (!(type == "bool")) {
                 //Seperate the assignment from the variables
                 List<string> assignmentList = SettingsAndHelperFunctions.StripStringArray(assignment.Split("="[0]));
                 name = assignmentList[0];
@@ -44,7 +44,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 //boolean here
                 throw new NotImplementedException("Booleans cannot be parsed yet");
             }
-
         }
 
         public void ExecuteVerb() {

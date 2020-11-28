@@ -23,7 +23,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             //Check for bad input
             if (operation > 3 && operation < 0) throw new Exception("Bad operation");
-            
         }
 
         private IValue Evaluate() {
@@ -99,22 +98,18 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public bool ToBool() {
- 
             return Evaluate().ToBool();
         }
 
         public Color ToColor() {
-
             return Evaluate().ToColor();
         }
 
         public double ToDouble() {
-
             return Evaluate().ToDouble();
         }
 
         public int ToInt() {
-
             return Evaluate().ToInt();
         }
     }

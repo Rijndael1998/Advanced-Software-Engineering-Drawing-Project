@@ -1,7 +1,6 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value;
 using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
-using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 

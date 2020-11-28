@@ -1,5 +1,4 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value;
-using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 

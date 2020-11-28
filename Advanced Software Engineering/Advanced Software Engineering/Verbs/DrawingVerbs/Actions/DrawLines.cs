@@ -34,7 +34,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// Gets description of the command.
         /// </summary>
         /// <returns>A generic description of the command</returns>
-        public string GetDescription() { 
+        public string GetDescription() {
             return "Draws a shape at specific points.";
         }
     }

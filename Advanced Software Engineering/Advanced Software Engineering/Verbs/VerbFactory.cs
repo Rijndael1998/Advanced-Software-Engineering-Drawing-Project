@@ -4,7 +4,6 @@ using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Advanced_Software_Engineering {
 
@@ -31,15 +30,15 @@ namespace Advanced_Software_Engineering {
 
             //process declarations first
 
-            if(!(commandParameters == null))
+            if (!(commandParameters == null))
                 switch (command) {
                     case "int":
                     case "double":
                     case "bool":
                     case "color":
                         if (commandParameters.Length == 1) {
-                        return new DeclareVariable(drawer, command, commandParameters[0]);
-                    } else throw new Exception(command + "s need to be initialised");
+                            return new DeclareVariable(drawer, command, commandParameters[0]);
+                        } else throw new Exception(command + "s need to be initialised");
 
                     default:
                         //assignment
@@ -51,13 +50,11 @@ namespace Advanced_Software_Engineering {
                         break;
                 }
 
-
             List<IValue> parameters = new List<IValue>();
-            if( !(commandParameters == null) ) foreach(string parameter in commandParameters) {
+            if (!(commandParameters == null)) foreach (string parameter in commandParameters) {
                     parameters.Add(ValueFactory.CreateValue(drawer, parameter));
-            }
+                }
             int parameterLength = parameters.Count;
-
 
             //process drawing commands and extras second
             switch (command) {
@@ -81,7 +78,7 @@ namespace Advanced_Software_Engineering {
                 case "rp":
                     //Check parameters
                     if (parameterLength == 2) {
-                        return new RegularPolygon(drawer, parameters[0], parameters[1], new IntValue(0), new BoolValue(true) );
+                        return new RegularPolygon(drawer, parameters[0], parameters[1], new IntValue(0), new BoolValue(true));
                     } else if (parameterLength == 3) {
                         return new RegularPolygon(drawer, parameters[0], parameters[1], parameters[2], new BoolValue(true));
                     } else throw new Exception(command + " has an incorrect number of parameters");
@@ -90,7 +87,7 @@ namespace Advanced_Software_Engineering {
                     //Check parameters
                     if (parameterLength == 1) {
                         return new
-                            Square(drawer,parameters[0]);
+                            Square(drawer, parameters[0]);
                     } else if (parameterLength == 2) {
                         return new Square(drawer, parameters[0], parameters[1]);
                     } else throw new Exception(command + " has an incorrect number of parameters");
@@ -185,9 +182,8 @@ namespace Advanced_Software_Engineering {
                         return new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
-
                 default:
-                    
+
                     throw new Exception("Unknown command or cannot parse");
             }
         }

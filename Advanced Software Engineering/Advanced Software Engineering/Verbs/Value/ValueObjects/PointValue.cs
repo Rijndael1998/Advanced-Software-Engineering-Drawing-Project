@@ -1,5 +1,4 @@
-﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
 
@@ -28,7 +27,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
 
         public int GetY() {
             return y.ToInt();
-        } 
+        }
 
         public Point GetPoint() {
             return new Point(GetX(), GetY());

@@ -3,7 +3,6 @@ using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
 

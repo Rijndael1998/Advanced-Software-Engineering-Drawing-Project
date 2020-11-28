@@ -4,8 +4,8 @@ using System.Windows.Forms;
 namespace Advanced_Software_Engineering {
 
     public class CommandAndParameterParserResult {
-        string command;
-        string[] parameters;
+        private string command;
+        private string[] parameters;
 
         public CommandAndParameterParserResult(string command, string[] parameters) {
             this.command = command;
@@ -117,7 +117,6 @@ namespace Advanced_Software_Engineering {
         /// <param name="text">A string command</param>
         /// <returns>Directory with the command and its parameters cleanly separated</returns>
         public static CommandAndParameterParserResult CommandAndParameterParser(string text) {
-
             //prepare the parameters by stripping them of spaces
             string prepParameters = Strip(text);
             if (prepParameters.Length == 0) return null;

@@ -124,7 +124,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             text = SettingsAndHelperFunctions.Strip(text);
             //No assignmnet
             if (!text.Contains("=")) {
-
                 if (!text.Contains("#")) {
                     //Check if string is a number
                     if (!text.Contains("."))

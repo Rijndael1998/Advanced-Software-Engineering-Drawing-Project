@@ -1,5 +1,4 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
-using System;
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
@@ -9,7 +8,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
         private IValue g;
         private IValue b;
 
-        bool hasAlpha;
+        private bool hasAlpha;
         private IValue a;
 
         public ColorValue(Color value) {
