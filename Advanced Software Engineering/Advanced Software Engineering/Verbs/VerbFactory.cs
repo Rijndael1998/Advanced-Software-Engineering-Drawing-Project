@@ -23,28 +23,27 @@ namespace Advanced_Software_Engineering {
         /// <param name="fullCommand">The command as a string</param>
         /// <returns>A IVerb that maches the command</returns>
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
-            Dictionary<string, string[]> commandAndParameters = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
+            CommandAndParameterParserResult result = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
 
-            if (!commandAndParameters.Keys.Contains("command")) throw new Exception("There is no command to process");
-
-            string command = commandAndParameters["command"][0];
+            string command = result.getCommand();
+            string[] commandParameters = result.getParameters();
+            if (command == null) throw new Exception("There is no command to process");
 
             //process declarations first
 
-            if(commandAndParameters.ContainsKey("parameters"))
-
+            if(!(commandParameters == null))
                 switch (command) {
                     case "int":
                     case "double":
                     case "bool":
                     case "color":
-                        if (commandAndParameters["parameters"].Length == 1) {
-                        return new DeclareVariable(drawer, command, commandAndParameters["parameters"][0]);
+                        if (commandParameters.Length == 1) {
+                        return new DeclareVariable(drawer, command, commandParameters[0]);
                     } else throw new Exception(command + "s need to be initialised");
 
                     default:
                         //assignment
-                        if (command.Contains("=") && !command.Contains("==")) {
+                        if (drawer.CheckVariableExists(command)) {
                             string[] assignmentCommands = command.Split("="[0]);
                             if (assignmentCommands.Length > 2) throw new Exception("Cannot have two assignments");
                             return new UpdateVariable(drawer, assignmentCommands[0], ValueFactory.CreateValue(drawer, assignmentCommands[1]));
@@ -54,7 +53,7 @@ namespace Advanced_Software_Engineering {
 
 
             List<IValue> parameters = new List<IValue>();
-            if( commandAndParameters.ContainsKey("parameters") ) foreach(string parameter in commandAndParameters["parameters"]) {
+            if( !(commandParameters == null) ) foreach(string parameter in commandParameters) {
                     parameters.Add(ValueFactory.CreateValue(drawer, parameter));
             }
             int parameterLength = parameters.Count;

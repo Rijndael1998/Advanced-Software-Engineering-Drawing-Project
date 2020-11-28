@@ -3,6 +3,24 @@ using System.Windows.Forms;
 
 namespace Advanced_Software_Engineering {
 
+    public class CommandAndParameterParserResult {
+        string command;
+        string[] parameters;
+
+        public CommandAndParameterParserResult(string command, string[] parameters) {
+            this.command = command;
+            this.parameters = parameters;
+        }
+
+        public string getCommand() {
+            return command;
+        }
+
+        public string[] getParameters() {
+            return parameters;
+        }
+    }
+
     /// <summary>
     /// This class simply provides settings and some functions that are used across many components.
     /// </summary>
@@ -98,39 +116,39 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="text">A string command</param>
         /// <returns>Directory with the command and its parameters cleanly separated</returns>
-        public static Dictionary<string, string[]> CommandAndParameterParser(string text) {
-            Dictionary<string, string[]> commandAndParameters = new Dictionary<string, string[]>();
+        public static CommandAndParameterParserResult CommandAndParameterParser(string text) {
 
             //prepare the parameters by stripping them of spaces
             string prepParameters = Strip(text);
-            if (prepParameters.Length == 0) return commandAndParameters;
+            if (prepParameters.Length == 0) return null;
 
             //split the command from the parameters
-            string[] parameters = prepParameters.Split(new char[] { " "[0] }, 2);
+            string[] splitCommand = prepParameters.Split(new char[] { " "[0] }, 2);
+            string command = null;
+            string[] parameters = null;
 
             //There are parameters, make the command
-            if (parameters.Length > 0) {
+            if (splitCommand.Length > 0) {
                 //set command var
-                string command = Strip(parameters[0]);
-                commandAndParameters["command"] = new string[] { command };
+                command = Strip(splitCommand[0]);
             }
 
             //There is at least one parameter
-            if (parameters.Length > 1) {
+            if (splitCommand.Length > 1) {
                 //seperate all of the parameters by a comma
-                parameters = parameters[1].Split(","[0]);
+                splitCommand = splitCommand[1].Split(","[0]);
 
                 //Remove spaces around parameters
-                parameters = StripStringArray(parameters).ToArray();
+                splitCommand = StripStringArray(splitCommand).ToArray();
 
                 //We don't want parameters if there aren't any
-                if (!(parameters.Length == 1 && parameters[0] == "")) {
+                if (!(splitCommand.Length == 1 && splitCommand[0] == "")) {
                     //set parameter list
-                    commandAndParameters["parameters"] = parameters;
+                    parameters = splitCommand;
                 }
             }
 
-            return commandAndParameters;
+            return new CommandAndParameterParserResult(command, parameters);
         }
     }
 }
