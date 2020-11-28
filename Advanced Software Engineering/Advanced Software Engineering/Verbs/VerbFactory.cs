@@ -1,6 +1,7 @@
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
 using Advanced_Software_Engineering.Verbs.Value;
 using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
+using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,30 @@ namespace Advanced_Software_Engineering {
             if (!commandAndParameters.Keys.Contains("command")) throw new Exception("There is no command to process");
 
             string command = commandAndParameters["command"][0];
-            string[] parameters = commandAndParameters.Keys.Contains("parameters") ? commandAndParameters["parameters"] : new string[] { };
-            int parameterLength = parameters.Length;
 
+            //process declarations first
+
+            if(commandAndParameters.ContainsKey("parameters"))
+
+                switch (command) {
+                    case "int":
+                    case "double":
+                    case "bool":
+                    case "color":
+                        if (commandAndParameters["parameters"].Length == 1) {
+                        return new DeclareVariable(drawer, command, commandAndParameters["parameters"][0]);
+                    } else throw new Exception(command + "s need to be initialised");
+            }
+
+
+            List<IValue> parameters = new List<IValue>();
+            if( commandAndParameters.ContainsKey("parameters") ) foreach(string parameter in commandAndParameters["parameters"]) {
+                    parameters.Add(ValueFactory.CreateValue(drawer, parameter));
+            }
+            int parameterLength = parameters.Count;
+
+
+            //process drawing commands and extras second
             switch (command) {
                 //Drawing commands
                 case "move":
@@ -44,85 +66,70 @@ namespace Advanced_Software_Engineering {
                 case "lineto":
                     //Check parameters
                     if (parameterLength == 2) {
-                        return new DrawTo(drawer, new PointValue(ValueFactory.CreateValue(drawer, parameters[0]), ValueFactory.CreateValue(drawer, parameters[1])));
+                        return new DrawTo(drawer, new PointValue(parameters[0], parameters[1]));
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "regularpolygon":
                 case "rp":
                     //Check parameters
                     if (parameterLength == 2) {
-                        return new
-                            RegularPolygon(drawer,
-                            ValueHelper.ConvertToInt(parameters[0]),
-                            ValueHelper.ConvertToDouble(parameters[1])
-                            );
+                        return new RegularPolygon(drawer, parameters[0], parameters[1], new IntValue(0), new BoolValue(true) );
                     } else if (parameterLength == 3) {
-                        return new RegularPolygon(drawer,
-                            ValueHelper.ConvertToInt(parameters[0]),
-                            ValueHelper.ConvertToDouble(parameters[1]),
-                            ValueHelper.ConvertToDouble(parameters[2])
-                            );
+                        return new RegularPolygon(drawer, parameters[0], parameters[1], parameters[2], new BoolValue(true));
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "square":
                     //Check parameters
                     if (parameterLength == 1) {
                         return new
-                            Square(drawer,
-                            ValueHelper.ConvertToDouble(parameters[0])
-                            );
+                            Square(drawer,parameters[0]);
                     } else if (parameterLength == 2) {
-                        return new Square(drawer,
-                            ValueHelper.ConvertToDouble(parameters[0]),
-                            ValueHelper.ConvertToDouble(parameters[1])
-                            );
+                        return new Square(drawer, parameters[0], parameters[1]);
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "quadrilateral":
                     //Check parameters
                     if (parameterLength == 8) {
                         return new Quadrilateral(drawer,
-                            ValueHelper.ConvertToPoint(parameters[0], parameters[1]),
-                            ValueHelper.ConvertToPoint(parameters[2], parameters[3]),
-                            ValueHelper.ConvertToPoint(parameters[4], parameters[5]),
-                            ValueHelper.ConvertToPoint(parameters[6], parameters[7])
+                            new PointValue(parameters[0], parameters[1]),
+                            new PointValue(parameters[2], parameters[3]),
+                            new PointValue(parameters[4], parameters[5]),
+                            new PointValue(parameters[6], parameters[7])
                             );
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "rectangle":
                     //Check parameters
                     if (parameterLength == 2) {
-                        return new Rectangle(drawer,
-                            ValueHelper.ConvertToDouble(parameters[0]),
-                            ValueHelper.ConvertToDouble(parameters[1])
-                            );
+                        return new Rectangle(drawer, parameters[0], parameters[2]);
                     } else if (parameterLength == 8) {
                         return new Quadrilateral(drawer,
-                            ValueHelper.ConvertToPoint(parameters[0], parameters[1]),
-                            ValueHelper.ConvertToPoint(parameters[2], parameters[3]),
-                            ValueHelper.ConvertToPoint(parameters[4], parameters[5]),
-                            ValueHelper.ConvertToPoint(parameters[6], parameters[7])
+                            new PointValue(parameters[0], parameters[1]),
+                            new PointValue(parameters[2], parameters[3]),
+                            new PointValue(parameters[4], parameters[5]),
+                            new PointValue(parameters[6], parameters[7])
                             );
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "circle":
                     //Check parameters
                     if (parameterLength == 1) {
-                        return new Circle(drawer, ValueFactory.CreateValue(drawer, parameters[0]));
+                        return new Circle(drawer, parameters[0]);
                     } else throw new Exception(command + " has an incorrect number of parameters");
+
                 case "triangle":
                     //Check parameters
                     if (parameterLength == 1) {
                         return new
-                            Triangle(drawer,
-                            ValueHelper.ConvertToDouble(parameters[0])
-                            );
+                            Triangle(drawer, parameters[0]);
                     } else if (parameterLength == 2) {
                         return new
-                            Triangle(drawer,
-                            ValueHelper.ConvertToDouble(parameters[0]),
-                            ValueHelper.ConvertToDouble(parameters[1])
-                            );
+                            Triangle(drawer, parameters[0], parameters[1]);
                     } else if (parameterLength == 6) {
                         return new Triangle(drawer,
-                            ValueHelper.ConvertToPoint(parameters[0], parameters[1]),
-                            ValueHelper.ConvertToPoint(parameters[2], parameters[3]),
-                            ValueHelper.ConvertToPoint(parameters[4], parameters[5])
+                            new PointValue(parameters[0], parameters[1]),
+                            new PointValue(parameters[2], parameters[3]),
+                            new PointValue(parameters[4], parameters[5])
                             );
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
@@ -154,28 +161,23 @@ namespace Advanced_Software_Engineering {
 
                 case "pen":
                     if (parameterLength == 1) {
-                        return new PenColor(drawer, ValueFactory.CreateValue(drawer, parameters[0]));
+                        return new PenColor(drawer, parameters[0]);
                     } else if (parameterLength == 3) {
-                        return new PenColor(drawer, ValueFactory.CreateValue(drawer, parameters[0], parameters[1], parameters[2], "color"));
+                        return new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2]));
                     } else if (parameterLength == 4) {
-                        return new PenColor(drawer, ValueFactory.CreateValue(drawer, parameters[0], parameters[1], parameters[2], parameters[3], "color"));
-                    } else throw new Exception(command + " has an incorrect number of parameters");
-                case "fill":
-                    if (parameterLength == 1) {
-                        return new FillColor(drawer, ValueFactory.CreateValue(drawer, parameters[0]));
-                    } else if (parameterLength == 3) {
-                        return new FillColor(drawer, ValueFactory.CreateValue(drawer, parameters[0], parameters[1], parameters[2], "color"));
-                    } else if (parameterLength == 4) {
-                        return new FillColor(drawer, ValueFactory.CreateValue(drawer, parameters[0], parameters[1], parameters[2], parameters[3], "color"));
+                        return new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
                     } else throw new Exception(command + " has an incorrect number of parameters");
 
-                case "int":
-                case "double":
-                case "bool":
-                case "color":
+                case "fill":
                     if (parameterLength == 1) {
-                        return new DeclareVariable(drawer, command, parameters[0]);
-                    } else throw new Exception(command + "s need to be initialised");
+                        return new FillColor(drawer, parameters[0]);
+                    } else if (parameterLength == 3) {
+                        return new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], new IntValue(255)));
+                    } else if (parameterLength == 4) {
+                        return new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
+                    } else throw new Exception(command + " has an incorrect number of parameters");
+
+
 
                 default:
                     //assignment
