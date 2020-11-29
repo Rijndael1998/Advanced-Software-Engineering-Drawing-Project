@@ -4,17 +4,17 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     public class VariableValue : IValue {
-        private readonly Drawer drawer;
+        private readonly ValueStorage storage;
         private readonly string variableName;
 
-        public VariableValue(Drawer drawer, string variableName) {
+        public VariableValue(ValueStorage storage, string variableName) {
             this.variableName = variableName;
-            if (!drawer.CheckVariableExists(variableName)) throw new Exception("Tried to access " + variableName + " before it was assigned. ");
-            this.drawer = drawer;
+            if (!storage.CheckVariableExists(variableName)) throw new Exception("Tried to access " + variableName + " before it was assigned. ");
+            this.storage = storage;
         }
 
         private IValue get() {
-            return drawer.GetVariable(variableName);
+            return storage.GetVariable(variableName);
         }
 
         public string GetDescription() {
@@ -46,7 +46,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public IValue Clone() {
-            return new VariableValue(drawer, variableName);
+            return new VariableValue(storage, variableName);
         }
     }
 }

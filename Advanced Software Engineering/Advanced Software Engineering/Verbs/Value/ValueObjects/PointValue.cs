@@ -11,9 +11,9 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
             this.y = y;
         }
 
-        public PointValue(Drawer drawer, string parameter1, string parameter2) {
-            x = ValueFactory.CreateValue(drawer, parameter1);
-            y = ValueFactory.CreateValue(drawer, parameter2);
+        public PointValue(ValueStorage storage, string parameter1, string parameter2) {
+            x = ValueFactory.CreateValue(storage, parameter1);
+            y = ValueFactory.CreateValue(storage, parameter2);
         }
 
         public PointValue(string parameter1, string parameter2) {

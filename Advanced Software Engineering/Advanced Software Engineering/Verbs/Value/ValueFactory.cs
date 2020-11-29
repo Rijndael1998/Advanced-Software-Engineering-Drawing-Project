@@ -31,13 +31,13 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
-        public static IValue CreateValue(Drawer drawer, string paramater1, string paramater2, string parameter3, string parameter4, string type) {
+        public static IValue CreateValue(ValueStorage storage, string paramater1, string paramater2, string parameter3, string parameter4, string type) {
             switch (type) {
                 case "color":
-                    IValue p1 = CreateValue(drawer, paramater1);
-                    IValue p2 = CreateValue(drawer, paramater2);
-                    IValue p3 = CreateValue(drawer, parameter3);
-                    IValue p4 = CreateValue(drawer, parameter4);
+                    IValue p1 = CreateValue(storage, paramater1);
+                    IValue p2 = CreateValue(storage, paramater2);
+                    IValue p3 = CreateValue(storage, parameter3);
+                    IValue p4 = CreateValue(storage, parameter4);
 
                     return new ColorValue(p1, p2, p3, p4);
 
@@ -46,12 +46,12 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
-        public static IValue CreateValue(Drawer drawer, string paramater1, string paramater2, string parameter3, string type) {
+        public static IValue CreateValue(ValueStorage storage, string paramater1, string paramater2, string parameter3, string type) {
             switch (type) {
                 case "color":
-                    IValue p1 = CreateValue(drawer, paramater1);
-                    IValue p2 = CreateValue(drawer, paramater2);
-                    IValue p3 = CreateValue(drawer, parameter3);
+                    IValue p1 = CreateValue(storage, paramater1);
+                    IValue p2 = CreateValue(storage, paramater2);
+                    IValue p3 = CreateValue(storage, parameter3);
 
                     return new ColorValue(p1, p2, p3);
 
@@ -60,7 +60,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
-        public static IValue CreateValue(Drawer drawer, string value) {
+        public static IValue CreateValue(ValueStorage drawer, string value) {
             value = HelperFunctions.Strip(value);
             if (drawer.CheckVariableExists(value)) return new VariableValue(drawer, value);
             else return ValueHelper.ConvertToIValue(value);

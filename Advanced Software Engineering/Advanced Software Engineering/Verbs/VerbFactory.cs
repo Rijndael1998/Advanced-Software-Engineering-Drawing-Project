@@ -22,6 +22,16 @@ namespace Advanced_Software_Engineering {
         /// <param name="fullCommand">The command as a string</param>
         /// <returns>A IVerb that maches the command</returns>
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
+            int stackLevel = 0;
+
+            ValueStorage rootValueStorage;
+            if (drawer.CheckStackExists(stackLevel)) {
+                rootValueStorage = drawer.GetStack(stackLevel);
+            } else {
+                rootValueStorage = new ValueStorage();
+                drawer.SetStack(stackLevel, rootValueStorage);
+            }
+
             CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 
             string command = result.getCommand();
@@ -29,9 +39,9 @@ namespace Advanced_Software_Engineering {
             if (command == null) throw new Exception("There is no command to process");
 
             //check for names in directory
-            if (drawer.CheckVariableExists(command)) {
+            if (rootValueStorage.CheckVariableExists(command)) {
                 if (commandParameters.Length == 1) {
-                    return new UpdateVariable(drawer, command, commandParameters[0]);
+                    return new UpdateVariable(rootValueStorage, command, commandParameters[0]);
                 } else throw new Exception(command + "needs something to be assigned to it");
             }
 
@@ -40,22 +50,22 @@ namespace Advanced_Software_Engineering {
                 switch (command) {
                     case "var":
                         if (commandParameters.Length == 1) {
-                            return new DeclareVariable(drawer, commandParameters[0]);
+                            return new DeclareVariable(rootValueStorage, commandParameters[0]);
                         } else throw new Exception(command + "s need to be initialised");
 
                     default:
                         //assignment
-                        if (drawer.CheckVariableExists(command)) {
+                        if (rootValueStorage.CheckVariableExists(command)) {
                             string[] assignmentCommands = command.Split("="[0]);
                             if (assignmentCommands.Length > 2) throw new Exception("Cannot have two assignments");
-                            return new UpdateVariable(drawer, assignmentCommands[0], ValueFactory.CreateValue(drawer, assignmentCommands[1]));
+                            return new UpdateVariable(rootValueStorage, assignmentCommands[0], ValueFactory.CreateValue(rootValueStorage, assignmentCommands[1]));
                         }
                         break;
                 }
 
             List<IValue> parameters = new List<IValue>();
             if (!(commandParameters == null)) foreach (string parameter in commandParameters) {
-                    parameters.Add(ValueFactory.CreateValue(drawer, parameter));
+                    parameters.Add(ValueFactory.CreateValue(rootValueStorage, parameter));
                 }
             int parameterLength = parameters.Count;
 

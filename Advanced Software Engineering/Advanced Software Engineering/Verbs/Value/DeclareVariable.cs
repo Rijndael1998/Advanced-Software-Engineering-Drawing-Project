@@ -4,7 +4,7 @@ using System;
 namespace Advanced_Software_Engineering.Verbs.Value {
 
     public class DeclareVariable : IVerb {
-        private readonly Drawer drawer;
+        private readonly ValueStorage storage;
         private readonly IValue value;
         private readonly string name;
 
@@ -46,8 +46,8 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             return true;
         }
 
-        public DeclareVariable(Drawer drawer, string assignment) {
-            this.drawer = drawer;
+        public DeclareVariable(ValueStorage storage, string assignment) {
+            this.storage = storage;
 
             //seperate assignment characters from everything else
             foreach (string op in new string[] { "=", "+", "-", "*", "/" }) {
@@ -70,21 +70,21 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (!(assignmentStrings[1] == "=")) throw new Exception("No assignment in " + assignment);
 
             name = assignmentStrings[0];
-            if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
+            if (storage.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
             if (!CheckName(name)) throw new Exception("'" + name + "' name not allowed");
 
             //preassign name
-            drawer.SetVariable(name, null);
+            storage.SetVariable(name, null);
 
             //for single number assignments ["i", "=", "20"]
-            if (assignmentStrings.Length == 3) value = ValueFactory.CreateValue(drawer, assignmentStrings[2]);
+            if (assignmentStrings.Length == 3) value = ValueFactory.CreateValue(storage, assignmentStrings[2]);
 
             //for expressions ["i", "=", "20", "+", "30"]
             //or some comparisons ["i", "=", "20", ">", "30"]
             if (assignmentStrings.Length == 5) {
                 string op = assignmentStrings[3];
-                IValue value1 = ValueFactory.CreateValue(drawer, assignmentStrings[2]);
-                IValue value2 = ValueFactory.CreateValue(drawer, assignmentStrings[4]);
+                IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
+                IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[4]);
 
                 switch (op) {
                     case "+":
@@ -108,7 +108,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public void ExecuteVerb() {
-            drawer.SetVariable(name, value);
+            storage.SetVariable(name, value);
         }
 
         public string GetDescription() {
