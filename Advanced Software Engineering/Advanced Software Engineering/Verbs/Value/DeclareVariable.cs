@@ -11,7 +11,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         //Common characters that people might try
         private char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();
         private string[] illegalNames = 
-            { "int", "double", "bool", "color",
+            { "var",
               "move", "moveto", 
               "drawto", "line", "lineto",
               "regularpolygon", "rp",
