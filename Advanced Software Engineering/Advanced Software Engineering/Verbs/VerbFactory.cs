@@ -24,13 +24,7 @@ namespace Advanced_Software_Engineering {
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
             int stackLevel = 0;
 
-            ValueStorage rootValueStorage;
-            if (drawer.CheckStackExists(stackLevel)) {
-                rootValueStorage = drawer.GetStack(stackLevel);
-            } else {
-                rootValueStorage = new ValueStorage();
-                drawer.SetStack(stackLevel, rootValueStorage);
-            }
+            ValueStorage rootValueStorage = drawer.GetValueStorage();
 
             CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 

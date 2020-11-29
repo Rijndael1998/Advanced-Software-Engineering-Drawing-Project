@@ -12,7 +12,7 @@ namespace Advanced_Software_Engineering {
     /// </summary>
     public class Drawer {
 
-        protected static Dictionary<int, ValueStorage> ValueStorages = new Dictionary<int, ValueStorage>();
+        private ValueStorage valueStorage = new ValueStorage();
 
         /// <summary>
         /// The starting color of the pen / brush
@@ -67,7 +67,7 @@ namespace Advanced_Software_Engineering {
             pen = new Pen(defaultColor, defaultWidth);
             brush = new SolidBrush(defaultColor);
             fill = false;
-            foreach (int valueStorage in ValueStorages.Keys) ValueStorages[valueStorage].Reset();
+            valueStorage = new ValueStorage();
         }
 
         /// <summary>
@@ -189,16 +189,8 @@ namespace Advanced_Software_Engineering {
             graphics.FillRectangle(new SolidBrush(pen.Color), penPosition.X, penPosition.Y, 1, 1);
         }
 
-        public void SetStack(int name, ValueStorage value) {
-            ValueStorages[name] = value;
-        }
-
-        public ValueStorage GetStack(int name) {
-            return ValueStorages[name];
-        }
-
-        public bool CheckStackExists(int name) {
-            return ValueStorages.ContainsKey(name);
+        public ValueStorage GetValueStorage() {
+            return valueStorage;
         }
 
     }

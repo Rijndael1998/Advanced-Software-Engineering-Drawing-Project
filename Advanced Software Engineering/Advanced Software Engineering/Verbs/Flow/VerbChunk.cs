@@ -1,10 +1,20 @@
-﻿namespace Advanced_Software_Engineering.Verbs.Flow {
+﻿using System.Collections.Generic;
+
+namespace Advanced_Software_Engineering.Verbs.Flow {
 
     public class VerbChunk : IVerb {
-        private readonly IVerb[] verbs;
+        private readonly List<IVerb> verbs;
 
-        public VerbChunk(IVerb[] verbs) {
+        public VerbChunk(List<IVerb> verbs) {
             this.verbs = verbs;
+        }
+
+        public VerbChunk() {
+            verbs = new List<IVerb> { };
+        }
+
+        public void AddVerb(IVerb verb) {
+            verbs.Add(verb);
         }
 
         public void ExecuteVerb() {
