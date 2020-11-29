@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
 
@@ -87,14 +88,18 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                     case "-":
                     case "/":
                     case "*":
-                        value = new ExpressionValue(drawer, value1, value2, op);
+                        value = new ExpressionValue(value1, value2, op);
                         break;
 
                     case ">":
                     case "<":
                     case "=":
                     case "!":
-                        throw new Exception("Not implemented yet");
+                        value = new ComparisonValue(value1, value2, op);
+                        break;
+
+                    default:
+                        throw new Exception("Bad operation");
                 }
             }
         }
