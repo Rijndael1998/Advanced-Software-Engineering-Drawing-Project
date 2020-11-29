@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
 
@@ -10,9 +9,10 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         //Common characters that people might try
         private char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();
-        private string[] illegalNames = 
+
+        private string[] illegalNames =
             { "var",
-              "move", "moveto", 
+              "move", "moveto",
               "drawto", "line", "lineto",
               "regularpolygon", "rp",
               "square",
@@ -49,7 +49,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             this.drawer = drawer;
 
             //seperate assignment characters from everything else
-            foreach(string op in new string[]{ "=", "+", "-", "*", "/" }) {
+            foreach (string op in new string[] { "=", "+", "-", "*", "/" }) {
                 assignment = assignment.Replace(op, " " + op + " ");
             }
 
@@ -64,7 +64,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             //seperate on spaces
             string[] assignmentStrings = HelperFunctions.StripStringArray(assignment.Split(" "[0])).ToArray();
-            
+
             //check if is actually assignment
             if (!(assignmentStrings[1] == "=")) throw new Exception("No assignment in " + assignment);
 
@@ -73,7 +73,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (!CheckName(name)) throw new Exception("'" + name + "' name not allowed");
 
             //for single number assignments ["i", "=", "20"]
-            if (assignmentStrings.Length == 3) value =  ValueFactory.CreateValue(drawer, assignmentStrings[2]);
+            if (assignmentStrings.Length == 3) value = ValueFactory.CreateValue(drawer, assignmentStrings[2]);
 
             //for expressions ["i", "=", "20", "+", "30"]
             //or some comparisons ["i", "=", "20", ">", "30"]
@@ -97,7 +97,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                         throw new Exception("Not implemented yet");
                 }
             }
-            
         }
 
         public void ExecuteVerb() {

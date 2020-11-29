@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering {
+
     public static partial class MenuManager {
+
         /// <summary>
         /// The variable simply keep track of the windows that are currently shown (excluding <see cref="Menu"/>).
         /// </summary>

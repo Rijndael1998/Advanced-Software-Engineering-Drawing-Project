@@ -26,7 +26,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public ExpressionValue(Drawer drawer, IValue variable1, IValue variable2, string operation) {
-            switch(operation) {
+            switch (operation) {
                 case "+":
                     this.operation = ADD;
                     break;
@@ -49,7 +49,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             this.variable1 = variable1;
             this.variable2 = variable2;
-            
 
             //Check for bad input
             if (this.operation > 3 && this.operation < 0) throw new Exception("Bad operation");
