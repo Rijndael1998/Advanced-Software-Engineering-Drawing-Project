@@ -64,26 +64,26 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 case "bool":
                     //operations as standard for bool expressions eg
                     // (a + b) => a or b, (a * b) => a and b, (a ^ b) => a xor b
-                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() || variable1.ToBool());
-                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() ^ variable1.ToBool());
-                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() && variable1.ToBool());
+                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() || variable2.ToBool());
+                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() ^ variable2.ToBool());
+                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToBool() && variable2.ToBool());
                     else if (operation == DIVIDE) throw new Exception("Bool cannot be divided");
                     else throw new Exception("Bad operation");
                     break;
 
                 case "int":
-                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() + variable1.ToInt());
-                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() - variable1.ToInt());
-                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() * variable1.ToInt());
-                    else if (operation == DIVIDE) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() / variable1.ToInt());
+                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() + variable2.ToInt());
+                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() - variable2.ToInt());
+                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() * variable2.ToInt());
+                    else if (operation == DIVIDE) evaluatedValue = ValueFactory.CreateValue(variable1.ToInt() / variable2.ToInt());
                     else throw new Exception("Bad operation");
                     break;
 
                 case "double":
-                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() + variable1.ToDouble());
-                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() - variable1.ToDouble());
-                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() * variable1.ToDouble());
-                    else if (operation == DIVIDE) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() / variable1.ToDouble());
+                    if (operation == ADD) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() + variable2.ToDouble());
+                    else if (operation == SUBTRACT) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() - variable2.ToDouble());
+                    else if (operation == MULTIPLY) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() * variable2.ToDouble());
+                    else if (operation == DIVIDE) evaluatedValue = ValueFactory.CreateValue(variable1.ToDouble() / variable2.ToDouble());
                     else throw new Exception("Bad operation");
                     break;
 
