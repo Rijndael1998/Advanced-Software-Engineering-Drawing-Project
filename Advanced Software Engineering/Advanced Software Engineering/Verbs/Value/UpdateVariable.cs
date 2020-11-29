@@ -7,7 +7,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         protected string name;
         protected IValue value;
 
-
         private void Init(Drawer drawer, string name, IValue value) {
             this.name = name;
             this.value = value;
