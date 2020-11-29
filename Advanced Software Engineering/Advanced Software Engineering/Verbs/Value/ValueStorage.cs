@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
     public class ValueStorage {
@@ -37,7 +38,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public IValue GetVariable(string name) {
-            return GetVariable(name, currentStack);
+            if (currentStack > 0 && CheckVariableExists(name, currentStack)) return GetVariable(name, currentStack);
+            else if (CheckVariableExists(name, 0)) return GetVariable(name, 0);
+            else throw new Exception("Cannot find variable " + name);
         }
 
         public bool CheckVariableExists(string name, int stack) {
@@ -46,7 +49,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public bool CheckVariableExists(string name) {
-            return CheckVariableExists(name, currentStack);
+            return CheckVariableExists(name, currentStack) || CheckVariableExists(name, 0);
         }
     }
 }
