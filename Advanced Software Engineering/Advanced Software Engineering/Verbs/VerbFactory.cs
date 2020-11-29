@@ -31,7 +31,7 @@ namespace Advanced_Software_Engineering {
             //check for names in directory
             if (drawer.CheckVariableExists(command)) {
                 if (commandParameters.Length == 1) {
-                    return new UpdateVariable(drawer, command, ValueFactory.CreateValue(drawer, commandParameters[0]));
+                    return new UpdateVariable(drawer, command, commandParameters[0]);
                 } else throw new Exception(command + "needs something to be assigned to it");
             }
 
