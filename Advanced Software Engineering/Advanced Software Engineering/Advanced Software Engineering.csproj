@@ -91,6 +91,7 @@
     <Compile Include="Verbs\DrawingVerbs\Shape\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Shape\Triangle.cs" />
     <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
+    <Compile Include="Verbs\Value\ValueTypes\ComparisonValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ExpressionValue.cs" />
     <Compile Include="Verbs\Value\DeclareVariable.cs" />
     <Compile Include="Verbs\Value\UpdateVariable.cs" />
