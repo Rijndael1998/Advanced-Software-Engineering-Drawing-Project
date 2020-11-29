@@ -63,5 +63,9 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         public bool isInitialised() {
             return initialised;
         }
+
+        public IValue Clone() {
+            return new IntValue(value);
+        }
     }
 }

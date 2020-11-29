@@ -57,7 +57,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private IValue Evaluate() {
             if (evaluated) return evaluatedValue;
 
-            string outputType = variable1.GetOriginalType();
+            string outputType = variable1.Clone().GetOriginalType();
 
             switch (outputType) {
                 case "bool":
@@ -119,7 +119,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public string GetOriginalType() {
-            return variable1.GetOriginalType();
+            return "expression";
         }
 
         public bool isInitialised() {
@@ -140,6 +140,10 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         public int ToInt() {
             return Evaluate().ToInt();
+        }
+
+        public IValue Clone() {
+            return Evaluate();
         }
     }
 }

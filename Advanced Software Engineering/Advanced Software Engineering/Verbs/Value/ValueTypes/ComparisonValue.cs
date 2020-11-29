@@ -72,5 +72,9 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         public int ToInt() {
             return Evaluate().ToInt();
         }
+
+        public IValue Clone() {
+            return new ComparisonValue(value1, value2, op);
+        }
     }
 }

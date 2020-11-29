@@ -50,7 +50,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         public void ExecuteVerb() {
             if (!drawer.CheckVariableExists(name)) throw new Exception("Cannot update variable because it is not declared");
-            drawer.SetVariable(name, value);
+            drawer.SetVariable(name, value.Clone());
         }
 
         public string GetDescription() {

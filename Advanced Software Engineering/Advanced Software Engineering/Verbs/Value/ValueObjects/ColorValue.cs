@@ -62,5 +62,9 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
         public bool isInitialised() {
             return true;
         }
+
+        public IValue Clone() {
+            return new ColorValue(this.ToColor());
+        }
     }
 }

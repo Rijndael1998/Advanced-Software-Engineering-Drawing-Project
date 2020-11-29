@@ -44,5 +44,9 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         public int ToInt() {
             return get().ToInt();
         }
+
+        public IValue Clone() {
+            return new VariableValue(drawer, variableName);
+        }
     }
 }

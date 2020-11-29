@@ -190,7 +190,7 @@ namespace Advanced_Software_Engineering {
         }
 
         public void SetVariable(string name, IValue value) {
-            variables.Add(name, value);
+            variables[name] = value;
         }
 
         public IValue GetVariable(string name) {

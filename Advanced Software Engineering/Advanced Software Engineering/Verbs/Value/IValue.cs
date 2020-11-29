@@ -17,5 +17,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         string GetOriginalType();
 
         bool isInitialised();
+
+        IValue Clone();
     }
 }

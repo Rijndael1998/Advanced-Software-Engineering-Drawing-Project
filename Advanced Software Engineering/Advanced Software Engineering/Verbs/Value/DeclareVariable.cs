@@ -9,9 +9,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private string name;
 
         //Common characters that people might try
-        private char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();
+        private static readonly char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();
 
-        private string[] illegalNames =
+        private static readonly string[] illegalNames =
             { "var",
               "move", "moveto",
               "drawto", "line", "lineto",
@@ -72,6 +72,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             name = assignmentStrings[0];
             if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
             if (!CheckName(name)) throw new Exception("'" + name + "' name not allowed");
+
+            //preassign name
+            drawer.SetVariable(name, null);
 
             //for single number assignments ["i", "=", "20"]
             if (assignmentStrings.Length == 3) value = ValueFactory.CreateValue(drawer, assignmentStrings[2]);
