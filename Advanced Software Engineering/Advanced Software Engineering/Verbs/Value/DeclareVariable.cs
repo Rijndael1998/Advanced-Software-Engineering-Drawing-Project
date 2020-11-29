@@ -45,7 +45,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             return true;
         }
 
-        public DeclareVariable(Drawer drawer, string type, string assignment) {
+        public DeclareVariable(Drawer drawer, string assignment) {
             this.drawer = drawer;
 
             //seperate assignment characters from everything else
