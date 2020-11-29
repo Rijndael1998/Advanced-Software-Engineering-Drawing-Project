@@ -10,6 +10,23 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         //Common characters that people might try
         private char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();
+        private string[] illegalNames = 
+            { "int", "double", "bool", "color",
+              "move", "moveto", 
+              "drawto", "line", "lineto",
+              "regularpolygon", "rp",
+              "square",
+              "quadrilateral",
+              "rectangle",
+              "circle",
+              "triangle",
+              "dot",
+              "clear",
+              "reset", "resetpen",
+              "fillon", "filloff",
+              "pen",
+              "fill",
+            };
 
         /// <summary>
         /// Checks if the name provided is valid
@@ -20,11 +37,19 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             foreach (char character in illegalCharacters) {
                 if (name.Contains(character.ToString())) return false;
             }
+
+            foreach (string illegalName in illegalNames) {
+                if (illegalName == name) return false;
+            }
+
             return true;
         }
 
         public DeclareVariable(Drawer drawer, string type, string assignment) {
             this.drawer = drawer;
+
+            if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
+            if (!CheckName(name)) throw new Exception("Name not allowed");
 
             // get variable name
             // assignment looks something like this at this point:
@@ -37,8 +62,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 //Seperate the assignment from the variables
                 List<string> assignmentList = SettingsAndHelperFunctions.StripStringArray(assignment.Split("="[0]));
                 name = assignmentList[0];
-                if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
-                if (!CheckName(name)) throw new Exception("Name not allowed");
                 value = ValueFactory.CreateValue(assignmentList[1], type);
             } else {
                 //boolean here
