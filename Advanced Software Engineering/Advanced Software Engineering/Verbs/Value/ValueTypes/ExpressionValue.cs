@@ -16,7 +16,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private bool evaluated = false;
         private IValue evaluatedValue;
 
-        public ExpressionValue(Drawer drawer, IValue variable1, IValue variable2, int operation) {
+        public ExpressionValue(IValue variable1, IValue variable2, int operation) {
             this.variable1 = variable1;
             this.variable2 = variable2;
             this.operation = operation;
@@ -25,7 +25,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (operation > 3 && operation < 0) throw new Exception("Bad operation");
         }
 
-        public ExpressionValue(Drawer drawer, IValue variable1, IValue variable2, string operation) {
+        public ExpressionValue(IValue variable1, IValue variable2, string operation) {
             switch (operation) {
                 case "+":
                     this.operation = ADD;

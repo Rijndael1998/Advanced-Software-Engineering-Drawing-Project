@@ -22,8 +22,8 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
         /// <param name="width">rectangle width</param>
         /// <param name="height">rectangle height</param>
         public Rectangle(Drawer drawer, IValue width, IValue height) {
-            IValue negativeWidth = new ExpressionValue(drawer, new IntValue(0), width, ExpressionValue.SUBTRACT);
-            IValue negativeHeight = new ExpressionValue(drawer, new IntValue(0), height, ExpressionValue.SUBTRACT);
+            IValue negativeWidth = new ExpressionValue(new IntValue(0), width, ExpressionValue.SUBTRACT);
+            IValue negativeHeight = new ExpressionValue(new IntValue(0), height, ExpressionValue.SUBTRACT);
 
             points = new PointValue[]
             {
