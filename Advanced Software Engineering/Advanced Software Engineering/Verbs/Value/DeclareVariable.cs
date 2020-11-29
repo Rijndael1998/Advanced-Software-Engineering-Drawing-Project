@@ -48,25 +48,56 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         public DeclareVariable(Drawer drawer, string type, string assignment) {
             this.drawer = drawer;
 
-            if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
-            if (!CheckName(name)) throw new Exception("Name not allowed");
+            //seperate assignment characters from everything else
+            foreach(string op in new string[]{ "=", "+", "-", "*", "/" }) {
+                assignment = assignment.Replace(op, " " + op + " ");
+            }
 
             // get variable name
             // assignment looks something like this at this point:
             // i = 20
             // or
-            // i = 2 == 5
+            // i = 2 = 5
+            // so after splitting it should look like
+            // ["i", "=", "20"]
+            assignment = HelperFunctions.Strip(assignment);
 
-            // bools have ==
-            if (!(type == "bool")) {
-                //Seperate the assignment from the variables
-                List<string> assignmentList = HelperFunctions.StripStringArray(assignment.Split("="[0]));
-                name = assignmentList[0];
-                value = ValueFactory.CreateValue(assignmentList[1], type);
-            } else {
-                //boolean here
-                throw new NotImplementedException("Booleans cannot be parsed yet");
+            //seperate on spaces
+            string[] assignmentStrings = HelperFunctions.StripStringArray(assignment.Split(" "[0])).ToArray();
+            
+            //check if is actually assignment
+            if (!(assignmentStrings[1] == "=")) throw new Exception("No assignment in " + assignment);
+
+            name = assignmentStrings[0];
+            if (drawer.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
+            if (!CheckName(name)) throw new Exception("'" + name + "' name not allowed");
+
+            //for single number assignments ["i", "=", "20"]
+            if (assignmentStrings.Length == 3) value =  ValueFactory.CreateValue(drawer, assignmentStrings[2]);
+
+            //for expressions ["i", "=", "20", "+", "30"]
+            //or some comparisons ["i", "=", "20", ">", "30"]
+            if (assignmentStrings.Length == 5) {
+                string op = assignmentStrings[3];
+                IValue value1 = ValueFactory.CreateValue(drawer, assignmentStrings[2]);
+                IValue value2 = ValueFactory.CreateValue(drawer, assignmentStrings[4]);
+
+                switch (op) {
+                    case "+":
+                    case "-":
+                    case "/":
+                    case "*":
+                        value = new ExpressionValue(drawer, value1, value2, op);
+                        break;
+
+                    case ">":
+                    case "<":
+                    case "=":
+                    case "!":
+                        throw new Exception("Not implemented yet");
+                }
             }
+            
         }
 
         public void ExecuteVerb() {
