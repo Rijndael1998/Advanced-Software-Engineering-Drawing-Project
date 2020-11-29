@@ -31,42 +31,46 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public string GetOriginalType() {
-            return "comparison";
+            return Evaluate().GetOriginalType();
         }
 
         public bool isInitialised() {
             return true;
         }
 
-        public bool ToBool() {
+        private IValue Evaluate() {
             switch (op) {
                 case "=":
-                    return value1.ToBool() == value2.ToBool() && value1.ToDouble() == value2.ToDouble() && value1.ToInt() == value2.ToInt();
+                    return new BoolValue(value1.ToBool() == value2.ToBool() && value1.ToDouble() == value2.ToDouble() && value1.ToInt() == value2.ToInt());
 
                 case "!":
-                    return value1.ToBool() != value2.ToBool() && value1.ToDouble() != value2.ToDouble() && value1.ToInt() != value2.ToInt();
+                    return new BoolValue(value1.ToBool() != value2.ToBool() && value1.ToDouble() != value2.ToDouble() && value1.ToInt() != value2.ToInt());
 
                 case ">":
-                    return value1.ToDouble() > value2.ToDouble() && value1.ToInt() > value2.ToInt();
+                    return new BoolValue(value1.ToDouble() > value2.ToDouble() && value1.ToInt() > value2.ToInt());
 
                 case "<":
-                    return value1.ToDouble() < value2.ToDouble() && value1.ToInt() < value2.ToInt();
+                    return new BoolValue(value1.ToDouble() < value2.ToDouble() && value1.ToInt() < value2.ToInt());
 
                 default:
                     throw new Exception("Bad operator");
             }
         }
 
+        public bool ToBool() {
+            return Evaluate().ToBool();
+        }
+
         public Color ToColor() {
-            throw new Exception("Cannot convert comparison to color");
+            return Evaluate().ToColor();
         }
 
         public double ToDouble() {
-            throw new Exception("Cannot convert comparison to double");
+            return Evaluate().ToDouble();
         }
 
         public int ToInt() {
-            throw new Exception("Cannot convert comparison to int");
+            return Evaluate().ToInt();
         }
     }
 }
