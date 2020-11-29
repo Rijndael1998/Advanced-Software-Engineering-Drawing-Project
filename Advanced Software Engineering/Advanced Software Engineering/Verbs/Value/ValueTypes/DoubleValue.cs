@@ -10,7 +10,6 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         private Color colorValueCache;
 
         private double value;
-        private Type type = typeof(double);
 
         public DoubleValue(double value) {
             this.value = value;
@@ -25,7 +24,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public bool ToBool() {
-            return value > 0.5;
+            return value > 0;
         }
 
         public Color ToColor() {

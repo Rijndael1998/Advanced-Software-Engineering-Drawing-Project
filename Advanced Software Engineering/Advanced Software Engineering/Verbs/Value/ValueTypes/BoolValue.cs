@@ -7,7 +7,6 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         private bool initialised = false;
 
         private bool value;
-        private Type type = typeof(bool);
 
         public BoolValue(bool value) {
             this.value = value;
@@ -28,7 +27,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
         public bool ToBool() {
             if (initialised) return value;
-            else throw new Exception("not initilised");
+            else throw new Exception("Not initilised");
         }
 
         public Color ToColor() {
