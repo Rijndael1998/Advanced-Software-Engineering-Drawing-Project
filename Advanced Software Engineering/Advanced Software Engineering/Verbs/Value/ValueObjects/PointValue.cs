@@ -3,8 +3,8 @@
 namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
 
     public class PointValue {
-        private IValue x;
-        private IValue y;
+        private readonly IValue x;
+        private readonly IValue y;
 
         public PointValue(IValue x, IValue y) {
             this.x = x;

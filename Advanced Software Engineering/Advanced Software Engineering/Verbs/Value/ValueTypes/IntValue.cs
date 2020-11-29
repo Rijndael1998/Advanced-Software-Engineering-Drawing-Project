@@ -6,7 +6,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
     internal class IntValue : IValue {
         private readonly bool initialised = false;
 
-        private int value;
+        private readonly int value;
 
         private bool doubleValueCacheAvaiable = false;
         private double doubleValueCache;

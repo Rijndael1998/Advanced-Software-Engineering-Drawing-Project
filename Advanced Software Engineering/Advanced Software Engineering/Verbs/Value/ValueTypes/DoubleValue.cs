@@ -4,12 +4,12 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class DoubleValue : IValue {
-        private bool initialised = false;
+        private readonly bool initialised = false;
 
         private bool colorValueCacheAvailable = false;
         private Color colorValueCache;
 
-        private double value;
+        private readonly double value;
 
         public DoubleValue(double value) {
             this.value = value;

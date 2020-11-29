@@ -4,9 +4,9 @@ using System;
 namespace Advanced_Software_Engineering.Verbs.Value {
 
     public class DeclareVariable : IVerb {
-        private Drawer drawer;
-        private IValue value;
-        private string name;
+        private readonly Drawer drawer;
+        private readonly IValue value;
+        private readonly string name;
 
         //Common characters that people might try
         private static readonly char[] illegalCharacters = "1234567890!?/+- \"'@#~;:><,.`¬|[]{}\\£$%^&*()".ToCharArray();

@@ -4,12 +4,12 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
 
     internal class ColorValue : IValue {
-        private IValue r;
-        private IValue g;
-        private IValue b;
+        private readonly IValue r;
+        private readonly IValue g;
+        private readonly IValue b;
 
-        private bool hasAlpha;
-        private IValue a;
+        private readonly bool hasAlpha;
+        private readonly IValue a;
 
         public ColorValue(Color value) {
             r = new IntValue(value.R);

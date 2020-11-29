@@ -3,8 +3,8 @@
 namespace Advanced_Software_Engineering {
 
     public class CommandAndParameterParserResult {
-        private string command;
-        private string[] parameters;
+        private readonly string command;
+        private readonly string[] parameters;
 
         public CommandAndParameterParserResult(string command, string[] parameters) {
             this.command = command;

@@ -4,9 +4,9 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class BoolValue : IValue {
-        private bool initialised = false;
+        private readonly bool initialised = false;
 
-        private bool value;
+        private readonly bool value;
 
         public BoolValue(bool value) {
             this.value = value;

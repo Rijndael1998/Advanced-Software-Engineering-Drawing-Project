@@ -4,9 +4,9 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     internal class ComparisonValue : IValue {
-        private string op;
-        private IValue value1;
-        private IValue value2;
+        private readonly string op;
+        private readonly IValue value1;
+        private readonly IValue value2;
 
         public ComparisonValue(IValue value1, IValue value2, string op) {
             this.value1 = value1;

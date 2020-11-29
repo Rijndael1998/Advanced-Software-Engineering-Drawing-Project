@@ -6,7 +6,7 @@ namespace Advanced_Software_Engineering {
 
     public partial class Draw_Preview : Form {
         private Graphics graphics;
-        private Commander commander;
+        private readonly Commander commander;
         private bool pardonCommands;
 
         /// <summary>

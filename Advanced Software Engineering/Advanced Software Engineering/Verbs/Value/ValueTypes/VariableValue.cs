@@ -4,8 +4,8 @@ using System.Drawing;
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
 
     public class VariableValue : IValue {
-        private Drawer drawer;
-        private string variableName;
+        private readonly Drawer drawer;
+        private readonly string variableName;
 
         public VariableValue(Drawer drawer, string variableName) {
             this.variableName = variableName;

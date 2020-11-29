@@ -9,9 +9,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         public const int MULTIPLY = 2;
         public const int DIVIDE = 3;
 
-        private IValue variable1;
-        private IValue variable2;
-        private int operation;
+        private readonly IValue variable1;
+        private readonly IValue variable2;
+        private readonly int operation;
 
         private bool evaluated = false;
         private IValue evaluatedValue;

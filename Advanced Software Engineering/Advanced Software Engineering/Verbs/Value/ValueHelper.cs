@@ -129,19 +129,19 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                     if (!text.Contains("."))
                         try {
                             return ValueFactory.CreateValue(text, "int");
-                        } catch (Exception e) { }
+                        } catch (Exception) { }
 
                     //Check if string is a double
                     else
                         try {
                             return ValueFactory.CreateValue(text, "double");
-                        } catch (Exception e) { }
+                        } catch (Exception) { }
                 }
 
                 //Check if color
                 try {
                     return ValueFactory.CreateValue(text, "color");
-                } catch (Exception e) { }
+                } catch (Exception) { }
             } else {
                 //Check if string is a bool TODO
 
