@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Advanced_Software_Engineering</RootNamespace>
     <AssemblyName>Advanced Software Engineering</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -91,6 +92,7 @@
     <Compile Include="Verbs\DrawingVerbs\Shape\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Shape\Triangle.cs" />
     <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
+    <Compile Include="Verbs\Value\ValueStorage.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ComparisonValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ExpressionValue.cs" />
     <Compile Include="Verbs\Value\DeclareVariable.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Verbs\Value\ValueTypes\DoubleValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\IntValue.cs" />
     <Compile Include="Verbs\Value\ValueTypes\VariableValue.cs" />
+    <Compile Include="Verbs\Flow\VerbChunk.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
