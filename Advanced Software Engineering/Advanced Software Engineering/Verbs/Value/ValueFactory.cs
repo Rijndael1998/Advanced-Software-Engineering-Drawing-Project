@@ -61,7 +61,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public static IValue CreateValue(Drawer drawer, string value) {
-            value = SettingsAndHelperFunctions.Strip(value);
+            value = HelperFunctions.Strip(value);
             if (drawer.CheckVariableExists(value)) return new VariableValue(drawer, value);
             else return ValueHelper.ConvertToIValue(value);
         }

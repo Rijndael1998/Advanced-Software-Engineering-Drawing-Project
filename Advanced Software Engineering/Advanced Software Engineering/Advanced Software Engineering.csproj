@@ -142,7 +142,7 @@
     <Compile Include="Windows\TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsAndHelperFunctions.cs" />
+    <Compile Include="HelperFunctions.cs" />
     <Compile Include="Windows\Menu.cs">
       <SubType>Form</SubType>
     </Compile>

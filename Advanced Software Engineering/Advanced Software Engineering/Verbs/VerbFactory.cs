@@ -22,7 +22,7 @@ namespace Advanced_Software_Engineering {
         /// <param name="fullCommand">The command as a string</param>
         /// <returns>A IVerb that maches the command</returns>
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
-            CommandAndParameterParserResult result = SettingsAndHelperFunctions.CommandAndParameterParser(fullCommand);
+            CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 
             string command = result.getCommand();
             string[] commandParameters = result.getParameters();

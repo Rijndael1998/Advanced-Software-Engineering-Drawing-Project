@@ -60,7 +60,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             // bools have ==
             if (!(type == "bool")) {
                 //Seperate the assignment from the variables
-                List<string> assignmentList = SettingsAndHelperFunctions.StripStringArray(assignment.Split("="[0]));
+                List<string> assignmentList = HelperFunctions.StripStringArray(assignment.Split("="[0]));
                 name = assignmentList[0];
                 value = ValueFactory.CreateValue(assignmentList[1], type);
             } else {

@@ -31,7 +31,7 @@ namespace Advanced_Software_Engineering_Tests {
 
                 obfuscatedInput = RandomSpaces() + obfuscatedInput + RandomSpaces();
 
-                Assert.AreEqual(correctOutput, SettingsAndHelperFunctions.Strip(obfuscatedInput));
+                Assert.AreEqual(correctOutput, HelperFunctions.Strip(obfuscatedInput));
             }
         }
 
@@ -43,7 +43,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "     a simple sentence surrounded by spaces                ";
             string expected = "a simple sentence surrounded by spaces";
 
-            Assert.AreEqual(expected, SettingsAndHelperFunctions.Strip(input));
+            Assert.AreEqual(expected, HelperFunctions.Strip(input));
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Advanced_Software_Engineering_Tests {
             string input = "      a    simple    sentence     surrounded    by    spaces                 ";
             string expected = "a    simple    sentence     surrounded    by    spaces";
 
-            Assert.AreEqual(expected, SettingsAndHelperFunctions.Strip(input));
+            Assert.AreEqual(expected, HelperFunctions.Strip(input));
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] expected = (new List<string> { "a", "test", "t", "asdf" }).ToArray();
 
             int i = 0;
-            foreach (string s in SettingsAndHelperFunctions.StripStringArray(input)) {
+            foreach (string s in HelperFunctions.StripStringArray(input)) {
                 Assert.AreEqual(expected[i++], s);
             }
         }
@@ -80,7 +80,7 @@ namespace Advanced_Software_Engineering_Tests {
             string[] expected = (new List<string> { "a", "simple", "sentence", "surrounded", "by", "spaces" }).ToArray();
 
             int i = 0;
-            foreach (string s in SettingsAndHelperFunctions.StripStringArray(input)) {
+            foreach (string s in HelperFunctions.StripStringArray(input)) {
                 Assert.AreEqual(expected[i++], s);
             }
         }
@@ -90,7 +90,7 @@ namespace Advanced_Software_Engineering_Tests {
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual1() {
-            Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("moveto 200, 200");
+            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("moveto 200, 200");
             Assert.AreEqual("moveto", commands["command"][0]);
             Assert.AreEqual("200", commands["parameters"][0]);
             Assert.AreEqual("200", commands["parameters"][1]);
@@ -101,7 +101,7 @@ namespace Advanced_Software_Engineering_Tests {
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual2() {
-            Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("clear");
+            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("clear");
             Assert.AreEqual("clear", commands["command"][0]);
             Assert.IsFalse(commands.Keys.Contains("parameters"));
         }
@@ -111,7 +111,7 @@ namespace Advanced_Software_Engineering_Tests {
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual3() {
-            Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("");
+            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("");
             Assert.IsFalse(commands.Keys.Contains("command"));
             Assert.IsFalse(commands.Keys.Contains("parameters"));
         }
@@ -121,7 +121,7 @@ namespace Advanced_Software_Engineering_Tests {
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual4() {
-            Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser("    genericCommand    2, 3,4 5");
+            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("    genericCommand    2, 3,4 5");
 
             Assert.AreEqual("genericCommand", commands["command"][0]);
             Assert.AreEqual("2", commands["parameters"][0]);
@@ -153,7 +153,7 @@ namespace Advanced_Software_Engineering_Tests {
                     input += RandomSpaces() + parameter + RandomSpaces() + "," + RandomSpaces();
                 }
 
-                Dictionary<string, string[]> commands = SettingsAndHelperFunctions.CommandAndParameterParser(input);
+                Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser(input);
 
                 Assert.AreEqual(command, commands["command"][0]);
 

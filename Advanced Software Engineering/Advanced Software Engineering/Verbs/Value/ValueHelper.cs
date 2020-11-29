@@ -14,7 +14,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// <param name="text">String to be converted to int</param>
         /// <returns>Integer representation of string</returns>
         public static int ConvertToInt(string text) {
-            text = SettingsAndHelperFunctions.Strip(text);
+            text = HelperFunctions.Strip(text);
             return int.Parse(text);
         }
 
@@ -24,7 +24,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// <param name="text">String to be converted to double</param>
         /// <returns>Double representation of string</returns>
         public static double ConvertToDouble(string text) {
-            text = SettingsAndHelperFunctions.Strip(text);
+            text = HelperFunctions.Strip(text);
             return double.Parse(text);
         }
 
@@ -121,7 +121,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public static IValue ConvertToIValue(string text) {
-            text = SettingsAndHelperFunctions.Strip(text);
+            text = HelperFunctions.Strip(text);
             //No assignmnet
             if (!text.Contains("=")) {
                 if (!text.Contains("#")) {

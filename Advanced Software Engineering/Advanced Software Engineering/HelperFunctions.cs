@@ -24,7 +24,7 @@ namespace Advanced_Software_Engineering {
     /// <summary>
     /// This class simply provides settings and some functions that are used across many components.
     /// </summary>
-    public class SettingsAndHelperFunctions {
+    public class HelperFunctions {
 
         /// <summary>
         /// This function removes spaces from the start and the end of the text. This should be unit tested.
