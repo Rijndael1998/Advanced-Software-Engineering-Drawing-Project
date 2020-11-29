@@ -28,8 +28,15 @@ namespace Advanced_Software_Engineering {
             string[] commandParameters = result.getParameters();
             if (command == null) throw new Exception("There is no command to process");
 
-            //process declarations first
+            //check for names in directory
+            if (drawer.CheckVariableExists(command)) {
 
+                if (commandParameters.Length == 1) {
+                    //return new UpdateVariable(drawer, );
+                } else throw new Exception(command + "needs something to be assigned to it");
+            }
+
+            //process declarations
             if (!(commandParameters == null))
                 switch (command) {
                     case "int":
@@ -56,7 +63,7 @@ namespace Advanced_Software_Engineering {
                 }
             int parameterLength = parameters.Count;
 
-            //process drawing commands and extras second
+            //process drawing commands and extras
             switch (command) {
                 //Drawing commands
                 case "move":

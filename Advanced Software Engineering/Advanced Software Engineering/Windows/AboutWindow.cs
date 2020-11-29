@@ -2,14 +2,14 @@
 
 namespace Advanced_Software_Engineering {
 
-    public partial class About_Window : Form {
+    partial class About_Window : Form {
 
         ///<summary>
         ///Creates an About Window which shows details about the program.
         ///</summary>
         public About_Window() {
             InitializeComponent();
-            SettingsAndHelperFunctions.NumberOfWindows++;
+            MenuManager.NumberOfWindows++;
         }
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Advanced_Software_Engineering {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void About_Window_FormClosed(object sender, FormClosedEventArgs e) {
-            SettingsAndHelperFunctions.WindowClosed();
+            MenuManager.WindowClosed();
         }
     }
 }

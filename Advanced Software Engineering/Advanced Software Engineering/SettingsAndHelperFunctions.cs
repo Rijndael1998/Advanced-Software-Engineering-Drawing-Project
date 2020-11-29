@@ -27,22 +27,6 @@ namespace Advanced_Software_Engineering {
     public class SettingsAndHelperFunctions {
 
         /// <summary>
-        /// The variable simply keep track of the windows that are currently shown (excluding <see cref="MainMenu"/>).
-        /// </summary>
-        public static int NumberOfWindows = 0;
-
-        /// <summary>
-        /// This helper function is executed when a window is closed. It shows the <see cref="MainMenu"/> when the count is 0
-        /// </summary>
-        public static void WindowClosed() {
-            NumberOfWindows--;
-            if (NumberOfWindows == 0) {
-                System.Console.WriteLine("Showing MainMenu");
-                Program.MainMenu.Show();
-            }
-        }
-
-        /// <summary>
         /// This function removes spaces from the start and the end of the text. This should be unit tested.
         /// </summary>
         /// <param name="text">Simply any string of any size</param>

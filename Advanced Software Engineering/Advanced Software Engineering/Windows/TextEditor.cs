@@ -17,7 +17,7 @@ namespace Advanced_Software_Engineering {
         /// The text editor is the main window that the user will be using for writing code.
         /// </summary>
         public TextEditor() {
-            SettingsAndHelperFunctions.NumberOfWindows++;
+            MenuManager.NumberOfWindows++;
             InitializeComponent();
             UpdateTitle();
         }
@@ -27,7 +27,7 @@ namespace Advanced_Software_Engineering {
         /// </summary>
         /// <param name="openFile">File dialog which points to the file to open</param>
         public TextEditor(OpenFileDialog openFile) {
-            SettingsAndHelperFunctions.NumberOfWindows++;
+            MenuManager.NumberOfWindows++;
             InitializeComponent();
 
             StreamReader fileStream = new StreamReader(openFile.OpenFile());
@@ -159,7 +159,7 @@ namespace Advanced_Software_Engineering {
             tmpDrawPreview.SubmitCommands(TextBox.Text);
             if (tmpDrawPreview.IsSuccess()) new ErrorWindow("No errors", "No errors found in the program", "There have been no errors found", ErrorWindow.INFO_MESSAGE).Show();
             tmpDrawPreview.Close();
-            SettingsAndHelperFunctions.WindowClosed();
+            MenuManager.WindowClosed();
             tmpDrawPreview.Dispose();
         }
 
@@ -179,7 +179,7 @@ namespace Advanced_Software_Engineering {
             Console.WriteLine(commandDesc);
 
             tmpDrawPreview.Close();
-            SettingsAndHelperFunctions.WindowClosed();
+            MenuManager.WindowClosed();
             tmpDrawPreview.Dispose();
 
             new DetailsWindow(commandDesc, "Command explanation").Show();
@@ -187,7 +187,7 @@ namespace Advanced_Software_Engineering {
 
         private void Console_FormClosed(object sender, FormClosedEventArgs e) {
             if (DisplayForm != null && !DisplayForm.IsDisposed) DisplayForm.ReleaseCommandLock();
-            SettingsAndHelperFunctions.WindowClosed();
+            MenuManager.WindowClosed();
             Dispose();
         }
 

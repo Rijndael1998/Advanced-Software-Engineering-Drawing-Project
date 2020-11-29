@@ -17,7 +17,7 @@ namespace Advanced_Software_Engineering {
         /// </remarks>
         public Draw_Preview() {
             InitializeComponent();
-            SettingsAndHelperFunctions.NumberOfWindows++;
+            MenuManager.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
             graphics.ResetClip();
             commander = new Commander(graphics);
@@ -32,7 +32,7 @@ namespace Advanced_Software_Engineering {
         /// </remarks>
         public Draw_Preview(string commands) {
             InitializeComponent();
-            SettingsAndHelperFunctions.NumberOfWindows++;
+            MenuManager.NumberOfWindows++;
             graphics = panel1.CreateGraphics();
             graphics.ResetClip();
             commander = new Commander(graphics, commands);
@@ -43,7 +43,7 @@ namespace Advanced_Software_Engineering {
         }
 
         private void DrawPreview_FormClosed(object sender, FormClosedEventArgs e) {
-            SettingsAndHelperFunctions.WindowClosed();
+            MenuManager.WindowClosed();
             Dispose();
         }
 
