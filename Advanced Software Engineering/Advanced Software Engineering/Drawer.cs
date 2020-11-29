@@ -198,6 +198,7 @@ namespace Advanced_Software_Engineering {
         }
 
         public bool CheckVariableExists(string name) {
+            if (name == null) return false;
             return variables.ContainsKey(name);
         }
     }
