@@ -47,30 +47,7 @@ namespace Advanced_Software_Engineering {
         /// </code>
         /// </example>
         public static string Strip(string text) {
-            //Console.WriteLine("Stripping: '" + text + "'");
-            int start;
-
-            for (start = 0; start < text.Length; start++) {
-                char character = text[start];
-                if (character != " "[0]) break;
-            }
-
-            int end;
-
-            for (end = text.Length - 1; end >= 0; end--) {
-                char character = text[end];
-                if (character != " "[0]) break;
-            }
-
-            if (end == -1) return "";
-
-            string result = text.Substring(start, end - start + 1);
-
-            //Console.WriteLine("Started at: " + start);
-            //Console.WriteLine("Ended at:   " + end);
-            //Console.WriteLine("Result:     " + result);
-
-            return result;
+            return text.Trim();
         }
 
         /// <summary>
