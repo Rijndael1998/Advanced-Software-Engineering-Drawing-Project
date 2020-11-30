@@ -30,7 +30,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         public Color ToColor() {
             if (!colorValueCacheAvailable) {
                 int i = (int)Math.Round(value * 255);
-                i = Math.Max(255, i);
+                i = Math.Min(255, i);
+                if (i < 0) i = 0;
                 colorValueCache = ValueHelper.IntsToColor(i, i, i);
                 colorValueCacheAvailable = true;
             }
