@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using System;
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
@@ -122,77 +123,77 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         public static IValue ConvertToIValue(string text, ValueStorage storage = null) {
             text = HelperFunctions.Strip(text);
+            string value = text;
+            //seperate assignment characters from everything else TODO FIX
+            foreach (string op in new string[] { "=", "+", "-", "*", "/", "<", ">", "!" }) {
+                value = value.Replace(op, " " + op + " ");
+            }
+
+            value = HelperFunctions.Strip(value);
+            if (value[0] == "="[0]) {
+                value = value.Substring(1);
+            }
+            // now will definitly look like this:
+            // 10 + i or i
+
+            string[] assignmentStrings = HelperFunctions.StripStringArray(value.Split(" "[0])).ToArray();
+
             //No assignmnet
-            if (!text.Contains("=")) {
-                if (!text.Contains("#")) {
-                    //Check if string is a number
-                    if (!text.Contains(".")) {
-                        try {
-                            return ValueFactory.CreateValue(text, "int");
-                        } catch (Exception) { }
-                    }
 
-                    //Check if string is a double
-                    else {
-                        try {
-                            return ValueFactory.CreateValue(text, "double");
-                        } catch (Exception) { }
-                    }
-
-                    //Check if color
+            if (!text.Contains("#")) {
+                //Check if string is a number
+                if (!text.Contains(".")) {
                     try {
-                        return ValueFactory.CreateValue(text, "color");
+                        return ValueFactory.CreateValue(text, "int");
                     } catch (Exception) { }
+                }
 
-                    //check for expression
-                    if (storage != null) {
-                        try {
-                            string value = text;
-                            //seperate assignment characters from everything else
-                            foreach (string op in new string[] { "=", "+", "-", "*", "/" }) {
-                                value = value.Replace(op, " " + op + " ");
-                            }
-
-                            value = HelperFunctions.Strip(value);
-                            if (value[0] == "="[0]) {
-                                value = value.Substring(1);
-                            }
-                            // now will definitly look like this:
-                            // 10 + i or i
-
-                            string[] assignmentStrings = HelperFunctions.StripStringArray(value.Split(" "[0])).ToArray();
-
-                            // assignmentStrings will look something like this:
-                            // ["i"] or ["10", "+", "i"]
-                            if (assignmentStrings.Length == 1) return ValueFactory.CreateValue(storage, assignmentStrings[0]);
-                            else if (assignmentStrings.Length == 3) {
-                                // assignmentStrings looks like this => ["10", "+", "i"]
-                                IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[0]);
-                                string op = assignmentStrings[1];
-                                IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
-                                return new ExpressionValue(value1, value2, op);
-                            }
-                        } catch (Exception) { }
-                    }
-                } else {
-                    //Check if color
+                //Check if string is a double
+                else {
                     try {
-                        return ValueFactory.CreateValue(text, "color");
+                        return ValueFactory.CreateValue(text, "double");
+                    } catch (Exception) { }
+                }
+
+                //Check if color
+                try {
+                    return ValueFactory.CreateValue(text, "color");
+                } catch (Exception) { }
+
+                //check for expression
+                if (storage != null) {
+                    try {
+                        // assignmentStrings will look something like this:
+                        // ["i"] or ["10", "+", "i"]
+                        if (assignmentStrings.Length == 1) return ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                        else if (assignmentStrings.Length == 3) {
+                            // assignmentStrings looks like this => ["10", "+", "i"]
+                            IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                            string op = assignmentStrings[1];
+                            IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
+                            return new ExpressionValue(value1, value2, op);
+                        }
                     } catch (Exception) { }
                 }
             } else {
-                //Check if string is a bool
+                //Check if color
+                try {
+                    return ValueFactory.CreateValue(text, "color");
+                } catch (Exception) { }
+            }
 
-                //Check if expression
-                if (storage != null) {
-                    string value = text;
-                    value = HelperFunctions.Strip(value);
-                    if (value[0] == "="[0]) {
-                        value = value.Substring(1);
-                    }
-                    return ConvertToIValue(value, storage);
+            if (storage != null) {
+                // Check if string is a comparison
+                // assignmentStrings will look something like this:
+                // ["i"] or ["10", "=", "i"]
+                if (assignmentStrings.Length == 3) {
+                    IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                    string op = assignmentStrings[1];
+                    IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
+                    return new ComparisonValue(value1, value2, op);
                 }
             }
+
             throw new Exception("Could not convert " + text + " to any type");
         }
 
