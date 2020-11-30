@@ -9,7 +9,7 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
             this.conditional = conditional;
         }
 
-        public void ExecuteVerb() {
+        public new void ExecuteVerb() {
             if (conditional.ToBool()) base.ExecuteVerb();
         }
 

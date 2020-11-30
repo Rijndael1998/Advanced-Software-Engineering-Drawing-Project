@@ -1,4 +1,5 @@
-﻿using Advanced_Software_Engineering.Verbs.Value;
+﻿using Advanced_Software_Engineering.Verbs.Flow;
+using Advanced_Software_Engineering.Verbs.Value;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,6 +14,8 @@ namespace Advanced_Software_Engineering {
     public class Drawer {
 
         private ValueStorage valueStorage = new ValueStorage();
+        private ValueStorage verbFactoryVariables = new ValueStorage();
+        public List<VerbChunk> verbChunks = new List<VerbChunk>();
 
         /// <summary>
         /// The starting color of the pen / brush
@@ -195,6 +198,10 @@ namespace Advanced_Software_Engineering {
 
         public ValueStorage GetValueStorage() {
             return valueStorage;
+        }
+
+        public ValueStorage GetVerbFactoryVariables() {
+            return verbFactoryVariables;
         }
 
     }
