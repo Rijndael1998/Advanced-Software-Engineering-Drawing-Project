@@ -113,7 +113,7 @@ namespace Advanced_Software_Engineering {
                 case "rectangle":
                     //Check parameters
                     if (parameterLength == 2) {
-                        return new Rectangle(drawer, parameters[0], parameters[2]);
+                        return new Rectangle(drawer, parameters[0], parameters[1]);
                     } else if (parameterLength == 8) {
                         return new Quadrilateral(drawer,
                             new PointValue(parameters[0], parameters[1]),
