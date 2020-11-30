@@ -60,10 +60,10 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
-        public static IValue CreateValue(ValueStorage drawer, string value) {
+        public static IValue CreateValue(ValueStorage storage, string value) {
             value = HelperFunctions.Strip(value);
-            if (drawer.CheckVariableExists(value)) return new VariableValue(drawer, value);
-            else return ValueHelper.ConvertToIValue(value);
+            if (storage.CheckVariableExists(value)) return new VariableValue(storage, value);
+            else return ValueHelper.ConvertToIValue(value, storage);
         }
 
         public static IValue CreateValue(bool b) {

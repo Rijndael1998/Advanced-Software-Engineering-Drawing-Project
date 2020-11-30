@@ -120,7 +120,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
-        public static IValue ConvertToIValue(string text) {
+        public static IValue ConvertToIValue(string text, ValueStorage storage = null) {
             text = HelperFunctions.Strip(text);
             //No assignmnet
             if (!text.Contains("=")) {
@@ -136,6 +136,37 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                         try {
                             return ValueFactory.CreateValue(text, "double");
                         } catch (Exception) { }
+
+                    //check for expression
+                    if (storage != null)
+                        try {
+                            string value = text;
+                            //seperate assignment characters from everything else
+                            foreach (string op in new string[] { "=", "+", "-", "*", "/" }) {
+                                value = value.Replace(op, " " + op + " ");
+                            }
+
+                            value = HelperFunctions.Strip(value);
+                            if (value[0] == "="[0]) {
+                                value = value.Substring(1);
+                            }
+                            // now will definitly look like this:
+                            // 10 + i or i
+
+                            string[] assignmentStrings = HelperFunctions.StripStringArray(value.Split(" "[0])).ToArray();
+
+                            // assignmentStrings will look something like this:
+                            // ["i"] or ["10", "+", "i"]
+                            if (assignmentStrings.Length == 1) return ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                            else if (assignmentStrings.Length == 3) {
+                                // assignmentStrings looks like this => ["10", "+", "i"]
+                                IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                                string op = assignmentStrings[1];
+                                IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
+                                return new ExpressionValue(value1, value2, op);
+                            }
+
+                        } catch (Exception) { }
                 }
 
                 //Check if color
@@ -145,8 +176,15 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             } else {
                 //Check if string is a bool TODO
 
-                //Check if string is an expression
-                return ValueFactory.CreateValue(text, "expression");
+                //Check if expression
+                if (storage != null) {
+                    string value = text;
+                    value = HelperFunctions.Strip(value);
+                    if (value[0] == "="[0]) {
+                        value = value.Substring(1);
+                    }
+                    return ConvertToIValue(value, storage);
+                }
             }
             throw new Exception("Could not convert " + text + " to any type");
         }
