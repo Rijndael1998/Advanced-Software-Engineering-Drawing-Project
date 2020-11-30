@@ -146,6 +146,10 @@ namespace Advanced_Software_Engineering {
                 throw new Exception("Cannot have less than two points in a line");
             }
 
+            //Make it relative to the pen
+            for (int pointIndex = 0; pointIndex < points.Length; pointIndex++) 
+                points[pointIndex] = new Point(points[pointIndex].X + penPosition.X, points[pointIndex].Y+ penPosition.Y);
+
             GraphicsPath path = new GraphicsPath {
                 FillMode = FillMode.Winding
             };
