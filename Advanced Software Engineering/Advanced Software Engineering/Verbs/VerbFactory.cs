@@ -255,10 +255,14 @@ namespace Advanced_Software_Engineering {
                     //exit flow
                     case "end":
                         if (parameterLength == 0) {
-                            if (currentChunk == null) throw new Exception("Cannot end at chunk level 0"); //Todo, describe better
+                            if (currentChunk == null) throw new Exception("Cannot end at root level"); //Todo, describe better
                             verbChunks.Remove(currentChunk);
-                            return currentChunk;
+                            chunkDepth = verbChunks.Count - 1;
+                            tmpVerb = currentChunk;
+                            currentChunk = verbChunks[chunkDepth];
+                            
                         } else throw new Exception(command + " doesn't take parameters");
+                        break;
 
                     default:
                         throw new Exception("Unknown command or cannot parse");
