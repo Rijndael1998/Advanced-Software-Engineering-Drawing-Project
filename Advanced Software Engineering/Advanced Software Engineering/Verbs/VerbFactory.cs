@@ -84,7 +84,7 @@ namespace Advanced_Software_Engineering {
                     }
                 }
 
-            
+
             //Parse flow verbs
             switch (command) {
                 case "if":
@@ -94,7 +94,7 @@ namespace Advanced_Software_Engineering {
                         currentChunk = verbChunks[chunkDepth];
                         parsed = true;
                         tmpVerb = new NoOp();
-                    } else if(commandParameters.Length >= 2) {
+                    } else if (commandParameters.Length >= 2) {
                         string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
                         IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
                         IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
@@ -251,6 +251,14 @@ namespace Advanced_Software_Engineering {
                             tmpVerb = new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
                         } else throw new Exception(command + " has an incorrect number of parameters");
                         break;
+
+                    //exit flow
+                    case "end":
+                        if (parameterLength == 0) {
+                            if (currentChunk == null) throw new Exception("Cannot end at chunk level 0"); //Todo, describe better
+                            verbChunks.Remove(currentChunk);
+                            return currentChunk;
+                        } else throw new Exception(command + " doesn't take parameters");
 
                     default:
                         throw new Exception("Unknown command or cannot parse");
