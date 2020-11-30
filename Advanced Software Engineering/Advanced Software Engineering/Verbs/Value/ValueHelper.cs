@@ -131,12 +131,19 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                             return ValueFactory.CreateValue(text, "int");
                         } catch (Exception) { }
                     }
+
                     //Check if string is a double
                     else {
                         try {
                             return ValueFactory.CreateValue(text, "double");
                         } catch (Exception) { }
                     }
+
+                    //Check if color
+                    try {
+                        return ValueFactory.CreateValue(text, "color");
+                    } catch (Exception) { }
+
                     //check for expression
                     if (storage != null) {
                         try {
@@ -167,14 +174,14 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                             }
                         } catch (Exception) { }
                     }
+                } else {
+                    //Check if color
+                    try {
+                        return ValueFactory.CreateValue(text, "color");
+                    } catch (Exception) { }
                 }
-
-                //Check if color
-                try {
-                    return ValueFactory.CreateValue(text, "color");
-                } catch (Exception) { }
             } else {
-                //Check if string is a bool TODO
+                //Check if string is a bool
 
                 //Check if expression
                 if (storage != null) {
