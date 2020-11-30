@@ -30,7 +30,7 @@ namespace Advanced_Software_Engineering.Verbs.DrawingVerbs {
                 new PointValue(negativeWidth, negativeHeight),
                 new PointValue(width, negativeHeight),
                 new PointValue(width, height),
-                new PointValue(negativeWidth, negativeHeight)
+                new PointValue(negativeWidth, height)
             };
 
             verb = new DrawLines(drawer, points);
