@@ -24,14 +24,6 @@ namespace Advanced_Software_Engineering {
         /// <param name="fullCommand">The command as a string</param>
         /// <returns>A IVerb that maches the command</returns>
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
-            //Remove comments
-            string tmp = "";
-            foreach(char character in fullCommand) {
-                if (character == "@"[0]) break;
-                tmp += character;
-            }
-            fullCommand = tmp;
-
             ValueStorage rootValueStorage = drawer.GetValueStorage();
 
             List<VerbChunk> verbChunks = drawer.verbChunks;

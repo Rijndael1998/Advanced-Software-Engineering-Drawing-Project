@@ -84,11 +84,17 @@ namespace Advanced_Software_Engineering {
             int lineNumber = 0;
             bool failed = false;
             foreach (string rawCommand in commands) {
+                string fullCommand = rawCommand;
                 lineNumber++;
-                if (rawCommand == "") continue;
+                //Remove comments
+                if (fullCommand.Contains("@")) {
+                    fullCommand = fullCommand.Substring(0, fullCommand.IndexOf("@"));
+                }
+
+                if (fullCommand == "") continue;
 
                 try {
-                    AddCommand(VerbFactory.MakeVerb(drawer, rawCommand));
+                    AddCommand(VerbFactory.MakeVerb(drawer, fullCommand));
                     Console.WriteLine(rawCommand);
                 } catch (Exception e) {
                     Console.WriteLine("Error!");
