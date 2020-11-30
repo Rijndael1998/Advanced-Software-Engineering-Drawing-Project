@@ -126,19 +126,19 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (!text.Contains("=")) {
                 if (!text.Contains("#")) {
                     //Check if string is a number
-                    if (!text.Contains("."))
+                    if (!text.Contains(".")) {
                         try {
                             return ValueFactory.CreateValue(text, "int");
                         } catch (Exception) { }
-
+                    }
                     //Check if string is a double
-                    else
+                    else {
                         try {
                             return ValueFactory.CreateValue(text, "double");
                         } catch (Exception) { }
-
+                    }
                     //check for expression
-                    if (storage != null)
+                    if (storage != null) {
                         try {
                             string value = text;
                             //seperate assignment characters from everything else
@@ -165,8 +165,8 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                                 IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
                                 return new ExpressionValue(value1, value2, op);
                             }
-
                         } catch (Exception) { }
+                    }
                 }
 
                 //Check if color
