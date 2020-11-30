@@ -22,7 +22,7 @@ namespace Advanced_Software_Engineering {
             drawer.ResetDrawer();
             drawer.SetGraphics(updateGraphicsElement);
 
-            foreach (IVerb IVerb in this.commands) {
+            foreach (IVerb IVerb in commands) {
                 IVerb.ExecuteVerb();
             }
         }
