@@ -70,7 +70,8 @@ namespace Advanced_Software_Engineering {
             pen = new Pen(defaultColor, defaultWidth);
             brush = new SolidBrush(defaultColor);
             fill = false;
-            valueStorage = new ValueStorage();
+            valueStorage.Reset();
+            verbChunks = new List<VerbChunk>();
         }
 
         /// <summary>

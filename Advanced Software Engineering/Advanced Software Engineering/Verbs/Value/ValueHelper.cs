@@ -129,9 +129,11 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 value = value.Replace(op, " " + op + " ");
             }
 
+            bool removedFirstChar = false;
             value = HelperFunctions.Strip(value);
             if (value[0] == "="[0]) {
                 value = value.Substring(1);
+                removedFirstChar = true;
             }
             // now will definitly look like this:
             // 10 + i or i
@@ -165,7 +167,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                     try {
                         // assignmentStrings will look something like this:
                         // ["i"] or ["10", "+", "i"]
-                        if (assignmentStrings.Length == 1) return ValueFactory.CreateValue(storage, assignmentStrings[0]);
+                        if (assignmentStrings.Length == 1 && removedFirstChar) return ValueFactory.CreateValue(storage, assignmentStrings[0]);
                         else if (assignmentStrings.Length == 3) {
                             // assignmentStrings looks like this => ["10", "+", "i"]
                             IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[0]);

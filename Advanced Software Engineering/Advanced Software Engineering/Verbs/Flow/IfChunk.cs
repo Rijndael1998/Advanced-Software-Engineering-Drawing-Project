@@ -5,17 +5,24 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
     public class IfChunk : VerbChunk, IVerb {
 
         IValue conditional;
+        ValueStorage valueStorage;
 
-        public IfChunk(IValue conditional) : base() {
+        public IfChunk(ValueStorage valueStorage, IValue conditional) : base() {
             this.conditional = conditional;
+            this.valueStorage = valueStorage;
+            valueStorage.IncreaseStack();
         }
 
-        public IfChunk(IValue conditional, IVerb oneLineVerb) : base(new List<IVerb> { oneLineVerb }) {
+        public IfChunk(ValueStorage valueStorage, IValue conditional, IVerb oneLineVerb) : base(new List<IVerb> { oneLineVerb }) {
             this.conditional = conditional;
+            this.valueStorage = valueStorage;
+            valueStorage.IncreaseStack();
         }
 
         public new void ExecuteVerb() {
+            valueStorage.IncreaseStack();
             if (conditional.ToBool()) base.ExecuteVerb();
+            valueStorage.DecreaseStack();
         }
 
     }

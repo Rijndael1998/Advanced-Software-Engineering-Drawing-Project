@@ -26,6 +26,7 @@ namespace Advanced_Software_Engineering {
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
             ValueStorage rootValueStorage = drawer.GetValueStorage();
 
+
             List<VerbChunk> verbChunks = drawer.verbChunks;
             if (verbChunks.Count == 0) verbChunks.Add(null);
 
@@ -35,6 +36,7 @@ namespace Advanced_Software_Engineering {
             CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 
             string command = result.getCommand();
+            if (command == null) return new NoOp();
             string[] commandParameters = result.getParameters();
             if (command == null) throw new Exception("There is no command to process");
 
@@ -81,16 +83,16 @@ namespace Advanced_Software_Engineering {
             switch (command) {
                 case "if":
                     if (commandParameters.Length == 1) {
-                        verbChunks.Add(new IfChunk(ValueFactory.CreateValue(rootValueStorage, commandParameters[0])));
+                        verbChunks.Add(new IfChunk(rootValueStorage, ValueFactory.CreateValue(rootValueStorage, commandParameters[0])));
                         chunkDepth = verbChunks.Count - 1;
                         currentChunk = verbChunks[chunkDepth];
                         parsed = true;
                         tmpVerb = new NoOp();
-                    } else if (commandParameters.Length >= 2) {
+                    } else if (commandParameters.Length >= 2) { //single line if
                         string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
                         IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
                         IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
-                        tmpVerb = new IfChunk(conditional, AfterIf); //Create the chunk
+                        tmpVerb = new IfChunk(rootValueStorage,  conditional, AfterIf); //Create the chunk
                         parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
                     break;
@@ -252,6 +254,7 @@ namespace Advanced_Software_Engineering {
                             chunkDepth = verbChunks.Count - 1;
                             tmpVerb = currentChunk;
                             currentChunk = verbChunks[chunkDepth];
+                            rootValueStorage.DecreaseStack();
                             
                         } else throw new Exception(command + " doesn't take parameters");
                         break;
