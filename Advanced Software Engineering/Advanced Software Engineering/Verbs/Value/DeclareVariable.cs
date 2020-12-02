@@ -1,4 +1,4 @@
-using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
@@ -27,6 +27,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
               "fillon", "filloff",
               "pen",
               "fill",
+              "if", "def", "ret"
             };
 
         /// <summary>
