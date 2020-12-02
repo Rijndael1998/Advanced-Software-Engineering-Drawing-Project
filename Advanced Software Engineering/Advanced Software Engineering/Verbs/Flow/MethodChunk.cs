@@ -6,45 +6,49 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
     public class MethodChunk : VerbChunk, IVerb, IValue {
 
         ValueStorage valueStorage;
-        VariableValue[] variableValues;
+        bool init = false;
 
-        public MethodChunk(VariableValue[] variableValues, ValueStorage valueStorage) : base() {
+        public MethodChunk(ValueStorage valueStorage) : base() {
             this.valueStorage = valueStorage;
-            this.variableValues = variableValues;
         }
 
         public new void ExecuteVerb() {
             valueStorage.IncreaseStack();
             base.ExecuteVerb();
             valueStorage.DecreaseStack();
+            init = true;
+        }
+
+        public IValue GetResult() {
+            return valueStorage.GetVariable("res");
         }
 
         public IValue Clone() {
-            throw new System.NotImplementedException();
+            return GetResult().Clone();
         }
 
         public string GetOriginalType() {
-            throw new System.NotImplementedException();
+            return GetResult().GetOriginalType();
         }
 
         public bool isInitialised() {
-            throw new System.NotImplementedException();
+            return init;
         }
 
         public bool ToBool() {
-            throw new System.NotImplementedException();
+            return GetResult().ToBool();
         }
 
         public Color ToColor() {
-            throw new System.NotImplementedException();
+            return GetResult().ToColor();
         }
 
         public double ToDouble() {
-            throw new System.NotImplementedException();
+            return GetResult().ToDouble();
         }
 
         public int ToInt() {
-            throw new System.NotImplementedException();
+            return GetResult().ToInt();
         }
     }
 }
