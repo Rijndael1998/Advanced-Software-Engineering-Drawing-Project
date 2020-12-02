@@ -1,4 +1,4 @@
-﻿using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
@@ -67,7 +67,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             string[] assignmentStrings = HelperFunctions.StripStringArray(assignment.Split(" "[0])).ToArray();
 
             //check if is actually assignment
-            if (!(assignmentStrings[1] == "=")) throw new Exception("No assignment in " + assignment);
+            if (assignmentStrings.Length > 1 && !(assignmentStrings[1] == "=")) throw new Exception("No assignment in " + assignment);
 
             name = assignmentStrings[0];
             if (storage.CheckVariableExists(name)) throw new Exception("Declaration failed. " + name + " has been declared before");
@@ -81,7 +81,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             //for expressions ["i", "=", "20", "+", "30"]
             //or some comparisons ["i", "=", "20", ">", "30"]
-            if (assignmentStrings.Length == 5) {
+            else if (assignmentStrings.Length == 5) {
                 string op = assignmentStrings[3];
                 IValue value1 = ValueFactory.CreateValue(storage, assignmentStrings[2]);
                 IValue value2 = ValueFactory.CreateValue(storage, assignmentStrings[4]);
