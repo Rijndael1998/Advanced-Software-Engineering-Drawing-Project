@@ -115,5 +115,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         public string GetDescription() {
             return "Declares the variable " + name;
         }
+
+        public string GetName() {
+            return name;
+        }
     }
 }
