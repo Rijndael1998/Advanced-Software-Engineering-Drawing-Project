@@ -27,11 +27,11 @@ namespace Advanced_Software_Engineering {
             ValueStorage rootValueStorage = drawer.GetValueStorage();
 
 
-            List<VerbChunk> verbChunks = drawer.verbChunks;
+            List<IVerbChunk> verbChunks = drawer.verbChunks;
             if (verbChunks.Count == 0) verbChunks.Add(null);
 
             int chunkDepth = verbChunks.Count - 1;
-            VerbChunk currentChunk = verbChunks[chunkDepth];
+            IVerbChunk currentChunk = verbChunks[chunkDepth];
 
             CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 
@@ -96,6 +96,36 @@ namespace Advanced_Software_Engineering {
                         parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
                     break;
+
+                case "def":
+                    if (drawer.verbChunkGeneratingMethod) throw new Exception("Cannot declare a method while declaring method");
+                    else if (chunkDepth != 0) throw new Exception("Cannot declare a method above root chunk"); //TODO, explain better
+                    else if (commandParameters.Length >= 1) {
+                        rootValueStorage.IncreaseStack();
+                        //All parameters
+                        DeclareVariable[] methodParameters = new DeclareVariable[] { };
+                        
+                        //if assignments exist, make them
+                        if(commandParameters.Length > 1) {
+                            List<DeclareVariable> methodParameterList = new List<DeclareVariable>();
+                            for (int index = 1; index < commandParameters.Length; index++) {
+                                methodParameterList.Add(new DeclareVariable(rootValueStorage, commandParameters[index]));
+                            }
+                            methodParameters = methodParameterList.ToArray();
+                        }
+                        string methodName = commandParameters[0];
+
+                        MethodChunk methodChunk = new MethodChunk(rootValueStorage, methodParameters);
+                        DeclareMethod declareMethod = new DeclareMethod(methodChunk);
+                        
+                        drawer.Methods.Add(methodName, methodChunk);
+                        verbChunks.Add(declareMethod);
+                        chunkDepth = verbChunks.Count - 1;
+                        currentChunk = verbChunks[chunkDepth];
+                        parsed = true;
+                        tmpVerb = new NoOp();
+                    } else throw new Exception(command + " has an incorrect number of parameters");
+                    break;
             }
 
             if (!parsed) {
@@ -103,10 +133,57 @@ namespace Advanced_Software_Engineering {
                 if (!(commandParameters == null)) foreach (string parameter in commandParameters) {
                         parameters.Add(ValueFactory.CreateValue(rootValueStorage, parameter));
                     }
+                
                 int parameterLength = parameters.Count;
 
+                //Check if method
+                if(drawer.Methods.ContainsKey(command)) {
+                    MethodChunk methodChunk = drawer.Methods[command];
+                    string[] methodVariableNames = methodChunk.GetVariableNames().ToArray();
+                    
+                    //Handle errors
+                    if (methodVariableNames.Length != parameterLength) throw new Exception("Method " + command + "Has an incorrect number of parameters");
+
+
+                    /* So something like this:
+                     * def abc d
+                     *   circle d
+                     * 
+                     * abc 5
+                     * 
+                     * would have to be translated into something like this
+                     * @increase stack
+                     * var d = 5 (of course in a higher stack)
+                     * 
+                     * @run abc (abc doesn't increase it's own stack)
+                     * 
+                     */
+
+                    VerbChunk localChunk = new VerbChunk();
+                    localChunk.AddVerb(new IncreaseStack(rootValueStorage));
+
+                    // Declare all of the variables first
+                    foreach (DeclareVariable variable in methodChunk.GetVariables()) localChunk.AddVerb(variable);
+
+                    // Update the values of the variables
+                    for (int variableIndex = 0; variableIndex < methodVariableNames.Length; variableIndex++) {
+                        UpdateVariable variableDeclaration = new UpdateVariable(rootValueStorage, methodVariableNames[variableIndex], parameters[variableIndex]);
+                        localChunk.AddVerb(variableDeclaration);
+                    }
+
+                    // localChunk.AddVerb(methodChunk);
+
+                    //Add chunk to chunk stack
+                    localChunk.AddVerb(methodChunk);
+                    //verbChunks.Add(localChunk);
+
+                    //chunkDepth = verbChunks.Count - 1;
+                    //currentChunk = verbChunks[chunkDepth];
+                    tmpVerb = localChunk;
+                }
+
                 //process drawing commands and extras
-                switch (command) {
+                else switch (command) {
                     //Drawing commands
                     case "move":
                     case "moveto":

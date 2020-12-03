@@ -1,26 +1,48 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value;
 using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
     public class MethodChunk : VerbChunk, IVerb, IValue {
 
         ValueStorage valueStorage;
+        DeclareVariable[] variables;
         bool init = false;
+        IValue result;
 
-        public MethodChunk(ValueStorage valueStorage) : base() {
+        public MethodChunk(ValueStorage valueStorage, DeclareVariable[] variables) : base() {
             this.valueStorage = valueStorage;
+            this.variables = variables;
+        }
+
+        public List<string> GetVariableNames() {
+            List<string> VariableNames = new List<string>();
+            foreach (DeclareVariable variable in variables) VariableNames.Add(variable.GetName());
+            return VariableNames;
+        }
+
+        public DeclareVariable[] GetVariables() {
+            return variables;
         }
 
         public new void ExecuteVerb() {
-            valueStorage.IncreaseStack();
+            init = false;
+            result = null;
+            // The stack increased artificially
+            //valueStorage.IncreaseStack();
+
             base.ExecuteVerb();
+            if (valueStorage.CheckVariableExists("ret")) {
+                result = valueStorage.GetVariable("ret");
+                init = true;
+            }
             valueStorage.DecreaseStack();
-            init = true;
+            
         }
 
         public IValue GetResult() {
-            return valueStorage.GetVariable("res");
+            return result;
         }
 
         public IValue Clone() {

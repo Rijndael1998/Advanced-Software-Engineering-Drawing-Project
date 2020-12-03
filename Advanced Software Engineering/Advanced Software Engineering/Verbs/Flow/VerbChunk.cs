@@ -2,7 +2,7 @@
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
 
-    public class VerbChunk : IVerb {
+    public class VerbChunk : IVerbChunk, IVerb {
         private readonly List<IVerb> verbs;
 
         public VerbChunk(List<IVerb> verbs) {

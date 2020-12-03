@@ -14,8 +14,9 @@ namespace Advanced_Software_Engineering {
     public class Drawer {
 
         private ValueStorage valueStorage = new ValueStorage();
-        private ValueStorage verbFactoryVariables = new ValueStorage();
-        public List<VerbChunk> verbChunks = new List<VerbChunk>();
+        public List<IVerbChunk> verbChunks = new List<IVerbChunk>();
+        public bool verbChunkGeneratingMethod = false;
+        public Dictionary<string, MethodChunk> Methods = new Dictionary<string, MethodChunk>();
 
         /// <summary>
         /// The starting color of the pen / brush
@@ -71,7 +72,8 @@ namespace Advanced_Software_Engineering {
             brush = new SolidBrush(defaultColor);
             fill = false;
             valueStorage.Reset();
-            verbChunks = new List<VerbChunk>();
+            verbChunks = new List<IVerbChunk>();
+            Methods = new Dictionary<string, MethodChunk>();
         }
 
         /// <summary>
@@ -199,10 +201,6 @@ namespace Advanced_Software_Engineering {
 
         public ValueStorage GetValueStorage() {
             return valueStorage;
-        }
-
-        public ValueStorage GetVerbFactoryVariables() {
-            return verbFactoryVariables;
         }
 
     }

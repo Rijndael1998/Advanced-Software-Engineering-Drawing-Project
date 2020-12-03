@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
-    public class IfChunk : VerbChunk, IVerb {
+    public class IfChunk : VerbChunk, IVerbChunk, IVerb {
 
         IValue conditional;
         ValueStorage valueStorage;
