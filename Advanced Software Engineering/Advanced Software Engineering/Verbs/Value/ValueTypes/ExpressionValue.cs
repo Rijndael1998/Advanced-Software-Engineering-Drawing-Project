@@ -55,8 +55,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         private IValue Evaluate() {
-            if (evaluated) return evaluatedValue;
-
             IValue variable1 = this.variable1.Clone();
             IValue variable2 = this.variable2.Clone();
 
@@ -92,7 +90,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 case "color":
                     throw new Exception("Colors are immutable");
             }
-            evaluated = true;
+
             return evaluatedValue;
         }
 

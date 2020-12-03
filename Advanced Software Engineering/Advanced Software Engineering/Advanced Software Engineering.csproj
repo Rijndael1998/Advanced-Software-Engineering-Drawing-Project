@@ -96,6 +96,7 @@
     <Compile Include="Verbs\Flow\IfChunk.cs" />
     <Compile Include="Verbs\Flow\IVerbChunk.cs" />
     <Compile Include="Verbs\Flow\MethodChunk.cs" />
+    <Compile Include="Verbs\Flow\WhileChunk.cs" />
     <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
     <Compile Include="Verbs\Value\ValueStorage.cs" />
     <Compile Include="Verbs\Value\ValueTypes\ComparisonValue.cs" />
