@@ -5,33 +5,40 @@ namespace Advanced_Software_Engineering.Verbs.Value {
     public class ValueStorage {
 
         protected int currentStack;
-        protected Dictionary<int, Dictionary<string, IValue>> Variables = new Dictionary<int, Dictionary<string, IValue>>();
+        protected List<Dictionary<string, IValue>> Variables = new List<Dictionary<string, IValue>>();
 
         public ValueStorage() {
             Reset();
         }
 
         public void Reset() {
-            Variables = new Dictionary<int, Dictionary<string, IValue>>();
-            SetStack(0);
+            Variables = new List<Dictionary<string, IValue>>();
+            Variables.Add(new Dictionary<string, IValue>());
+            currentStack = 0;
         }
 
         private void SetStack(int stack) {
             if (stack < 0) throw new Exception("Stack cannot be less than 0");
 
-            if (!Variables.ContainsKey(stack)) Variables.Add(currentStack, new Dictionary<string, IValue>());
+            //Decreased Stack
+            if(currentStack > stack) {
+                Variables.RemoveAt(currentStack);
+            } 
+            //Increased Stack
+            else if (currentStack < stack) {
+                Variables.Add(new Dictionary<string, IValue>());
+            }
+
+            currentStack = stack;
         }
 
         public void IncreaseStack() {
-            currentStack++;
-            SetStack(currentStack);
+            SetStack(currentStack + 1);
         }
 
         public void DecreaseStack() {
             if (currentStack > 0) {
-                Variables.Remove(currentStack);
-                currentStack--;
-                SetStack(currentStack);
+                SetStack(currentStack - 1);
             }
         }
 
