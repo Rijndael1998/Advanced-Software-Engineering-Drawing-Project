@@ -109,7 +109,8 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         }
 
         public void ExecuteVerb() {
-            storage.SetVariable(name, value);
+            if (value != null) storage.SetVariable(name, value.Clone());
+            else storage.SetVariable(name, value);
         }
 
         public string GetDescription() {

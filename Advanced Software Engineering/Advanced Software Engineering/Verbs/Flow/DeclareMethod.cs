@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
     class DeclareMethod : IVerb, IVerbChunk {
+        string methodName;
+        Drawer drawer;
 
-        MethodChunk methodChunk;
 
-
-        public DeclareMethod(MethodChunk methodChunk) {
-            this.methodChunk = methodChunk;
+        public DeclareMethod(Drawer drawer, string methodName) {
+            this.drawer = drawer;
+            this.methodName = methodName;
         }
 
         public void AddVerb(IVerb verb) {
+            MethodChunk methodChunk = drawer.Methods[methodName];
             methodChunk.AddVerb(verb);
         } 
 

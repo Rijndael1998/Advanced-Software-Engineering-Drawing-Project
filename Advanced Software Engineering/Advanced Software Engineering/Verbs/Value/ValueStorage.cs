@@ -62,7 +62,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
         public IValue GetVariable(string name) {
             for (int stack = currentStack; stack >= 0; stack--) {
-                if (CheckVariableExists(name, stack)) return GetVariable(name, stack);
+                if (CheckVariableExists(name, stack) && GetVariable(name, stack) != null) return GetVariable(name, stack);
             }
             throw new Exception("Cannot find variable " + name);
         }

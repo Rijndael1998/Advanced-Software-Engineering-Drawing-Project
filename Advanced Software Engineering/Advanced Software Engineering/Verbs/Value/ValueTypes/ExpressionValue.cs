@@ -57,7 +57,10 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private IValue Evaluate() {
             if (evaluated) return evaluatedValue;
 
-            string outputType = variable1.Clone().GetOriginalType();
+            IValue variable1 = this.variable1.Clone();
+            IValue variable2 = this.variable2.Clone();
+
+            string outputType = variable1.GetOriginalType();
 
             switch (outputType) {
                 case "bool":

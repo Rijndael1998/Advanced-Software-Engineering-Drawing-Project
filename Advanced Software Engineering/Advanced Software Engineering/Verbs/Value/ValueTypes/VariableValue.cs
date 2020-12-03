@@ -46,7 +46,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         }
 
         public IValue Clone() {
-            return new VariableValue(storage, variableName);
+            return get().Clone();
         }
     }
 }

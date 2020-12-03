@@ -113,10 +113,12 @@ namespace Advanced_Software_Engineering {
                             }
                             methodParameters = methodParameterList.ToArray();
                         }
+
+                        //Get method name
                         string methodName = commandParameters[0];
 
                         MethodChunk methodChunk = new MethodChunk(rootValueStorage, methodParameters);
-                        DeclareMethod declareMethod = new DeclareMethod(methodChunk);
+                        DeclareMethod declareMethod = new DeclareMethod(drawer, methodName);
 
                         drawer.Methods.Add(methodName, methodChunk);
                         verbChunks.Add(declareMethod);
@@ -159,27 +161,15 @@ namespace Advanced_Software_Engineering {
                      * 
                      */
 
-                    VerbChunk localChunk = new VerbChunk();
-                    localChunk.AddVerb(new IncreaseStack(rootValueStorage));
-
-                    // Declare all of the variables first
-                    foreach (DeclareVariable variable in methodChunk.GetVariables()) localChunk.AddVerb(variable);
 
                     // Update the values of the variables
+                    List<UpdateVariable> UpdateVariableList = new List<UpdateVariable>();
                     for (int variableIndex = 0; variableIndex < methodVariableNames.Length; variableIndex++) {
-                        UpdateVariable variableDeclaration = new UpdateVariable(rootValueStorage, methodVariableNames[variableIndex], parameters[variableIndex]);
-                        localChunk.AddVerb(variableDeclaration);
+                        UpdateVariableList.Add(new UpdateVariable(rootValueStorage, methodVariableNames[variableIndex], parameters[variableIndex]));
                     }
 
-                    // localChunk.AddVerb(methodChunk);
-
-                    //Add chunk to chunk stack
-                    localChunk.AddVerb(methodChunk);
-                    //verbChunks.Add(localChunk);
-
-                    //chunkDepth = verbChunks.Count - 1;
-                    //currentChunk = verbChunks[chunkDepth];
-                    tmpVerb = localChunk;
+                    methodChunk.SetVariableValues(UpdateVariableList.ToArray());
+                    tmpVerb = methodChunk.DuplicateForExecution();
                 }
 
                 //process drawing commands and extras

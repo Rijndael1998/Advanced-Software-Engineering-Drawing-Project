@@ -21,6 +21,10 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
             foreach (IVerb verb in verbs) verb.ExecuteVerb();
         }
 
+        public IVerb[] GetVerbs() {
+            return verbs.ToArray();
+        }
+
         public string GetDescription() {
             string s = "VerbChunk Start";
             foreach (IVerb verb in verbs) s += "\n" + verb.GetDescription();

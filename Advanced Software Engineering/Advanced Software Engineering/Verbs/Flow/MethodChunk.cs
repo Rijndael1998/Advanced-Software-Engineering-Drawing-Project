@@ -8,6 +8,7 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
 
         ValueStorage valueStorage;
         DeclareVariable[] variables;
+        UpdateVariable[] updateVariables;
         bool init = false;
         IValue result;
 
@@ -26,12 +27,32 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
             return variables;
         }
 
+        public void SetVariableValues(UpdateVariable[] updateVariables) {
+            this.updateVariables = updateVariables;
+        }
+
+        public MethodChunk DuplicateForExecution() {
+            MethodChunk method = new MethodChunk(valueStorage, variables);
+            method.SetVariableValues(updateVariables);
+
+            foreach (IVerb verb in base.GetVerbs()) method.AddVerb(verb);
+
+            return method;
+        }
+
         public new void ExecuteVerb() {
             init = false;
             result = null;
-            // The stack increased artificially
-            //valueStorage.IncreaseStack();
 
+            valueStorage.IncreaseStack();
+
+            //Declare everything
+            foreach (DeclareVariable variable in variables) variable.ExecuteVerb();
+
+            //Set the values of everything
+            foreach (UpdateVariable variable in updateVariables) variable.ExecuteVerb();
+
+            //Run code
             base.ExecuteVerb();
             if (valueStorage.CheckVariableExists("ret")) {
                 result = valueStorage.GetVariable("ret");

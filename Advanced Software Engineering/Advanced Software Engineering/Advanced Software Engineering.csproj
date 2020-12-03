@@ -94,7 +94,6 @@
     <Compile Include="Verbs\DrawingVerbs\Shape\Triangle.cs" />
     <Compile Include="Verbs\Flow\DeclareMethod.cs" />
     <Compile Include="Verbs\Flow\IfChunk.cs" />
-    <Compile Include="Verbs\Flow\IncreaseStack.cs" />
     <Compile Include="Verbs\Flow\IVerbChunk.cs" />
     <Compile Include="Verbs\Flow\MethodChunk.cs" />
     <Compile Include="Verbs\Value\ValueObjects\PointValue.cs" />
