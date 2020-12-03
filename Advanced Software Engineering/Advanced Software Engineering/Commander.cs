@@ -91,6 +91,7 @@ namespace Advanced_Software_Engineering {
                     fullCommand = fullCommand.Substring(0, fullCommand.IndexOf("@"));
                 }
 
+                fullCommand = HelperFunctions.Strip(fullCommand);
                 if (fullCommand == "") continue;
 
                 try {
