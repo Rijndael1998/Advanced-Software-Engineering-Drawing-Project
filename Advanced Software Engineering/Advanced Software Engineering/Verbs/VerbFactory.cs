@@ -75,8 +75,8 @@ namespace Advanced_Software_Engineering {
                             return new NoOp();
                         }
                         break;
-                    }
                 }
+            }
 
 
             //Parse flow verbs
@@ -92,7 +92,7 @@ namespace Advanced_Software_Engineering {
                         string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
                         IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
                         IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
-                        tmpVerb = new IfChunk(rootValueStorage,  conditional, AfterIf); //Create the chunk
+                        tmpVerb = new IfChunk(rootValueStorage, conditional, AfterIf); //Create the chunk
                         parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
                     break;
@@ -104,9 +104,9 @@ namespace Advanced_Software_Engineering {
                         rootValueStorage.IncreaseStack();
                         //All parameters
                         DeclareVariable[] methodParameters = new DeclareVariable[] { };
-                        
+
                         //if assignments exist, make them
-                        if(commandParameters.Length > 1) {
+                        if (commandParameters.Length > 1) {
                             List<DeclareVariable> methodParameterList = new List<DeclareVariable>();
                             for (int index = 1; index < commandParameters.Length; index++) {
                                 methodParameterList.Add(new DeclareVariable(rootValueStorage, commandParameters[index]));
@@ -117,7 +117,7 @@ namespace Advanced_Software_Engineering {
 
                         MethodChunk methodChunk = new MethodChunk(rootValueStorage, methodParameters);
                         DeclareMethod declareMethod = new DeclareMethod(methodChunk);
-                        
+
                         drawer.Methods.Add(methodName, methodChunk);
                         verbChunks.Add(declareMethod);
                         chunkDepth = verbChunks.Count - 1;
@@ -133,14 +133,14 @@ namespace Advanced_Software_Engineering {
                 if (!(commandParameters == null)) foreach (string parameter in commandParameters) {
                         parameters.Add(ValueFactory.CreateValue(rootValueStorage, parameter));
                     }
-                
+
                 int parameterLength = parameters.Count;
 
                 //Check if method
-                if(drawer.Methods.ContainsKey(command)) {
+                if (drawer.Methods.ContainsKey(command)) {
                     MethodChunk methodChunk = drawer.Methods[command];
                     string[] methodVariableNames = methodChunk.GetVariableNames().ToArray();
-                    
+
                     //Handle errors
                     if (methodVariableNames.Length != parameterLength) throw new Exception("Method " + command + "Has an incorrect number of parameters");
 
@@ -184,161 +184,161 @@ namespace Advanced_Software_Engineering {
 
                 //process drawing commands and extras
                 else switch (command) {
-                    //Drawing commands
-                    case "move":
-                    case "moveto":
-                        //Check parameters
-                        if (parameterLength == 2) {
-                            tmpVerb = new MoveTo(drawer, new PointValue(parameters[0], parameters[1]));
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        //Drawing commands
+                        case "move":
+                        case "moveto":
+                            //Check parameters
+                            if (parameterLength == 2) {
+                                tmpVerb = new MoveTo(drawer, new PointValue(parameters[0], parameters[1]));
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "drawto":
-                    case "line":
-                    case "lineto":
-                        //Check parameters
-                        if (parameterLength == 2) {
-                            tmpVerb = new DrawTo(drawer, new PointValue(parameters[0], parameters[1]));
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "drawto":
+                        case "line":
+                        case "lineto":
+                            //Check parameters
+                            if (parameterLength == 2) {
+                                tmpVerb = new DrawTo(drawer, new PointValue(parameters[0], parameters[1]));
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "regularpolygon":
-                    case "rp":
-                        //Check parameters
-                        if (parameterLength == 2) {
-                            tmpVerb = new RegularPolygon(drawer, parameters[0], parameters[1], new IntValue(0), new BoolValue(true));
-                        } else if (parameterLength == 3) {
-                            tmpVerb = new RegularPolygon(drawer, parameters[0], parameters[1], parameters[2], new BoolValue(true));
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "regularpolygon":
+                        case "rp":
+                            //Check parameters
+                            if (parameterLength == 2) {
+                                tmpVerb = new RegularPolygon(drawer, parameters[0], parameters[1], new IntValue(0), new BoolValue(true));
+                            } else if (parameterLength == 3) {
+                                tmpVerb = new RegularPolygon(drawer, parameters[0], parameters[1], parameters[2], new BoolValue(true));
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "square":
-                        //Check parameters
-                        if (parameterLength == 1) {
-                            tmpVerb = new
-                                Square(drawer, parameters[0]);
-                        } else if (parameterLength == 2) {
-                            tmpVerb = new Square(drawer, parameters[0], parameters[1]);
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "square":
+                            //Check parameters
+                            if (parameterLength == 1) {
+                                tmpVerb = new
+                                    Square(drawer, parameters[0]);
+                            } else if (parameterLength == 2) {
+                                tmpVerb = new Square(drawer, parameters[0], parameters[1]);
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "quadrilateral":
-                        //Check parameters
-                        if (parameterLength == 8) {
-                            tmpVerb = new Quadrilateral(drawer,
-                                new PointValue(parameters[0], parameters[1]),
-                                new PointValue(parameters[2], parameters[3]),
-                                new PointValue(parameters[4], parameters[5]),
-                                new PointValue(parameters[6], parameters[7])
-                                );
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "quadrilateral":
+                            //Check parameters
+                            if (parameterLength == 8) {
+                                tmpVerb = new Quadrilateral(drawer,
+                                    new PointValue(parameters[0], parameters[1]),
+                                    new PointValue(parameters[2], parameters[3]),
+                                    new PointValue(parameters[4], parameters[5]),
+                                    new PointValue(parameters[6], parameters[7])
+                                    );
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "rectangle":
-                        //Check parameters
-                        if (parameterLength == 2) {
-                            tmpVerb = new Rectangle(drawer, parameters[0], parameters[1]);
-                        } else if (parameterLength == 8) {
-                            tmpVerb =  new Quadrilateral(drawer,
-                                new PointValue(parameters[0], parameters[1]),
-                                new PointValue(parameters[2], parameters[3]),
-                                new PointValue(parameters[4], parameters[5]),
-                                new PointValue(parameters[6], parameters[7])
-                                );
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "rectangle":
+                            //Check parameters
+                            if (parameterLength == 2) {
+                                tmpVerb = new Rectangle(drawer, parameters[0], parameters[1]);
+                            } else if (parameterLength == 8) {
+                                tmpVerb = new Quadrilateral(drawer,
+                                    new PointValue(parameters[0], parameters[1]),
+                                    new PointValue(parameters[2], parameters[3]),
+                                    new PointValue(parameters[4], parameters[5]),
+                                    new PointValue(parameters[6], parameters[7])
+                                    );
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "circle":
-                        //Check parameters
-                        if (parameterLength == 1) {
-                            tmpVerb = new Circle(drawer, parameters[0]);
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "circle":
+                            //Check parameters
+                            if (parameterLength == 1) {
+                                tmpVerb = new Circle(drawer, parameters[0]);
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "triangle":
-                        //Check parameters
-                        if (parameterLength == 1) {
-                            tmpVerb = new
-                                Triangle(drawer, parameters[0]);
-                        } else if (parameterLength == 2) {
-                            tmpVerb = new
-                                Triangle(drawer, parameters[0], parameters[1]);
-                        } else if (parameterLength == 6) {
-                            tmpVerb = new Triangle(drawer,
-                                new PointValue(parameters[0], parameters[1]),
-                                new PointValue(parameters[2], parameters[3]),
-                                new PointValue(parameters[4], parameters[5])
-                                );
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "triangle":
+                            //Check parameters
+                            if (parameterLength == 1) {
+                                tmpVerb = new
+                                    Triangle(drawer, parameters[0]);
+                            } else if (parameterLength == 2) {
+                                tmpVerb = new
+                                    Triangle(drawer, parameters[0], parameters[1]);
+                            } else if (parameterLength == 6) {
+                                tmpVerb = new Triangle(drawer,
+                                    new PointValue(parameters[0], parameters[1]),
+                                    new PointValue(parameters[2], parameters[3]),
+                                    new PointValue(parameters[4], parameters[5])
+                                    );
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "dot":
-                        if (parameterLength == 0) {
-                            tmpVerb = new Dot(drawer);
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        case "dot":
+                            if (parameterLength == 0) {
+                                tmpVerb = new Dot(drawer);
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
 
-                    case "clear":
-                        if (parameterLength == 0) {
-                            tmpVerb = new Clear(drawer);
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        case "clear":
+                            if (parameterLength == 0) {
+                                tmpVerb = new Clear(drawer);
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
 
-                    case "reset":
-                    case "resetpen":
-                        if (parameterLength == 0) {
-                            tmpVerb = new ResetPen(drawer);
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        case "reset":
+                        case "resetpen":
+                            if (parameterLength == 0) {
+                                tmpVerb = new ResetPen(drawer);
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
 
-                    case "fillon":
-                        if (parameterLength == 0) {
-                            tmpVerb = new Fill(drawer, true);
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        case "fillon":
+                            if (parameterLength == 0) {
+                                tmpVerb = new Fill(drawer, true);
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
 
-                    case "filloff":
-                        if (parameterLength == 0) {
-                            tmpVerb = new Fill(drawer, false);
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        case "filloff":
+                            if (parameterLength == 0) {
+                                tmpVerb = new Fill(drawer, false);
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
 
-                    case "pen":
-                        if (parameterLength == 1) {
-                            tmpVerb = new PenColor(drawer, parameters[0]);
-                        } else if (parameterLength == 3) {
-                            tmpVerb = new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2]));
-                        } else if (parameterLength == 4) {
-                            tmpVerb = new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "pen":
+                            if (parameterLength == 1) {
+                                tmpVerb = new PenColor(drawer, parameters[0]);
+                            } else if (parameterLength == 3) {
+                                tmpVerb = new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2]));
+                            } else if (parameterLength == 4) {
+                                tmpVerb = new PenColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    case "fill":
-                        if (parameterLength == 1) {
-                            tmpVerb = new FillColor(drawer, parameters[0]);
-                        } else if (parameterLength == 3) {
-                            tmpVerb = new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], new IntValue(255)));
-                        } else if (parameterLength == 4) {
-                            tmpVerb = new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
-                        } else throw new Exception(command + " has an incorrect number of parameters");
-                        break;
+                        case "fill":
+                            if (parameterLength == 1) {
+                                tmpVerb = new FillColor(drawer, parameters[0]);
+                            } else if (parameterLength == 3) {
+                                tmpVerb = new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], new IntValue(255)));
+                            } else if (parameterLength == 4) {
+                                tmpVerb = new FillColor(drawer, new ColorValue(parameters[0], parameters[1], parameters[2], parameters[3]));
+                            } else throw new Exception(command + " has an incorrect number of parameters");
+                            break;
 
-                    //exit flow
-                    case "end":
-                        if (parameterLength == 0) {
-                            if (currentChunk == null) throw new Exception("Cannot end at root level"); //Todo, describe better
-                            verbChunks.Remove(currentChunk);
-                            chunkDepth = verbChunks.Count - 1;
-                            tmpVerb = currentChunk;
-                            currentChunk = verbChunks[chunkDepth];
-                            rootValueStorage.DecreaseStack();
-                            
-                        } else throw new Exception(command + " doesn't take parameters");
-                        break;
+                        //exit flow
+                        case "end":
+                            if (parameterLength == 0) {
+                                if (currentChunk == null) throw new Exception("Cannot end at root level"); //Todo, describe better
+                                verbChunks.Remove(currentChunk);
+                                chunkDepth = verbChunks.Count - 1;
+                                tmpVerb = currentChunk;
+                                currentChunk = verbChunks[chunkDepth];
+                                rootValueStorage.DecreaseStack();
 
-                    default:
-                        throw new Exception("Unknown command or cannot parse");
-                }
+                            } else throw new Exception(command + " doesn't take parameters");
+                            break;
+
+                        default:
+                            throw new Exception("Unknown command or cannot parse");
+                    }
             }
 
             if (chunkDepth == 0) return tmpVerb;
