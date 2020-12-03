@@ -13,7 +13,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         private readonly IValue variable2;
         private readonly int operation;
 
-        private bool evaluated = false;
+        private readonly bool evaluated = false;
         private IValue evaluatedValue;
 
         public ExpressionValue(IValue variable1, IValue variable2, int operation) {

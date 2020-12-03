@@ -26,7 +26,6 @@ namespace Advanced_Software_Engineering {
         public static IVerb MakeVerb(Drawer drawer, string fullCommand) {
             ValueStorage rootValueStorage = drawer.GetValueStorage();
 
-
             List<IVerbChunk> verbChunks = drawer.verbChunks;
             if (verbChunks.Count == 0) verbChunks.Add(null);
 
@@ -78,7 +77,6 @@ namespace Advanced_Software_Engineering {
                 }
             }
 
-
             //Parse flow verbs
             switch (command) {
                 case "if":
@@ -91,7 +89,7 @@ namespace Advanced_Software_Engineering {
                     } else if (commandParameters.Length >= 2) { //single line if
                         string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
                         IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
-                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
+                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command
                         tmpVerb = new IfChunk(rootValueStorage, conditional, AfterIf); //Create the chunk
                         parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
@@ -107,7 +105,7 @@ namespace Advanced_Software_Engineering {
                     } else if (commandParameters.Length >= 2) { //single line if
                         string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
                         IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
-                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
+                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command
                         tmpVerb = new WhileChunk(rootValueStorage, conditional, AfterIf); //Create the chunk
                         parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
@@ -162,21 +160,19 @@ namespace Advanced_Software_Engineering {
                     //Handle errors
                     if (methodVariableNames.Length != parameterLength) throw new Exception("Method " + command + "Has an incorrect number of parameters");
 
-
                     /* So something like this:
                      * def abc d
                      *   circle d
-                     * 
+                     *
                      * abc 5
-                     * 
+                     *
                      * would have to be translated into something like this
                      * @increase stack
                      * var d = 5 (of course in a higher stack)
-                     * 
+                     *
                      * @run abc (abc doesn't increase it's own stack)
-                     * 
+                     *
                      */
-
 
                     // Update the values of the variables
                     List<UpdateVariable> UpdateVariableList = new List<UpdateVariable>();
@@ -338,7 +334,6 @@ namespace Advanced_Software_Engineering {
                                 tmpVerb = currentChunk;
                                 currentChunk = verbChunks[chunkDepth];
                                 rootValueStorage.DecreaseStack();
-
                             } else throw new Exception(command + " doesn't take parameters");
                             break;
 

@@ -1,15 +1,8 @@
-﻿using Advanced_Software_Engineering.Verbs.Value;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Advanced_Software_Engineering.Verbs.Flow {
 
-namespace Advanced_Software_Engineering.Verbs.Flow {
-    class DeclareMethod : IVerb, IVerbChunk {
-        string methodName;
-        Drawer drawer;
-
+    internal class DeclareMethod : IVerb, IVerbChunk {
+        private readonly string methodName;
+        private readonly Drawer drawer;
 
         public DeclareMethod(Drawer drawer, string methodName) {
             this.drawer = drawer;
@@ -19,7 +12,7 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
         public void AddVerb(IVerb verb) {
             MethodChunk methodChunk = drawer.Methods[methodName];
             methodChunk.AddVerb(verb);
-        } 
+        }
 
         public void ExecuteVerb() {
             //Declaration of method happens at parse time

@@ -12,8 +12,7 @@ namespace Advanced_Software_Engineering {
     /// The drawer is responsible for drawing on the graphics object.
     /// </summary>
     public class Drawer {
-
-        private ValueStorage valueStorage = new ValueStorage();
+        private readonly ValueStorage valueStorage = new ValueStorage();
         public List<IVerbChunk> verbChunks = new List<IVerbChunk>();
         public bool verbChunkGeneratingMethod = false;
         public Dictionary<string, MethodChunk> Methods = new Dictionary<string, MethodChunk>();
@@ -153,8 +152,8 @@ namespace Advanced_Software_Engineering {
             }
 
             //Make it relative to the pen
-            for (int pointIndex = 0; pointIndex < points.Length; pointIndex++) 
-                points[pointIndex] = new Point(points[pointIndex].X + penPosition.X, points[pointIndex].Y+ penPosition.Y);
+            for (int pointIndex = 0; pointIndex < points.Length; pointIndex++)
+                points[pointIndex] = new Point(points[pointIndex].X + penPosition.X, points[pointIndex].Y + penPosition.Y);
 
             GraphicsPath path = new GraphicsPath {
                 FillMode = FillMode.Winding
@@ -202,6 +201,5 @@ namespace Advanced_Software_Engineering {
         public ValueStorage GetValueStorage() {
             return valueStorage;
         }
-
     }
 }

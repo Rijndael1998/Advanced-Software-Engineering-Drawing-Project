@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
-    public class IfChunk : VerbChunk, IVerbChunk, IVerb {
 
-        IValue conditional;
-        ValueStorage valueStorage;
+    public class IfChunk : VerbChunk, IVerbChunk, IVerb {
+        private readonly IValue conditional;
+        private readonly ValueStorage valueStorage;
 
         public IfChunk(ValueStorage valueStorage, IValue conditional) : base() {
             this.conditional = conditional;
@@ -24,6 +24,5 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
             if (conditional.ToBool()) base.ExecuteVerb();
             valueStorage.DecreaseStack();
         }
-
     }
 }

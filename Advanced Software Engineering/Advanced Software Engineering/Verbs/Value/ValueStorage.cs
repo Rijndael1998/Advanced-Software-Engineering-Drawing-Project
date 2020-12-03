@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
-    public class ValueStorage {
 
+    public class ValueStorage {
         protected int currentStack;
         protected List<Dictionary<string, IValue>> Variables = new List<Dictionary<string, IValue>>();
 
@@ -21,9 +21,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (stack < 0) throw new Exception("Stack cannot be less than 0");
 
             //Decreased Stack
-            if(currentStack > stack) {
+            if (currentStack > stack) {
                 Variables.RemoveAt(currentStack);
-            } 
+            }
             //Increased Stack
             else if (currentStack < stack) {
                 Variables.Add(new Dictionary<string, IValue>());

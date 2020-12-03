@@ -1,16 +1,15 @@
 ﻿using Advanced_Software_Engineering.Verbs.Value;
-using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System.Collections.Generic;
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Flow {
-    public class MethodChunk : VerbChunk, IVerb, IValue {
 
-        ValueStorage valueStorage;
-        DeclareVariable[] variables;
-        UpdateVariable[] updateVariables;
-        bool init = false;
-        IValue result;
+    public class MethodChunk : VerbChunk, IVerb, IValue {
+        private readonly ValueStorage valueStorage;
+        private readonly DeclareVariable[] variables;
+        private UpdateVariable[] updateVariables;
+        private bool init = false;
+        private IValue result;
 
         public MethodChunk(ValueStorage valueStorage, DeclareVariable[] variables) : base() {
             this.valueStorage = valueStorage;
@@ -59,7 +58,6 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
                 init = true;
             }
             valueStorage.DecreaseStack();
-            
         }
 
         public IValue GetResult() {
