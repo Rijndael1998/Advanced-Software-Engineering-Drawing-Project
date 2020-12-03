@@ -13,6 +13,12 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
             valueStorage.IncreaseStack();
         }
 
+        public WhileChunk(ValueStorage valueStorage, IValue conditional, IVerb oneLineVerb) : base(new List<IVerb> { oneLineVerb }) {
+            this.conditional = conditional;
+            this.valueStorage = valueStorage;
+            valueStorage.IncreaseStack();
+        }
+
         public new void ExecuteVerb() {
             valueStorage.IncreaseStack();
             while (conditional.ToBool()) base.ExecuteVerb();

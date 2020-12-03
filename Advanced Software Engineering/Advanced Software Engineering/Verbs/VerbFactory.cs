@@ -104,6 +104,12 @@ namespace Advanced_Software_Engineering {
                         currentChunk = verbChunks[chunkDepth];
                         parsed = true;
                         tmpVerb = new NoOp();
+                    } else if (commandParameters.Length >= 2) { //single line if
+                        string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
+                        IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
+                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command 
+                        tmpVerb = new WhileChunk(rootValueStorage, conditional, AfterIf); //Create the chunk
+                        parsed = true;
                     } else throw new Exception(command + " has an incorrect number of parameters");
                     break;
 
