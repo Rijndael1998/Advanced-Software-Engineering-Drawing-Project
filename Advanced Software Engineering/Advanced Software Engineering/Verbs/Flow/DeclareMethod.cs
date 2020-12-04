@@ -1,6 +1,6 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.Flow {
 
-    internal class DeclareMethod : IVerb, IVerbChunk {
+    public class DeclareMethod : IVerb, IVerbChunk {
         private readonly string methodName;
         private readonly Drawer drawer;
 
