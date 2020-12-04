@@ -2,6 +2,7 @@
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
+
     /// <summary>
     /// Variable value is responsible for setting up values for <see cref="UpdateVariable"/> to then update
     /// </summary>

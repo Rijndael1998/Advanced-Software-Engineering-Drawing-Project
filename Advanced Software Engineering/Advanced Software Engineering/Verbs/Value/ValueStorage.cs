@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// The storage for all the values
     /// </summary>

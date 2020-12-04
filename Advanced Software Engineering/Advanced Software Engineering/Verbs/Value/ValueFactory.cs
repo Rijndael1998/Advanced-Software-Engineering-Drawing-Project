@@ -3,6 +3,7 @@ using Advanced_Software_Engineering.Verbs.Value.ValueTypes;
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// Value factory creates values
     /// </summary>

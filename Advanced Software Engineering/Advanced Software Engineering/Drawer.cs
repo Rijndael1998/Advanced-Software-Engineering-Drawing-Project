@@ -12,6 +12,7 @@ namespace Advanced_Software_Engineering {
     /// The drawer is responsible for drawing on the graphics object.
     /// </summary>
     public class Drawer {
+
         /// <summary>
         /// Value storage is used for storing all of the variables and their IValues. See <see cref="ValueStorage"/> and see <see cref="IValue"/>
         /// </summary>

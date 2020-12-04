@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering {
+
     /// <summary>
     /// This class is a direct replacement to the dictionaries that were returned by <see cref="HelperFunctions.CommandAndParameterParser(string)"/>.
     /// This class provides better intraface to the output.

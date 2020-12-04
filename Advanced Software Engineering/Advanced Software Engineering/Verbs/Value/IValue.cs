@@ -1,10 +1,12 @@
 ﻿using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// A value
     /// </summary>
     public interface IValue {
+
         /// <summary>
         /// The description of the value
         /// </summary>

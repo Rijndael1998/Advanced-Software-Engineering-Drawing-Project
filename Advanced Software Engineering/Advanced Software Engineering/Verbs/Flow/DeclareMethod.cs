@@ -1,4 +1,5 @@
 ﻿namespace Advanced_Software_Engineering.Verbs.Flow {
+
     /// <summary>
     /// Declares a method. See <see cref="DrawingVerbs.Actions.NoOp"/> because these classes behave similarly
     /// </summary>
@@ -17,7 +18,7 @@
         }
 
         /// <summary>
-        /// Adds a verb to the verb list. More specifically, the verb list of the MethodChunk. 
+        /// Adds a verb to the verb list. More specifically, the verb list of the MethodChunk.
         /// See <see cref="MethodChunk"/>
         /// </summary>
         /// <param name="verb">The verb to add</param>

@@ -2,10 +2,12 @@
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// Expression values are used when there are two IValues that need to be added or subtracted or anything from each other.
     /// </summary>
     public class ExpressionValue : IValue {
+
         /// <summary>
         /// An operation denoting addition
         /// </summary>
@@ -25,7 +27,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// An operation denoting division
         /// </summary>
         public const int DIVIDE = 3;
-
 
         private readonly IValue variable1;
         private readonly IValue variable2;

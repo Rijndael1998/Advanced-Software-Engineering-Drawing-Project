@@ -1,6 +1,7 @@
 ﻿using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// Used for updating the variables
     /// </summary>

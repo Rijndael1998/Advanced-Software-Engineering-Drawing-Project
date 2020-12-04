@@ -2,6 +2,7 @@
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
+
     /// <summary>
     /// Declares a variable
     /// </summary>
@@ -48,8 +49,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             return true;
         }
+
         /// <summary>
-        /// Creates a new Declare variable 
+        /// Creates a new Declare variable
         /// </summary>
         /// <param name="storage">The storage to use</param>
         /// <param name="assignment">The assignment</param>
