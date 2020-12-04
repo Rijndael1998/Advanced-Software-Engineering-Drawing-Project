@@ -1,20 +1,36 @@
 ﻿using System.Collections.Generic;
 
 namespace Advanced_Software_Engineering {
-
+    /// <summary>
+    /// This class is a direct replacement to the dictionaries that were returned by <see cref="HelperFunctions.CommandAndParameterParser(string)"/>.
+    /// This class provides better intraface to the output.
+    /// </summary>
     public class CommandAndParameterParserResult {
         private readonly string command;
         private readonly string[] parameters;
 
+        /// <summary>
+        /// Generates a new Result
+        /// </summary>
+        /// <param name="command">The command</param>
+        /// <param name="parameters">The parameters</param>
         public CommandAndParameterParserResult(string command, string[] parameters) {
             this.command = command;
             this.parameters = parameters;
         }
 
+        /// <summary>
+        /// Gets the command from the result
+        /// </summary>
+        /// <returns>the command</returns>
         public string getCommand() {
             return command;
         }
 
+        /// <summary>
+        /// Gets the command parameters
+        /// </summary>
+        /// <returns>command parameters</returns>
         public string[] getParameters() {
             return parameters;
         }
