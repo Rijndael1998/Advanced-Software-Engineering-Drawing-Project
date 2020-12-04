@@ -104,6 +104,11 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             return Color.FromArgb(a, r, g, b);
         }
 
+        /// <summary>
+        /// Convert to boolean
+        /// </summary>
+        /// <param name="text">A text boolean</param>
+        /// <returns>boolean representation of the text</returns>
         public static bool ConvertToBool(string text) {
             switch (text) {
                 case "true":
@@ -121,6 +126,12 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
+        /// <summary>
+        /// Converts the text to IValue
+        /// </summary>
+        /// <param name="text">text to convert</param>
+        /// <param name="storage">storage to use (can be null) (optional)</param>
+        /// <returns>An IValue representation of the text</returns>
         public static IValue ConvertToIValue(string text, ValueStorage storage = null) {
             text = HelperFunctions.Strip(text);
             string value = text;
@@ -197,10 +208,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
 
             throw new Exception("Could not convert " + text + " to any type");
-        }
-
-        public static Exception ConvertToExpression(string expression) {
-            throw new NotImplementedException();
         }
     }
 }

@@ -2,20 +2,41 @@
 using System.Drawing;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
-
+    /// <summary>
+    /// Expression values are used when there are two IValues that need to be added or subtracted or anything from each other.
+    /// </summary>
     public class ExpressionValue : IValue {
+        /// <summary>
+        /// An operation denoting addition
+        /// </summary>
         public const int ADD = 0;
+
+        /// <summary>
+        /// An operation denoting subtraction
+        /// </summary>
         public const int SUBTRACT = 1;
+
+        /// <summary>
+        /// An operation denoting multiplication
+        /// </summary>
         public const int MULTIPLY = 2;
+
+        /// <summary>
+        /// An operation denoting division
+        /// </summary>
         public const int DIVIDE = 3;
+
 
         private readonly IValue variable1;
         private readonly IValue variable2;
         private readonly int operation;
 
-        private readonly bool evaluated = false;
-        private IValue evaluatedValue;
-
+        /// <summary>
+        /// Create a new Expression Value based on the two IValues
+        /// </summary>
+        /// <param name="variable1">IValue to perform the operation on</param>
+        /// <param name="variable2">IValue to perform the operation on</param>
+        /// <param name="operation">The operation. Can be <see cref="ADD"/>, <see cref="SUBTRACT"/>, <see cref="MULTIPLY"/> or <see cref="DIVIDE"/>.</param>
         public ExpressionValue(IValue variable1, IValue variable2, int operation) {
             this.variable1 = variable1;
             this.variable2 = variable2;
@@ -25,6 +46,12 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (operation > 3 && operation < 0) throw new Exception("Bad operation");
         }
 
+        /// <summary>
+        /// Create a new Expression Value based on the two IValues
+        /// </summary>
+        /// <param name="variable1">IValue to perform the operation on</param>
+        /// <param name="variable2">IValue to perform the operation on</param>
+        /// <param name="operation">The operation. Can be "+"(<see cref="ADD"/>), "-"(<see cref="SUBTRACT"/>), "*"(<see cref="MULTIPLY"/>) or "/"(<see cref="DIVIDE"/>).</param>
         public ExpressionValue(IValue variable1, IValue variable2, string operation) {
             switch (operation) {
                 case "+":
@@ -54,10 +81,14 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             if (this.operation > 3 && this.operation < 0) throw new Exception("Bad operation");
         }
 
+        /// <summary>
+        /// Evaluates the expression.
+        /// </summary>
+        /// <returns>an IValue with the result</returns>
         private IValue Evaluate() {
             IValue variable1 = this.variable1.Clone();
             IValue variable2 = this.variable2.Clone();
-
+            IValue evaluatedValue = null;
             string outputType = variable1.GetOriginalType();
 
             switch (outputType) {
@@ -94,6 +125,10 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             return evaluatedValue;
         }
 
+        /// <summary>
+        /// Describes the expression
+        /// </summary>
+        /// <returns>A string description of the expression</returns>
         public string GetDescription() {
             string operation;
             switch (this.operation) {
@@ -119,30 +154,58 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             return "Expression of the variables " + variable1 + " and " + variable2 + " being " + operation;
         }
 
+        /// <summary>
+        /// Get the type of the expression
+        /// </summary>
+        /// <returns>"expression"</returns>
         public string GetOriginalType() {
             return "expression";
         }
 
+        /// <summary>
+        /// Expressions are always initialised
+        /// </summary>
+        /// <returns>true</returns>
         public bool isInitialised() {
             return true;
         }
 
+        /// <summary>
+        /// Gets the bool of the result
+        /// </summary>
+        /// <returns>bool value of the result</returns>
         public bool ToBool() {
             return Evaluate().ToBool();
         }
 
+        /// <summary>
+        /// Gets the color of the result
+        /// </summary>
+        /// <returns>color value of the result</returns>
         public Color ToColor() {
             return Evaluate().ToColor();
         }
 
+        /// <summary>
+        /// Gets the double value of the result
+        /// </summary>
+        /// <returns>double value of the result</returns>
         public double ToDouble() {
             return Evaluate().ToDouble();
         }
 
+        /// <summary>
+        /// Gets the int of the result
+        /// </summary>
+        /// <returns>int value of the result</returns>
         public int ToInt() {
             return Evaluate().ToInt();
         }
 
+        /// <summary>
+        /// Clones the value of the result
+        /// </summary>
+        /// <returns>A new IValue</returns>
         public IValue Clone() {
             return Evaluate();
         }

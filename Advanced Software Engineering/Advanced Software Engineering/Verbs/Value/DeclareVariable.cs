@@ -2,7 +2,9 @@
 using System;
 
 namespace Advanced_Software_Engineering.Verbs.Value {
-
+    /// <summary>
+    /// Declares a variable
+    /// </summary>
     public class DeclareVariable : IVerb {
         private readonly ValueStorage storage;
         private readonly IValue value;
@@ -46,7 +48,11 @@ namespace Advanced_Software_Engineering.Verbs.Value {
 
             return true;
         }
-
+        /// <summary>
+        /// Creates a new Declare variable 
+        /// </summary>
+        /// <param name="storage">The storage to use</param>
+        /// <param name="assignment">The assignment</param>
         public DeclareVariable(ValueStorage storage, string assignment) {
             this.storage = storage;
 
@@ -55,7 +61,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
                 assignment = assignment.Replace(op, " " + op + " ");
             }
 
-            // get variable name
+            // Get variable name
             // assignment looks something like this at this point:
             // i = 20
             // or
@@ -108,15 +114,26 @@ namespace Advanced_Software_Engineering.Verbs.Value {
             }
         }
 
+        /// <summary>
+        /// Sets the variable to null
+        /// </summary>
         public void ExecuteVerb() {
             if (value != null) storage.SetVariable(name, value.Clone());
             else storage.SetVariable(name, value);
         }
 
+        /// <summary>
+        /// Gets the description of the verb
+        /// </summary>
+        /// <returns></returns>
         public string GetDescription() {
             return "Declares the variable " + name;
         }
 
+        /// <summary>
+        /// Gets the name of the variable to assign
+        /// </summary>
+        /// <returns></returns>
         public string GetName() {
             return name;
         }
