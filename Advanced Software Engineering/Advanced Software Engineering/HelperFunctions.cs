@@ -24,7 +24,7 @@ namespace Advanced_Software_Engineering {
         /// Gets the command from the result
         /// </summary>
         /// <returns>the command</returns>
-        public string getCommand() {
+        public string GetCommand() {
             return command;
         }
 
@@ -32,7 +32,7 @@ namespace Advanced_Software_Engineering {
         /// Gets the command parameters
         /// </summary>
         /// <returns>command parameters</returns>
-        public string[] getParameters() {
+        public string[] GetParameters() {
             return parameters;
         }
     }

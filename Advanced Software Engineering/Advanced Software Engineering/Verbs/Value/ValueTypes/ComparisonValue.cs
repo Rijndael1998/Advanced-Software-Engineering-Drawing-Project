@@ -34,7 +34,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             return Evaluate().GetOriginalType();
         }
 
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return true;
         }
 

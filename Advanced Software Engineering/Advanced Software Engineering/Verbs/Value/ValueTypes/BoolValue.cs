@@ -42,7 +42,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             return ToBool() ? 1 : 0;
         }
 
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return initialised;
         }
 

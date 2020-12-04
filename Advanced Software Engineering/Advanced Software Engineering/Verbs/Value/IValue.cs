@@ -47,7 +47,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// Checks if the IValue is initialised
         /// </summary>
         /// <returns>True if IValue is initialised</returns>
-        bool isInitialised();
+        bool IsInitialised();
 
         /// <summary>
         /// Clones the IValue

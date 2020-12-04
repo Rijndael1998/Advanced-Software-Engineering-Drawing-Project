@@ -49,8 +49,8 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
         /// Get the initialised state of the IValue
         /// </summary>
         /// <returns>initialised state of the IValue</returns>
-        public bool isInitialised() {
-            return Get().isInitialised();
+        public bool IsInitialised() {
+            return Get().IsInitialised();
         }
 
         /// <summary>

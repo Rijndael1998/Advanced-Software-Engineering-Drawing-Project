@@ -34,9 +34,9 @@ namespace Advanced_Software_Engineering {
 
             CommandAndParameterParserResult result = HelperFunctions.CommandAndParameterParser(fullCommand);
 
-            string command = result.getCommand();
+            string command = result.GetCommand();
             if (command == null) return new NoOp();
-            string[] commandParameters = result.getParameters();
+            string[] commandParameters = result.GetParameters();
             if (command == null) throw new Exception("There is no command to process");
 
             IVerb tmpVerb = null;

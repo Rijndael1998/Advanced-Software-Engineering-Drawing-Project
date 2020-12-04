@@ -167,7 +167,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// Expressions are always initialised
         /// </summary>
         /// <returns>true</returns>
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return true;
         }
 

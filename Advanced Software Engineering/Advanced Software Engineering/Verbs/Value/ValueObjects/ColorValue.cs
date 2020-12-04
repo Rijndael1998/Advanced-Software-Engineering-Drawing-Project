@@ -59,7 +59,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueObjects {
             return ToColor().ToArgb();
         }
 
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return true;
         }
 

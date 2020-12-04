@@ -16,7 +16,7 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// </code>
         /// Where 'stack' is a dictionary of the names and the values of the variables
         /// </summary>
-        private List<Dictionary<string, IValue>> Variables = new List<Dictionary<string, IValue>>();
+        private List<Dictionary<string, IValue>> Variables;
 
         /// <summary>
         /// Create a new ValueStorage
@@ -29,8 +29,9 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         /// Reset the ValueStorage
         /// </summary>
         public void Reset() {
-            Variables = new List<Dictionary<string, IValue>>();
-            Variables.Add(new Dictionary<string, IValue>());
+            Variables = new List<Dictionary<string, IValue>> {
+                new Dictionary<string, IValue>()
+            };
             currentStack = 0;
         }
 

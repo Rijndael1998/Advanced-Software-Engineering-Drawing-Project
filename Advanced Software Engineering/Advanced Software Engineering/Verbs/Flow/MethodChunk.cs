@@ -107,7 +107,7 @@ namespace Advanced_Software_Engineering.Verbs.Flow {
         /// Checks if the result is initilised (Experimental)
         /// </summary>
         /// <returns></returns>
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return init;
         }
 

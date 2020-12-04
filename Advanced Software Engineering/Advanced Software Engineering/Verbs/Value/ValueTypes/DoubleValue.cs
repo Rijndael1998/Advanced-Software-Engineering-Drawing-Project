@@ -46,7 +46,7 @@ namespace Advanced_Software_Engineering.Verbs.Value.ValueTypes {
             return (int)Math.Round(value);
         }
 
-        public bool isInitialised() {
+        public bool IsInitialised() {
             return initialised;
         }
 
