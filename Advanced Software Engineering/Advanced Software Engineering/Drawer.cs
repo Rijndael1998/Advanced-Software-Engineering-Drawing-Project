@@ -12,9 +12,25 @@ namespace Advanced_Software_Engineering {
     /// The drawer is responsible for drawing on the graphics object.
     /// </summary>
     public class Drawer {
+        /// <summary>
+        /// Value storage is used for storing all of the variables and their IValues. See <see cref="ValueStorage"/> and see <see cref="IValue"/>
+        /// </summary>
         private readonly ValueStorage valueStorage = new ValueStorage();
+
+        /// <summary>
+        /// List of verbChunks used to create for loops, if statements, while loops and methods.
+        /// See <see cref="ForChunk"/>, <see cref="IfChunk"/>, <see cref="MethodChunk"/>, <see cref="WhileChunk"/> and <seealso cref="IVerbChunk"/>.
+        /// </summary>
         public List<IVerbChunk> verbChunks = new List<IVerbChunk>();
+
+        /// <summary>
+        /// A veriable that represents wether the last verbchunk is a method. See <see cref="MethodChunk"/>
+        /// </summary>
         public bool verbChunkGeneratingMethod = false;
+
+        /// <summary>
+        /// A list of methods. See <see cref="MethodChunk"/>
+        /// </summary>
         public Dictionary<string, MethodChunk> Methods = new Dictionary<string, MethodChunk>();
 
         /// <summary>
