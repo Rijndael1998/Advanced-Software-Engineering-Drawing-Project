@@ -111,6 +111,22 @@ namespace Advanced_Software_Engineering {
                     } else throw new Exception(command + " has an incorrect number of parameters");
                     break;
 
+                case "for":
+                    if (commandParameters.Length == 1) {
+                        verbChunks.Add(new ForChunk(rootValueStorage, ValueFactory.CreateValue(rootValueStorage, commandParameters[0])));
+                        chunkDepth = verbChunks.Count - 1;
+                        currentChunk = verbChunks[chunkDepth];
+                        parsed = true;
+                        tmpVerb = new NoOp();
+                    } else if (commandParameters.Length >= 2) { //single line if
+                        string commandAfterIf = fullCommand.Substring(fullCommand.IndexOf(",") + 1); // find the first ,
+                        IValue conditional = ValueFactory.CreateValue(rootValueStorage, commandParameters[0]); //make the conditional
+                        IVerb AfterIf = MakeVerb(drawer, commandAfterIf); //make the following command
+                        tmpVerb = new ForChunk(rootValueStorage, conditional, AfterIf); //Create the chunk
+                        parsed = true;
+                    } else throw new Exception(command + " has an incorrect number of parameters");
+                    break;
+
                 case "def":
                     if (drawer.verbChunkGeneratingMethod) throw new Exception("Cannot declare a method while declaring method");
                     else if (chunkDepth != 0) throw new Exception("Cannot declare a method above root chunk"); //TODO, explain better

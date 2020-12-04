@@ -93,6 +93,7 @@
     <Compile Include="Verbs\DrawingVerbs\Shape\Square.cs" />
     <Compile Include="Verbs\DrawingVerbs\Shape\Triangle.cs" />
     <Compile Include="Verbs\Flow\DeclareMethod.cs" />
+    <Compile Include="Verbs\Flow\ForChunk.cs" />
     <Compile Include="Verbs\Flow\IfChunk.cs" />
     <Compile Include="Verbs\Flow\IVerbChunk.cs" />
     <Compile Include="Verbs\Flow\MethodChunk.cs" />
