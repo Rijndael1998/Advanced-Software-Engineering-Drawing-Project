@@ -2,6 +2,10 @@
 
 namespace Advanced_Software_Engineering {
 
+    /// <summary>
+    /// Menu manager manages if the menu is shown to the user. It is a static class because every Form should be able to see it.
+    /// See <see cref="Menu"/>.
+    /// </summary>
     public static partial class MenuManager {
 
         /// <summary>
