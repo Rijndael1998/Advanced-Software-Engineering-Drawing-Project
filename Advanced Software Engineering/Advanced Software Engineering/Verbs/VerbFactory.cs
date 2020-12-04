@@ -347,6 +347,7 @@ namespace Advanced_Software_Engineering {
                                 if (currentChunk == null) throw new Exception("Cannot end at root level"); //Todo, describe better
                                 verbChunks.Remove(currentChunk);
                                 chunkDepth = verbChunks.Count - 1;
+                                if (chunkDepth == 0) drawer.verbChunkGeneratingMethod = false;
                                 tmpVerb = currentChunk;
                                 currentChunk = verbChunks[chunkDepth];
                                 rootValueStorage.DecreaseStack();
