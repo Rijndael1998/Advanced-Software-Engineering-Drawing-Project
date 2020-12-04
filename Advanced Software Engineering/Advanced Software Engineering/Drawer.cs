@@ -214,6 +214,10 @@ namespace Advanced_Software_Engineering {
             graphics.FillRectangle(new SolidBrush(pen.Color), penPosition.X, penPosition.Y, 1, 1);
         }
 
+        /// <summary>
+        /// Gets the valueStorage object
+        /// </summary>
+        /// <returns></returns>
         public ValueStorage GetValueStorage() {
             return valueStorage;
         }
