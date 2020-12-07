@@ -1,5 +1,6 @@
 ﻿using Advanced_Software_Engineering;
 using Advanced_Software_Engineering.Verbs.DrawingVerbs;
+using Advanced_Software_Engineering.Verbs.Value.ValueObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -265,27 +266,6 @@ namespace Advanced_Software_Engineering_Tests {
             string correctDesc = "Draws a " + sides + " sided regular polygon, with rotation of " + offset + " radians, with inner radius of " + scale;
 
             Assert.AreEqual(correctDesc, verbDesc);
-        }
-
-        /// <summary>
-        /// tests the "quadrilateral" command using <see cref="DrawLines"/>. See <see cref="Quadrilateral"/>.
-        /// </summary>
-        [TestMethod]
-        public void QuadrilateralTester_Manual1() {
-            string input = "quadrilateral 1, 2,  3, 4,  5, 6,  7, 8";
-            Point[] points = {
-                new Point(1, 2),
-                new Point(3, 4),
-                new Point(5, 6),
-                new Point(7, 8)
-            };
-
-            IVerb IVerb = VerbFactory.MakeVerb(null, input);
-
-            string verbDesc = IVerb.GetDescription();
-            string correctDesc = new DrawLines(null, points).GetDescription();
-
-            Assert.AreEqual(verbDesc, correctDesc);
         }
 
         /// <summary>

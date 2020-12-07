@@ -7,10 +7,10 @@ using System.Linq;
 namespace Advanced_Software_Engineering_Tests {
 
     /// <summary>
-    /// This class tests <see cref="SettingsAndHelperFunctions"/> methods. It uses a combination of manual and random tests.
+    /// This class tests <see cref="HelperFunctions"/> methods. It uses a combination of manual and random tests.
     /// </summary>
     [TestClass]
-    public class SettingsAndHelperFunctionsTester {
+    public class HelperFunctionsTester {
         private readonly string alphabet = "abcdefghijklmnopqrstuvwxzy";
         private readonly Random rand = new Random();
 
@@ -36,7 +36,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.Strip(string)"/> test
+        /// Manual <see cref="HelperFunctions.Strip(string)"/> test
         /// </summary>
         [TestMethod]
         public void Strip_Manual1() {
@@ -47,7 +47,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.Strip(string)"/> test
+        /// Manual <see cref="HelperFunctions.Strip(string)"/> test
         /// </summary>
         [TestMethod]
         public void Strip_Manual2() {
@@ -58,7 +58,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.StripStringArray(string[])"/> test.
+        /// Manual <see cref="HelperFunctions.StripStringArray(string[])"/> test.
         /// </summary>
         [TestMethod]
         public void StripStringArray_Manual1() {
@@ -72,7 +72,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.StripStringArray(string[])"/> test.
+        /// Manual <see cref="HelperFunctions.StripStringArray(string[])"/> test.
         /// </summary>
         [TestMethod]
         public void StripStringArray_Manual2() {
@@ -86,47 +86,49 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// Manual <see cref="HelperFunctions.CommandAndParameterParser(string)"/> test.
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual1() {
-            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("moveto 200, 200");
-            Assert.AreEqual("moveto", commands["command"][0]);
-            Assert.AreEqual("200", commands["parameters"][0]);
-            Assert.AreEqual("200", commands["parameters"][1]);
+            CommandAndParameterParserResult commands = HelperFunctions.CommandAndParameterParser("moveto 200, 200");
+            Assert.AreEqual("moveto", commands.GetCommand());
+            Assert.AreEqual("200", commands.GetParameters()[0]);
+            Assert.AreEqual("200", commands.GetParameters()[1]);
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// Manual <see cref="HelperFunctions.CommandAndParameterParser(string)"/> test.
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual2() {
-            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("clear");
-            Assert.AreEqual("clear", commands["command"][0]);
-            Assert.IsFalse(commands.Keys.Contains("parameters"));
+            CommandAndParameterParserResult commands = HelperFunctions.CommandAndParameterParser("clear");
+            Assert.AreEqual("clear", commands.GetCommand());
+            Assert.IsTrue(commands.GetParameters() == null);
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// Manual <see cref="HelperFunctions.CommandAndParameterParser(string)"/> test.
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual3() {
-            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("");
-            Assert.IsFalse(commands.Keys.Contains("command"));
-            Assert.IsFalse(commands.Keys.Contains("parameters"));
+            CommandAndParameterParserResult commands = HelperFunctions.CommandAndParameterParser("");
+            Assert.IsTrue(commands == null);
         }
 
         /// <summary>
-        /// Manual <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// Manual <see cref="HelperFunctions.CommandAndParameterParser(string)"/> test.
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Manual4() {
-            Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser("    genericCommand    2, 3,4 5");
+            CommandAndParameterParserResult commands = HelperFunctions.CommandAndParameterParser("    genericCommand    2, 3,4 5");
 
-            Assert.AreEqual("genericCommand", commands["command"][0]);
-            Assert.AreEqual("2", commands["parameters"][0]);
-            Assert.AreEqual("3", commands["parameters"][1]);
-            Assert.AreEqual("4 5", commands["parameters"][2]);
+            Assert.AreEqual("genericCommand", commands.GetCommand());
+
+            string[] parameters = commands.GetParameters();
+
+            Assert.AreEqual("2", parameters[0]);
+            Assert.AreEqual("3", parameters[1]);
+            Assert.AreEqual("4 5", parameters[2]);
         }
 
         private string RandomSpaces() {
@@ -136,7 +138,7 @@ namespace Advanced_Software_Engineering_Tests {
         }
 
         /// <summary>
-        /// Random <see cref="SettingsAndHelperFunctions.CommandAndParameterParser(string)"/> test.
+        /// Random <see cref="HelperFunctions.CommandAndParameterParser(string)"/> test.
         /// </summary>
         [TestMethod]
         public void CommandAndParameterParser_Random1() {
@@ -153,13 +155,13 @@ namespace Advanced_Software_Engineering_Tests {
                     input += RandomSpaces() + parameter + RandomSpaces() + "," + RandomSpaces();
                 }
 
-                Dictionary<string, string[]> commands = HelperFunctions.CommandAndParameterParser(input);
+                CommandAndParameterParserResult commands = HelperFunctions.CommandAndParameterParser(input);
 
-                Assert.AreEqual(command, commands["command"][0]);
+                Assert.AreEqual(command, commands.GetCommand());
 
                 int i = 0;
                 foreach (string expected in parameters) {
-                    Assert.AreEqual(expected, commands["parameters"][i++]);
+                    Assert.AreEqual(expected, commands.GetParameters()[i++]);
                 }
             }
         }
