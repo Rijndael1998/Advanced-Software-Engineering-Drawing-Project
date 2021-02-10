@@ -1,0 +1,53 @@
+.TH "Advanced_Software_Engineering.IVerb" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.IVerb \- \fBIVerb\fP is an interface for executing and getting the descriptions of \fBVerbs\fP\&. Some \fBVerbs\fP draw lines, some verbs will assign  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Actions\&.NoOp, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Circle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Clear\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Dot\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawLines\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Fill\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.FillColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.MoveTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.PenColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Quadrilateral\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Rectangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.RegularPolygon\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.ResetPen\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Square\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.ForChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.WhileChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.DeclareVariable\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.UpdateVariable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBExecuteVerb\fP ()"
+.br
+.RI "This executes the \fBIVerb\fP to the drawer inside it\&. "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "The description of what the \fBIVerb\fP will do\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBIVerb\fP is an interface for executing and getting the descriptions of \fBVerbs\fP\&. Some \fBVerbs\fP draw lines, some verbs will assign 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.IVerb\&.ExecuteVerb ()"
+
+.PP
+This executes the \fBIVerb\fP to the drawer inside it\&. 
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.UpdateVariable\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.DeclareVariable\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.WhileChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.ForChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Square\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.RegularPolygon\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Rectangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Quadrilateral\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.MoveTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Dot\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Circle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.PenColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.FillColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Fill\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.ResetPen\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawLines\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Clear\fP\&.
+.SS "string Advanced_Software_Engineering\&.IVerb\&.GetDescription ()"
+
+.PP
+The description of what the \fBIVerb\fP will do\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A string description of what the \fBIVerb\fP will do
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.UpdateVariable\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.DeclareVariable\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Square\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.RegularPolygon\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Rectangle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Quadrilateral\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.MoveTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawTo\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Dot\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Circle\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.PenColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.FillColor\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Fill\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.ResetPen\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.DrawLines\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Clear\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

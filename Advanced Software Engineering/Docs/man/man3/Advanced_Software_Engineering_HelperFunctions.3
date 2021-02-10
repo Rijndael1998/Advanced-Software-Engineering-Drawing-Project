@@ -1,0 +1,105 @@
+.TH "Advanced_Software_Engineering.HelperFunctions" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.HelperFunctions \- This class simply provides settings and some functions that are used across many components\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static string \fBStrip\fP (string text)"
+.br
+.RI "This function removes spaces from the start and the end of the text\&. This should be unit tested\&. "
+.ti -1c
+.RI "static List< string > \fBStripStringArray\fP (string[] array)"
+.br
+.RI "Strips the strings of the full array\&. See \fBStrip(string)\fP "
+.ti -1c
+.RI "static \fBCommandAndParameterParserResult\fP \fBCommandAndParameterParser\fP (string text)"
+.br
+.RI "Parses the commands into a directry that \fBCommander\fP can use\&. See \fBCommander\fP "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class simply provides settings and some functions that are used across many components\&. 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBCommandAndParameterParserResult\fP Advanced_Software_Engineering\&.HelperFunctions\&.CommandAndParameterParser (string text)\fC [static]\fP"
+
+.PP
+Parses the commands into a directry that \fBCommander\fP can use\&. See \fBCommander\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP A string command
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Directory with the command and its parameters cleanly separated
+.RE
+.PP
+
+.SS "static string Advanced_Software_Engineering\&.HelperFunctions\&.Strip (string text)\fC [static]\fP"
+
+.PP
+This function removes spaces from the start and the end of the text\&. This should be unit tested\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP Simply any string of any size
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A string without spaces at the begining or the end
+.RE
+.PP
+.PP
+For example 
+.PP
+.nf
+string a = "     a simple sentence surrounded by spaces                ";
+string b = StripSpaces(a);
+Console\&.WriteLine(b); // => "a simple sentence surrounded by spaces";
+
+.fi
+.PP
+ 
+.PP
+The code won't remove internal double spaces: 
+.PP
+.nf
+string a = "     a    simple    sentence     surrounded    by    spaces                ";
+string b = StripSpaces(a);
+Console\&.WriteLine(b); // => "a    simple    sentence     surrounded    by    spaces";
+
+.fi
+.PP
+ 
+.SS "static List<string> Advanced_Software_Engineering\&.HelperFunctions\&.StripStringArray (string[] array)\fC [static]\fP"
+
+.PP
+Strips the strings of the full array\&. See \fBStrip(string)\fP string[] tmp = {'    text  ', '      ', '   with', 'spaces     ', ''}; Console\&.WriteLine(StripStringArray(tmp)); // => {'text', 'with', 'spaces'} 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP Dirty array with spaces
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A stripped aray
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

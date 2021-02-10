@@ -1,0 +1,101 @@
+\hypertarget{class_advanced___software___engineering_1_1_helper_functions}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Helper\+Functions Class Reference}
+\label{class_advanced___software___engineering_1_1_helper_functions}\index{Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}}
+
+
+This class simply provides settings and some functions that are used across many components.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_advanced___software___engineering_1_1_helper_functions_aa41fff8e28eff5af40fff2711669cb37}{Strip}} (string text)
+\begin{DoxyCompactList}\small\item\em This function removes spaces from the start and the end of the text. This should be unit tested. \end{DoxyCompactList}\item 
+static List$<$ string $>$ \mbox{\hyperlink{class_advanced___software___engineering_1_1_helper_functions_a7d139b0dee34c4c1f9a6c9e798b2f0fc}{Strip\+String\+Array}} (string\mbox{[}$\,$\mbox{]} array)
+\begin{DoxyCompactList}\small\item\em Strips the strings of the full array. See \mbox{\hyperlink{class_advanced___software___engineering_1_1_helper_functions_aa41fff8e28eff5af40fff2711669cb37}{Strip(string)}} \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_advanced___software___engineering_1_1_command_and_parameter_parser_result}{Command\+And\+Parameter\+Parser\+Result}} \mbox{\hyperlink{class_advanced___software___engineering_1_1_helper_functions_a9ef9da799e2adfe0213313c9642f1de8}{Command\+And\+Parameter\+Parser}} (string text)
+\begin{DoxyCompactList}\small\item\em Parses the commands into a directry that \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} can use. See \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class simply provides settings and some functions that are used across many components. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_helper_functions_a9ef9da799e2adfe0213313c9642f1de8}\label{class_advanced___software___engineering_1_1_helper_functions_a9ef9da799e2adfe0213313c9642f1de8}} 
+\index{Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}!CommandAndParameterParser@{CommandAndParameterParser}}
+\index{CommandAndParameterParser@{CommandAndParameterParser}!Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}}
+\doxysubsubsection{\texorpdfstring{CommandAndParameterParser()}{CommandAndParameterParser()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_advanced___software___engineering_1_1_command_and_parameter_parser_result}{Command\+And\+Parameter\+Parser\+Result}} Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Helper\+Functions.\+Command\+And\+Parameter\+Parser (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses the commands into a directry that \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} can use. See \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A string command\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Directory with the command and its parameters cleanly separated
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_helper_functions_aa41fff8e28eff5af40fff2711669cb37}\label{class_advanced___software___engineering_1_1_helper_functions_aa41fff8e28eff5af40fff2711669cb37}} 
+\index{Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}!Strip@{Strip}}
+\index{Strip@{Strip}!Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}}
+\doxysubsubsection{\texorpdfstring{Strip()}{Strip()}}
+{\footnotesize\ttfamily static string Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Helper\+Functions.\+Strip (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function removes spaces from the start and the end of the text. This should be unit tested. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Simply any string of any size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string without spaces at the begining or the end
+\end{DoxyReturn}
+
+
+For example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string} a = \textcolor{stringliteral}{"{}     a simple sentence surrounded by spaces                "{}};}
+\DoxyCodeLine{\textcolor{keywordtype}{string} b = StripSpaces(a);}
+\DoxyCodeLine{Console.WriteLine(b); \textcolor{comment}{// => "{}a simple sentence surrounded by spaces"{};}}
+\end{DoxyCode}
+ 
+
+The code won\textquotesingle{}t remove internal double spaces\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string} a = \textcolor{stringliteral}{"{}     a    simple    sentence     surrounded    by    spaces                "{}};}
+\DoxyCodeLine{\textcolor{keywordtype}{string} b = StripSpaces(a);}
+\DoxyCodeLine{Console.WriteLine(b); \textcolor{comment}{// => "{}a    simple    sentence     surrounded    by    spaces"{};}}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_advanced___software___engineering_1_1_helper_functions_a7d139b0dee34c4c1f9a6c9e798b2f0fc}\label{class_advanced___software___engineering_1_1_helper_functions_a7d139b0dee34c4c1f9a6c9e798b2f0fc}} 
+\index{Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}!StripStringArray@{StripStringArray}}
+\index{StripStringArray@{StripStringArray}!Advanced\_Software\_Engineering.HelperFunctions@{Advanced\_Software\_Engineering.HelperFunctions}}
+\doxysubsubsection{\texorpdfstring{StripStringArray()}{StripStringArray()}}
+{\footnotesize\ttfamily static List$<$string$>$ Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Helper\+Functions.\+Strip\+String\+Array (\begin{DoxyParamCaption}\item[{string\mbox{[}$\,$\mbox{]}}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Strips the strings of the full array. See \mbox{\hyperlink{class_advanced___software___engineering_1_1_helper_functions_aa41fff8e28eff5af40fff2711669cb37}{Strip(string)}} 
+
+string\mbox{[}\mbox{]} tmp = \{\char`\"{}    text  \char`\"{}, \char`\"{}      \char`\"{}, \char`\"{}   with\char`\"{}, \char`\"{}spaces     \char`\"{}, \char`\"{}\char`\"{}\}; Console.\+Write\+Line(\+Strip\+String\+Array(tmp)); // =$>$ \{\char`\"{}text\char`\"{}, \char`\"{}with\char`\"{}, \char`\"{}spaces\char`\"{}\} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Dirty array with spaces\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A stripped aray
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/Helper\+Functions.\+cs\end{DoxyCompactItemize}

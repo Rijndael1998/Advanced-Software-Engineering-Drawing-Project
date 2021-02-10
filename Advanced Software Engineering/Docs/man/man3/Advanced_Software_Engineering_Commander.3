@@ -1,0 +1,181 @@
+.TH "Advanced_Software_Engineering.Commander" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Commander \- The commander class takes care of commands\&. It also takes control of the drawer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBDrawAllCommands\fP (Graphics updateGraphicsElement)"
+.br
+.RI "This command updates the graphics element (usually) when the page repaints\&. "
+.ti -1c
+.RI "\fBCommander\fP (Graphics graphics)"
+.br
+.RI "Create a new \fBCommander\fP instance\&. "
+.ti -1c
+.RI "\fBCommander\fP ()"
+.br
+.RI "Creates a new \fBCommander\fP instance without a context\&. Should only be used for testing purpouses\&. "
+.ti -1c
+.RI "\fBCommander\fP (Graphics graphics, string rawCommands)"
+.br
+.RI "Creates a new \fBCommander\fP instance with a graphics context and commands to process right off the bat\&. "
+.ti -1c
+.RI "void \fBAddCommand\fP (\fBIVerb\fP command)"
+.br
+.RI "Adds a \fBIVerb\fP to the command list to be executed\&. "
+.ti -1c
+.RI "void \fBProcessCommands\fP (string rawCommands, bool pardonCommands=false)"
+.br
+.RI "processes commands\&. Removes all commands if it fails parsing the raw commands\&. "
+.ti -1c
+.RI "void \fBProcessCommandsAndExecute\fP (string rawCommands, bool pardonCommands=false)"
+.br
+.RI "Processes the commands and executes them at the same time\&. It's the same as "
+.ti -1c
+.RI "void \fBRemoveAllCommands\fP ()"
+.br
+.RI "Removes all commands from the \fBCommander\fP and resets the drawer\&. "
+.ti -1c
+.RI "string \fBExplainCommands\fP ()"
+.br
+.RI "Explains all of the commands in order "
+.ti -1c
+.RI "bool \fBGetLastStatus\fP ()"
+.br
+.RI "Gets the status of the code that was processed "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The commander class takes care of commands\&. It also takes control of the drawer\&. 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Commander\&.Commander (Graphics graphics)"
+
+.PP
+Create a new \fBCommander\fP instance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgraphics\fP initial graphics object
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Commander\&.Commander ()"
+
+.PP
+Creates a new \fBCommander\fP instance without a context\&. Should only be used for testing purpouses\&. 
+.SS "Advanced_Software_Engineering\&.Commander\&.Commander (Graphics graphics, string rawCommands)"
+
+.PP
+Creates a new \fBCommander\fP instance with a graphics context and commands to process right off the bat\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgraphics\fP Graphics contetx
+.br
+\fIrawCommands\fP Commands to process
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Commander\&.AddCommand (\fBIVerb\fP command)"
+
+.PP
+Adds a \fBIVerb\fP to the command list to be executed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP \fBIVerb\fP to be added\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBIVerb\fP
+.PP
+.RE
+.PP
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Commander\&.DrawAllCommands (Graphics updateGraphicsElement)"
+
+.PP
+This command updates the graphics element (usually) when the page repaints\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIupdateGraphicsElement\fP The graphics element to be updated
+.RE
+.PP
+
+.SS "string Advanced_Software_Engineering\&.Commander\&.ExplainCommands ()"
+
+.PP
+Explains all of the commands in order 
+.PP
+\fBReturns\fP
+.RS 4
+Explanation of all the commands
+.RE
+.PP
+
+.SS "bool Advanced_Software_Engineering\&.Commander\&.GetLastStatus ()"
+
+.PP
+Gets the status of the code that was processed 
+.PP
+\fBReturns\fP
+.RS 4
+False if there was no error\&. True if there was an error
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Commander\&.ProcessCommands (string rawCommands, bool pardonCommands = \fCfalse\fP)"
+
+.PP
+processes commands\&. Removes all commands if it fails parsing the raw commands\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrawCommands\fP Processes commands seperated by 
+.br
+ or \\r
+.br
+.br
+\fIpardonCommands\fP If the command is wrong, don't remove all of the commands
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Commander\&.ProcessCommandsAndExecute (string rawCommands, bool pardonCommands = \fCfalse\fP)"
+
+.PP
+Processes the commands and executes them at the same time\&. It's the same as 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrawCommands\fP Processes commands seperated by 
+.br
+ or \\r
+.br
+.br
+\fIpardonCommands\fP If the command is wrong, don't remove all of the commands
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Commander\&.RemoveAllCommands ()"
+
+.PP
+Removes all commands from the \fBCommander\fP and resets the drawer\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

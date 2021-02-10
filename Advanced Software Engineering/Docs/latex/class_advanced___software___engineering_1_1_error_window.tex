@@ -1,0 +1,171 @@
+\hypertarget{class_advanced___software___engineering_1_1_error_window}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window Class Reference}
+\label{class_advanced___software___engineering_1_1_error_window}\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+
+
+The error window that can show errors, warnings and messages.  
+
+
+Inheritance diagram for Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_advanced___software___engineering_1_1_error_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_ac3aa7d4cbf5c476139a9de9774e7a794}{Error\+Window}} ()
+\begin{DoxyCompactList}\small\item\em The default error window constructor. Creates an error window with the title \char`\"{}\+Error\char`\"{}, short description \char`\"{}\+An error has occured\char`\"{}, a long description of \char`\"{}\+None\char`\"{} and message type of E\+R\+R\+OR. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_aeb35bf513727f126aa79ccf23e6296ae}{Error\+Window}} (string title, string brief, string desc, int type)
+\begin{DoxyCompactList}\small\item\em The error window constructor. It is responsible for creating an error form which shows the user information depending on the parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_aef198a0cffe19d8d14da28ab7741af16}{Set\+Picture}} (int type)
+\begin{DoxyCompactList}\small\item\em Sets the picture of the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_ab79e4d9a3f91dbf430f852013b830359}{E\+R\+R\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE}} = 0
+\begin{DoxyCompactList}\small\item\em The error message type. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a0a8b906abae43d67ef96a9114378c1df}{W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+E\+S\+S\+A\+GE}} = 1
+\begin{DoxyCompactList}\small\item\em The warning message type \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a1aad3bb1f6069c015f3cc06402def037}{I\+N\+F\+O\+\_\+\+M\+E\+S\+S\+A\+GE}} = 2
+\begin{DoxyCompactList}\small\item\em The info message type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a9c057a914c8eb3eb7cb0e1c07490721e}{Dispose}} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Clean up any resources being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ int, Image $>$ \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a4ed51b123765b80ee896987c67f57c7d}{I\+M\+A\+G\+E\+D\+IR}}
+\begin{DoxyCompactList}\small\item\em The image directory which links the message types to the image to display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The error window that can show errors, warnings and messages. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_ac3aa7d4cbf5c476139a9de9774e7a794}\label{class_advanced___software___engineering_1_1_error_window_ac3aa7d4cbf5c476139a9de9774e7a794}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!ErrorWindow@{ErrorWindow}}
+\index{ErrorWindow@{ErrorWindow}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{ErrorWindow()}{ErrorWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+Error\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The default error window constructor. Creates an error window with the title \char`\"{}\+Error\char`\"{}, short description \char`\"{}\+An error has occured\char`\"{}, a long description of \char`\"{}\+None\char`\"{} and message type of E\+R\+R\+OR. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_aeb35bf513727f126aa79ccf23e6296ae}\label{class_advanced___software___engineering_1_1_error_window_aeb35bf513727f126aa79ccf23e6296ae}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!ErrorWindow@{ErrorWindow}}
+\index{ErrorWindow@{ErrorWindow}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{ErrorWindow()}{ErrorWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+Error\+Window (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{string}]{brief,  }\item[{string}]{desc,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+The error window constructor. It is responsible for creating an error form which shows the user information depending on the parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of the window\\
+\hline
+{\em brief} & A brief description of the message\\
+\hline
+{\em desc} & A detailed description of the message\\
+\hline
+{\em type} & The type of message (can either be\+: E\+R\+R\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE, W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+E\+S\+S\+A\+GE or I\+N\+F\+O\+\_\+\+M\+E\+S\+S\+A\+GE\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_a9c057a914c8eb3eb7cb0e1c07490721e}\label{class_advanced___software___engineering_1_1_error_window_a9c057a914c8eb3eb7cb0e1c07490721e}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily override void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Clean up any resources being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true if managed resources should be disposed; otherwise, false.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_aef198a0cffe19d8d14da28ab7741af16}\label{class_advanced___software___engineering_1_1_error_window_aef198a0cffe19d8d14da28ab7741af16}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!SetPicture@{SetPicture}}
+\index{SetPicture@{SetPicture}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{SetPicture()}{SetPicture()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+Set\+Picture (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Sets the picture of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of message (can either be\+: E\+R\+R\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE, W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+E\+S\+S\+A\+GE or I\+N\+F\+O\+\_\+\+M\+E\+S\+S\+A\+GE\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_ab79e4d9a3f91dbf430f852013b830359}\label{class_advanced___software___engineering_1_1_error_window_ab79e4d9a3f91dbf430f852013b830359}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!ERROR\_MESSAGE@{ERROR\_MESSAGE}}
+\index{ERROR\_MESSAGE@{ERROR\_MESSAGE}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE}{ERROR\_MESSAGE}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+E\+R\+R\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The error message type. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_a4ed51b123765b80ee896987c67f57c7d}\label{class_advanced___software___engineering_1_1_error_window_a4ed51b123765b80ee896987c67f57c7d}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!IMAGEDIR@{IMAGEDIR}}
+\index{IMAGEDIR@{IMAGEDIR}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{IMAGEDIR}{IMAGEDIR}}
+{\footnotesize\ttfamily Dictionary$<$int, Image$>$ Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+I\+M\+A\+G\+E\+D\+IR\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} Dictionary<int, Image> \{}
+\DoxyCodeLine{            \{ \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_ab79e4d9a3f91dbf430f852013b830359}{ERROR\_MESSAGE}}, Properties.Resources.error \},}
+\DoxyCodeLine{            \{ \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a0a8b906abae43d67ef96a9114378c1df}{WARNING\_MESSAGE}}, Properties.Resources.warning \},}
+\DoxyCodeLine{            \{ \mbox{\hyperlink{class_advanced___software___engineering_1_1_error_window_a1aad3bb1f6069c015f3cc06402def037}{INFO\_MESSAGE}}, Properties.Resources.info \}}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+The image directory which links the message types to the image to display. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_a1aad3bb1f6069c015f3cc06402def037}\label{class_advanced___software___engineering_1_1_error_window_a1aad3bb1f6069c015f3cc06402def037}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!INFO\_MESSAGE@{INFO\_MESSAGE}}
+\index{INFO\_MESSAGE@{INFO\_MESSAGE}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{INFO\_MESSAGE}{INFO\_MESSAGE}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+I\+N\+F\+O\+\_\+\+M\+E\+S\+S\+A\+GE = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The info message type 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_error_window_a0a8b906abae43d67ef96a9114378c1df}\label{class_advanced___software___engineering_1_1_error_window_a0a8b906abae43d67ef96a9114378c1df}} 
+\index{Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}!WARNING\_MESSAGE@{WARNING\_MESSAGE}}
+\index{WARNING\_MESSAGE@{WARNING\_MESSAGE}!Advanced\_Software\_Engineering.ErrorWindow@{Advanced\_Software\_Engineering.ErrorWindow}}
+\doxysubsubsection{\texorpdfstring{WARNING\_MESSAGE}{WARNING\_MESSAGE}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Error\+Window.\+W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+E\+S\+S\+A\+GE = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The warning message type 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/\+Windows/Error\+Window.\+cs\item 
+Advanced Software Engineering/\+Windows/Error\+Window.\+Designer.\+cs\end{DoxyCompactItemize}

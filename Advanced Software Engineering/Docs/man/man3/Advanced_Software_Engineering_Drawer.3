@@ -1,0 +1,386 @@
+.TH "Advanced_Software_Engineering.Drawer" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Drawer \- The drawer is responsible for drawing on the graphics object\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDrawer\fP (Graphics \fBgraphics\fP)"
+.br
+.RI "Creates a new drawer object\&. "
+.ti -1c
+.RI "void \fBResetDrawer\fP ()"
+.br
+.RI "Restart the drawer\&. "
+.ti -1c
+.RI "void \fBSetGraphics\fP (Graphics \fBgraphics\fP)"
+.br
+.RI "Set thhe graphics context\&. "
+.ti -1c
+.RI "void \fBMovePen\fP (Point point)"
+.br
+.RI "Move the pen to the point\&. "
+.ti -1c
+.RI "Point \fBGetPenPosition\fP ()"
+.br
+.RI "Returns the current pen position "
+.ti -1c
+.RI "bool \fBGetFill\fP ()"
+.br
+.RI "Get current fill status "
+.ti -1c
+.RI "void \fBEnableFill\fP ()"
+.br
+.RI "Allows the filling of objects\&. "
+.ti -1c
+.RI "void \fBDisableFill\fP ()"
+.br
+.RI "Disables the filling of objects\&. "
+.ti -1c
+.RI "void \fBSetFill\fP (bool \fBfill\fP)"
+.br
+.RI "Set the filling of objects "
+.ti -1c
+.RI "void \fBSetPenColor\fP (Color color)"
+.br
+.RI "Set the pen color "
+.ti -1c
+.RI "void \fBSetPenWidth\fP (float width)"
+.br
+.RI "Set the width of the pen "
+.ti -1c
+.RI "void \fBSetFillColor\fP (Color color)"
+.br
+.RI "Set fill color "
+.ti -1c
+.RI "void \fBDrawLine\fP (Point point)"
+.br
+.RI "Draws a line from the current pen position to the one specified in the parameter\&. This also sets the pens new position\&. "
+.ti -1c
+.RI "void \fBDrawLines\fP (Point[] points)"
+.br
+.RI "Draws multiple lines to multiple points\&. This doesn't change the pens position\&. "
+.ti -1c
+.RI "void \fBDrawLines\fP (GraphicsPath path)"
+.br
+.RI "Draws multiple lines to multiple points\&. This doesn't change the pens position\&. "
+.ti -1c
+.RI "void \fBDrawCircle\fP (double scale)"
+.br
+.RI "Draws a circle of a scale ath the pen's position "
+.ti -1c
+.RI "void \fBClearCanvas\fP ()"
+.br
+.RI "Clears the canvas "
+.ti -1c
+.RI "void \fBDrawDot\fP ()"
+.br
+.RI "Draws a single pixel with the pen's color at the pen's position\&. "
+.ti -1c
+.RI "\fBValueStorage\fP \fBGetValueStorage\fP ()"
+.br
+.RI "Gets the valueStorage object "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "List< \fBIVerbChunk\fP > \fBverbChunks\fP = new List<\fBIVerbChunk\fP>()"
+.br
+.RI "List of verbChunks used to create for loops, if statements, while loops and methods\&. See ForChunk, IfChunk, MethodChunk, WhileChunk and 
+.PP
+\fBSee also\fP
+.RS 4
+IVerbChunk
+.PP
+.RE
+.PP
+\&. "
+.ti -1c
+.RI "bool \fBverbChunkGeneratingMethod\fP = false"
+.br
+.RI "A veriable that represents wether the last verbchunk is a method\&. See MethodChunk "
+.ti -1c
+.RI "Dictionary< string, \fBMethodChunk\fP > \fBMethods\fP = new Dictionary<string, \fBMethodChunk\fP>()"
+.br
+.RI "A list of methods\&. See MethodChunk "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBfill\fP = false"
+.br
+.RI "Weather enclosed spaces will have fill\&. "
+.ti -1c
+.RI "SolidBrush \fBbrush\fP"
+.br
+.RI "The Brush object "
+.ti -1c
+.RI "Pen \fBpen\fP"
+.br
+.RI "The Pen object "
+.ti -1c
+.RI "Point \fBpenPosition\fP"
+.br
+.RI "The current position of the pen\&. "
+.ti -1c
+.RI "Graphics \fBgraphics\fP"
+.br
+.RI "The graphics object "
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static Color \fBdefaultColor\fP = Color\&.Black"
+.br
+.RI "The starting color of the pen / brush "
+.ti -1c
+.RI "static float \fBdefaultWidth\fP = 1f"
+.br
+.RI "The deafult width of the pen "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The drawer is responsible for drawing on the graphics object\&. 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Drawer\&.Drawer (Graphics graphics)"
+
+.PP
+Creates a new drawer object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgraphics\fP Graphics context
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Drawer\&.ClearCanvas ()"
+
+.PP
+Clears the canvas 
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DisableFill ()"
+
+.PP
+Disables the filling of objects\&. 
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DrawCircle (double scale)"
+
+.PP
+Draws a circle of a scale ath the pen's position 
+.PP
+\fBParameters\fP
+.RS 4
+\fIscale\fP Scale of the circle
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DrawDot ()"
+
+.PP
+Draws a single pixel with the pen's color at the pen's position\&. 
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DrawLine (Point point)"
+
+.PP
+Draws a line from the current pen position to the one specified in the parameter\&. This also sets the pens new position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpoint\fP Draw to point
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DrawLines (GraphicsPath path)"
+
+.PP
+Draws multiple lines to multiple points\&. This doesn't change the pens position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpath\fP GraphicsPath to draw to
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.DrawLines (Point[] points)"
+
+.PP
+Draws multiple lines to multiple points\&. This doesn't change the pens position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpoints\fP Points to draw to
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.EnableFill ()"
+
+.PP
+Allows the filling of objects\&. 
+.SS "bool Advanced_Software_Engineering\&.Drawer\&.GetFill ()"
+
+.PP
+Get current fill status 
+.PP
+\fBReturns\fP
+.RS 4
+current fill satus
+.RE
+.PP
+
+.SS "Point Advanced_Software_Engineering\&.Drawer\&.GetPenPosition ()"
+
+.PP
+Returns the current pen position 
+.PP
+\fBReturns\fP
+.RS 4
+The curren pen position
+.RE
+.PP
+
+.SS "\fBValueStorage\fP Advanced_Software_Engineering\&.Drawer\&.GetValueStorage ()"
+
+.PP
+Gets the valueStorage object 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.MovePen (Point point)"
+
+.PP
+Move the pen to the point\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpoint\fP Position to move the pen to
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.ResetDrawer ()"
+
+.PP
+Restart the drawer\&. 
+.SS "void Advanced_Software_Engineering\&.Drawer\&.SetFill (bool fill)"
+
+.PP
+Set the filling of objects 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfill\fP Set fill
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.SetFillColor (Color color)"
+
+.PP
+Set fill color 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP Fill color
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.SetGraphics (Graphics graphics)"
+
+.PP
+Set thhe graphics context\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgraphics\fP 
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.SetPenColor (Color color)"
+
+.PP
+Set the pen color 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP Pen color
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Drawer\&.SetPenWidth (float width)"
+
+.PP
+Set the width of the pen 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwidth\fP Pen width
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "SolidBrush Advanced_Software_Engineering\&.Drawer\&.brush\fC [protected]\fP"
+
+.PP
+The Brush object 
+.SS "Color Advanced_Software_Engineering\&.Drawer\&.defaultColor = Color\&.Black\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+The starting color of the pen / brush 
+.SS "float Advanced_Software_Engineering\&.Drawer\&.defaultWidth = 1f\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+The deafult width of the pen 
+.SS "bool Advanced_Software_Engineering\&.Drawer\&.fill = false\fC [protected]\fP"
+
+.PP
+Weather enclosed spaces will have fill\&. 
+.SS "Graphics Advanced_Software_Engineering\&.Drawer\&.graphics\fC [protected]\fP"
+
+.PP
+The graphics object 
+.SS "Dictionary<string, \fBMethodChunk\fP> Advanced_Software_Engineering\&.Drawer\&.Methods = new Dictionary<string, \fBMethodChunk\fP>()"
+
+.PP
+A list of methods\&. See MethodChunk 
+.SS "Pen Advanced_Software_Engineering\&.Drawer\&.pen\fC [protected]\fP"
+
+.PP
+The Pen object 
+.SS "Point Advanced_Software_Engineering\&.Drawer\&.penPosition\fC [protected]\fP"
+
+.PP
+The current position of the pen\&. 
+.SS "bool Advanced_Software_Engineering\&.Drawer\&.verbChunkGeneratingMethod = false"
+
+.PP
+A veriable that represents wether the last verbchunk is a method\&. See MethodChunk 
+.SS "List<\fBIVerbChunk\fP> Advanced_Software_Engineering\&.Drawer\&.verbChunks = new List<\fBIVerbChunk\fP>()"
+
+.PP
+List of verbChunks used to create for loops, if statements, while loops and methods\&. See ForChunk, IfChunk, MethodChunk, WhileChunk and 
+.PP
+\fBSee also\fP
+.RS 4
+IVerbChunk
+.PP
+.RE
+.PP
+\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

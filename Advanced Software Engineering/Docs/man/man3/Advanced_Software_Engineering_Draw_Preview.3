@@ -1,0 +1,124 @@
+.TH "Advanced_Software_Engineering.Draw_Preview" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Draw_Preview \- Auto Generated Code  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Form\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDraw_Preview\fP ()"
+.br
+.RI "The draw preview window\&. Spawns the basic DrawPreview\&. "
+.ti -1c
+.RI "\fBDraw_Preview\fP (string commands)"
+.br
+.RI "The draw preview window\&. Spawns the DrawPreview with commands locked\&. "
+.ti -1c
+.RI "void \fBSubmitCommands\fP (string comamnds)"
+.br
+.RI "Submit commands to the commander to execute on the form\&. "
+.ti -1c
+.RI "void \fBRemoveAllCommands\fP ()"
+.br
+.RI "Removes all the commands from the form "
+.ti -1c
+.RI "void \fBReleaseCommandLock\fP ()"
+.br
+.RI "Enables the textbox and submit button to allow the user to interract with the preview directly "
+.ti -1c
+.RI "string \fBDescribeAllCommands\fP ()"
+.br
+.RI "Describes all of the current commands stored inside commander\&. "
+.ti -1c
+.RI "bool \fBIsSuccess\fP ()"
+.br
+.RI "Returns weather there were any errors in the commander\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBDispose\fP (bool disposing)"
+.br
+.RI "Clean up any resources being used\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Auto Generated Code 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Draw_Preview\&.Draw_Preview ()"
+
+.PP
+The draw preview window\&. Spawns the basic DrawPreview\&. This window is responsible for showing what has been drawn\&. 
+.SS "Advanced_Software_Engineering\&.Draw_Preview\&.Draw_Preview (string commands)"
+
+.PP
+The draw preview window\&. Spawns the DrawPreview with commands locked\&. This window is responsible for showing what has been drawn\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "string Advanced_Software_Engineering\&.Draw_Preview\&.DescribeAllCommands ()"
+
+.PP
+Describes all of the current commands stored inside commander\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A string with all the command descriptions
+.RE
+.PP
+
+.SS "override void Advanced_Software_Engineering\&.Draw_Preview\&.Dispose (bool disposing)\fC [protected]\fP"
+
+.PP
+Clean up any resources being used\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisposing\fP true if managed resources should be disposed; otherwise, false\&.
+.RE
+.PP
+
+.SS "bool Advanced_Software_Engineering\&.Draw_Preview\&.IsSuccess ()"
+
+.PP
+Returns weather there were any errors in the commander\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean describing the success of command phrasing
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Draw_Preview\&.ReleaseCommandLock ()"
+
+.PP
+Enables the textbox and submit button to allow the user to interract with the preview directly 
+.SS "void Advanced_Software_Engineering\&.Draw_Preview\&.RemoveAllCommands ()"
+
+.PP
+Removes all the commands from the form 
+.SS "void Advanced_Software_Engineering\&.Draw_Preview\&.SubmitCommands (string comamnds)"
+
+.PP
+Submit commands to the commander to execute on the form\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomamnds\fP Commands seperated by new lines
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

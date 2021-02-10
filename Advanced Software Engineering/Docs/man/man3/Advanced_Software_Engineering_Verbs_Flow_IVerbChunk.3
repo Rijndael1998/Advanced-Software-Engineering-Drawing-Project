@@ -1,0 +1,76 @@
+.TH "Advanced_Software_Engineering.Verbs.Flow.IVerbChunk" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Flow.IVerbChunk \- A Collection of chunks to be executed\&. They extend \fBIVerb\fP because they should be interchangable\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.PP
+Inherited by \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.ForChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.WhileChunk\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBAddVerb\fP (\fBIVerb\fP verb)"
+.br
+.RI "Adds a verb to the verb list "
+.ti -1c
+.RI "new void \fBExecuteVerb\fP ()"
+.br
+.RI "Execute the whole chunk "
+.ti -1c
+.RI "new string \fBGetDescription\fP ()"
+.br
+.RI "Gets the description of what the chunk will do "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Collection of chunks to be executed\&. They extend \fBIVerb\fP because they should be interchangable\&. 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\&.AddVerb (\fBIVerb\fP verb)"
+
+.PP
+Adds a verb to the verb list 
+.PP
+\fBParameters\fP
+.RS 4
+\fIverb\fP The verb to add
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP\&.
+.SS "new void Advanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\&.ExecuteVerb ()"
+
+.PP
+Execute the whole chunk 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.WhileChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.ForChunk\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP\&.
+.SS "new string Advanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\&.GetDescription ()"
+
+.PP
+Gets the description of what the chunk will do 
+.PP
+\fBReturns\fP
+.RS 4
+A description of the chunk's actions
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

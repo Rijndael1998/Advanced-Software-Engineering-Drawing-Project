@@ -1,0 +1,162 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.IValue" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.IValue \- A value  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueObjects\&.ColorValue, Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.BoolValue, Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.ComparisonValue, Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.DoubleValue, Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.IntValue, and \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "The description of the value "
+.ti -1c
+.RI "int \fBToInt\fP ()"
+.br
+.RI "Converts the value to an integer "
+.ti -1c
+.RI "double \fBToDouble\fP ()"
+.br
+.RI "Get the double representation if the \fBIValue\fP "
+.ti -1c
+.RI "bool \fBToBool\fP ()"
+.br
+.RI "Get the boolean representation if the \fBIValue\fP "
+.ti -1c
+.RI "Color \fBToColor\fP ()"
+.br
+.RI "Get the color representation if the \fBIValue\fP "
+.ti -1c
+.RI "string \fBGetOriginalType\fP ()"
+.br
+.RI "Gets the original type of the \fBIValue\fP "
+.ti -1c
+.RI "bool \fBIsInitialised\fP ()"
+.br
+.RI "Checks if the \fBIValue\fP is initialised "
+.ti -1c
+.RI "\fBIValue\fP \fBClone\fP ()"
+.br
+.RI "Clones the \fBIValue\fP "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A value 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.Clone ()"
+
+.PP
+Clones the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.GetDescription ()"
+
+.PP
+The description of the value 
+.PP
+\fBReturns\fP
+.RS 4
+The description of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.GetOriginalType ()"
+
+.PP
+Gets the original type of the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+original type of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.IsInitialised ()"
+
+.PP
+Checks if the \fBIValue\fP is initialised 
+.PP
+\fBReturns\fP
+.RS 4
+True if \fBIValue\fP is initialised
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.ToBool ()"
+
+.PP
+Get the boolean representation if the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+the boolean representation if the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "Color Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.ToColor ()"
+
+.PP
+Get the color representation if the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+the color representation if the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "double Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.ToDouble ()"
+
+.PP
+Get the double representation if the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+the double representation if the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+.SS "int Advanced_Software_Engineering\&.Verbs\&.Value\&.IValue\&.ToInt ()"
+
+.PP
+Converts the value to an integer 
+.PP
+\fBReturns\fP
+.RS 4
+the integer representation if the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

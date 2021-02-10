@@ -1,0 +1,280 @@
+\hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value Class Reference}
+\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value}\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+
+
+Expression values are used when there are two I\+Values that need to be added or subtracted or anything from each other.  
+
+
+Inheritance diagram for Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ab4436601afbba44a90aaf0ff54ff15d0}{Expression\+Value}} (\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} variable1, \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} variable2, int operation)
+\begin{DoxyCompactList}\small\item\em Create a new Expression \mbox{\hyperlink{namespace_advanced___software___engineering_1_1_verbs_1_1_value}{Value}} based on the two I\+Values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a9ba89948d117fc4fe3d3df56a5b7f507}{Expression\+Value}} (\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} variable1, \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} variable2, string operation)
+\begin{DoxyCompactList}\small\item\em Create a new Expression \mbox{\hyperlink{namespace_advanced___software___engineering_1_1_verbs_1_1_value}{Value}} based on the two I\+Values \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ac3283b94e0cedfd8ccde53642704e2a6}{Get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Describes the expression \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_af999ae04709e28df1783c1b01e3d4e2a}{Get\+Original\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the type of the expression \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a6d86a1a06b1c4574d4f566111a3f4706}{Is\+Initialised}} ()
+\begin{DoxyCompactList}\small\item\em Expressions are always initialised \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a952c58e47976b5cfb74b6af9b16442ed}{To\+Bool}} ()
+\begin{DoxyCompactList}\small\item\em Gets the bool of the result \end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ade236a5b673df062406f69e01edb7aef}{To\+Color}} ()
+\begin{DoxyCompactList}\small\item\em Gets the color of the result \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a8057baca4b08f0832a7c9ba891a0c693}{To\+Double}} ()
+\begin{DoxyCompactList}\small\item\em Gets the double value of the result \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aadb32fde00f0a11b3b02d50bb4df6fa8}{To\+Int}} ()
+\begin{DoxyCompactList}\small\item\em Gets the int of the result \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a0866986c5df9dca38e1e3a4b7ba479bf}{Clone}} ()
+\begin{DoxyCompactList}\small\item\em Clones the value of the result \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a13bbeb783bb144f154efc20ac9e46128}{A\+DD}} = 0
+\begin{DoxyCompactList}\small\item\em An operation denoting addition \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a3af37c7c7c43696f13a523a8068563c2}{S\+U\+B\+T\+R\+A\+CT}} = 1
+\begin{DoxyCompactList}\small\item\em An operation denoting subtraction \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aec46159899144607d3e8d265f0b6f77f}{M\+U\+L\+T\+I\+P\+LY}} = 2
+\begin{DoxyCompactList}\small\item\em An operation denoting multiplication \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a7f97c2e92dba804f3a5004f74e3cdc6c}{D\+I\+V\+I\+DE}} = 3
+\begin{DoxyCompactList}\small\item\em An operation denoting division \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Expression values are used when there are two I\+Values that need to be added or subtracted or anything from each other. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ab4436601afbba44a90aaf0ff54ff15d0}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ab4436601afbba44a90aaf0ff54ff15d0}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ExpressionValue@{ExpressionValue}}
+\index{ExpressionValue@{ExpressionValue}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ExpressionValue()}{ExpressionValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Expression\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}}}]{variable1,  }\item[{\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}}}]{variable2,  }\item[{int}]{operation }\end{DoxyParamCaption})}
+
+
+
+Create a new Expression \mbox{\hyperlink{namespace_advanced___software___engineering_1_1_verbs_1_1_value}{Value}} based on the two I\+Values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable1} & \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} to perform the operation on\\
+\hline
+{\em variable2} & \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} to perform the operation on\\
+\hline
+{\em operation} & The operation. Can be \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a13bbeb783bb144f154efc20ac9e46128}{A\+DD}}, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a3af37c7c7c43696f13a523a8068563c2}{S\+U\+B\+T\+R\+A\+CT}}, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aec46159899144607d3e8d265f0b6f77f}{M\+U\+L\+T\+I\+P\+LY}} or \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a7f97c2e92dba804f3a5004f74e3cdc6c}{D\+I\+V\+I\+DE}}.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a9ba89948d117fc4fe3d3df56a5b7f507}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a9ba89948d117fc4fe3d3df56a5b7f507}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ExpressionValue@{ExpressionValue}}
+\index{ExpressionValue@{ExpressionValue}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ExpressionValue()}{ExpressionValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Expression\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}}}]{variable1,  }\item[{\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}}}]{variable2,  }\item[{string}]{operation }\end{DoxyParamCaption})}
+
+
+
+Create a new Expression \mbox{\hyperlink{namespace_advanced___software___engineering_1_1_verbs_1_1_value}{Value}} based on the two I\+Values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable1} & \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} to perform the operation on\\
+\hline
+{\em variable2} & \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} to perform the operation on\\
+\hline
+{\em operation} & The operation. Can be \char`\"{}+\char`\"{}(\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a13bbeb783bb144f154efc20ac9e46128}{A\+DD}}), \char`\"{}-\/\char`\"{}(\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a3af37c7c7c43696f13a523a8068563c2}{S\+U\+B\+T\+R\+A\+CT}}), \char`\"{}$\ast$\char`\"{}(\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aec46159899144607d3e8d265f0b6f77f}{M\+U\+L\+T\+I\+P\+LY}}) or \char`\"{}/\char`\"{}(\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a7f97c2e92dba804f3a5004f74e3cdc6c}{D\+I\+V\+I\+DE}}).\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a0866986c5df9dca38e1e3a4b7ba479bf}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a0866986c5df9dca38e1e3a4b7ba479bf}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!Clone@{Clone}}
+\index{Clone@{Clone}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clones the value of the result 
+
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}}
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_ae03ba3002c724790ba8903042051654d}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ac3283b94e0cedfd8ccde53642704e2a6}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ac3283b94e0cedfd8ccde53642704e2a6}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!GetDescription@{GetDescription}}
+\index{GetDescription@{GetDescription}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{GetDescription()}{GetDescription()}}
+{\footnotesize\ttfamily string Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Describes the expression 
+
+\begin{DoxyReturn}{Returns}
+A string description of the expression
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a177766878572cf0eab92014eb5d76863}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_af999ae04709e28df1783c1b01e3d4e2a}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_af999ae04709e28df1783c1b01e3d4e2a}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!GetOriginalType@{GetOriginalType}}
+\index{GetOriginalType@{GetOriginalType}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{GetOriginalType()}{GetOriginalType()}}
+{\footnotesize\ttfamily string Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Get\+Original\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the type of the expression 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}expression\char`\"{}
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a4cc1eec8e494f5ec785cb13adaeaf3a5}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a6d86a1a06b1c4574d4f566111a3f4706}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a6d86a1a06b1c4574d4f566111a3f4706}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!IsInitialised@{IsInitialised}}
+\index{IsInitialised@{IsInitialised}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{IsInitialised()}{IsInitialised()}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+Is\+Initialised (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Expressions are always initialised 
+
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a454eb538e8706c064bac91d1e6b3f6cf}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a952c58e47976b5cfb74b6af9b16442ed}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a952c58e47976b5cfb74b6af9b16442ed}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ToBool@{ToBool}}
+\index{ToBool@{ToBool}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ToBool()}{ToBool()}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+To\+Bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the bool of the result 
+
+\begin{DoxyReturn}{Returns}
+bool value of the result
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a06fd65d8b5f845882c4d25a638c33ecc}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ade236a5b673df062406f69e01edb7aef}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_ade236a5b673df062406f69e01edb7aef}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ToColor@{ToColor}}
+\index{ToColor@{ToColor}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ToColor()}{ToColor()}}
+{\footnotesize\ttfamily Color Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+To\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the color of the result 
+
+\begin{DoxyReturn}{Returns}
+color value of the result
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a683a764233b406b878fc37dcb422d7e3}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a8057baca4b08f0832a7c9ba891a0c693}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a8057baca4b08f0832a7c9ba891a0c693}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ToDouble@{ToDouble}}
+\index{ToDouble@{ToDouble}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ToDouble()}{ToDouble()}}
+{\footnotesize\ttfamily double Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+To\+Double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the double value of the result 
+
+\begin{DoxyReturn}{Returns}
+double value of the result
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_a8c0ff7b127713e9d047eaed956308db5}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aadb32fde00f0a11b3b02d50bb4df6fa8}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aadb32fde00f0a11b3b02d50bb4df6fa8}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}}
+{\footnotesize\ttfamily int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+To\+Int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the int of the result 
+
+\begin{DoxyReturn}{Returns}
+int value of the result
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value_ab92e3256cd3aa642135acae9d419eb21}{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+I\+Value}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a13bbeb783bb144f154efc20ac9e46128}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a13bbeb783bb144f154efc20ac9e46128}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!ADD@{ADD}}
+\index{ADD@{ADD}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{ADD}{ADD}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+A\+DD = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+An operation denoting addition 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a7f97c2e92dba804f3a5004f74e3cdc6c}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a7f97c2e92dba804f3a5004f74e3cdc6c}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!DIVIDE@{DIVIDE}}
+\index{DIVIDE@{DIVIDE}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{DIVIDE}{DIVIDE}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+D\+I\+V\+I\+DE = 3\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+An operation denoting division 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aec46159899144607d3e8d265f0b6f77f}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_aec46159899144607d3e8d265f0b6f77f}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!MULTIPLY@{MULTIPLY}}
+\index{MULTIPLY@{MULTIPLY}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{MULTIPLY}{MULTIPLY}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+M\+U\+L\+T\+I\+P\+LY = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+An operation denoting multiplication 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a3af37c7c7c43696f13a523a8068563c2}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_expression_value_a3af37c7c7c43696f13a523a8068563c2}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}!SUBTRACT@{SUBTRACT}}
+\index{SUBTRACT@{SUBTRACT}!Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue@{Advanced\_Software\_Engineering.Verbs.Value.ExpressionValue}}
+\doxysubsubsection{\texorpdfstring{SUBTRACT}{SUBTRACT}}
+{\footnotesize\ttfamily const int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Expression\+Value.\+S\+U\+B\+T\+R\+A\+CT = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+An operation denoting subtraction 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/\+Verbs/\+Value/\+Value\+Types/Expression\+Value.\+cs\end{DoxyCompactItemize}

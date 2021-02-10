@@ -1,0 +1,74 @@
+.TH "Advanced_Software_Engineering.Verbs.Flow.IfChunk" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Flow.IfChunk \- A simple If Object  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP, and \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIfChunk\fP (\fBValueStorage\fP valueStorage, \fBIValue\fP conditional)"
+.br
+.RI "Create a new if object "
+.ti -1c
+.RI "\fBIfChunk\fP (\fBValueStorage\fP valueStorage, \fBIValue\fP conditional, \fBIVerb\fP oneLineVerb)"
+.br
+.RI "Create a new if object "
+.ti -1c
+.RI "new void \fBExecuteVerb\fP ()"
+.br
+.RI "Executes the chunk if the conditional is true "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A simple If Object 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\&.IfChunk (\fBValueStorage\fP valueStorage, \fBIValue\fP conditional)"
+
+.PP
+Create a new if object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalueStorage\fP The ValueStorage for increasing and decreasing the stack
+.br
+\fIconditional\fP Preferably Value\&.ValueTypes\&.BoolValue, if the chunk should execute\&.
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\&.IfChunk (\fBValueStorage\fP valueStorage, \fBIValue\fP conditional, \fBIVerb\fP oneLineVerb)"
+
+.PP
+Create a new if object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalueStorage\fP The ValueStorage for increasing and decreasing the stack
+.br
+\fIconditional\fP Preferably Value\&.ValueTypes\&.BoolValue, if the chunk should execute\&.
+.br
+\fIoneLineVerb\fP A verb to execute in a single line
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "new void Advanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\&.ExecuteVerb ()"
+
+.PP
+Executes the chunk if the conditional is true 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

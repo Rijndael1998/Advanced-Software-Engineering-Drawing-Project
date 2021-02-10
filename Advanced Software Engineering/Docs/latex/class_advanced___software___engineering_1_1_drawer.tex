@@ -1,0 +1,460 @@
+\hypertarget{class_advanced___software___engineering_1_1_drawer}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer Class Reference}
+\label{class_advanced___software___engineering_1_1_drawer}\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+
+
+The drawer is responsible for drawing on the graphics object.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a1a6320ee3bcb5488e761402f1056a9e5}{Drawer}} (Graphics \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_afa4ef6ce3309ddec543e8e39d9f8c33e}{graphics}})
+\begin{DoxyCompactList}\small\item\em Creates a new drawer object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a8161e7b89fe9c3807abc61c22841be57}{Reset\+Drawer}} ()
+\begin{DoxyCompactList}\small\item\em Restart the drawer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_aa4dda805c4524bf562626fd6059482e3}{Set\+Graphics}} (Graphics \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_afa4ef6ce3309ddec543e8e39d9f8c33e}{graphics}})
+\begin{DoxyCompactList}\small\item\em Set thhe graphics context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_ab24dd83fe7603fec33ef0c6fc701d2a4}{Move\+Pen}} (Point point)
+\begin{DoxyCompactList}\small\item\em Move the pen to the point. \end{DoxyCompactList}\item 
+Point \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a23cc8568f9bc2c490e6392e9a18a4c16}{Get\+Pen\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current pen position \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a9a3a219399a4e0c08d06b7f7c8edb59a}{Get\+Fill}} ()
+\begin{DoxyCompactList}\small\item\em Get current fill status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a91b9e9a70d5d11b4a402d93b323b9edb}{Enable\+Fill}} ()
+\begin{DoxyCompactList}\small\item\em Allows the filling of objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a48bf53234f1b1e44bea632ed0627ba2c}{Disable\+Fill}} ()
+\begin{DoxyCompactList}\small\item\em Disables the filling of objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a29be72a2ebaf80217405a03d208e29ae}{Set\+Fill}} (bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_af0dfc937ad87e9a7412e3f0b2d8b480c}{fill}})
+\begin{DoxyCompactList}\small\item\em Set the filling of objects \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_ab825b0eee683727330e115ccea1c561b}{Set\+Pen\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Set the pen color \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a57557f7c4f162e58bf8b10df5d19653d}{Set\+Pen\+Width}} (float width)
+\begin{DoxyCompactList}\small\item\em Set the width of the pen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_af485d90b7b2c9424dd4612d6877d0e9b}{Set\+Fill\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Set fill color \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a941f4b484a8a8e8c56b652c543a3a414}{Draw\+Line}} (Point point)
+\begin{DoxyCompactList}\small\item\em Draws a line from the current pen position to the one specified in the parameter. This also sets the pens new position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_ab2565acd7a5a1afaa9be4885a38a80ad}{Draw\+Lines}} (Point\mbox{[}$\,$\mbox{]} points)
+\begin{DoxyCompactList}\small\item\em Draws multiple lines to multiple points. This doesn\textquotesingle{}t change the pens position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a334a1f48a685351f2b44f84d993a4e7e}{Draw\+Lines}} (Graphics\+Path path)
+\begin{DoxyCompactList}\small\item\em Draws multiple lines to multiple points. This doesn\textquotesingle{}t change the pens position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a5bfef42c90d10fca4307abe59595651f}{Draw\+Circle}} (double scale)
+\begin{DoxyCompactList}\small\item\em Draws a circle of a scale ath the pen\textquotesingle{}s position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a77f96fe446ffe261f7e0452f1d3e9552}{Clear\+Canvas}} ()
+\begin{DoxyCompactList}\small\item\em Clears the canvas \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a9f939860574f749cc52e1c787cd11601}{Draw\+Dot}} ()
+\begin{DoxyCompactList}\small\item\em Draws a single pixel with the pen\textquotesingle{}s color at the pen\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_storage}{Value\+Storage}} \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_ad2080b66718ff837adb9cf458b3c9db1}{Get\+Value\+Storage}} ()
+\begin{DoxyCompactList}\small\item\em Gets the value\+Storage object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_i_verb_chunk}{I\+Verb\+Chunk}} $>$ \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a5d651cd4e22ed950dac8d4c4ae9a27f0}{verb\+Chunks}} = new List$<$\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_i_verb_chunk}{I\+Verb\+Chunk}}$>$()
+\begin{DoxyCompactList}\small\item\em List of verb\+Chunks used to create for loops, if statements, while loops and methods. See For\+Chunk, If\+Chunk, Method\+Chunk, While\+Chunk and \begin{DoxySeeAlso}{See also}
+I\+Verb\+Chunk
+
+
+\end{DoxySeeAlso}
+. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_ada83b5554aaa5819248580698568d2a3}{verb\+Chunk\+Generating\+Method}} = false
+\begin{DoxyCompactList}\small\item\em A veriable that represents wether the last verbchunk is a method. See Method\+Chunk \end{DoxyCompactList}\item 
+Dictionary$<$ string, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_method_chunk}{Method\+Chunk}} $>$ \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_affacda334367206746d2e1546d50a75b}{Methods}} = new Dictionary$<$string, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_method_chunk}{Method\+Chunk}}$>$()
+\begin{DoxyCompactList}\small\item\em A list of methods. See Method\+Chunk \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_af0dfc937ad87e9a7412e3f0b2d8b480c}{fill}} = false
+\begin{DoxyCompactList}\small\item\em Weather enclosed spaces will have fill. \end{DoxyCompactList}\item 
+Solid\+Brush \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a9c14923dd98b1014dc4a1455d384b717}{brush}}
+\begin{DoxyCompactList}\small\item\em The Brush object \end{DoxyCompactList}\item 
+Pen \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_aede7a097cc2232d66f2d052d0438e103}{pen}}
+\begin{DoxyCompactList}\small\item\em The Pen object \end{DoxyCompactList}\item 
+Point \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a08cd9b45f6fd327b1276fa6efc45aaaf}{pen\+Position}}
+\begin{DoxyCompactList}\small\item\em The current position of the pen. \end{DoxyCompactList}\item 
+Graphics \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_afa4ef6ce3309ddec543e8e39d9f8c33e}{graphics}}
+\begin{DoxyCompactList}\small\item\em The graphics object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Color \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a206f25e9780ececc06bd5a4c781a10e3}{default\+Color}} = Color.\+Black
+\begin{DoxyCompactList}\small\item\em The starting color of the pen / brush \end{DoxyCompactList}\item 
+static float \mbox{\hyperlink{class_advanced___software___engineering_1_1_drawer_a58df5079e4c813978f88e0278682125c}{default\+Width}} = 1f
+\begin{DoxyCompactList}\small\item\em The deafult width of the pen \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The drawer is responsible for drawing on the graphics object. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a1a6320ee3bcb5488e761402f1056a9e5}\label{class_advanced___software___engineering_1_1_drawer_a1a6320ee3bcb5488e761402f1056a9e5}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!Drawer@{Drawer}}
+\index{Drawer@{Drawer}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{Drawer()}{Drawer()}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Drawer (\begin{DoxyParamCaption}\item[{Graphics}]{graphics }\end{DoxyParamCaption})}
+
+
+
+Creates a new drawer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & Graphics context\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a77f96fe446ffe261f7e0452f1d3e9552}\label{class_advanced___software___engineering_1_1_drawer_a77f96fe446ffe261f7e0452f1d3e9552}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!ClearCanvas@{ClearCanvas}}
+\index{ClearCanvas@{ClearCanvas}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{ClearCanvas()}{ClearCanvas()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Clear\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the canvas 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a48bf53234f1b1e44bea632ed0627ba2c}\label{class_advanced___software___engineering_1_1_drawer_a48bf53234f1b1e44bea632ed0627ba2c}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DisableFill@{DisableFill}}
+\index{DisableFill@{DisableFill}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DisableFill()}{DisableFill()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Disable\+Fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables the filling of objects. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a5bfef42c90d10fca4307abe59595651f}\label{class_advanced___software___engineering_1_1_drawer_a5bfef42c90d10fca4307abe59595651f}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DrawCircle@{DrawCircle}}
+\index{DrawCircle@{DrawCircle}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DrawCircle()}{DrawCircle()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Draw\+Circle (\begin{DoxyParamCaption}\item[{double}]{scale }\end{DoxyParamCaption})}
+
+
+
+Draws a circle of a scale ath the pen\textquotesingle{}s position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale} & Scale of the circle\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a9f939860574f749cc52e1c787cd11601}\label{class_advanced___software___engineering_1_1_drawer_a9f939860574f749cc52e1c787cd11601}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DrawDot@{DrawDot}}
+\index{DrawDot@{DrawDot}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DrawDot()}{DrawDot()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Draw\+Dot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws a single pixel with the pen\textquotesingle{}s color at the pen\textquotesingle{}s position. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a941f4b484a8a8e8c56b652c543a3a414}\label{class_advanced___software___engineering_1_1_drawer_a941f4b484a8a8e8c56b652c543a3a414}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Draw\+Line (\begin{DoxyParamCaption}\item[{Point}]{point }\end{DoxyParamCaption})}
+
+
+
+Draws a line from the current pen position to the one specified in the parameter. This also sets the pens new position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Draw to point\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a334a1f48a685351f2b44f84d993a4e7e}\label{class_advanced___software___engineering_1_1_drawer_a334a1f48a685351f2b44f84d993a4e7e}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DrawLines@{DrawLines}}
+\index{DrawLines@{DrawLines}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DrawLines()}{DrawLines()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Draw\+Lines (\begin{DoxyParamCaption}\item[{Graphics\+Path}]{path }\end{DoxyParamCaption})}
+
+
+
+Draws multiple lines to multiple points. This doesn\textquotesingle{}t change the pens position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Graphics\+Path to draw to\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_ab2565acd7a5a1afaa9be4885a38a80ad}\label{class_advanced___software___engineering_1_1_drawer_ab2565acd7a5a1afaa9be4885a38a80ad}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!DrawLines@{DrawLines}}
+\index{DrawLines@{DrawLines}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{DrawLines()}{DrawLines()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Draw\+Lines (\begin{DoxyParamCaption}\item[{Point\mbox{[}$\,$\mbox{]}}]{points }\end{DoxyParamCaption})}
+
+
+
+Draws multiple lines to multiple points. This doesn\textquotesingle{}t change the pens position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Points to draw to\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a91b9e9a70d5d11b4a402d93b323b9edb}\label{class_advanced___software___engineering_1_1_drawer_a91b9e9a70d5d11b4a402d93b323b9edb}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!EnableFill@{EnableFill}}
+\index{EnableFill@{EnableFill}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{EnableFill()}{EnableFill()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Enable\+Fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allows the filling of objects. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a9a3a219399a4e0c08d06b7f7c8edb59a}\label{class_advanced___software___engineering_1_1_drawer_a9a3a219399a4e0c08d06b7f7c8edb59a}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!GetFill@{GetFill}}
+\index{GetFill@{GetFill}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{GetFill()}{GetFill()}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Get\+Fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get current fill status 
+
+\begin{DoxyReturn}{Returns}
+current fill satus
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a23cc8568f9bc2c490e6392e9a18a4c16}\label{class_advanced___software___engineering_1_1_drawer_a23cc8568f9bc2c490e6392e9a18a4c16}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!GetPenPosition@{GetPenPosition}}
+\index{GetPenPosition@{GetPenPosition}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{GetPenPosition()}{GetPenPosition()}}
+{\footnotesize\ttfamily Point Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Get\+Pen\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current pen position 
+
+\begin{DoxyReturn}{Returns}
+The curren pen position
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_ad2080b66718ff837adb9cf458b3c9db1}\label{class_advanced___software___engineering_1_1_drawer_ad2080b66718ff837adb9cf458b3c9db1}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!GetValueStorage@{GetValueStorage}}
+\index{GetValueStorage@{GetValueStorage}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{GetValueStorage()}{GetValueStorage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_storage}{Value\+Storage}} Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Get\+Value\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the value\+Storage object 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_ab24dd83fe7603fec33ef0c6fc701d2a4}\label{class_advanced___software___engineering_1_1_drawer_ab24dd83fe7603fec33ef0c6fc701d2a4}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!MovePen@{MovePen}}
+\index{MovePen@{MovePen}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{MovePen()}{MovePen()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Move\+Pen (\begin{DoxyParamCaption}\item[{Point}]{point }\end{DoxyParamCaption})}
+
+
+
+Move the pen to the point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Position to move the pen to\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a8161e7b89fe9c3807abc61c22841be57}\label{class_advanced___software___engineering_1_1_drawer_a8161e7b89fe9c3807abc61c22841be57}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!ResetDrawer@{ResetDrawer}}
+\index{ResetDrawer@{ResetDrawer}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{ResetDrawer()}{ResetDrawer()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Reset\+Drawer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restart the drawer. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a29be72a2ebaf80217405a03d208e29ae}\label{class_advanced___software___engineering_1_1_drawer_a29be72a2ebaf80217405a03d208e29ae}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!SetFill@{SetFill}}
+\index{SetFill@{SetFill}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{SetFill()}{SetFill()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Set\+Fill (\begin{DoxyParamCaption}\item[{bool}]{fill }\end{DoxyParamCaption})}
+
+
+
+Set the filling of objects 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fill} & Set fill\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_af485d90b7b2c9424dd4612d6877d0e9b}\label{class_advanced___software___engineering_1_1_drawer_af485d90b7b2c9424dd4612d6877d0e9b}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!SetFillColor@{SetFillColor}}
+\index{SetFillColor@{SetFillColor}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{SetFillColor()}{SetFillColor()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Set\+Fill\+Color (\begin{DoxyParamCaption}\item[{Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Set fill color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Fill color\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_aa4dda805c4524bf562626fd6059482e3}\label{class_advanced___software___engineering_1_1_drawer_aa4dda805c4524bf562626fd6059482e3}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!SetGraphics@{SetGraphics}}
+\index{SetGraphics@{SetGraphics}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{SetGraphics()}{SetGraphics()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Set\+Graphics (\begin{DoxyParamCaption}\item[{Graphics}]{graphics }\end{DoxyParamCaption})}
+
+
+
+Set thhe graphics context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_ab825b0eee683727330e115ccea1c561b}\label{class_advanced___software___engineering_1_1_drawer_ab825b0eee683727330e115ccea1c561b}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!SetPenColor@{SetPenColor}}
+\index{SetPenColor@{SetPenColor}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{SetPenColor()}{SetPenColor()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Set\+Pen\+Color (\begin{DoxyParamCaption}\item[{Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the pen color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Pen color\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a57557f7c4f162e58bf8b10df5d19653d}\label{class_advanced___software___engineering_1_1_drawer_a57557f7c4f162e58bf8b10df5d19653d}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!SetPenWidth@{SetPenWidth}}
+\index{SetPenWidth@{SetPenWidth}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{SetPenWidth()}{SetPenWidth()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Set\+Pen\+Width (\begin{DoxyParamCaption}\item[{float}]{width }\end{DoxyParamCaption})}
+
+
+
+Set the width of the pen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Pen width\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a9c14923dd98b1014dc4a1455d384b717}\label{class_advanced___software___engineering_1_1_drawer_a9c14923dd98b1014dc4a1455d384b717}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!brush@{brush}}
+\index{brush@{brush}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{brush}{brush}}
+{\footnotesize\ttfamily Solid\+Brush Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+brush\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Brush object 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a206f25e9780ececc06bd5a4c781a10e3}\label{class_advanced___software___engineering_1_1_drawer_a206f25e9780ececc06bd5a4c781a10e3}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!defaultColor@{defaultColor}}
+\index{defaultColor@{defaultColor}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{defaultColor}{defaultColor}}
+{\footnotesize\ttfamily Color Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+default\+Color = Color.\+Black\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The starting color of the pen / brush 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a58df5079e4c813978f88e0278682125c}\label{class_advanced___software___engineering_1_1_drawer_a58df5079e4c813978f88e0278682125c}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!defaultWidth@{defaultWidth}}
+\index{defaultWidth@{defaultWidth}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{defaultWidth}{defaultWidth}}
+{\footnotesize\ttfamily float Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+default\+Width = 1f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The deafult width of the pen 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_af0dfc937ad87e9a7412e3f0b2d8b480c}\label{class_advanced___software___engineering_1_1_drawer_af0dfc937ad87e9a7412e3f0b2d8b480c}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!fill@{fill}}
+\index{fill@{fill}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{fill}{fill}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+fill = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Weather enclosed spaces will have fill. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_afa4ef6ce3309ddec543e8e39d9f8c33e}\label{class_advanced___software___engineering_1_1_drawer_afa4ef6ce3309ddec543e8e39d9f8c33e}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!graphics@{graphics}}
+\index{graphics@{graphics}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{graphics}{graphics}}
+{\footnotesize\ttfamily Graphics Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+graphics\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The graphics object 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_affacda334367206746d2e1546d50a75b}\label{class_advanced___software___engineering_1_1_drawer_affacda334367206746d2e1546d50a75b}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!Methods@{Methods}}
+\index{Methods@{Methods}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{Methods}{Methods}}
+{\footnotesize\ttfamily Dictionary$<$string, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_method_chunk}{Method\+Chunk}}$>$ Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+Methods = new Dictionary$<$string, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_method_chunk}{Method\+Chunk}}$>$()}
+
+
+
+A list of methods. See Method\+Chunk 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_aede7a097cc2232d66f2d052d0438e103}\label{class_advanced___software___engineering_1_1_drawer_aede7a097cc2232d66f2d052d0438e103}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!pen@{pen}}
+\index{pen@{pen}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{pen}{pen}}
+{\footnotesize\ttfamily Pen Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+pen\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Pen object 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a08cd9b45f6fd327b1276fa6efc45aaaf}\label{class_advanced___software___engineering_1_1_drawer_a08cd9b45f6fd327b1276fa6efc45aaaf}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!penPosition@{penPosition}}
+\index{penPosition@{penPosition}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{penPosition}{penPosition}}
+{\footnotesize\ttfamily Point Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+pen\+Position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The current position of the pen. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_ada83b5554aaa5819248580698568d2a3}\label{class_advanced___software___engineering_1_1_drawer_ada83b5554aaa5819248580698568d2a3}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!verbChunkGeneratingMethod@{verbChunkGeneratingMethod}}
+\index{verbChunkGeneratingMethod@{verbChunkGeneratingMethod}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{verbChunkGeneratingMethod}{verbChunkGeneratingMethod}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+verb\+Chunk\+Generating\+Method = false}
+
+
+
+A veriable that represents wether the last verbchunk is a method. See Method\+Chunk 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_drawer_a5d651cd4e22ed950dac8d4c4ae9a27f0}\label{class_advanced___software___engineering_1_1_drawer_a5d651cd4e22ed950dac8d4c4ae9a27f0}} 
+\index{Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}!verbChunks@{verbChunks}}
+\index{verbChunks@{verbChunks}!Advanced\_Software\_Engineering.Drawer@{Advanced\_Software\_Engineering.Drawer}}
+\doxysubsubsection{\texorpdfstring{verbChunks}{verbChunks}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_i_verb_chunk}{I\+Verb\+Chunk}}$>$ Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Drawer.\+verb\+Chunks = new List$<$\mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_flow_1_1_i_verb_chunk}{I\+Verb\+Chunk}}$>$()}
+
+
+
+List of verb\+Chunks used to create for loops, if statements, while loops and methods. See For\+Chunk, If\+Chunk, Method\+Chunk, While\+Chunk and \begin{DoxySeeAlso}{See also}
+I\+Verb\+Chunk
+
+
+\end{DoxySeeAlso}
+. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/Drawer.\+cs\end{DoxyCompactItemize}

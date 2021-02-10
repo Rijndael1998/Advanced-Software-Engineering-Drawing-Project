@@ -1,0 +1,112 @@
+.TH "Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.DrawingVerbs.Triangle \- The \fBTriangle\fP \fBIVerb\fP class  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTriangle\fP (\fBDrawer\fP drawer, \fBIValue\fP scale)"
+.br
+.RI "Creates a new \fBTriangle\fP instance using \fBRegularPolygon\fP\&. "
+.ti -1c
+.RI "\fBTriangle\fP (\fBDrawer\fP drawer, \fBIValue\fP scale, \fBIValue\fP offset)"
+.br
+.RI "Creates a new \fBTriangle\fP instance using \fBRegularPolygon\fP\&. "
+.ti -1c
+.RI "\fBTriangle\fP (\fBDrawer\fP drawer, \fBPointValue\fP point1, \fBPointValue\fP point2, \fBPointValue\fP point3)"
+.br
+.RI "Creates a new \fBTriangle\fP instance using \fBDrawLines\fP\&. It draws lines to the points provided "
+.ti -1c
+.RI "void \fBExecuteVerb\fP ()"
+.br
+.RI "Executes the created \fBIVerb\fP, either \fBRegularPolygon\fP or \fBDrawLines\fP\&. "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "Describes how the triangle will be drawn "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBTriangle\fP \fBIVerb\fP class 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\&.Triangle (\fBDrawer\fP drawer, \fBIValue\fP scale)"
+
+.PP
+Creates a new \fBTriangle\fP instance using \fBRegularPolygon\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdrawer\fP drawer
+.br
+\fIscale\fP the scale of the triangle
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\&.Triangle (\fBDrawer\fP drawer, \fBIValue\fP scale, \fBIValue\fP offset)"
+
+.PP
+Creates a new \fBTriangle\fP instance using \fBRegularPolygon\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdrawer\fP drawer
+.br
+\fIscale\fP the scale of the triangle
+.br
+\fIoffset\fP the offset of the triangle in degrees
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\&.Triangle (\fBDrawer\fP drawer, \fBPointValue\fP point1, \fBPointValue\fP point2, \fBPointValue\fP point3)"
+
+.PP
+Creates a new \fBTriangle\fP instance using \fBDrawLines\fP\&. It draws lines to the points provided 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdrawer\fP drawer
+.br
+\fIpoint1\fP first point
+.br
+\fIpoint2\fP second point
+.br
+\fIpoint3\fP third point
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\&.ExecuteVerb ()"
+
+.PP
+Executes the created \fBIVerb\fP, either \fBRegularPolygon\fP or \fBDrawLines\fP\&. 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.DrawingVerbs\&.Triangle\&.GetDescription ()"
+
+.PP
+Describes how the triangle will be drawn 
+.PP
+\fBReturns\fP
+.RS 4
+Description of how the triangle will be drawn
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

@@ -1,0 +1,89 @@
+.TH "Advanced_Software_Engineering.Verbs.Flow.DeclareMethod" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Flow.DeclareMethod \- Declares a method\&. See DrawingVerbs\&.Actions\&.NoOp because these classes behave similarly  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.IVerb\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDeclareMethod\fP (\fBDrawer\fP drawer, string methodName)"
+.br
+.RI "Creates a new \fBDeclareMethod\fP object "
+.ti -1c
+.RI "void \fBAddVerb\fP (\fBIVerb\fP verb)"
+.br
+.RI "Adds a verb to the verb list\&. More specifically, the verb list of the \fBMethodChunk\fP\&. See \fBMethodChunk\fP "
+.ti -1c
+.RI "void \fBExecuteVerb\fP ()"
+.br
+.RI "This method quite literally does nothing upon execution because the declaration of method happens at parse time "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "Gets the description of what the chunk will do "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares a method\&. See DrawingVerbs\&.Actions\&.NoOp because these classes behave similarly 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\&.DeclareMethod (\fBDrawer\fP drawer, string methodName)"
+
+.PP
+Creates a new \fBDeclareMethod\fP object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdrawer\fP The drawer is used for getting the method specifically
+.br
+\fImethodName\fP The name of the method
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\&.AddVerb (\fBIVerb\fP verb)"
+
+.PP
+Adds a verb to the verb list\&. More specifically, the verb list of the \fBMethodChunk\fP\&. See \fBMethodChunk\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIverb\fP The verb to add
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\&.ExecuteVerb ()"
+
+.PP
+This method quite literally does nothing upon execution because the declaration of method happens at parse time 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Flow\&.DeclareMethod\&.GetDescription ()"
+
+.PP
+Gets the description of what the chunk will do 
+.PP
+\fBReturns\fP
+.RS 4
+A description of the chunk's actions
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

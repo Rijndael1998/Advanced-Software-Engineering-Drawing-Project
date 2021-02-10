@@ -1,0 +1,115 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.ValueStorage" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.ValueStorage \- The storage for all the values  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBValueStorage\fP ()"
+.br
+.RI "Create a new \fBValueStorage\fP "
+.ti -1c
+.RI "void \fBReset\fP ()"
+.br
+.RI "Reset the \fBValueStorage\fP "
+.ti -1c
+.RI "void \fBIncreaseStack\fP ()"
+.br
+.RI "Increase the stack "
+.ti -1c
+.RI "void \fBDecreaseStack\fP ()"
+.br
+.RI "Decrease the stack "
+.ti -1c
+.RI "void \fBSetVariable\fP (string name, \fBIValue\fP value)"
+.br
+.RI "Set a variable "
+.ti -1c
+.RI "\fBIValue\fP \fBGetVariable\fP (string name)"
+.br
+.RI "Gets the variable at the first available stack "
+.ti -1c
+.RI "bool \fBCheckVariableExists\fP (string name)"
+.br
+.RI "Check if the variable exists in the first available stack "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The storage for all the values 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.ValueStorage ()"
+
+.PP
+Create a new \fBValueStorage\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.CheckVariableExists (string name)"
+
+.PP
+Check if the variable exists in the first available stack 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP variable name
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBIValue\fP
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.DecreaseStack ()"
+
+.PP
+Decrease the stack 
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.GetVariable (string name)"
+
+.PP
+Gets the variable at the first available stack 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP the names of the variable
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBIValue\fP
+.RE
+.PP
+
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.IncreaseStack ()"
+
+.PP
+Increase the stack 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.Reset ()"
+
+.PP
+Reset the \fBValueStorage\fP 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueStorage\&.SetVariable (string name, \fBIValue\fP value)"
+
+.PP
+Set a variable 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Variable name
+.br
+\fIvalue\fP the \fBIValue\fP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

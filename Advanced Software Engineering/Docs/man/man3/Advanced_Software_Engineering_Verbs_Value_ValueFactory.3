@@ -1,0 +1,186 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.ValueFactory" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.ValueFactory \- \fBValue\fP factory creates values  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (string value, string type)"
+.br
+.RI "Creates a constant \fBValue\fP to be used later during execution "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (\fBValueStorage\fP storage, string paramater1, string paramater2, string parameter3, string parameter4, string type)"
+.br
+.RI "Creates a constant \fBValue\fP to be used later during execution\&. Only used for Color "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (\fBValueStorage\fP storage, string paramater1, string paramater2, string parameter3, string type)"
+.br
+.RI "Creates a constant \fBValue\fP to be used later during execution\&. Only used for Color "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (\fBValueStorage\fP storage, string value)"
+.br
+.RI "Creates a constant \fBValue\fP to be used later during execution "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (bool b)"
+.br
+.RI "Create a new boolean \fBIValue\fP "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (double d)"
+.br
+.RI "Create a new double \fBIValue\fP "
+.ti -1c
+.RI "static \fBIValue\fP \fBCreateValue\fP (int i)"
+.br
+.RI "Create a new int \fBIValue\fP "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBValue\fP factory creates values 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (bool b)\fC [static]\fP"
+
+.PP
+Create a new boolean \fBIValue\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIb\fP boolean input
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+BoolValue
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (double d)\fC [static]\fP"
+
+.PP
+Create a new double \fBIValue\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fId\fP double input
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+DoubleValue
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (int i)\fC [static]\fP"
+
+.PP
+Create a new int \fBIValue\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi\fP int input
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+IntValue
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (string value, string type)\fC [static]\fP"
+
+.PP
+Creates a constant \fBValue\fP to be used later during execution 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP Text representation of the value
+.br
+\fItype\fP What type the value should be
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a new \fBIValue\fP
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (\fBValueStorage\fP storage, string paramater1, string paramater2, string parameter3, string parameter4, string type)\fC [static]\fP"
+
+.PP
+Creates a constant \fBValue\fP to be used later during execution\&. Only used for Color 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstorage\fP The storage
+.br
+\fIparamater1\fP First parameter
+.br
+\fIparamater2\fP Second parameter
+.br
+\fIparameter3\fP Third parameter
+.br
+\fIparameter4\fP Fourth parameter
+.br
+\fItype\fP the type
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a new \fBIValue\fP
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (\fBValueStorage\fP storage, string paramater1, string paramater2, string parameter3, string type)\fC [static]\fP"
+
+.PP
+Creates a constant \fBValue\fP to be used later during execution\&. Only used for Color 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstorage\fP The storage
+.br
+\fIparamater1\fP First parameter
+.br
+\fIparamater2\fP Second parameter
+.br
+\fIparameter3\fP Third parameter
+.br
+\fItype\fP the type
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a new \fBIValue\fP
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueFactory\&.CreateValue (\fBValueStorage\fP storage, string value)\fC [static]\fP"
+
+.PP
+Creates a constant \fBValue\fP to be used later during execution 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP Text representation of the value
+.br
+\fIstorage\fP The value storage to check
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a new \fBIValue\fP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

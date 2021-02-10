@@ -1,0 +1,240 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.ExpressionValue" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.ExpressionValue \- Expression values are used when there are two IValues that need to be added or subtracted or anything from each other\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExpressionValue\fP (\fBIValue\fP variable1, \fBIValue\fP variable2, int operation)"
+.br
+.RI "Create a new Expression \fBValue\fP based on the two IValues "
+.ti -1c
+.RI "\fBExpressionValue\fP (\fBIValue\fP variable1, \fBIValue\fP variable2, string operation)"
+.br
+.RI "Create a new Expression \fBValue\fP based on the two IValues "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "Describes the expression "
+.ti -1c
+.RI "string \fBGetOriginalType\fP ()"
+.br
+.RI "Get the type of the expression "
+.ti -1c
+.RI "bool \fBIsInitialised\fP ()"
+.br
+.RI "Expressions are always initialised "
+.ti -1c
+.RI "bool \fBToBool\fP ()"
+.br
+.RI "Gets the bool of the result "
+.ti -1c
+.RI "Color \fBToColor\fP ()"
+.br
+.RI "Gets the color of the result "
+.ti -1c
+.RI "double \fBToDouble\fP ()"
+.br
+.RI "Gets the double value of the result "
+.ti -1c
+.RI "int \fBToInt\fP ()"
+.br
+.RI "Gets the int of the result "
+.ti -1c
+.RI "\fBIValue\fP \fBClone\fP ()"
+.br
+.RI "Clones the value of the result "
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const int \fBADD\fP = 0"
+.br
+.RI "An operation denoting addition "
+.ti -1c
+.RI "const int \fBSUBTRACT\fP = 1"
+.br
+.RI "An operation denoting subtraction "
+.ti -1c
+.RI "const int \fBMULTIPLY\fP = 2"
+.br
+.RI "An operation denoting multiplication "
+.ti -1c
+.RI "const int \fBDIVIDE\fP = 3"
+.br
+.RI "An operation denoting division "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Expression values are used when there are two IValues that need to be added or subtracted or anything from each other\&. 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ExpressionValue (\fBIValue\fP variable1, \fBIValue\fP variable2, int operation)"
+
+.PP
+Create a new Expression \fBValue\fP based on the two IValues 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvariable1\fP \fBIValue\fP to perform the operation on
+.br
+\fIvariable2\fP \fBIValue\fP to perform the operation on
+.br
+\fIoperation\fP The operation\&. Can be \fBADD\fP, \fBSUBTRACT\fP, \fBMULTIPLY\fP or \fBDIVIDE\fP\&.
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ExpressionValue (\fBIValue\fP variable1, \fBIValue\fP variable2, string operation)"
+
+.PP
+Create a new Expression \fBValue\fP based on the two IValues 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvariable1\fP \fBIValue\fP to perform the operation on
+.br
+\fIvariable2\fP \fBIValue\fP to perform the operation on
+.br
+\fIoperation\fP The operation\&. Can be '+'(\fBADD\fP), '-'(\fBSUBTRACT\fP), '*'(\fBMULTIPLY\fP) or '/'(\fBDIVIDE\fP)\&.
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.Clone ()"
+
+.PP
+Clones the value of the result 
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.GetDescription ()"
+
+.PP
+Describes the expression 
+.PP
+\fBReturns\fP
+.RS 4
+A string description of the expression
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.GetOriginalType ()"
+
+.PP
+Get the type of the expression 
+.PP
+\fBReturns\fP
+.RS 4
+'expression'
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.IsInitialised ()"
+
+.PP
+Expressions are always initialised 
+.PP
+\fBReturns\fP
+.RS 4
+true
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ToBool ()"
+
+.PP
+Gets the bool of the result 
+.PP
+\fBReturns\fP
+.RS 4
+bool value of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Color Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ToColor ()"
+
+.PP
+Gets the color of the result 
+.PP
+\fBReturns\fP
+.RS 4
+color value of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "double Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ToDouble ()"
+
+.PP
+Gets the double value of the result 
+.PP
+\fBReturns\fP
+.RS 4
+double value of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "int Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ToInt ()"
+
+.PP
+Gets the int of the result 
+.PP
+\fBReturns\fP
+.RS 4
+int value of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const int Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.ADD = 0\fC [static]\fP"
+
+.PP
+An operation denoting addition 
+.SS "const int Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.DIVIDE = 3\fC [static]\fP"
+
+.PP
+An operation denoting division 
+.SS "const int Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.MULTIPLY = 2\fC [static]\fP"
+
+.PP
+An operation denoting multiplication 
+.SS "const int Advanced_Software_Engineering\&.Verbs\&.Value\&.ExpressionValue\&.SUBTRACT = 1\fC [static]\fP"
+
+.PP
+An operation denoting subtraction 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

@@ -1,0 +1,234 @@
+.TH "Advanced_Software_Engineering.Verbs.Flow.MethodChunk" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Flow.MethodChunk \- The method chunk class  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\fP, \fBAdvanced_Software_Engineering\&.IVerb\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMethodChunk\fP (\fBValueStorage\fP valueStorage, \fBDeclareVariable\fP[] variables)"
+.br
+.RI "The method chunk "
+.ti -1c
+.RI "List< string > \fBGetVariableNames\fP ()"
+.br
+.RI "Gets all of the variable names "
+.ti -1c
+.RI "void \fBSetVariableValues\fP (\fBUpdateVariable\fP[] updateVariables)"
+.br
+.RI "MUST BE CALLED\&. This method is really important for setting the updated values into the method's stack\&. "
+.ti -1c
+.RI "\fBMethodChunk\fP \fBDuplicateForExecution\fP ()"
+.br
+.RI "This method allows the method chunk to replicate itself before being ran\&. Essential for recursion\&. "
+.ti -1c
+.RI "new void \fBExecuteVerb\fP ()"
+.br
+.RI "Executes the method chunk\&. "
+.ti -1c
+.RI "\fBIValue\fP \fBGetResult\fP ()"
+.br
+.RI "Gets a result from the method\&. (Experimental) "
+.ti -1c
+.RI "\fBIValue\fP \fBClone\fP ()"
+.br
+.RI "Clones the result of the method (Experimental) "
+.ti -1c
+.RI "string \fBGetOriginalType\fP ()"
+.br
+.RI "Gets the original type of the result of the method (Experimental) "
+.ti -1c
+.RI "bool \fBIsInitialised\fP ()"
+.br
+.RI "Checks if the result is initilised (Experimental) "
+.ti -1c
+.RI "bool \fBToBool\fP ()"
+.br
+.RI "Converts the result to boolean (Experimental) "
+.ti -1c
+.RI "Color \fBToColor\fP ()"
+.br
+.RI "Converts the result to color (Experimental) "
+.ti -1c
+.RI "double \fBToDouble\fP ()"
+.br
+.RI "Converts the result to double (Experimental) "
+.ti -1c
+.RI "int \fBToInt\fP ()"
+.br
+.RI "Converts the result to integer (Experimental) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The method chunk class 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.MethodChunk (\fBValueStorage\fP valueStorage, \fBDeclareVariable\fP[] variables)"
+
+.PP
+The method chunk 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalueStorage\fP The ValueStorage for increasing and decreasing the stack
+.br
+\fIvariables\fP The variables to pass into the method
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.Clone ()"
+
+.PP
+Clones the result of the method (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "\fBMethodChunk\fP Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.DuplicateForExecution ()"
+
+.PP
+This method allows the method chunk to replicate itself before being ran\&. Essential for recursion\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A method chunk with the exact same values and verbs
+.RE
+.PP
+
+.SS "new void Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.ExecuteVerb ()"
+
+.PP
+Executes the method chunk\&. 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.GetOriginalType ()"
+
+.PP
+Gets the original type of the result of the method (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.GetResult ()"
+
+.PP
+Gets a result from the method\&. (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+the result
+.RE
+.PP
+
+.SS "List<string> Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.GetVariableNames ()"
+
+.PP
+Gets all of the variable names 
+.PP
+\fBReturns\fP
+.RS 4
+The names of all the variables
+.RE
+.PP
+
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.IsInitialised ()"
+
+.PP
+Checks if the result is initilised (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.SetVariableValues (\fBUpdateVariable\fP[] updateVariables)"
+
+.PP
+MUST BE CALLED\&. This method is really important for setting the updated values into the method's stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIupdateVariables\fP The new values of the method
+.RE
+.PP
+
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.ToBool ()"
+
+.PP
+Converts the result to boolean (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+boolean representation of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Color Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.ToColor ()"
+
+.PP
+Converts the result to color (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+color representation of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "double Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.ToDouble ()"
+
+.PP
+Converts the result to double (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+double representation of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "int Advanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\&.ToInt ()"
+
+.PP
+Converts the result to integer (Experimental) 
+.PP
+\fBReturns\fP
+.RS 4
+integer representation of the result
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

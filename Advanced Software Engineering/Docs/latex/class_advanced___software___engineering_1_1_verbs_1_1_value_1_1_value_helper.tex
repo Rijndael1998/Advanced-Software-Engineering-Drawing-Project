@@ -1,0 +1,200 @@
+\hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper Class Reference}
+\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper}\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+
+
+This class contains a large amount of useful conversions  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a90c3195e5475c593e936aaebdf3bf421}{Convert\+To\+Int}} (string text)
+\begin{DoxyCompactList}\small\item\em Converts string to int (if possible) \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a791bf78e5c4ef750fdaf8bb2f90877a1}{Convert\+To\+Double}} (string text)
+\begin{DoxyCompactList}\small\item\em Converts string to double (if possible) \end{DoxyCompactList}\item 
+static Point \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a374a390359d6589f77ff9b15c0b3b81c}{Convert\+To\+Point}} (string text1, string text2)
+\begin{DoxyCompactList}\small\item\em Converts two strings to a point object. \end{DoxyCompactList}\item 
+static Color \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac92043f1346d09271a35d7e5a0ddcf82}{Text\+To\+Color}} (string text)
+\begin{DoxyCompactList}\small\item\em This function convers text to Color. \end{DoxyCompactList}\item 
+static Color \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac5fd1fb7e8e32074dde7968dc09c5bfa}{Ints\+To\+Color}} (int r, int g, int b, int a=255)
+\begin{DoxyCompactList}\small\item\em Generate a color from R\+G\+B(\+A) int values \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a808358efd46f937a7800beb290175aba}{Convert\+To\+Bool}} (string text)
+\begin{DoxyCompactList}\small\item\em Convert to boolean \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a4720b19dd7af75030dbf4c0c5ed64f23}{Convert\+To\+I\+Value}} (string text, \mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_storage}{Value\+Storage}} storage=null)
+\begin{DoxyCompactList}\small\item\em Converts the text to \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains a large amount of useful conversions 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a808358efd46f937a7800beb290175aba}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a808358efd46f937a7800beb290175aba}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!ConvertToBool@{ConvertToBool}}
+\index{ConvertToBool@{ConvertToBool}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{ConvertToBool()}{ConvertToBool()}}
+{\footnotesize\ttfamily static bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Convert\+To\+Bool (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert to boolean 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A text boolean\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean representation of the text
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a791bf78e5c4ef750fdaf8bb2f90877a1}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a791bf78e5c4ef750fdaf8bb2f90877a1}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!ConvertToDouble@{ConvertToDouble}}
+\index{ConvertToDouble@{ConvertToDouble}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{ConvertToDouble()}{ConvertToDouble()}}
+{\footnotesize\ttfamily static double Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Convert\+To\+Double (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts string to double (if possible) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & String to be converted to double\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double representation of string
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a90c3195e5475c593e936aaebdf3bf421}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a90c3195e5475c593e936aaebdf3bf421}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!ConvertToInt@{ConvertToInt}}
+\index{ConvertToInt@{ConvertToInt}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{ConvertToInt()}{ConvertToInt()}}
+{\footnotesize\ttfamily static int Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Convert\+To\+Int (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts string to int (if possible) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & String to be converted to int\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer representation of string
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a4720b19dd7af75030dbf4c0c5ed64f23}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a4720b19dd7af75030dbf4c0c5ed64f23}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!ConvertToIValue@{ConvertToIValue}}
+\index{ConvertToIValue@{ConvertToIValue}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{ConvertToIValue()}{ConvertToIValue()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Convert\+To\+I\+Value (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{\mbox{\hyperlink{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_storage}{Value\+Storage}}}]{storage = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the text to \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & text to convert\\
+\hline
+{\em storage} & storage to use (can be null) (optional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{interface_advanced___software___engineering_1_1_verbs_1_1_value_1_1_i_value}{I\+Value}} representation of the text
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a374a390359d6589f77ff9b15c0b3b81c}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_a374a390359d6589f77ff9b15c0b3b81c}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!ConvertToPoint@{ConvertToPoint}}
+\index{ConvertToPoint@{ConvertToPoint}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{ConvertToPoint()}{ConvertToPoint()}}
+{\footnotesize\ttfamily static Point Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Convert\+To\+Point (\begin{DoxyParamCaption}\item[{string}]{text1,  }\item[{string}]{text2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts two strings to a point object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text1} & X parameter\\
+\hline
+{\em text2} & Y parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Point object
+\end{DoxyReturn}
+$<$todo$>$Make unit tests for this function$<$/todo$>$ \mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac5fd1fb7e8e32074dde7968dc09c5bfa}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac5fd1fb7e8e32074dde7968dc09c5bfa}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!IntsToColor@{IntsToColor}}
+\index{IntsToColor@{IntsToColor}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{IntsToColor()}{IntsToColor()}}
+{\footnotesize\ttfamily static Color Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Ints\+To\+Color (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{g,  }\item[{int}]{b,  }\item[{int}]{a = {\ttfamily 255} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a color from R\+G\+B(\+A) int values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Red\\
+\hline
+{\em g} & Green\\
+\hline
+{\em b} & Blue\\
+\hline
+{\em a} & Optional\+: Alpha/\+Transparancy (default is 255, 0 is transparent)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac92043f1346d09271a35d7e5a0ddcf82}\label{class_advanced___software___engineering_1_1_verbs_1_1_value_1_1_value_helper_ac92043f1346d09271a35d7e5a0ddcf82}} 
+\index{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}!TextToColor@{TextToColor}}
+\index{TextToColor@{TextToColor}!Advanced\_Software\_Engineering.Verbs.Value.ValueHelper@{Advanced\_Software\_Engineering.Verbs.Value.ValueHelper}}
+\doxysubsubsection{\texorpdfstring{TextToColor()}{TextToColor()}}
+{\footnotesize\ttfamily static Color Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Verbs.\+Value.\+Value\+Helper.\+Text\+To\+Color (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function convers text to Color. 
+
+It can parse several different types of strings. Types of string accepted\+:
+\begin{DoxyItemize}
+\item A string that is the name of a predefined color. See Color class for full list.
+\item A string that represents a Hex Triplet (
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#rrggbb}}
+\end{DoxyCode}
+). See .
+\item A string that represents a Hex Quadruplet (
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#rrggbbaa}}
+\end{DoxyCode}
+, where 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{aa}
+\end{DoxyCode}
+ represents alpha). 
+\end{DoxyItemize}
+
+Color tmp = Text\+To\+Color(\char`\"{}red\char`\"{}); Console.\+Write\+Line(\char`\"{}\+Name\+: \char`\"{} + tmp.\+to\+String()) //=$>$ \char`\"{}red\char`\"{}
+
+tmp = Text\+To\+Color(\char`\"{}deadbe\char`\"{}); Console.\+Write\+Line(\char`\"{}\+Name\+: \char`\"{} + tmp.\+to\+String()) //=$>$ \char`\"{}00deadbe\char`\"{}
+
+//\+It\textquotesingle{}s important to remember that C\# doesn\textquotesingle{}t work like H\+T\+ML colors, putting alpha first, rather than last.
+
+tmp = Text\+To\+Color(\char`\"{}deadbeef\char`\"{}); Console.\+Write\+Line(\char`\"{}\+Name\+: \char`\"{} + tmp.\+to\+String()) //=$>$ \char`\"{}efdeadbe\char`\"{} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & a string with a valid name or format\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color of the string
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/\+Verbs/\+Value/Value\+Helper.\+cs\end{DoxyCompactItemize}

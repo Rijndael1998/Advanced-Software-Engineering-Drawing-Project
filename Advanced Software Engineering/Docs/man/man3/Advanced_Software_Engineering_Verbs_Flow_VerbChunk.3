@@ -1,0 +1,112 @@
+.TH "Advanced_Software_Engineering.Verbs.Flow.VerbChunk" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Flow.VerbChunk \- A simple \fBVerbChunk\fP\&. Used for storing and executing a bunch of verbs  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP, and \fBAdvanced_Software_Engineering\&.IVerb\fP\&.
+.PP
+Inherited by \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.ForChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IfChunk\fP, \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.MethodChunk\fP, and \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.WhileChunk\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVerbChunk\fP (List< \fBIVerb\fP > verbs)"
+.br
+.RI "Create a new \fBVerbChunk\fP with verbs in it\&. "
+.ti -1c
+.RI "\fBVerbChunk\fP ()"
+.br
+.RI "Create an empty \fBVerbChunk\fP "
+.ti -1c
+.RI "void \fBAddVerb\fP (\fBIVerb\fP verb)"
+.br
+.RI "Adds a verb to the verb list "
+.ti -1c
+.RI "void \fBExecuteVerb\fP ()"
+.br
+.RI "Executes all of the verbs in order "
+.ti -1c
+.RI "\fBIVerb\fP[] \fBGetVerbs\fP ()"
+.br
+.RI "Returns all of the verbs stored "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "Gets a description of every verb "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A simple \fBVerbChunk\fP\&. Used for storing and executing a bunch of verbs 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.VerbChunk (List< \fBIVerb\fP > verbs)"
+
+.PP
+Create a new \fBVerbChunk\fP with verbs in it\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIverbs\fP \fBVerbs\fP to be added to the verb chunk
+.RE
+.PP
+
+.SS "Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.VerbChunk ()"
+
+.PP
+Create an empty \fBVerbChunk\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.AddVerb (\fBIVerb\fP verb)"
+
+.PP
+Adds a verb to the verb list 
+.PP
+\fBParameters\fP
+.RS 4
+\fIverb\fP 
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "void Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.ExecuteVerb ()"
+
+.PP
+Executes all of the verbs in order 
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.GetDescription ()"
+
+.PP
+Gets a description of every verb 
+.PP
+\fBReturns\fP
+.RS 4
+The descriptions of every verb
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Flow\&.IVerbChunk\fP\&.
+.SS "\fBIVerb\fP [] Advanced_Software_Engineering\&.Verbs\&.Flow\&.VerbChunk\&.GetVerbs ()"
+
+.PP
+Returns all of the verbs stored 
+.PP
+\fBReturns\fP
+.RS 4
+the verbs stored
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

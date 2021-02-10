@@ -1,0 +1,46 @@
+.TH "Advanced_Software_Engineering.VerbFactory" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.VerbFactory \- This class is responsible for creating \fBVerbs\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBIVerb\fP \fBMakeVerb\fP (\fBDrawer\fP drawer, string fullCommand)"
+.br
+.RI "This function returns a \fBIVerb\fP from a command and drawer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is responsible for creating \fBVerbs\fP\&. 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBIVerb\fP Advanced_Software_Engineering\&.VerbFactory\&.MakeVerb (\fBDrawer\fP drawer, string fullCommand)\fC [static]\fP"
+
+.PP
+This function returns a \fBIVerb\fP from a command and drawer\&. This factory is specifically useful since it automatically converts the parameters to what they should be\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdrawer\fP The drawer to affect
+.br
+\fIfullCommand\fP The command as a string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A \fBIVerb\fP that maches the command
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

@@ -1,0 +1,181 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.ValueTypes.VariableValue" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.ValueTypes.VariableValue \- Variable value is responsible for setting up values for \fBUpdateVariable\fP to then update  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVariableValue\fP (\fBValueStorage\fP storage, string variableName)"
+.br
+.RI "The new \fBVariableValue\fP "
+.ti -1c
+.RI "string \fBGetDescription\fP ()"
+.br
+.RI "Gets the description of the \fBIValue\fP "
+.ti -1c
+.RI "string \fBGetOriginalType\fP ()"
+.br
+.RI "Gets the original type of the \fBIValue\fP "
+.ti -1c
+.RI "bool \fBIsInitialised\fP ()"
+.br
+.RI "Get the initialised state of the \fBIValue\fP "
+.ti -1c
+.RI "bool \fBToBool\fP ()"
+.br
+.RI "Converts the \fBIValue\fP to a boolean "
+.ti -1c
+.RI "Color \fBToColor\fP ()"
+.br
+.RI "Converts the \fBIValue\fP to a color "
+.ti -1c
+.RI "double \fBToDouble\fP ()"
+.br
+.RI "Converts the \fBIValue\fP to a double "
+.ti -1c
+.RI "int \fBToInt\fP ()"
+.br
+.RI "Converts the \fBIValue\fP to an integer "
+.ti -1c
+.RI "\fBIValue\fP \fBClone\fP ()"
+.br
+.RI "Clone the value and return it "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Variable value is responsible for setting up values for \fBUpdateVariable\fP to then update 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.VariableValue (\fBValueStorage\fP storage, string variableName)"
+
+.PP
+The new \fBVariableValue\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstorage\fP the storage to use
+.br
+\fIvariableName\fP variable name
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.Clone ()"
+
+.PP
+Clone the value and return it 
+.PP
+\fBReturns\fP
+.RS 4
+Cloned \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.GetDescription ()"
+
+.PP
+Gets the description of the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+description of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "string Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.GetOriginalType ()"
+
+.PP
+Gets the original type of the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+original type of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.IsInitialised ()"
+
+.PP
+Get the initialised state of the \fBIValue\fP 
+.PP
+\fBReturns\fP
+.RS 4
+initialised state of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.ToBool ()"
+
+.PP
+Converts the \fBIValue\fP to a boolean 
+.PP
+\fBReturns\fP
+.RS 4
+Boolean value of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "Color Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.ToColor ()"
+
+.PP
+Converts the \fBIValue\fP to a color 
+.PP
+\fBReturns\fP
+.RS 4
+Color value of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "double Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.ToDouble ()"
+
+.PP
+Converts the \fBIValue\fP to a double 
+.PP
+\fBReturns\fP
+.RS 4
+Double value of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+.SS "int Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueTypes\&.VariableValue\&.ToInt ()"
+
+.PP
+Converts the \fBIValue\fP to an integer 
+.PP
+\fBReturns\fP
+.RS 4
+Int value of the \fBIValue\fP
+.RE
+.PP
+
+.PP
+Implements \fBAdvanced_Software_Engineering\&.Verbs\&.Value\&.IValue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.

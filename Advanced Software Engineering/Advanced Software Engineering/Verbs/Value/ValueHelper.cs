@@ -135,7 +135,6 @@ namespace Advanced_Software_Engineering.Verbs.Value {
         public static IValue ConvertToIValue(string text, ValueStorage storage = null) {
             text = HelperFunctions.Strip(text);
             string value = text;
-            //seperate assignment characters from everything else TODO FIX
             foreach (string op in new string[] { "=", "+", "-", "*", "/", "<", ">", "!" }) {
                 value = value.Replace(op, " " + op + " ");
             }

@@ -1,0 +1,197 @@
+\hypertarget{class_advanced___software___engineering_1_1_commander}{}\doxysection{Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander Class Reference}
+\label{class_advanced___software___engineering_1_1_commander}\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+
+
+The commander class takes care of commands. It also takes control of the drawer.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_af27d54abd28b28688b68638c47ee4c16}{Draw\+All\+Commands}} (Graphics update\+Graphics\+Element)
+\begin{DoxyCompactList}\small\item\em This command updates the graphics element (usually) when the page repaints. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_aeb458f428da383573abfa8d383d57c7e}{Commander}} (Graphics graphics)
+\begin{DoxyCompactList}\small\item\em Create a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_afe4b1718e56a5bf7527e79a1bca04806}{Commander}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance without a context. Should only be used for testing purpouses. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_a90249188220cd4b799a8a6fc0991b070}{Commander}} (Graphics graphics, string raw\+Commands)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance with a graphics context and commands to process right off the bat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_a5302b164dd665ab04be9371715e349b1}{Add\+Command}} (\mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}} command)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}} to the command list to be executed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_af26f94701ea4fe9827ac6ee0fc4791c3}{Process\+Commands}} (string raw\+Commands, bool pardon\+Commands=false)
+\begin{DoxyCompactList}\small\item\em processes commands. Removes all commands if it fails parsing the raw commands. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_aa50faec513eb08ffacd646b107997785}{Process\+Commands\+And\+Execute}} (string raw\+Commands, bool pardon\+Commands=false)
+\begin{DoxyCompactList}\small\item\em Processes the commands and executes them at the same time. It\textquotesingle{}s the same as \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_af92bbeb5d08ab1445f30f4e05dcee30b}{Remove\+All\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Removes all commands from the \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} and resets the drawer. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_afc12bab7c8f0c0b6f410522d7dc0006b}{Explain\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Explains all of the commands in order \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander_a8c04ac09ab9d88ba7b20959ee8ec397f}{Get\+Last\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Gets the status of the code that was processed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The commander class takes care of commands. It also takes control of the drawer. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_aeb458f428da383573abfa8d383d57c7e}\label{class_advanced___software___engineering_1_1_commander_aeb458f428da383573abfa8d383d57c7e}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!Commander@{Commander}}
+\index{Commander@{Commander}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{Commander()}{Commander()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Commander (\begin{DoxyParamCaption}\item[{Graphics}]{graphics }\end{DoxyParamCaption})}
+
+
+
+Create a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & initial graphics object\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_afe4b1718e56a5bf7527e79a1bca04806}\label{class_advanced___software___engineering_1_1_commander_afe4b1718e56a5bf7527e79a1bca04806}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!Commander@{Commander}}
+\index{Commander@{Commander}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{Commander()}{Commander()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Commander (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance without a context. Should only be used for testing purpouses. 
+
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_a90249188220cd4b799a8a6fc0991b070}\label{class_advanced___software___engineering_1_1_commander_a90249188220cd4b799a8a6fc0991b070}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!Commander@{Commander}}
+\index{Commander@{Commander}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{Commander()}{Commander()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Commander (\begin{DoxyParamCaption}\item[{Graphics}]{graphics,  }\item[{string}]{raw\+Commands }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} instance with a graphics context and commands to process right off the bat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & Graphics contetx\\
+\hline
+{\em raw\+Commands} & Commands to process\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_a5302b164dd665ab04be9371715e349b1}\label{class_advanced___software___engineering_1_1_commander_a5302b164dd665ab04be9371715e349b1}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!AddCommand@{AddCommand}}
+\index{AddCommand@{AddCommand}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{AddCommand()}{AddCommand()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Add\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}}}]{command }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}} to the command list to be executed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}} to be added. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{interface_advanced___software___engineering_1_1_i_verb}{I\+Verb}}
+
+
+\end{DoxySeeAlso}
+\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_af27d54abd28b28688b68638c47ee4c16}\label{class_advanced___software___engineering_1_1_commander_af27d54abd28b28688b68638c47ee4c16}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!DrawAllCommands@{DrawAllCommands}}
+\index{DrawAllCommands@{DrawAllCommands}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{DrawAllCommands()}{DrawAllCommands()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Draw\+All\+Commands (\begin{DoxyParamCaption}\item[{Graphics}]{update\+Graphics\+Element }\end{DoxyParamCaption})}
+
+
+
+This command updates the graphics element (usually) when the page repaints. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em update\+Graphics\+Element} & The graphics element to be updated\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_afc12bab7c8f0c0b6f410522d7dc0006b}\label{class_advanced___software___engineering_1_1_commander_afc12bab7c8f0c0b6f410522d7dc0006b}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!ExplainCommands@{ExplainCommands}}
+\index{ExplainCommands@{ExplainCommands}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{ExplainCommands()}{ExplainCommands()}}
+{\footnotesize\ttfamily string Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Explain\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Explains all of the commands in order 
+
+\begin{DoxyReturn}{Returns}
+Explanation of all the commands
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_a8c04ac09ab9d88ba7b20959ee8ec397f}\label{class_advanced___software___engineering_1_1_commander_a8c04ac09ab9d88ba7b20959ee8ec397f}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!GetLastStatus@{GetLastStatus}}
+\index{GetLastStatus@{GetLastStatus}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{GetLastStatus()}{GetLastStatus()}}
+{\footnotesize\ttfamily bool Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Get\+Last\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the status of the code that was processed 
+
+\begin{DoxyReturn}{Returns}
+False if there was no error. True if there was an error
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_af26f94701ea4fe9827ac6ee0fc4791c3}\label{class_advanced___software___engineering_1_1_commander_af26f94701ea4fe9827ac6ee0fc4791c3}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!ProcessCommands@{ProcessCommands}}
+\index{ProcessCommands@{ProcessCommands}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{ProcessCommands()}{ProcessCommands()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Process\+Commands (\begin{DoxyParamCaption}\item[{string}]{raw\+Commands,  }\item[{bool}]{pardon\+Commands = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+processes commands. Removes all commands if it fails parsing the raw commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Commands} & Processes commands seperated by ~\newline
+ or \textbackslash{}r~\newline
+\\
+\hline
+{\em pardon\+Commands} & If the command is wrong, don\textquotesingle{}t remove all of the commands\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_aa50faec513eb08ffacd646b107997785}\label{class_advanced___software___engineering_1_1_commander_aa50faec513eb08ffacd646b107997785}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!ProcessCommandsAndExecute@{ProcessCommandsAndExecute}}
+\index{ProcessCommandsAndExecute@{ProcessCommandsAndExecute}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{ProcessCommandsAndExecute()}{ProcessCommandsAndExecute()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Process\+Commands\+And\+Execute (\begin{DoxyParamCaption}\item[{string}]{raw\+Commands,  }\item[{bool}]{pardon\+Commands = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Processes the commands and executes them at the same time. It\textquotesingle{}s the same as 
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Commands} & Processes commands seperated by ~\newline
+ or \textbackslash{}r~\newline
+\\
+\hline
+{\em pardon\+Commands} & If the command is wrong, don\textquotesingle{}t remove all of the commands\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_advanced___software___engineering_1_1_commander_af92bbeb5d08ab1445f30f4e05dcee30b}\label{class_advanced___software___engineering_1_1_commander_af92bbeb5d08ab1445f30f4e05dcee30b}} 
+\index{Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}!RemoveAllCommands@{RemoveAllCommands}}
+\index{RemoveAllCommands@{RemoveAllCommands}!Advanced\_Software\_Engineering.Commander@{Advanced\_Software\_Engineering.Commander}}
+\doxysubsubsection{\texorpdfstring{RemoveAllCommands()}{RemoveAllCommands()}}
+{\footnotesize\ttfamily void Advanced\+\_\+\+Software\+\_\+\+Engineering.\+Commander.\+Remove\+All\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all commands from the \mbox{\hyperlink{class_advanced___software___engineering_1_1_commander}{Commander}} and resets the drawer. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Advanced Software Engineering/Commander.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,209 @@
+.TH "Advanced_Software_Engineering.Verbs.Value.ValueHelper" 3 "Sat Dec 12 2020" "Advanced Software Engineering" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Advanced_Software_Engineering.Verbs.Value.ValueHelper \- This class contains a large amount of useful conversions  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static int \fBConvertToInt\fP (string text)"
+.br
+.RI "Converts string to int (if possible) "
+.ti -1c
+.RI "static double \fBConvertToDouble\fP (string text)"
+.br
+.RI "Converts string to double (if possible) "
+.ti -1c
+.RI "static Point \fBConvertToPoint\fP (string text1, string text2)"
+.br
+.RI "Converts two strings to a point object\&. "
+.ti -1c
+.RI "static Color \fBTextToColor\fP (string text)"
+.br
+.RI "This function convers text to Color\&. "
+.ti -1c
+.RI "static Color \fBIntsToColor\fP (int r, int g, int b, int a=255)"
+.br
+.RI "Generate a color from RGB(A) int values "
+.ti -1c
+.RI "static bool \fBConvertToBool\fP (string text)"
+.br
+.RI "Convert to boolean "
+.ti -1c
+.RI "static \fBIValue\fP \fBConvertToIValue\fP (string text, \fBValueStorage\fP storage=null)"
+.br
+.RI "Converts the text to \fBIValue\fP "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class contains a large amount of useful conversions 
+
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static bool Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.ConvertToBool (string text)\fC [static]\fP"
+
+.PP
+Convert to boolean 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP A text boolean
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+boolean representation of the text
+.RE
+.PP
+
+.SS "static double Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.ConvertToDouble (string text)\fC [static]\fP"
+
+.PP
+Converts string to double (if possible) 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP String to be converted to double
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Double representation of string
+.RE
+.PP
+
+.SS "static int Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.ConvertToInt (string text)\fC [static]\fP"
+
+.PP
+Converts string to int (if possible) 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP String to be converted to int
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Integer representation of string
+.RE
+.PP
+
+.SS "static \fBIValue\fP Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.ConvertToIValue (string text, \fBValueStorage\fP storage = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Converts the text to \fBIValue\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP text to convert
+.br
+\fIstorage\fP storage to use (can be null) (optional)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBIValue\fP representation of the text
+.RE
+.PP
+
+.SS "static Point Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.ConvertToPoint (string text1, string text2)\fC [static]\fP"
+
+.PP
+Converts two strings to a point object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext1\fP X parameter
+.br
+\fItext2\fP Y parameter
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A Point object
+.RE
+.PP
+<todo>Make unit tests for this function</todo> 
+.SS "static Color Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.IntsToColor (int r, int g, int b, int a = \fC255\fP)\fC [static]\fP"
+
+.PP
+Generate a color from RGB(A) int values 
+.PP
+\fBParameters\fP
+.RS 4
+\fIr\fP Red
+.br
+\fIg\fP Green
+.br
+\fIb\fP Blue
+.br
+\fIa\fP Optional: Alpha/Transparancy (default is 255, 0 is transparent)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "static Color Advanced_Software_Engineering\&.Verbs\&.Value\&.ValueHelper\&.TextToColor (string text)\fC [static]\fP"
+
+.PP
+This function convers text to Color\&. It can parse several different types of strings\&. Types of string accepted:
+.IP "\(bu" 2
+A string that is the name of a predefined color\&. See Color class for full list\&.
+.IP "\(bu" 2
+A string that represents a Hex Triplet (
+.PP
+.nf
+#rrggbb
+
+.fi
+.PP
+)\&. See \&.
+.IP "\(bu" 2
+A string that represents a Hex Quadruplet (
+.PP
+.nf
+#rrggbbaa
+
+.fi
+.PP
+, where 
+.PP
+.nf
+aa
+
+.fi
+.PP
+ represents alpha)\&. 
+.PP
+.PP
+Color tmp = TextToColor('red'); Console\&.WriteLine('Name: ' + tmp\&.toString()) //=> 'red'
+.PP
+tmp = TextToColor('deadbe'); Console\&.WriteLine('Name: ' + tmp\&.toString()) //=> '00deadbe'
+.PP
+//It's important to remember that C# doesn't work like HTML colors, putting alpha first, rather than last\&.
+.PP
+tmp = TextToColor('deadbeef'); Console\&.WriteLine('Name: ' + tmp\&.toString()) //=> 'efdeadbe' 
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP a string with a valid name or format
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+color of the string
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Advanced Software Engineering from the source code\&.
